@@ -3,164 +3,408 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Đọc sách trong trình duyệt — đẹp, dễ dùng." />
-  <title>Reader — Đọc sách đẹp</title>
+  <meta name="description" content="Hình Vẽ Thông Minh - Dan Roam. Khám phá sức mạnh của tư duy hình ảnh. Đọc sách online với giọng đọc AI, highlight và nhiều tính năng cao cấp." />
+  <meta name="keywords" content="Hình Vẽ Thông Minh, Dan Roam, sách điện tử, tư duy hình ảnh" />
+  <title>Hình Vẽ Thông Minh — Dan Roam | E-Reader</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/app.css" />
-  <script>
-    (function () {
-      var t = localStorage.getItem("reader_ui_theme");
-      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
-    })();
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="landing.css" />
 </head>
 <body>
-  <div class="noise" aria-hidden="true"></div>
-  <button type="button" class="admin-fab" id="admin-fab" aria-label="Quản trị" title="Đăng nhập admin"><span></span></button>
 
-  <header class="shell site-header">
-    <a class="logo" href="index.html"><span>📖</span> E-Book</a>
-    <nav class="header-nav">
-      <a href="index.html" class="nav-link active">Trang chủ</a>
-      <a href="about.html" class="nav-link">Giới thiệu</a>
-      <a href="author.html" class="nav-link">Tác giả</a>
-      <a href="publisher.html" class="nav-link">Nhà xuất bản</a>
-      <a href="contact.html" class="nav-link">Liên hệ</a>
-    </nav>
-    <div class="header-actions">
-      <button type="button" class="btn btn-icon" id="theme-toggle" title="Giao diện">🌙</button>
-    </div>
-  </header>
+  <!-- Particle Background -->
+  <div class="particles" id="particles"></div>
 
-  <main>
-    <section class="shell hero">
-      <div class="hero-inner">
-        <h1>Read Better</h1>
-        <p class="lead">
-          Đọc sách mượt hơn, tập trung hơn và thoải mái hơn trên mọi thiết bị.
-        </p>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a class="nav-logo" href="index.html">
+        <i class="fas fa-book-open"></i>
+        <span>E-Reader</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about" class="nav-link">Giới thiệu</a>
+        <a href="#chapters" class="nav-link">Nội dung</a>
+        <a href="#author" class="nav-link">Tác giả</a>
+        <a href="#features" class="nav-link">Tính năng</a>
       </div>
-    </section>
+      <a href="c1.html" class="nav-cta">
+        <i class="fas fa-book-reader"></i> Đọc ngay
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
-    <section class="novel-slider-section">
-      <div class="novel-slider">
-        <div class="novel-track">
-          <!-- Set 1 -->
-          <div class="novel-set">
-            <a href="book-detail.html?id=novel1" class="novel-item">
-              <div class="novel-cover" style="background: linear-gradient(135deg, #1e3c72, #2a5298)">
-                 <span>Tiên Nghịch</span>
-              </div>
-              <h4>Tiên Nghịch</h4>
-              <p>Nhĩ Căn</p>
-            </a>
-            <a href="book-detail.html?id=novel2" class="novel-item">
-              <div class="novel-cover" style="background: linear-gradient(135deg, #8E2DE2, #4A00E0)">
-                 <span>Phàm Nhân Tu Tiên</span>
-              </div>
-              <h4>Phàm Nhân Tu Tiên</h4>
-              <p>Vong Ngữ</p>
-            </a>
-            <a href="book-detail.html?id=novel3" class="novel-item">
-              <div class="novel-cover" style="background: linear-gradient(135deg, #FF416C, #FF4B2B)">
-                 <span>Đấu Phá Thương Khung</span>
-              </div>
-              <h4>Đấu Phá Thương Khung</h4>
-              <p>Thiên Tằm Thổ Đậu</p>
-            </a>
-            <a href="book-detail.html?id=novel4" class="novel-item">
-              <div class="novel-cover" style="background: linear-gradient(135deg, #00b09b, #96c93d)">
-                 <span>Thế Giới Hoàn Mỹ</span>
-              </div>
-              <h4>Thế Giới Hoàn Mỹ</h4>
-              <p>Thần Đông</p>
-            </a>
-            <a href="book-detail.html?id=novel5" class="novel-item">
-              <div class="novel-cover" style="background: linear-gradient(135deg, #11998e, #38ef7d)">
-                 <span>Kiếm Lai</span>
-              </div>
-              <h4>Kiếm Lai</h4>
-              <p>Phong Hỏa Hí Chư Hầu</p>
-            </a>
-            <a href="book-detail.html?id=novel6" class="novel-item">
-              <div class="novel-cover" style="background: linear-gradient(135deg, #f12711, #f5af19)">
-                 <span>Già Thiên</span>
-              </div>
-              <h4>Già Thiên</h4>
-              <p>Thần Đông</p>
-            </a>
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="hero-container">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <i class="fas fa-star"></i>
+          <span>Bestseller · Fast Company 2008</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="title-line-1">Hình Vẽ</span>
+          <span class="title-line-2">Thông Minh</span>
+        </h1>
+        <p class="hero-author">
+          <span class="by">bởi</span>
+          <strong>Dan Roam</strong>
+        </p>
+        <p class="hero-desc">
+          Giải quyết mọi vấn đề phức tạp bằng những hình vẽ đơn giản. 
+          Khám phá phương pháp tư duy hình ảnh đã chinh phục 
+          Microsoft, Google, Boeing và Thượng viện Hoa Kỳ.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">5</span>
+            <span class="stat-label">Chương</span>
           </div>
-          <!-- Set 2 (Duplicate for continuous loop) -->
-          <div class="novel-set" aria-hidden="true">
-            <a href="book-detail.html?id=novel1" class="novel-item">
-              <div class="novel-cover" style="background: linear-gradient(135deg, #1e3c72, #2a5298)">
-                 <span>Tiên Nghịch</span>
-              </div>
-              <h4>Tiên Nghịch</h4>
-              <p>Nhĩ Căn</p>
-            </a>
-            <a href="book-detail.html?id=novel2" class="novel-item">
-              <div class="novel-cover" style="background: linear-gradient(135deg, #8E2DE2, #4A00E0)">
-                 <span>Phàm Nhân Tu Tiên</span>
-              </div>
-              <h4>Phàm Nhân Tu Tiên</h4>
-              <p>Vong Ngữ</p>
-            </a>
-            <a href="book-detail.html?id=novel3" class="novel-item">
-              <div class="novel-cover" style="background: linear-gradient(135deg, #FF416C, #FF4B2B)">
-                 <span>Đấu Phá Thương Khung</span>
-              </div>
-              <h4>Đấu Phá Thương Khung</h4>
-              <p>Thiên Tằm Thổ Đậu</p>
-            </a>
-            <a href="book-detail.html?id=novel4" class="novel-item">
-              <div class="novel-cover" style="background: linear-gradient(135deg, #00b09b, #96c93d)">
-                 <span>Thế Giới Hoàn Mỹ</span>
-              </div>
-              <h4>Thế Giới Hoàn Mỹ</h4>
-              <p>Thần Đông</p>
-            </a>
-            <a href="book-detail.html?id=novel5" class="novel-item">
-              <div class="novel-cover" style="background: linear-gradient(135deg, #11998e, #38ef7d)">
-                 <span>Kiếm Lai</span>
-              </div>
-              <h4>Kiếm Lai</h4>
-              <p>Phong Hỏa Hí Chư Hầu</p>
-            </a>
-            <a href="book-detail.html?id=novel6" class="novel-item">
-              <div class="novel-cover" style="background: linear-gradient(135deg, #f12711, #f5af19)">
-                 <span>Già Thiên</span>
-              </div>
-              <h4>Già Thiên</h4>
-              <p>Thần Đông</p>
-            </a>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">8</span>
+            <span class="stat-label">Ngôn ngữ</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">AI</span>
+            <span class="stat-label">Giọng đọc</span>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a href="c1.html" class="btn-primary" id="btn-read-now">
+            <i class="fas fa-play"></i>
+            Bắt đầu đọc
+          </a>
+          <a href="#about" class="btn-secondary">
+            <i class="fas fa-info-circle"></i>
+            Tìm hiểu thêm
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-book">
+        <div class="book-3d">
+          <div class="book-front">
+            <img src="IMG/bìa.png" alt="Bìa sách Hình Vẽ Thông Minh" />
+          </div>
+          <div class="book-spine"></div>
+          <div class="book-shadow"></div>
+        </div>
+        <div class="book-glow"></div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Khám phá</span>
+      <i class="fas fa-chevron-down bounce"></i>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Giới thiệu sách</span>
+        <h2>Tại sao hình vẽ <em>thay đổi tất cả</em>?</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-card reveal">
+          <div class="card-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Tư duy Hình ảnh</h3>
+          <p>Không có cách nào tốt hơn để khám phá một ý tưởng mới bằng việc phác họa một hình ảnh đơn giản. Chỉ cần bút và giấy.</p>
+        </div>
+        <div class="about-card reveal">
+          <div class="card-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>Giải quyết Vấn đề</h3>
+          <p>Từ chiến lược kinh doanh đến quản lý dự án, mọi vấn đề đều có thể được giải quyết rõ ràng hơn qua hình vẽ.</p>
+        </div>
+        <div class="about-card reveal">
+          <div class="card-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Truyền đạt Hiệu quả</h3>
+          <p>Không có cách nào hiệu quả hơn để chia sẻ ý tưởng bằng hình ảnh đơn giản mà ai cũng hiểu được ngay lập tức.</p>
+        </div>
+      </div>
+
+      <blockquote class="about-quote reveal">
+        <i class="fas fa-quote-left"></i>
+        <p>"Nếu bạn vẽ được một hình tròn, hình vuông và mũi tên, bạn đã có đủ công cụ để giải quyết mọi vấn đề."</p>
+        <cite>— Dan Roam, Hình Vẽ Thông Minh</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Chapters Section -->
+  <section class="chapters-section" id="chapters">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Nội dung sách</span>
+        <h2>Hành trình <em>4 ngày</em> thay đổi tư duy</h2>
+      </div>
+      <div class="chapters-list">
+        <a href="c1.html" class="chapter-card reveal">
+          <div class="chapter-num">01</div>
+          <div class="chapter-info">
+            <h3>Khăn giấy, ứng dụng</h3>
+            <p>Khám phá cách một mẩu khăn giấy có thể thay đổi cách nhìn nhận và giải quyết vấn đề trong cuộc sống</p>
+          </div>
+          <div class="chapter-preview">
+            <img src="IMG/1.png" alt="Chương 1" />
+          </div>
+          <div class="chapter-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+
+        <a href="c2.html" class="chapter-card reveal">
+          <div class="chapter-num">02</div>
+          <div class="chapter-info">
+            <h3>Ngày 1 — Nhìn</h3>
+            <p>Học cách quan sát thế giới xung quanh như một người giải quyết vấn đề bằng hình ảnh</p>
+          </div>
+          <div class="chapter-preview">
+            <img src="IMG/2.png" alt="Chương 2" />
+          </div>
+          <div class="chapter-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+
+        <a href="c3.html" class="chapter-card reveal">
+          <div class="chapter-num">03</div>
+          <div class="chapter-info">
+            <h3>Ngày 2 — Thấy</h3>
+            <p>Hiểu cách hệ thống tầm nhìn của não bộ xử lý thông tin và mô hình 6x6 đột phá</p>
+          </div>
+          <div class="chapter-preview">
+            <img src="IMG/5.png" alt="Chương 3" />
+          </div>
+          <div class="chapter-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+
+        <a href="c4.html" class="chapter-card reveal">
+          <div class="chapter-num">04</div>
+          <div class="chapter-info">
+            <h3>Ngày 3 — Hiểu</h3>
+            <p>Kích hoạt trí tưởng tượng và hình dung giải pháp cho những thách thức tưởng như không thể</p>
+          </div>
+          <div class="chapter-preview">
+            <img src="IMG/7.png" alt="Chương 4" />
+          </div>
+          <div class="chapter-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+
+        <a href="c5.html" class="chapter-card reveal">
+          <div class="chapter-num">05</div>
+          <div class="chapter-info">
+            <h3>Ngày 4 — Trình bày</h3>
+            <p>Kết hợp toàn bộ quy trình tư duy hình ảnh để trình bày ý tưởng một cách thuyết phục</p>
+          </div>
+          <div class="chapter-preview">
+            <img src="IMG/11.png" alt="Chương 5" />
+          </div>
+          <div class="chapter-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section" id="features">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Tính năng đọc sách</span>
+        <h2>Trải nghiệm đọc <em>thế hệ mới</em></h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon ai">
+            <i class="fas fa-microphone-alt"></i>
+          </div>
+          <h3>Giọng đọc AI</h3>
+          <p>Nghe sách với giọng đọc tiếng Việt tự nhiên, điều chỉnh tốc độ và âm lượng theo ý muốn</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon highlight">
+            <i class="fas fa-highlighter"></i>
+          </div>
+          <h3>Highlight thông minh</h3>
+          <p>Đánh dấu và lưu các đoạn quan trọng với nhiều màu sắc khác nhau, tự động lưu vào trình duyệt</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon scroll">
+            <i class="fas fa-scroll"></i>
+          </div>
+          <h3>Cuộn tự động</h3>
+          <p>Tự động cuộn trang với tốc độ tùy chỉnh để đọc thoải mái mà không cần thao tác tay</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon progress">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Theo dõi tiến độ</h3>
+          <p>Thanh tiến độ thời gian thực cho biết bạn đã đọc được bao nhiêu % của chương</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon music">
+            <i class="fas fa-music"></i>
+          </div>
+          <h3>Nhạc nền thiền định</h3>
+          <p>Nhạc nền nhẹ nhàng giúp tập trung, tạo môi trường đọc sách lý tưởng</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon theme">
+            <i class="fas fa-palette"></i>
+          </div>
+          <h3>Chỉnh giao diện</h3>
+          <p>Tự do điều chỉnh font chữ, cỡ chữ, giãn dòng và chủ đề màu Light/Sepia/Dark</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Author Section -->
+  <section class="author-section" id="author">
+    <div class="section-container">
+      <div class="author-grid">
+        <div class="author-image reveal">
+          <div class="author-avatar">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <div class="author-badge-tag">Tác giả</div>
+        </div>
+        <div class="author-info reveal">
+          <span class="section-tag">Về tác giả</span>
+          <h2>Dan Roam</h2>
+          <p class="author-title">Chủ tịch Digital Roam Inc. · Chuyên gia tư duy hình ảnh</p>
+          <p class="author-bio">
+            Dan Roam là tác giả của cuốn sách bán chạy <em>"Chỉ cần mẩu khăn giấy"</em> — được Fast Company công nhận là <strong>"Cuốn sách quản trị hay nhất năm 2008"</strong> và London Times bình chọn là <strong>"Cuốn sách kinh doanh sáng tạo hay nhất trong năm"</strong>.
+          </p>
+          <p class="author-bio">
+            Ông đã giúp lãnh đạo của Microsoft, Google, Wal-Mart, Ngân hàng Dự trữ Liên bang, Boeing và Thượng viện Hoa Kỳ giải quyết các vấn đề phức tạp bằng phương pháp tư duy hình ảnh.
+          </p>
+          <div class="author-media">
+            <div class="media-item"><i class="fas fa-tv"></i> CNN</div>
+            <div class="media-item"><i class="fas fa-tv"></i> MSNBC</div>
+            <div class="media-item"><i class="fas fa-tv"></i> ABC News</div>
+            <div class="media-item"><i class="fas fa-tv"></i> Fox News</div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer class="shell site-footer">
-    <p>Reader — demo đọc sách front-end. © <span id="year"></span></p>
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="section-container">
+      <div class="cta-box reveal">
+        <div class="cta-decoration"></div>
+        <h2>Sẵn sàng thay đổi cách tư duy?</h2>
+        <p>Bắt đầu đọc ngay hôm nay — hoàn toàn miễn phí, không cần đăng ký</p>
+        <a href="c1.html" class="btn-primary large" id="cta-read-btn">
+          <i class="fas fa-book-open"></i>
+          Đọc miễn phí ngay
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <i class="fas fa-book-open"></i>
+          <span>E-Reader</span>
+        </div>
+        <p>Nền tảng đọc sách điện tử cao cấp</p>
+      </div>
+      <div class="footer-links">
+        <h4>Chương sách</h4>
+        <a href="c1.html">Chương 1: Khăn giấy, ứng dụng</a>
+        <a href="c2.html">Chương 2: Ngày 1 - Nhìn</a>
+        <a href="c3.html">Chương 3: Ngày 2 - Thấy</a>
+        <a href="c4.html">Chương 4: Ngày 3 - Hiểu</a>
+        <a href="c5.html">Chương 5: Ngày 4 - Trình bày</a>
+      </div>
+      <div class="footer-info">
+        <h4>Thông tin</h4>
+        <p>Tác giả: <strong>Dan Roam</strong></p>
+        <p>Thể loại: Kinh doanh · Tư duy</p>
+        <p>Ngôn ngữ: Tiếng Việt</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Hình Vẽ Thông Minh · Dan Roam · E-Reader Platform</p>
+    </div>
   </footer>
 
-  <dialog class="modal" id="dlg-login">
-    <div class="modal-body">
-      <h3>Đăng nhập quản trị</h3>
-      <label for="adm-user">Tài khoản</label>
-      <input id="adm-user" autocomplete="username" placeholder="admin123" />
-      <label for="adm-pass">Mật khẩu</label>
-      <input id="adm-pass" type="password" autocomplete="current-password" placeholder="••••••••" />
-      <div class="modal-actions">
-        <button type="button" class="btn btn-ghost" id="adm-cancel">Hủy</button>
-        <button type="button" class="btn btn-primary" id="adm-go">Vào quản trị</button>
-      </div>
-      <p class="hint">Demo — chỉ lưu phiên trên trình duyệt.</p>
-    </div>
-  </dialog>
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-  <script type="module" src="js/landing.js"></script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+
+    // Smooth reveal on scroll
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) {
+          el.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Particle system
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.cssText = `
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        width: ${Math.random() * 4 + 2}px;
+        height: ${Math.random() * 4 + 2}px;
+        animation-duration: ${Math.random() * 20 + 10}s;
+        animation-delay: ${Math.random() * 10}s;
+        opacity: ${Math.random() * 0.5 + 0.1};
+      `;
+      container.appendChild(p);
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>

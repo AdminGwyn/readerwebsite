@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chương 3: Ngày 2 — Thấy — Hình Vẽ Thông Minh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    (function(){
+      var t = localStorage.getItem('reader_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+      document.addEventListener('DOMContentLoaded', function(){ document.body.className = t + '-theme'; });
+    })();
+  </script>
+</head>
+<body class="dark-theme">
+  <div id="reading-progress"><div id="reading-progress-bar"></div></div>
+  <div id="reading-progress-text">0%</div>
+  <div id="tts-status"><div class="pulse-dot"></div><span>Giọng đọc AI</span><span>Đang đọc...</span></div>
+
+  <header class="top-nav">
+    <div class="nav-left">
+      <a href="index.html" class="nav-icon" title="Trang chủ"><i class="fas fa-home"></i><span class="icon-label">Trang chủ</span></a>
+      <button class="nav-icon" onclick="openSidebar('sidebar-info')" title="Thông tin sách"><i class="fas fa-book"></i><span class="icon-label">Thông tin</span></button>
+      <button class="nav-icon" onclick="openSidebar('sidebar-toc')" title="Mục lục"><i class="fas fa-list-ul"></i><span class="icon-label">Mục lục</span></button>
+    </div>
+    <div class="nav-center">
+      <div class="book-title">HÌNH VẼ THÔNG MINH</div>
+      <div class="chapter-title">Chương 3: Ngày 2 — Thấy</div>
+    </div>
+    <div class="nav-right">
+      <button class="nav-icon" id="btn-audio" title="Giọng đọc AI"><i class="fas fa-headphones"></i><span class="icon-label">Giọng đọc</span></button>
+      <button class="nav-icon" onclick="toggleSettings()" title="Cài đặt"><i class="fas fa-sliders-h"></i><span class="icon-label">Cài đặt</span></button>
+      <button class="nav-icon" id="btn-fullscreen" title="Toàn màn hình"><i class="fas fa-expand"></i><span class="icon-label">Toàn màn hình</span></button>
+    </div>
+  </header>
+
+  <button class="nav-arrow left" onclick="window.location.href='c2.html'"><i class="fas fa-chevron-left"></i></button>
+  <button class="nav-arrow right" onclick="window.location.href='c4.html'"><i class="fas fa-chevron-right"></i></button>
+
+  <aside id="sidebar-info" class="sidebar">
+    <div class="sidebar-header">THÔNG TIN SÁCH</div>
+    <div class="sidebar-body">
+      <div class="info-card">
+        <img src="IMG/bìa.png" alt="Bìa sách" />
+        <h3>HÌNH VẼ THÔNG MINH</h3>
+        <p class="author">Tác giả: <strong>Dan Roam</strong></p>
+        <div class="summary">Khám phá phương pháp tư duy hình ảnh giúp bạn giải quyết các vấn đề phức tạp nhất một cách đơn giản.</div>
+      </div>
+    </div>
+  </aside>
+
+  <aside id="sidebar-toc" class="sidebar">
+    <div class="sidebar-header">MỤC LỤC</div>
+    <div class="sidebar-body">
+      <ul class="toc-list">
+        <li><a href="c1.html">Chương 1: Khăn giấy, ứng dụng</a></li>
+        <li><a href="c2.html">Chương 2: Ngày 1 — Nhìn</a></li>
+        <li class="active"><a href="c3.html">Chương 3: Ngày 2 — Thấy</a></li>
+        <li><a href="c4.html">Chương 4: Ngày 3 — Hiểu</a></li>
+        <li><a href="c5.html">Chương 5: Ngày 4 — Trình bày</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <div id="settings-panel" class="settings-panel">
+    <div class="panel-title">⚙️ Tùy chỉnh đọc sách</div>
+    <div class="section"><div class="search-box"><input type="text" id="input-search" placeholder="Tìm từ khóa..." /><button onclick="handleSearch()"><i class="fas fa-search"></i></button></div></div>
+    <div class="section"><h5 class="section-title">MÀU NỀN</h5><div class="theme-grid"><div class="t-btn t-light" onclick="changeTheme('light')"><span>Sáng</span></div><div class="t-btn t-sepia" onclick="changeTheme('sepia')"><span>Sepia</span></div><div class="t-btn t-dark" onclick="changeTheme('dark')"><span>Tối</span></div></div></div>
+    <div class="section"><h5 class="section-title">FONT CHỮ</h5><select onchange="changeFont(this.value)" class="font-dropdown"><option value="'Lora', serif">Lora</option><option value="'Inter', sans-serif">Inter</option></select>
+      <div class="control-row"><span class="label">Cỡ chữ</span><div class="btn-group"><button onclick="updateFont(-2)">-</button><button onclick="updateFont(2)">+</button></div></div>
+    </div>
+    <div class="section"><h5 class="section-title">TÍNH NĂNG</h5>
+      <div class="autoscroll-row"><span class="label">Cuộn tự động</span><label class="toggle-switch"><input type="checkbox" id="autoscroll-toggle" onchange="toggleAutoScroll()"><span class="toggle-slider"></span></label></div>
+      <div class="action-grid"><button class="btn-action highlight" onclick="doHighlight()">Highlight</button><button class="btn-action eraser" onclick="clearAllHighlights()"><i class="fas fa-eraser"></i></button></div>
+    </div>
+    <div class="section music-section"><h5 class="section-title">NHẠC NỀN</h5><div class="music-tracks"><div class="music-track" onclick="playTrack('rain')">Mưa nhẹ</div><div class="music-track" onclick="playTrack('forest')">Rừng xanh</div></div></div>
+  </div>
+
+  <main class="reader-container">
+    <article class="paper" id="reader-content">
+      <h2 class="content-h2">Chương 3: Ngày 2 - Thấy</h2>
+      <p>Nếu định sử dụng hệ thống "nhận biết" bẩm sinh để hiểu được thế giới mà mình thấy, chúng ta cần hiểu một chút về cách hoạt động của tầm nhìn, đặc biệt cách mà hệ thống tầm nhìn hướng dẫn chúng ta trong thế giới thực.</p>
+      <p>Bởi vì chúng ta sống trong thế giới ba chiều tự nhiên, hệ thống tầm nhìn của chúng ta đã tiến hóa để thật sự hiểu được không gian ba chiều. Nó làm được điều này nhờ phá vỡ môi trường thành một hệ tọa độ ba chiều gồm chiều dài, chiều rộng và chiều cao.</p>
+      <img src="IMG/5.png" alt="Hình 3.1" />
+      <p>Chúng ta hiểu được hầu hết thế giới tự nhiên quanh mình bởi hệ thống tầm nhìn giúp xây dựng trong đầu chúng ta một mô hình về thế giới ngoài kia. Chúng ta điều hướng một căn phòng nhờ sử dụng mô hình ba chiều mà mắt đã tạo ra.</p>
+      <p>Nhưng các vấn đề mà chúng ta đang đối mặt hiện nay không liên quan đến việc di chuyển trong không gian: chúng xoay quanh việc nhìn nhận nhiều mảnh ghép di chuyển – đôi khi đó là những thứ tự nhiên như con người, tiền bạc, hay sản phẩm, nhưng thường là những vấn đề trừu tượng như các khái niệm, các ý tưởng, ngôn ngữ, hay các quy tắc – và sau đó xây dựng một mô hình trong tâm trí để có thể hiểu được các mối liên kết giữa những mảnh ghép này.</p>
+      <p>Tôi tự hỏi liệu có điều gì cản trở trong cách vẽ các hình ảnh khiến chúng hoặc gắn kết với cách thức hoạt động của não bộ hoặc làm rối loạn guồng quay của nó. Khi kết hợp các cuốn sách giáo khoa về khoa học tầm nhìn (vision-science) và trải nghiệm tại các buổi hội thảo, tôi tìm ra một câu trả lời có khả năng làm rõ tất cả. Tôi gọi nó là mô hình 6x6.</p>
+      
+      <img src="IMG/6.png" alt="Hình 3.2 — Quy tắc 6x6" />
+      
+      <p>Khi chúng ta nhìn bằng mắt, thế giới xung quanh sẽ đi vào dưới dạng ánh sáng xuyên qua võng mạc và kích hoạt các tín hiệu điện não. Chúng ta sẽ chia tách những tín hiệu đó thành các đường mòn riêng biệt để xử lý ban đầu: Ai/Cái gì, Bao nhiêu, Ở đâu, Khi nào, Như thế nào, và Tại sao. Đây chính là chìa khóa để phân tích bất kỳ vấn đề phức tạp nào thành các thành phần đơn giản mà mắt và não có thể xử lý hiệu quả.</p>
+    </article>
+  </main>
+  <button id="btn-back-to-top"><i class="fas fa-arrow-up"></i></button>
+  <script src="music.js"></script><script src="script.js"></script>
+</body>
+</html>

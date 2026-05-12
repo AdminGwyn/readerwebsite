@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chương 4: Ngày 3 — Hiểu — Hình Vẽ Thông Minh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    (function(){
+      var t = localStorage.getItem('reader_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+      document.addEventListener('DOMContentLoaded', function(){ document.body.className = t + '-theme'; });
+    })();
+  </script>
+</head>
+<body class="dark-theme">
+  <div id="reading-progress"><div id="reading-progress-bar"></div></div>
+  <div id="reading-progress-text">0%</div>
+  <div id="tts-status"><div class="pulse-dot"></div><span>Giọng đọc AI</span><span>Đang đọc...</span></div>
+
+  <header class="top-nav">
+    <div class="nav-left">
+      <a href="index.html" class="nav-icon" title="Trang chủ"><i class="fas fa-home"></i><span class="icon-label">Trang chủ</span></a>
+      <button class="nav-icon" onclick="openSidebar('sidebar-info')" title="Thông tin sách"><i class="fas fa-book"></i><span class="icon-label">Thông tin</span></button>
+      <button class="nav-icon" onclick="openSidebar('sidebar-toc')" title="Mục lục"><i class="fas fa-list-ul"></i><span class="icon-label">Mục lục</span></button>
+    </div>
+    <div class="nav-center">
+      <div class="book-title">HÌNH VẼ THÔNG MINH</div>
+      <div class="chapter-title">Chương 4: Ngày 3 — Hiểu</div>
+    </div>
+    <div class="nav-right">
+      <button class="nav-icon" id="btn-audio" title="Giọng đọc AI"><i class="fas fa-headphones"></i><span class="icon-label">Giọng đọc</span></button>
+      <button class="nav-icon" onclick="toggleSettings()" title="Cài đặt"><i class="fas fa-sliders-h"></i><span class="icon-label">Cài đặt</span></button>
+      <button class="nav-icon" id="btn-fullscreen" title="Toàn màn hình"><i class="fas fa-expand"></i><span class="icon-label">Toàn màn hình</span></button>
+    </div>
+  </header>
+
+  <button class="nav-arrow left" onclick="window.location.href='c3.html'"><i class="fas fa-chevron-left"></i></button>
+  <button class="nav-arrow right" onclick="window.location.href='c5.html'"><i class="fas fa-chevron-right"></i></button>
+
+  <aside id="sidebar-info" class="sidebar">
+    <div class="sidebar-header">THÔNG TIN SÁCH</div>
+    <div class="sidebar-body">
+      <div class="info-card">
+        <img src="IMG/bìa.png" alt="Bìa sách" />
+        <h3>HÌNH VẼ THÔNG MINH</h3>
+        <p class="author">Tác giả: <strong>Dan Roam</strong></p>
+        <div class="summary">Sử dụng sức mạnh của trí tưởng tượng và các hình vẽ đơn giản để thấu hiểu và giải quyết vấn đề.</div>
+      </div>
+    </div>
+  </aside>
+
+  <aside id="sidebar-toc" class="sidebar">
+    <div class="sidebar-header">MỤC LỤC</div>
+    <div class="sidebar-body">
+      <ul class="toc-list">
+        <li><a href="c1.html">Chương 1: Khăn giấy, ứng dụng</a></li>
+        <li><a href="c2.html">Chương 2: Ngày 1 — Nhìn</a></li>
+        <li><a href="c3.html">Chương 3: Ngày 2 — Thấy</a></li>
+        <li class="active"><a href="c4.html">Chương 4: Ngày 3 — Hiểu</a></li>
+        <li><a href="c5.html">Chương 5: Ngày 4 — Trình bày</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <div id="settings-panel" class="settings-panel">
+    <div class="panel-title">⚙️ Tùy chỉnh đọc sách</div>
+    <div class="section"><div class="search-box"><input type="text" id="input-search" placeholder="Tìm từ khóa..." /><button onclick="handleSearch()"><i class="fas fa-search"></i></button></div></div>
+    <div class="section"><h5 class="section-title">MÀU NỀN</h5><div class="theme-grid"><div class="t-btn t-light" onclick="changeTheme('light')"><span>Sáng</span></div><div class="t-btn t-sepia" onclick="changeTheme('sepia')"><span>Sepia</span></div><div class="t-btn t-dark" onclick="changeTheme('dark')"><span>Tối</span></div></div></div>
+    <div class="section"><h5 class="section-title">FONT CHỮ</h5><select onchange="changeFont(this.value)" class="font-dropdown"><option value="'Lora', serif">Lora</option><option value="'Inter', sans-serif">Inter</option></select>
+      <div class="control-row"><span class="label">Cỡ chữ</span><div class="btn-group"><button onclick="updateFont(-2)">-</button><button onclick="updateFont(2)">+</button></div></div>
+    </div>
+    <div class="section"><h5 class="section-title">TÍNH NĂNG</h5>
+      <div class="autoscroll-row"><span class="label">Cuộn tự động</span><label class="toggle-switch"><input type="checkbox" id="autoscroll-toggle" onchange="toggleAutoScroll()"><span class="toggle-slider"></span></label></div>
+      <div class="action-grid"><button class="btn-action highlight" onclick="doHighlight()">Highlight</button><button class="btn-action eraser" onclick="clearAllHighlights()"><i class="fas fa-eraser"></i></button></div>
+    </div>
+    <div class="section music-section"><h5 class="section-title">NHẠC NỀN</h5><div class="music-tracks"><div class="music-track" onclick="playTrack('rain')">Mưa nhẹ</div><div class="music-track" onclick="playTrack('forest')">Rừng xanh</div></div></div>
+  </div>
+
+  <main class="reader-container">
+    <article class="paper" id="reader-content">
+      <h2 class="content-h2">Chương 4: Ngày 3 - Hiểu</h2>
+      <p>Lý do nằm ở chỗ: khi chúng ta tiếp tục hoàn thiện quy tắc 6x6 và những yếu tố cơ bản của quy trình giải quyết vấn đề bằng hình ảnh, độ tự tin về tư duy hình ảnh của chúng ta sẽ tiếp tục gia tăng, và chúng ta sẽ bắt đầu thực sự thấy được khả năng tư duy hình ảnh tiềm ẩn của mình.</p>
+      <p>Ba công cụ "có sẵn" của chúng ta, quy trình bốn bước, và quy tắc 6x6 đều có vai trò lớn, nhưng vẫn còn một lưỡi dao nữa mà chúng ta chưa mở ra trong bộ công cụ tư duy hình ảnh. Cho đến nay, chúng ta đã tập trung vào thế giới trước mắt, học cách quan sát kỹ và thấy các mô hình. Nhưng bây giờ, chúng ta sẽ bắt đầu sử dụng tâm trí để hình dung các cách giải quyết vấn đề.</p>
+      <p>Hãy tạm rời khỏi quy tắc 6x6 và tìm kiếm các giải pháp theo một hướng hoàn toàn khác: hãy thâm nhập vào tâm trí của mình trong một lúc và xem chúng ta có thể thấy điều gì.</p>
+      <h3>Tâm trí của chúng ta</h3>
+      <p>Trong các cuộc họp kinh doanh, chúng ta đều được yêu cầu phải "sáng tạo" và "sử dụng trí tưởng tượng của mình" và "suy nghĩ vượt ra ngoài khuôn khổ". Nhưng có một vấn đề lớn: trong thế giới thực, bao nhiêu người trong chúng ta được dạy cách từ bỏ mọi thứ và bỗng nhiên tư duy khác biệt?</p>
+      <img src="IMG/7.png" alt="Hình 7.1" />
+      <p>Tôi nghĩ rằng chúng ta đã có mồi lửa đó, và hãy đoán xem đó là gì? Chìa khóa chính là các hình vẽ.</p>
+      <img src="IMG/8.png" alt="Hình 8.1" />
+      <p>Vấn đề không được giải quyết bởi người thông minh nhất, người nhanh nhẹn nhất hay người mạnh mẽ nhất; chúng được giải quyết bởi người thấy các khả năng.</p>
+      <img src="IMG/9.png" alt="Hình 9.1" />
+      <p>Thấy được một vấn đề nghĩa là thấy được cách giải quyết nó. Nếu chúng ta thấy các mảnh ghép tạo nên vấn đề của mình, thấy các mô hình bên trong chúng, và thấy cách sử dụng các mô hình đó để đạt được một kết quả khác, khi đó, tất cả những gì cần làm để giải quyết vấn đề là quyết định thực hiện nó.</p>
+      
+      <img src="IMG/10.png" alt="Hình 9.2 — Hình dung giải pháp" />
+      
+      <p>Để kích hoạt trí tưởng tượng một cách bài bản, chúng ta sử dụng công cụ SQVID. Đây là 5 câu hỏi giúp chúng ta nhìn nhận một ý tưởng từ nhiều góc độ khác nhau: Đơn giản hay Phức tạp, Định tính hay Định lượng, Tầm nhìn hay Thực thi, Thay đổi hay Ổn định, và cuối cùng là Sự tương đồng hay Sự khác biệt.</p>
+    </article>
+  </main>
+  <button id="btn-back-to-top"><i class="fas fa-arrow-up"></i></button>
+  <script src="music.js"></script><script src="script.js"></script>
+</body>
+</html>

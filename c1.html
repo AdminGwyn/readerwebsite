@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chương 1: Khăn giấy, ứng dụng — Hình Vẽ Thông Minh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    (function(){
+      var t = localStorage.getItem('reader_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+      document.addEventListener('DOMContentLoaded', function(){ document.body.className = t + '-theme'; });
+    })();
+  </script>
+</head>
+<body class="dark-theme">
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress"><div id="reading-progress-bar"></div></div>
+  <div id="reading-progress-text">0%</div>
+
+  <!-- TTS Status -->
+  <div id="tts-status">
+    <div class="pulse-dot"></div>
+    <span>Giọng đọc AI</span>
+    <span>Đang đọc...</span>
+  </div>
+
+  <!-- TOP NAV -->
+  <header class="top-nav">
+    <div class="nav-left">
+      <a href="index.html" class="nav-icon" title="Trang chủ">
+        <i class="fas fa-home"></i>
+        <span class="icon-label">Trang chủ</span>
+      </a>
+      <button class="nav-icon" onclick="openSidebar('sidebar-info')" title="Thông tin sách">
+        <i class="fas fa-book"></i>
+        <span class="icon-label">Thông tin</span>
+      </button>
+      <button class="nav-icon" onclick="openSidebar('sidebar-toc')" title="Mục lục">
+        <i class="fas fa-list-ul"></i>
+        <span class="icon-label">Mục lục</span>
+      </button>
+    </div>
+
+    <div class="nav-center">
+      <div class="book-title">HÌNH VẼ THÔNG MINH</div>
+      <div class="chapter-title">Chương 1: Khăn giấy, ứng dụng</div>
+    </div>
+
+    <div class="nav-right">
+      <button class="nav-icon" id="btn-audio" title="Giọng đọc AI">
+        <i class="fas fa-headphones"></i>
+        <span class="icon-label">Giọng đọc</span>
+      </button>
+      <button class="nav-icon" onclick="toggleSettings()" title="Cài đặt">
+        <i class="fas fa-sliders-h"></i>
+        <span class="icon-label">Cài đặt</span>
+      </button>
+      <button class="nav-icon" id="btn-fullscreen" title="Toàn màn hình">
+        <i class="fas fa-expand"></i>
+        <span class="icon-label">Toàn màn hình</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Chapter Navigation Arrows -->
+  <button class="nav-arrow left" onclick="alert('Đây là chương đầu tiên!')"><i class="fas fa-chevron-left"></i></button>
+  <button class="nav-arrow right" onclick="window.location.href='c2.html'"><i class="fas fa-chevron-right"></i></button>
+
+  <!-- SIDEBAR: Book Info -->
+  <aside id="sidebar-info" class="sidebar">
+    <div class="sidebar-header">THÔNG TIN SÁCH</div>
+    <div class="sidebar-body">
+      <div class="info-card">
+        <img src="IMG/bìa.png" alt="Bìa sách Hình Vẽ Thông Minh" />
+        <h3>HÌNH VẼ THÔNG MINH</h3>
+        <p class="author">Tác giả: <strong>Dan Roam</strong></p>
+        <div class="summary">Dan Roam là tác giả của cuốn sách bán chạy "Chỉ cần mẩu khăn giấy". Được Fast Company công nhận là "Cuốn sách quản trị hay nhất năm 2008" và London Times bình chọn là "Cuốn sách kinh doanh sáng tạo hay nhất trong năm". Với vai trò chủ tịch Digital Roam Inc., Dan đã giúp lãnh đạo của Microsoft, Google, Wal-Mart, Boeing và Thượng viện Hoa Kỳ giải quyết các vấn đề phức tạp bằng phương pháp tư duy hình ảnh.</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- SIDEBAR: Table of Contents -->
+  <aside id="sidebar-toc" class="sidebar">
+    <div class="sidebar-header">MỤC LỤC</div>
+    <div class="sidebar-body">
+      <ul class="toc-list">
+        <li class="active"><a href="c1.html">Chương 1: Khăn giấy, ứng dụng</a></li>
+        <li><a href="c2.html">Chương 2: Ngày 1 — Nhìn</a></li>
+        <li><a href="c3.html">Chương 3: Ngày 2 — Thấy</a></li>
+        <li><a href="c4.html">Chương 4: Ngày 3 — Hiểu</a></li>
+        <li><a href="c5.html">Chương 5: Ngày 4 — Trình bày</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- SETTINGS PANEL -->
+  <div id="settings-panel" class="settings-panel">
+    <div class="panel-title">⚙️ Tùy chỉnh đọc sách</div>
+
+    <div class="section">
+      <div class="search-box">
+        <input type="text" id="input-search" placeholder="Tìm từ khóa trong chương..." />
+        <button onclick="handleSearch()"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h5 class="section-title">MÀU NỀN</h5>
+      <div class="theme-grid">
+        <div class="t-btn t-light" onclick="changeTheme('light')" title="Sáng"><span>Sáng</span></div>
+        <div class="t-btn t-sepia" onclick="changeTheme('sepia')" title="Sepia"><span>Sepia</span></div>
+        <div class="t-btn t-dark" onclick="changeTheme('dark')" title="Tối"><span>Tối</span></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h5 class="section-title">FONT CHỮ & HIỂN THỊ</h5>
+      <select id="font-select" onchange="changeFont(this.value)" class="font-dropdown">
+        <option value="'Lora', Georgia, serif">Lora (Mặc định)</option>
+        <option value="'Georgia', serif">Georgia</option>
+        <option value="'Inter', system-ui, sans-serif">Inter</option>
+        <option value="Arial, sans-serif">Arial</option>
+        <option value="'Verdana', sans-serif">Verdana</option>
+      </select>
+      <div class="control-row">
+        <span class="label">Cỡ chữ</span>
+        <div class="btn-group">
+          <button onclick="updateFont(-2)"><i class="fas fa-minus"></i></button>
+          <button onclick="updateFont(2)"><i class="fas fa-plus"></i></button>
+        </div>
+      </div>
+      <div class="control-row">
+        <span class="label">Giãn dòng</span>
+        <div class="btn-group">
+          <button onclick="updateLineHeight(-0.15)"><i class="fas fa-compress-alt"></i></button>
+          <button onclick="updateLineHeight(0.15)"><i class="fas fa-expand-alt"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h5 class="section-title">HIGHLIGHT VĂN BẢN</h5>
+      <div class="highlight-colors">
+        <div class="hl-color hl-yellow active" onclick="setHLColor('hl-yellow')" title="Vàng"></div>
+        <div class="hl-color hl-green" onclick="setHLColor('hl-green')" title="Xanh lá"></div>
+        <div class="hl-color hl-blue" onclick="setHLColor('hl-blue')" title="Xanh dương"></div>
+        <div class="hl-color hl-pink" onclick="setHLColor('hl-pink')" title="Hồng"></div>
+      </div>
+      <div class="action-grid">
+        <button class="btn-action highlight" onclick="doHighlight()"><i class="fas fa-highlighter"></i> Đánh dấu</button>
+        <button class="btn-action eraser" onclick="clearAllHighlights()" title="Xóa tất cả"><i class="fas fa-eraser"></i></button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h5 class="section-title">CUỘN TỰ ĐỘNG</h5>
+      <div class="autoscroll-row">
+        <span class="label">Bật cuộn tự động</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="autoscroll-toggle" onchange="toggleAutoScroll()" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="control-row">
+        <span class="label">Tốc độ: <span id="scroll-speed-label">1.5x</span></span>
+      </div>
+      <input type="range" class="speed-slider" min="0.3" max="5" step="0.1" value="1.5"
+        oninput="updateScrollSpeed(this.value)" />
+    </div>
+
+    <div class="section music-section">
+      <h5 class="section-title">NHẠC NỀN</h5>
+      <div class="music-tracks">
+        <div class="music-track" id="btn-music-rain" onclick="playTrack('rain')">
+          <i class="fas fa-cloud-rain"></i> Mưa nhẹ
+        </div>
+        <div class="music-track" id="btn-music-forest" onclick="playTrack('forest')">
+          <i class="fas fa-tree"></i> Rừng xanh
+        </div>
+        <div class="music-track" id="btn-music-cafe" onclick="playTrack('cafe')">
+          <i class="fas fa-coffee"></i> Quán cà phê
+        </div>
+        <div class="music-track" id="btn-music-ocean" onclick="playTrack('ocean')">
+          <i class="fas fa-water"></i> Biển đêm
+        </div>
+      </div>
+      <div class="vol-row">
+        <i class="fas fa-volume-down"></i>
+        <input type="range" class="vol-slider" min="0" max="0.8" step="0.05" value="0.25"
+          oninput="updateMusicVolume(this.value)" />
+        <i class="fas fa-volume-up"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- READER CONTENT -->
+  <main class="reader-container">
+    <article class="paper" id="reader-content">
+      <h2 class="content-h2">Chương 1: Khăn giấy, ứng dụng</h2>
+
+      <p>Sau hai mươi lăm năm giúp đỡ các nhà lãnh đạo khắp thế giới, tôi đã rút ra ba bài học sau: Không có cách nào tốt hơn để khám phá một ý tưởng mới bằng việc phác họa một hình ảnh đơn giản. Câu nói đó khiến mọi người chú ý, và Mike bắt đầu sử dụng chiến thuật. Mike phác họa bốn chiến lược mà ông tin tưởng sẽ là con đường sống của AmericanWay. Thứ nhất: thu hồi tất cả các khoản đầu tư ở những "điểm ngọt" mà công ty củng cố bấy lâu; hay nói cách khác, tạm dừng các hoạt động ở thị trường cao cấp và thị trường thấp cấp để tập trung vào thị trường trung cấp. Thứ hai: chấp nhận AmericanWay được định vị để trở thành "người theo sau nhanh nhạy" trong hoạt động phát triển sản phẩm hơn là kẻ dẫn dắt thị trường; hay nói cách khác, hãy để người khác thực hiện những đầu tư rủi ro vào các hoạt động sáng tạo, sau đó theo dõi và áp dụng những gì đem lại hiệu quả.</p>
+
+      <p>Thứ ba: phải thật nhanh nhạy về nhu cầu khách hàng; hay nói cách khác, dừng việc lắng nghe chính mình và hãy bắt đầu lắng nghe ý kiến khách hàng. Cuối cùng: củng cố mọi hoạt động kinh doanh xoay quanh kết cấu hạ tầng cốt lõi của công ty; hay nói cách khác, loại bỏ những quy trình tốn kém tại các văn phòng khắp cả nước. Đó là một buổi nói chuyện cứng rắn và thực tế, chính là điều mà những người có mặt trong phòng cần nghe. Mike đã làm những gì mà một Tổng giám đốc cần làm: tập hợp đội hình, vạch ra một tầm nhìn rõ ràng, và chia nhỏ để mọi người có thể "tiêu hóa" từng phần một.</p>
+
+      <p>Không có cách nào nhanh hơn để phát triển và thử nghiệm một ý tưởng bằng việc phác họa một hình ảnh đơn giản. Không có cách nào hiệu quả hơn để chia sẻ một ý tưởng với người khác bằng việc phác họa một hình ảnh đơn giản.</p>
+
+      <img src="IMG/1.png" alt="Hình 1.1 — Sức mạnh của hình vẽ đơn giản" />
+
+      <p>Tôi tin rằng chúng ta có thể giải quyết các vấn đề của mình – cho dù đó là vấn đề gì – bằng cách tạo ra những hình vẽ đơn giản. Chỉ cần mẩu khăn giấy xoay quanh ba chủ đề chính: vấn đề gì có thể được giải quyết bằng hình vẽ, hình vẽ nào có khả năng giải quyết vấn đề, và ai có thể vẽ được những hình vẽ đó. Khi đã trả lời được ba câu hỏi trên, Chỉ cần mẩu khăn giấy sẽ giới thiệu một quy trình và bộ công cụ để giúp mọi người nhanh chóng giải quyết những vấn đề phức tạp bằng hình vẽ đơn giản.</p>
+
+      <p>Vào buổi sáng của ngày diễn ra hội thảo, tình hình kinh tế nước Mỹ bắt đầu đi xuống. Trước đó một tuần, khi cuộc khủng hoảng tài chính 2008 lan rộng, Quốc hội Mỹ vẫn chưa quyết định thông qua gói cứu trợ trị giá 700 tỷ đôla cho thị trường tài chính. Trong bối cảnh bất ổn đó, chỉ số Dow đã mất 20% giá trị, đánh dấu tuần thấp nhất trong lịch sử của chỉ số này. Nhưng khi tuần mới bắt đầu – tuần diễn ra hội thảo của tôi – nguồn tiền cứu trợ bắt đầu được rót xuống. Vào thứ Hai, thị trường phục hồi khi chỉ số Dow đạt mức kỷ lục trong ngày, cao nhất trong vòng 27 năm qua. Mọi người thở phào nhẹ nhõm, tin chắc rằng điều tồi tệ nhất đã qua đi.</p>
+
+      <p>Nhưng bốn ngày là một khoảng thời gian dài đối với các nhà kinh doanh để họ tạm dừng công việc thường nhật và học hỏi điều gì đó mới mẻ. Vậy nên khóa học này sẽ đề cập đến mối bận tâm đó bằng hai hình ảnh cụ thể: củ cà rốt và cây gậy. Cây gậy nói: "Đúng vậy, có rất nhiều thông tin trong cuốn sách này, và tất cả đều quan trọng. Bạn chỉ mất bốn ngày để tìm hiểu chúng và hãy đảm bảo bám sát vấn đề." Bằng phương pháp tiếp cận khả quan hơn, củ cà rốt nói: "Nếu thực hiện đúng cách, chúng ta sẽ không cần 'dừng những việc đang làm'. Đây là cuốn sách hướng dẫn thực hành, vì vậy, bạn có thể áp dụng vào công việc thực tế của mình."</p>
+
+      <p>Năm ngoái, khi tham dự một cuộc họp kinh doanh, chỉ trong một ngày, tôi đã thấy tất cả những gì mà mình tin có thể chứng minh cho sức mạnh của hình vẽ. Đó là một minh họa tuyệt vời về mức độ đơn giản của lối tư duy hình ảnh trong công việc, nhưng điều tuyệt vời hơn cả là nó chỉ ra những vị trí mà các hình vẽ nên được sử dụng nhằm đem lại hiệu quả cao nhất.</p>
+
+      <p>Mùa hè năm ngoái, ban giám đốc của một công ty tài chính lớn – hãy gọi đó là AmericanWay Financial – đã mời tôi tổ chức một buổi hội thảo tư duy hình ảnh tại cuộc họp lãnh đạo thường niên. AmericanWay đã hoàn tất một năm tài khóa kỷ lục, và ban giám đốc muốn tổ chức một buổi họp kích thích tư duy để tận dụng nguồn năng lượng tích cực này. Ban giám đốc cho rằng phương pháp giải quyết các vấn đề bằng hình ảnh nghe có vẻ thú vị, và tôi đã vui vẻ nhận lời.</p>
+
+      <p>Và đó chính là những gì mà tôi đã nhìn thấy. Dẹp bỏ mọi lời nhận xét được chuẩn bị sẵn sang một bên, Mike bước lên sân khấu, nhìn khắp khán phòng, và thực hiện một bài phát biểu trung thực, chân thành, nghiêm túc và thiết thực nhất mà tôi từng nghe. Trong vòng một giờ đồng hồ, Mike không tìm cách che giấu bất cứ điều gì. Ông nói rằng không ai, kể cả ông lẫn những người có mặt trong căn phòng này, từng trải qua một cuộc khủng hoảng với quy mô và tốc độ như thế.</p>
+
+      <p>Mike nói rằng chính những người có mặt trong căn phòng này sẽ cùng chịu trách nhiệm về những gì xảy ra tiếp theo tại AmericanWay. Nếu công ty vượt qua được khó khăn và trụ vững, đó là nhờ ở công sức của những người hiện diện trong căn phòng này. Còn ngược lại, nếu AmericanWay thất bại, đó cũng là do quyết định của chính những người có mặt tại đây.</p>
+
+      <p>Cuốn sách này chứa đựng nhiều công cụ, quy tắc và khái niệm, nhưng cuối cùng nó chỉ quy về duy nhất một điều: cách phác họa nên hình ảnh đơn giản đó.</p>
+    </article>
+  </main>
+
+  <!-- Back to top -->
+  <button id="btn-back-to-top" aria-label="Lên đầu trang"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="music.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

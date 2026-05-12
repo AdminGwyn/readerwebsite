@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chương 5: Ngày 4 — Trình bày — Hình Vẽ Thông Minh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    (function(){
+      var t = localStorage.getItem('reader_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+      document.addEventListener('DOMContentLoaded', function(){ document.body.className = t + '-theme'; });
+    })();
+  </script>
+</head>
+<body class="dark-theme">
+  <div id="reading-progress"><div id="reading-progress-bar"></div></div>
+  <div id="reading-progress-text">0%</div>
+  <div id="tts-status"><div class="pulse-dot"></div><span>Giọng đọc AI</span><span>Đang đọc...</span></div>
+
+  <header class="top-nav">
+    <div class="nav-left">
+      <a href="index.html" class="nav-icon" title="Trang chủ"><i class="fas fa-home"></i><span class="icon-label">Trang chủ</span></a>
+      <button class="nav-icon" onclick="openSidebar('sidebar-info')" title="Thông tin sách"><i class="fas fa-book"></i><span class="icon-label">Thông tin</span></button>
+      <button class="nav-icon" onclick="openSidebar('sidebar-toc')" title="Mục lục"><i class="fas fa-list-ul"></i><span class="icon-label">Mục lục</span></button>
+    </div>
+    <div class="nav-center">
+      <div class="book-title">HÌNH VẼ THÔNG MINH</div>
+      <div class="chapter-title">Chương 5: Ngày 4 — Trình bày</div>
+    </div>
+    <div class="nav-right">
+      <button class="nav-icon" id="btn-audio" title="Giọng đọc AI"><i class="fas fa-headphones"></i><span class="icon-label">Giọng đọc</span></button>
+      <button class="nav-icon" onclick="toggleSettings()" title="Cài đặt"><i class="fas fa-sliders-h"></i><span class="icon-label">Cài đặt</span></button>
+      <button class="nav-icon" id="btn-fullscreen" title="Toàn màn hình"><i class="fas fa-expand"></i><span class="icon-label">Toàn màn hình</span></button>
+    </div>
+  </header>
+
+  <button class="nav-arrow left" onclick="window.location.href='c4.html'"><i class="fas fa-chevron-left"></i></button>
+  <button class="nav-arrow right" onclick="alert('Đây là chương cuối cùng!')"><i class="fas fa-chevron-right"></i></button>
+
+  <aside id="sidebar-info" class="sidebar">
+    <div class="sidebar-header">THÔNG TIN SÁCH</div>
+    <div class="sidebar-body">
+      <div class="info-card">
+        <img src="IMG/bìa.png" alt="Bìa sách" />
+        <h3>HÌNH VẼ THÔNG MINH</h3>
+        <p class="author">Tác giả: <strong>Dan Roam</strong></p>
+        <div class="summary">Bước cuối cùng trong quy trình tư duy bằng hình ảnh: học cách trình bày ý tưởng của bạn một cách trực quan và thuyết phục.</div>
+      </div>
+    </div>
+  </aside>
+
+  <aside id="sidebar-toc" class="sidebar">
+    <div class="sidebar-header">MỤC LỤC</div>
+    <div class="sidebar-body">
+      <ul class="toc-list">
+        <li><a href="c1.html">Chương 1: Khăn giấy, ứng dụng</a></li>
+        <li><a href="c2.html">Chương 2: Ngày 1 — Nhìn</a></li>
+        <li><a href="c3.html">Chương 3: Ngày 2 — Thấy</a></li>
+        <li><a href="c4.html">Chương 4: Ngày 3 — Hiểu</a></li>
+        <li class="active"><a href="c5.html">Chương 5: Ngày 4 — Trình bày</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <div id="settings-panel" class="settings-panel">
+    <div class="panel-title">⚙️ Tùy chỉnh đọc sách</div>
+    <div class="section"><div class="search-box"><input type="text" id="input-search" placeholder="Tìm từ khóa..." /><button onclick="handleSearch()"><i class="fas fa-search"></i></button></div></div>
+    <div class="section"><h5 class="section-title">MÀU NỀN</h5><div class="theme-grid"><div class="t-btn t-light" onclick="changeTheme('light')"><span>Sáng</span></div><div class="t-btn t-sepia" onclick="changeTheme('sepia')"><span>Sepia</span></div><div class="t-btn t-dark" onclick="changeTheme('dark')"><span>Tối</span></div></div></div>
+    <div class="section"><h5 class="section-title">FONT CHỮ</h5><select onchange="changeFont(this.value)" class="font-dropdown"><option value="'Lora', serif">Lora</option><option value="'Inter', sans-serif">Inter</option></select>
+      <div class="control-row"><span class="label">Cỡ chữ</span><div class="btn-group"><button onclick="updateFont(-2)">-</button><button onclick="updateFont(2)">+</button></div></div>
+    </div>
+    <div class="section"><h5 class="section-title">TÍNH NĂNG</h5>
+      <div class="autoscroll-row"><span class="label">Cuộn tự động</span><label class="toggle-switch"><input type="checkbox" id="autoscroll-toggle" onchange="toggleAutoScroll()"><span class="toggle-slider"></span></label></div>
+      <div class="action-grid"><button class="btn-action highlight" onclick="doHighlight()">Highlight</button><button class="btn-action eraser" onclick="clearAllHighlights()"><i class="fas fa-eraser"></i></button></div>
+    </div>
+    <div class="section music-section"><h5 class="section-title">NHẠC NỀN</h5><div class="music-tracks"><div class="music-track" onclick="playTrack('rain')">Mưa nhẹ</div><div class="music-track" onclick="playTrack('forest')">Rừng xanh</div></div></div>
+  </div>
+
+  <main class="reader-container">
+    <article class="paper" id="reader-content">
+      <h2 class="content-h2">Chương 5: Ngày 4 - Trình bày</h2>
+      <p>Hôm nay, chúng ta sẽ kết hợp tất cả những ý tưởng này với nhau khi kết thúc quy trình tư duy bằng hình ảnh: hôm nay, chúng ta sẽ trình bày.</p>
+      <img src="IMG/11.png" alt="Hình 11.1" />
+      <p>Tôi sẽ bắt đầu ngày hôm nay bằng một câu chuyện vừa-diễn-vừa-kể – câu chuyện này đưa chúng ta trở lại với Microsoft. Năm ngoái, Microsoft yêu cầu tôi và đồng nghiệp là Chelsea đến giúp làm rõ một vấn đề trong việc mô phỏng dữ liệu.</p>
+      <p>Nhóm tài chính này yêu cầu chúng tôi đến Redmond, Washington để giúp họ nghĩ cách khiến cho những thông tin tài chính được tạo ra bên trong các bảng tính trở nên dễ nhận biết, và xem liệu có phương cách hình ảnh nào khiến cho việc phân tích dữ liệu trở nên nhanh chóng và mang tính trực giác hơn.</p>
+      <img src="IMG/12.png" alt="Hình 12.1" />
+      <p>Chúng tôi vẽ các hình tròn đầu tiên và đặt tên: "CFO", "Trưởng phòng 1", "Trưởng phòng 2". Sau đó, chúng tôi vẽ chân dung của họ.</p>
+      <img src="IMG/13.png" alt="Hình 13.1" />
+      <p>Hàng quý, Giám đốc tài chính đều muốn xem báo cáo nhịp độ kinh doanh; ông ấy muốn xem các con số.</p>
+      <img src="IMG/14.png" alt="Hình 14.1" />
+      <p>Trưởng phòng 1 báo cáo quý trước tuyệt vời nhưng quý sau tồi tệ. Trưởng phòng 2 báo cáo ngược lại.</p>
+      <img src="IMG/15.png" alt="Hình 15.1" />
+      <p>Giám đốc tài chính thấy rằng hai trưởng phòng đang báo cáo theo hai tiêu chuẩn khác nhau. Ông ấy yêu cầu cả hai trở lại khi tiêu chuẩn đo lường của họ đồng nhất.</p>
+      <img src="IMG/16.png" alt="Hình 16.1" />
+      <p>Không biết chắc nên sử dụng tiêu chuẩn đánh giá nào, hai trưởng phòng chọn cách báo cáo tất cả những gì mà các nhà phân tích thu thập được, và quy trình lại bắt đầu từ đầu.</p>
+    </article>
+  </main>
+  <button id="btn-back-to-top"><i class="fas fa-arrow-up"></i></button>
+  <script src="music.js"></script><script src="script.js"></script>
+</body>
+</html>

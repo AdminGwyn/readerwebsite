@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chương 2: Ngày 1 — Nhìn — Hình Vẽ Thông Minh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    (function(){
+      var t = localStorage.getItem('reader_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+      document.addEventListener('DOMContentLoaded', function(){ document.body.className = t + '-theme'; });
+    })();
+  </script>
+</head>
+<body class="dark-theme">
+  <div id="reading-progress"><div id="reading-progress-bar"></div></div>
+  <div id="reading-progress-text">0%</div>
+  <div id="tts-status"><div class="pulse-dot"></div><span>Giọng đọc AI</span><span>Đang đọc...</span></div>
+
+  <header class="top-nav">
+    <div class="nav-left">
+      <a href="index.html" class="nav-icon" title="Trang chủ"><i class="fas fa-home"></i><span class="icon-label">Trang chủ</span></a>
+      <button class="nav-icon" onclick="openSidebar('sidebar-info')" title="Thông tin sách"><i class="fas fa-book"></i><span class="icon-label">Thông tin</span></button>
+      <button class="nav-icon" onclick="openSidebar('sidebar-toc')" title="Mục lục"><i class="fas fa-list-ul"></i><span class="icon-label">Mục lục</span></button>
+    </div>
+    <div class="nav-center">
+      <div class="book-title">HÌNH VẼ THÔNG MINH</div>
+      <div class="chapter-title">Chương 2: Ngày 1 — Nhìn</div>
+    </div>
+    <div class="nav-right">
+      <button class="nav-icon" id="btn-audio" title="Giọng đọc AI"><i class="fas fa-headphones"></i><span class="icon-label">Giọng đọc</span></button>
+      <button class="nav-icon" onclick="toggleSettings()" title="Cài đặt"><i class="fas fa-sliders-h"></i><span class="icon-label">Cài đặt</span></button>
+      <button class="nav-icon" id="btn-fullscreen" title="Toàn màn hình"><i class="fas fa-expand"></i><span class="icon-label">Toàn màn hình</span></button>
+    </div>
+  </header>
+
+  <button class="nav-arrow left" onclick="window.location.href='c1.html'"><i class="fas fa-chevron-left"></i></button>
+  <button class="nav-arrow right" onclick="window.location.href='c3.html'"><i class="fas fa-chevron-right"></i></button>
+
+  <aside id="sidebar-info" class="sidebar">
+    <div class="sidebar-header">THÔNG TIN SÁCH</div>
+    <div class="sidebar-body">
+      <div class="info-card">
+        <img src="IMG/bìa.png" alt="Bìa sách" />
+        <h3>HÌNH VẼ THÔNG MINH</h3>
+        <p class="author">Tác giả: <strong>Dan Roam</strong></p>
+        <div class="summary">Cuốn sách về phương pháp giải quyết vấn đề bằng hình vẽ đơn giản, đã được dịch ra tám thứ tiếng và áp dụng rộng rãi tại các tập đoàn lớn.</div>
+      </div>
+    </div>
+  </aside>
+
+  <aside id="sidebar-toc" class="sidebar">
+    <div class="sidebar-header">MỤC LỤC</div>
+    <div class="sidebar-body">
+      <ul class="toc-list">
+        <li><a href="c1.html">Chương 1: Khăn giấy, ứng dụng</a></li>
+        <li class="active"><a href="c2.html">Chương 2: Ngày 1 — Nhìn</a></li>
+        <li><a href="c3.html">Chương 3: Ngày 2 — Thấy</a></li>
+        <li><a href="c4.html">Chương 4: Ngày 3 — Hiểu</a></li>
+        <li><a href="c5.html">Chương 5: Ngày 4 — Trình bày</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <div id="settings-panel" class="settings-panel">
+    <div class="panel-title">⚙️ Tùy chỉnh đọc sách</div>
+    <div class="section"><div class="search-box"><input type="text" id="input-search" placeholder="Tìm từ khóa..." /><button onclick="handleSearch()"><i class="fas fa-search"></i></button></div></div>
+    <div class="section"><h5 class="section-title">MÀU NỀN</h5><div class="theme-grid"><div class="t-btn t-light" onclick="changeTheme('light')"><span>Sáng</span></div><div class="t-btn t-sepia" onclick="changeTheme('sepia')"><span>Sepia</span></div><div class="t-btn t-dark" onclick="changeTheme('dark')"><span>Tối</span></div></div></div>
+    <div class="section"><h5 class="section-title">FONT CHỮ</h5><select onchange="changeFont(this.value)" class="font-dropdown"><option value="'Lora', serif">Lora</option><option value="'Inter', sans-serif">Inter</option></select>
+      <div class="control-row"><span class="label">Cỡ chữ</span><div class="btn-group"><button onclick="updateFont(-2)">-</button><button onclick="updateFont(2)">+</button></div></div>
+    </div>
+    <div class="section"><h5 class="section-title">TÍNH NĂNG</h5>
+      <div class="autoscroll-row"><span class="label">Cuộn tự động</span><label class="toggle-switch"><input type="checkbox" id="autoscroll-toggle" onchange="toggleAutoScroll()"><span class="toggle-slider"></span></label></div>
+      <div class="action-grid"><button class="btn-action highlight" onclick="doHighlight()">Highlight</button><button class="btn-action eraser" onclick="clearAllHighlights()"><i class="fas fa-eraser"></i></button></div>
+    </div>
+    <div class="section music-section"><h5 class="section-title">NHẠC NỀN</h5><div class="music-tracks"><div class="music-track" onclick="playTrack('rain')">Mưa nhẹ</div><div class="music-track" onclick="playTrack('forest')">Rừng xanh</div></div></div>
+  </div>
+
+  <main class="reader-container">
+    <article class="paper" id="reader-content">
+      <h2 class="content-h2">Chương 2: Ngày 1 - Nhìn</h2>
+      <p>Tất cả các vấn đề (chiến lược, quản lý dự án, tài chính...) đều có thể giải quyết bằng hình vẽ đơn giản. Nếu bạn vẽ được một hình tròn, hình vuông và mũi tên, bạn đã có đủ công cụ để giải quyết vấn đề.</p>
+      <p>Khi buổi hội thảo bắt đầu, tôi trình bày các công cụ tư duy hình ảnh, sau đó yêu cầu các nhà điều hành chia thành các nhóm nhỏ để họ có thể vẽ ra những ý tưởng của riêng mình. Đến trưa, hàng chục hình vẽ được treo trên tường, thể hiện những gì đang diễn ra trên thị trường, và quan trọng hơn là những gì mà AmericanWay có thể làm để đối mặt với nó.</p>
+      <p>Chúng ta có thể giải quyết những vấn đề nào bằng hình vẽ? Câu trả lời đơn giản là tất cả các vấn đề. Ví dụ: các vấn đề chiến lược, các vấn đề về quản lý dự án, phân bổ nguồn nhân lực, các vấn đề chính trị, tài chính – trên thực tế, bất cứ vấn đề nào mà chúng ta có thể diễn đạt đều có thể được trình bày một cách rõ ràng hơn rất nhiều, nếu không nói là giải quyết ngay lập tức, bằng hình vẽ.</p>
+      <img src="IMG/2.png" alt="Hình 2.1" />
+      <p>Rồi có điều gì đó bỗng ám ảnh tôi: khi thử phác họa một vài hình ảnh làm ví dụ, tôi đã chuyển nội dung cuộc hội thảo từ một bài tập tư duy định hướng mục tiêu sang buổi tư duy hình ảnh về những gì đang diễn ra trong thế giới thực. Tôi vẫn sử dụng các công cụ và quy tắc tư duy hình ảnh tương tự, chỉ thay đổi kiểu câu hỏi.</p>
+      <p>Sử dụng chức năng vẽ trên máy tính bảng, tôi đã thay đổi một số hình ảnh phác họa trong bài phát biểu. Trong vòng 30 phút, tôi đã biến một buổi hội thảo chứa đầy khái niệm thành một cuộc trò chuyện thực tế. Dù không nắm rõ chi tiết về tình hình tài chính bên trong AmericanWay, nhưng tôi nghĩ là không cần thiết: những người tham dự đều biết rất rõ. Kinh nghiệm mách bảo rằng tôi chỉ cần thiết lập đúng khuôn khổ và khởi điểm của vấn đề.</p>
+      
+      <img src="IMG/3.png" alt="Hình 2.2 — Phác họa thực tế" />
+      
+      <p>Các vị giám đốc điều hành ở đây sẽ phác họa được tình hình hiện tại và tương lai của AmericanWay một cách rõ nét hơn bất kỳ ai khác. Chúng ta không cần phải là một nghệ sĩ để có thể vẽ. Thực tế, những hình vẽ càng đơn giản thì thông điệp càng được truyền tải mạnh mẽ.</p>
+      
+      <img src="IMG/4.png" alt="Hình 2.3 — Đơn giản là sức mạnh" />
+      
+      <p>Kết thúc ngày đầu tiên, chúng ta đã hiểu rằng: Nhìn không chỉ là tiếp nhận ánh sáng vào mắt, mà là quá trình chủ động tìm kiếm các mô hình và cấu trúc trong mớ hỗn độn của thông tin.</p>
+    </article>
+  </main>
+  <button id="btn-back-to-top"><i class="fas fa-arrow-up"></i></button>
+  <script src="music.js"></script><script src="script.js"></script>
+</body>
+</html>
