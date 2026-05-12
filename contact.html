@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giới thiệu — E-Book</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/app.css" />
+  <script>
+    (function () {
+      var t = localStorage.getItem("reader_ui_theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="shell site-header">
+    <a class="logo" href="index.html"><span>📖</span> E-Book</a>
+    <nav class="header-nav">
+      <a href="index.html" class="nav-link">Trang chủ</a>
+      <a href="about.html" class="nav-link active">Giới thiệu</a>
+      <a href="author.html" class="nav-link">Tác giả</a>
+      <a href="publisher.html" class="nav-link">Nhà xuất bản</a>
+      <a href="contact.html" class="nav-link">Liên hệ</a>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="btn btn-icon" id="theme-toggle" title="Giao diện">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="shell hero" style="padding: 6rem 0; text-align: center;">
+      <h1 style="color: var(--accent); margin-bottom: 1rem;">Giới thiệu</h1>
+      <p class="lead" style="max-width: 600px; margin: 0 auto; color: var(--muted);">
+        Trang này đang trong quá trình xây dựng. Bạn có thể quay lại trang chủ để tiếp tục trải nghiệm đọc sách.
+      </p>
+      <div style="margin-top: 2rem;">
+        <a href="index.html" class="btn btn-primary">Về Trang chủ</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell site-footer" style="position: fixed; bottom: 0; width: 100%;">
+    <p>E-Book — demo đọc sách front-end. © <span id="year"></span></p>
+  </footer>
+
+  <script type="module" src="js/landing.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đang đọc — Reader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/app.css" />
+  <script>
+    (function () {
+      var t = localStorage.getItem("reader_ui_theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+</head>
+<body class="reader-layout">
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="read-header">
+    <div class="read-header-inner">
+      <a class="read-back" href="index.html">← Trang chủ</a>
+      <div class="read-head-center">
+        <h1 id="book-title">Đang tải…</h1>
+        <p id="book-author"></p>
+      </div>
+      <button type="button" class="btn btn-icon" id="theme-toggle" title="Giao diện">🌙</button>
+    </div>
+    <div class="read-progress-line"><span id="progress-fill"></span></div>
+    <div class="read-progress-label" id="progress-pct">0% đã đọc</div>
+  </header>
+
+  <div class="read-body">
+    <aside class="read-toc">
+      <h2>Mục lục</h2>
+      <nav id="toc-nav"></nav>
+    </aside>
+    <div class="read-scroll" id="read-scroll">
+      <article class="read-article" id="article"></article>
+    </div>
+  </div>
+
+  <button type="button" class="dock-toggle" id="dock-toggle" aria-label="Mở cài đặt">
+    <svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+  </button>
+
+  <div class="read-dock" id="read-dock">
+    <div class="read-dock-inner">
+      <div class="dock-row">
+        <div class="dock-label">Đánh dấu & Giọng đọc</div>
+        <div>
+          <button type="button" class="dock-btn" id="btn-highlight">Đánh dấu</button>
+          <button type="button" class="dock-btn" id="btn-clear-hl">Xóa dấu</button>
+        </div>
+        <div>
+          <select id="voice-select" class="dock-select"></select>
+        </div>
+        <div>
+          <button type="button" class="dock-btn" id="btn-speak">Đọc</button>
+          <button type="button" class="dock-btn" id="btn-pause">Dừng/Phát</button>
+          <button type="button" class="dock-btn" id="btn-stop">Tắt</button>
+        </div>
+        <p class="hint" id="voice-hint"></p>
+      </div>
+      <div class="dock-row">
+        <div class="dock-label">Giọng đọc</div>
+        <div style="flex-direction: column; align-items: stretch; gap: 0.2rem">
+           <label class="hint">Tốc độ</label>
+           <input type="range" class="dock-range" id="rate" min="0.75" max="1.12" step="0.03" value="0.92" />
+        </div>
+        <div style="flex-direction: column; align-items: stretch; gap: 0.2rem">
+           <label class="hint">Cao độ</label>
+           <input type="range" class="dock-range" id="pitch" min="0.85" max="1.12" step="0.03" value="1" />
+        </div>
+      </div>
+      <div class="dock-row">
+        <div class="dock-label">Cuộn & Nhạc nền</div>
+        <div style="flex-direction: column; align-items: stretch; gap: 0.2rem">
+           <label class="hint" style="display: flex; align-items: center; gap: 0.5rem">
+             <input type="checkbox" id="auto-scroll" /> Cuộn tự động
+           </label>
+        </div>
+        <div style="flex-direction: column; align-items: stretch; gap: 0.2rem">
+           <label class="hint">Tốc độ cuộn</label>
+           <input type="range" class="dock-range" id="scroll-speed" min="10" max="90" value="32" />
+        </div>
+        <div>
+          <button type="button" class="dock-btn" id="btn-ambient">♪ Phát nhạc</button>
+        </div>
+        <div style="flex-direction: column; align-items: stretch; gap: 0.2rem">
+           <label class="hint">Âm lượng nhạc</label>
+           <input type="range" class="dock-range" id="music-vol" min="0" max="100" value="28" />
+        </div>
+      </div>
+      <div class="dock-row">
+        <div class="dock-label">Hiển thị</div>
+        <div style="flex-direction: column; align-items: stretch; gap: 0.2rem">
+           <label class="hint">Cỡ chữ</label>
+           <input type="range" class="dock-range" id="font-size" min="15" max="26" value="18" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/reader-app.js"></script>
+</body>
+</html>

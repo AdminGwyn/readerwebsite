@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Đọc sách trong trình duyệt — đẹp, dễ dùng." />
+  <title>Reader — Đọc sách đẹp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/app.css" />
+  <script>
+    (function () {
+      var t = localStorage.getItem("reader_ui_theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <button type="button" class="admin-fab" id="admin-fab" aria-label="Quản trị" title="Đăng nhập admin"><span></span></button>
+
+  <header class="shell site-header">
+    <a class="logo" href="index.html"><span>📖</span> E-Book</a>
+    <nav class="header-nav">
+      <a href="index.html" class="nav-link active">Trang chủ</a>
+      <a href="about.html" class="nav-link">Giới thiệu</a>
+      <a href="author.html" class="nav-link">Tác giả</a>
+      <a href="publisher.html" class="nav-link">Nhà xuất bản</a>
+      <a href="contact.html" class="nav-link">Liên hệ</a>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="btn btn-icon" id="theme-toggle" title="Giao diện">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="shell hero">
+      <div class="hero-inner">
+        <h1>Read Better</h1>
+        <p class="lead">
+          Đọc sách mượt hơn, tập trung hơn và thoải mái hơn trên mọi thiết bị.
+        </p>
+      </div>
+    </section>
+
+    <section class="novel-slider-section">
+      <div class="novel-slider">
+        <div class="novel-track">
+          <!-- Set 1 -->
+          <div class="novel-set">
+            <a href="book-detail.html?id=novel1" class="novel-item">
+              <div class="novel-cover" style="background: linear-gradient(135deg, #1e3c72, #2a5298)">
+                 <span>Tiên Nghịch</span>
+              </div>
+              <h4>Tiên Nghịch</h4>
+              <p>Nhĩ Căn</p>
+            </a>
+            <a href="book-detail.html?id=novel2" class="novel-item">
+              <div class="novel-cover" style="background: linear-gradient(135deg, #8E2DE2, #4A00E0)">
+                 <span>Phàm Nhân Tu Tiên</span>
+              </div>
+              <h4>Phàm Nhân Tu Tiên</h4>
+              <p>Vong Ngữ</p>
+            </a>
+            <a href="book-detail.html?id=novel3" class="novel-item">
+              <div class="novel-cover" style="background: linear-gradient(135deg, #FF416C, #FF4B2B)">
+                 <span>Đấu Phá Thương Khung</span>
+              </div>
+              <h4>Đấu Phá Thương Khung</h4>
+              <p>Thiên Tằm Thổ Đậu</p>
+            </a>
+            <a href="book-detail.html?id=novel4" class="novel-item">
+              <div class="novel-cover" style="background: linear-gradient(135deg, #00b09b, #96c93d)">
+                 <span>Thế Giới Hoàn Mỹ</span>
+              </div>
+              <h4>Thế Giới Hoàn Mỹ</h4>
+              <p>Thần Đông</p>
+            </a>
+            <a href="book-detail.html?id=novel5" class="novel-item">
+              <div class="novel-cover" style="background: linear-gradient(135deg, #11998e, #38ef7d)">
+                 <span>Kiếm Lai</span>
+              </div>
+              <h4>Kiếm Lai</h4>
+              <p>Phong Hỏa Hí Chư Hầu</p>
+            </a>
+            <a href="book-detail.html?id=novel6" class="novel-item">
+              <div class="novel-cover" style="background: linear-gradient(135deg, #f12711, #f5af19)">
+                 <span>Già Thiên</span>
+              </div>
+              <h4>Già Thiên</h4>
+              <p>Thần Đông</p>
+            </a>
+          </div>
+          <!-- Set 2 (Duplicate for continuous loop) -->
+          <div class="novel-set" aria-hidden="true">
+            <a href="book-detail.html?id=novel1" class="novel-item">
+              <div class="novel-cover" style="background: linear-gradient(135deg, #1e3c72, #2a5298)">
+                 <span>Tiên Nghịch</span>
+              </div>
+              <h4>Tiên Nghịch</h4>
+              <p>Nhĩ Căn</p>
+            </a>
+            <a href="book-detail.html?id=novel2" class="novel-item">
+              <div class="novel-cover" style="background: linear-gradient(135deg, #8E2DE2, #4A00E0)">
+                 <span>Phàm Nhân Tu Tiên</span>
+              </div>
+              <h4>Phàm Nhân Tu Tiên</h4>
+              <p>Vong Ngữ</p>
+            </a>
+            <a href="book-detail.html?id=novel3" class="novel-item">
+              <div class="novel-cover" style="background: linear-gradient(135deg, #FF416C, #FF4B2B)">
+                 <span>Đấu Phá Thương Khung</span>
+              </div>
+              <h4>Đấu Phá Thương Khung</h4>
+              <p>Thiên Tằm Thổ Đậu</p>
+            </a>
+            <a href="book-detail.html?id=novel4" class="novel-item">
+              <div class="novel-cover" style="background: linear-gradient(135deg, #00b09b, #96c93d)">
+                 <span>Thế Giới Hoàn Mỹ</span>
+              </div>
+              <h4>Thế Giới Hoàn Mỹ</h4>
+              <p>Thần Đông</p>
+            </a>
+            <a href="book-detail.html?id=novel5" class="novel-item">
+              <div class="novel-cover" style="background: linear-gradient(135deg, #11998e, #38ef7d)">
+                 <span>Kiếm Lai</span>
+              </div>
+              <h4>Kiếm Lai</h4>
+              <p>Phong Hỏa Hí Chư Hầu</p>
+            </a>
+            <a href="book-detail.html?id=novel6" class="novel-item">
+              <div class="novel-cover" style="background: linear-gradient(135deg, #f12711, #f5af19)">
+                 <span>Già Thiên</span>
+              </div>
+              <h4>Già Thiên</h4>
+              <p>Thần Đông</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell site-footer">
+    <p>Reader — demo đọc sách front-end. © <span id="year"></span></p>
+  </footer>
+
+  <dialog class="modal" id="dlg-login">
+    <div class="modal-body">
+      <h3>Đăng nhập quản trị</h3>
+      <label for="adm-user">Tài khoản</label>
+      <input id="adm-user" autocomplete="username" placeholder="admin123" />
+      <label for="adm-pass">Mật khẩu</label>
+      <input id="adm-pass" type="password" autocomplete="current-password" placeholder="••••••••" />
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="adm-cancel">Hủy</button>
+        <button type="button" class="btn btn-primary" id="adm-go">Vào quản trị</button>
+      </div>
+      <p class="hint">Demo — chỉ lưu phiên trên trình duyệt.</p>
+    </div>
+  </dialog>
+
+  <script type="module" src="js/landing.js"></script>
+</body>
+</html>
