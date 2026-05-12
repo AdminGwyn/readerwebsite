@@ -75,16 +75,6 @@ body {
   transition: width 0.1s linear;
   box-shadow: 0 0 10px var(--accent);
 }
-#reading-progress-text {
-  position: fixed; bottom: 80px; right: 20px; z-index: 900;
-  background: var(--bg-nav); color: var(--accent);
-  border: 1px solid var(--accent);
-  border-radius: 50px; padding: 4px 14px;
-  font-family: var(--font-ui); font-size: 12px; font-weight: 700;
-  opacity: 0; transition: opacity 0.3s;
-  pointer-events: none;
-}
-body:hover #reading-progress-text { opacity: 1; }
 
 /* ── TOP NAV ── */
 .top-nav {
@@ -357,7 +347,7 @@ body.light-theme .paper { box-shadow: 0 4px 40px rgba(0,0,0,0.08); }
 /* ── BACK TO TOP ── */
 #btn-back-to-top {
   position: fixed;
-  bottom: 25px;
+  bottom: 80px;
   left: 20px; /* Moved to left */
   width: 45px;
   height: 45px;
