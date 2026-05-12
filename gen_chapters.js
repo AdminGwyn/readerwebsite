@@ -216,8 +216,9 @@ chapters.forEach((ch, index) => {
             }
         }
 
-        // Clean up escaped characters
+        // Clean up escaped characters and common artifacts
         line = line.replace(/\\([.\-!$])/g, '$1');
+        line = line.replace(/_/g, ''); // Remove stray underscores
 
         // Headers
         if (line.startsWith('### ')) {
@@ -227,9 +228,9 @@ chapters.forEach((ch, index) => {
         } else if (line.startsWith('# ')) {
             processedLines.push(`<h3>${line.substring(2)}</h3>`);
         } 
-        // Images: "HINH 1" -> <img src="IMG/1.png">
-        else if (/^HINH\s+(\d+)/i.test(line)) {
-            const num = line.match(/^HINH\s+(\d+)/i)[1];
+        // Images: "HÌNH 1" or "HINH 1" -> <img src="IMG/1.png">
+        else if (/H[ÌÍI]NH\s+(\d+)/i.test(line)) {
+            const num = line.match(/H[ÌÍI]NH\s+(\d+)/i)[1];
             processedLines.push(`<div class="content-image"><img src="IMG/${num}.png" alt="Hình ${num}"><span>Hình ${num}</span></div>`);
         }
         else {

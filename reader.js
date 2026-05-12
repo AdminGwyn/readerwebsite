@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedSize = localStorage.getItem('reader_fs');
   if (savedSize) { paper.style.fontSize = savedSize; }
 
+  let currentLineHeight = parseFloat(localStorage.getItem('reader_lh')) || 1.85;
+
   const savedLH = localStorage.getItem('reader_lh');
   if (savedLH) { paper.style.lineHeight = savedLH; currentLineHeight = parseFloat(savedLH); }
 
@@ -87,8 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (settingsPanel) settingsPanel.classList.toggle('active');
     document.querySelectorAll('.sidebar').forEach(s => s.classList.remove('active'));
   };
-
-  let currentLineHeight = parseFloat(localStorage.getItem('reader_lh')) || 1.85;
 
   window.changeFont = (font) => {
     paper.style.fontFamily = font;
