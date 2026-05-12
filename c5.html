@@ -3,30 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hình Vẽ Thông Minh - Day 4 & Appendix</title>
+    <title>Ngày 4 — Hình Vẽ Thông Minh</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body class="reader-page">
-    <div id="reading-progress"></div>
+<body>
+    <!-- READING PROGRESS BAR -->
+    <div id="reading-progress">
+        <div id="reading-progress-bar"></div>
+    </div>
     <div id="reading-progress-text">0%</div>
 
-    <div class="reader-header">
-        <div class="header-left">
-            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
-            <h1>Day 4 & Appendix</h1>
+    <!-- TOP NAVIGATION -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <a href="index.html" class="nav-icon"><i class="fas fa-home"></i><span class="icon-label">Trang chủ</span></a>
+            <button class="nav-icon" id="btn-toc" onclick="openSidebar('sidebar-toc')"><i class="fas fa-list-ul"></i><span class="icon-label">Mục lục</span></button>
+            <button class="nav-icon" id="btn-info" onclick="openSidebar('sidebar-info')"><i class="fas fa-info-circle"></i><span class="icon-label">Thông tin</span></button>
         </div>
-        <div class="header-controls">
-            <button id="theme-toggle" title="Chuyển chế độ sáng/tối"><i class="fas fa-moon"></i></button>
-            <button id="tts-btn" title="Đọc văn bản"><i class="fas fa-volume-up"></i></button>
-            <button id="autoscroll-btn" title="Cuộn tự động"><i class="fas fa-magic"></i></button>
-            <button id="bg-music-btn" title="Nhạc nền"><i class="fas fa-music"></i></button>
+        <div class="nav-center">
+            <span class="book-title">HÌNH VẼ THÔNG MINH</span>
+            <span class="chapter-title">NGÀY 4: TRÌNH BÀY</span>
+        </div>
+        <div class="nav-right">
+            <button class="nav-icon" id="btn-audio"><i class="fas fa-headphones"></i><span class="icon-label">Giọng đọc</span></button>
+            <button class="nav-icon" id="btn-fullscreen"><i class="fas fa-expand"></i><span class="icon-label">Toàn màn hình</span></button>
+            <button class="nav-icon" id="btn-settings" onclick="toggleSettings()"><i class="fas fa-cog"></i><span class="icon-label">Cài đặt</span></button>
+        </div>
+    </nav>
+
+    <!-- CHAPTER NAV ARROWS -->
+    <a href="c4.html" class="nav-arrow left"><i class="fas fa-chevron-left"></i></a>
+    
+
+    <!-- SIDEBAR: TOC -->
+    <div class="sidebar" id="sidebar-toc">
+        <div class="sidebar-header">Mục lục cuốn sách</div>
+        <div class="sidebar-body">
+            <ul class="toc-list">
+                <li class=""><a href="c1.html">Phần mở đầu: Khăn giấy, ứng dụng</a></li>
+                <li class=""><a href="c2.html">Ngày 1: Nhìn</a></li>
+                <li class=""><a href="c3.html">Ngày 2: Thấy</a></li>
+                <li class=""><a href="c4.html">Ngày 3: Hình dung</a></li>
+                <li class="active"><a href="c5.html">Ngày 4: Trình bày</a></li>
+            </ul>
         </div>
     </div>
 
+    <!-- SIDEBAR: INFO -->
+    <div class="sidebar" id="sidebar-info">
+        <div class="sidebar-header">Thông tin tác phẩm</div>
+        <div class="sidebar-body">
+            <div class="info-card">
+                <img src="IMG/bìa.png" alt="Bìa sách">
+                <h3>Hình Vẽ Thông Minh</h3>
+                <p class="author">Dan Roam</p>
+                <div class="summary">
+                    Giải quyết mọi vấn đề phức tạp bằng những hình vẽ đơn giản. Khám phá phương pháp tư duy hình ảnh đã chinh phục Microsoft, Google, Boeing và Thượng viện Hoa Kỳ.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SETTINGS PANEL -->
+    <div class="settings-panel" id="settings-panel">
+        <div class="panel-title">Cài đặt giao diện</div>
+        
+        <div class="section">
+            <div class="section-title">Tìm kiếm</div>
+            <div class="search-box">
+                <input type="text" id="input-search" placeholder="Nhập từ khóa...">
+                <button onclick="handleSearch()"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Chủ đề màu sắc</div>
+            <div class="theme-grid">
+                <button class="t-btn t-light" onclick="changeTheme('light')"><span>Sáng</span></button>
+                <button class="t-btn t-sepia" onclick="changeTheme('sepia')"><span>Cổ điển</span></button>
+                <button class="t-btn t-dark" onclick="changeTheme('dark')"><span>Tối</span></button>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Phông chữ & Cỡ chữ</div>
+            <select class="font-dropdown" onchange="changeFont(this.value)">
+                <option value="'Lora', serif">Lora (Serif)</option>
+                <option value="'Inter', sans-serif">Inter (Sans-serif)</option>
+                <option value="Georgia, serif">Georgia</option>
+            </select>
+            <div class="control-row">
+                <span class="label">Cỡ chữ</span>
+                <div class="btn-group">
+                    <button onclick="updateFont(-1)"><i class="fas fa-minus"></i></button>
+                    <button onclick="updateFont(1)"><i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+            <div class="control-row">
+                <span class="label">Giãn dòng</span>
+                <div class="btn-group">
+                    <button onclick="updateLineHeight(-0.1)"><i class="fas fa-minus"></i></button>
+                    <button onclick="updateLineHeight(0.1)"><i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Công cụ highlight</div>
+            <div class="highlight-colors">
+                <div class="hl-color hl-yellow" onclick="setHLColor('yellow')"></div>
+                <div class="hl-color hl-green" onclick="setHLColor('green')"></div>
+                <div class="hl-color hl-blue" onclick="setHLColor('blue')"></div>
+                <div class="hl-color hl-pink" onclick="setHLColor('pink')"></div>
+            </div>
+            <div class="action-grid">
+                <button class="btn-action highlight" onclick="doHighlight()"><i class="fas fa-highlighter"></i> Đánh dấu</button>
+                <button class="btn-action eraser" onclick="clearAllHighlights()"><i class="fas fa-eraser"></i></button>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Cuộn tự động</div>
+            <div class="autoscroll-row">
+                <span class="label">Kích hoạt</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="autoscroll-toggle" onchange="toggleAutoScroll()">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <div class="control-row">
+                <span class="label">Tốc độ: <span id="scroll-speed-label">1.5x</span></span>
+            </div>
+            <input type="range" class="speed-slider" min="0.5" max="5" step="0.5" value="1.5" oninput="updateScrollSpeed(this.value)">
+        </div>
+
+        <div class="section music-section">
+            <div class="section-title">Nhạc nền tập trung</div>
+            <div class="music-tracks">
+                <div class="music-track" id="btn-music-1" onclick="playTrack(1)"><i class="fas fa-leaf"></i> Nature Focus</div>
+                <div class="music-track" id="btn-music-2" onclick="playTrack(2)"><i class="fas fa-water"></i> Deep Ocean</div>
+                <div class="music-track" id="btn-music-3" onclick="playTrack(3)"><i class="fas fa-wind"></i> Ambient Wind</div>
+            </div>
+            <div class="vol-row">
+                <i class="fas fa-volume-down"></i>
+                <input type="range" class="vol-slider" min="0" max="1" step="0.1" value="0.5" oninput="updateMusicVolume(this.value)">
+                <i class="fas fa-volume-up"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- TTS STATUS -->
+    <div id="tts-status">
+        <div class="pulse-dot"></div>
+        <span>Đang đọc...</span>
+    </div>
+
+    <!-- MAIN READER AREA -->
     <div class="reader-container">
-        <div class="content-body" id="book-content">
-            <p><a id="NGÀY 4: TRÌNH BÀY"></a></p>
+        <div class="paper" id="reader-content">
+            <h2 class="content-h2">NGÀY 4: TRÌNH BÀY</h2>
+            <div id="book-content">
+                <p><a id="NGÀY 4: TRÌNH BÀY"></a></p>
 
 <h3>Ôn tập nhanh</h3>
 
@@ -614,9 +752,9 @@
 
 <p>Tôi hy vọng rằng hội thảo này sẽ giúp điều kỳ diệu đó xảy ra với bạn.</p>
 
-<h1>PHỤ LỤC:</h1>
+<h3>PHỤ LỤC:</h3>
 
-<h2><a id="PHỤ LỤC: ĐÁP ÁN CỦA TÔI CHO NHỮNG BÀI TẬ"></a>ĐÁP ÁN CỦA TÔI</h2>
+<h3><a id="PHỤ LỤC: ĐÁP ÁN CỦA TÔI CHO NHỮNG BÀI TẬ"></a>ĐÁP ÁN CỦA TÔI</h3>
 
 <p>CHO NHỮNG BÀI TẬP THỬ THÁCH</p>
 
@@ -809,21 +947,14 @@
 
 
 
-        </div>
-
-        <div class="reader-navigation">
-            <a href="c4.html" class="nav-btn prev"><i class="fas fa-chevron-left"></i> Chương trước</a>
-            <div></div>
+            </div>
         </div>
     </div>
 
+    <!-- BACK TO TOP -->
     <button id="btn-back-to-top" title="Lên đầu trang"><i class="fas fa-arrow-up"></i></button>
 
-    <div id="music-player" class="music-control">
-        <span><i class="fas fa-compact-disc fa-spin"></i> Ambient Focus</span>
-        <input type="range" id="music-volume" min="0" max="1" step="0.1" value="0.5">
-    </div>
-
     <script src="reader.js"></script>
+    <script src="music.js"></script>
 </body>
 </html>

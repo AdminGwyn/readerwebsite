@@ -2,37 +2,39 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const content = document.getElementById('book-content');
-  if (!content) return;
+  const paper = document.getElementById('reader-content');
+  const settingsPanel = document.getElementById('settings-panel');
+  if (!paper) return;
 
-  // --- 1. THEME TOGGLE ---
-  const themeToggle = document.getElementById('theme-toggle');
+  // ══════════════════════════════════════════════
+  // 1. THEME & STATE RESTORE
+  // ══════════════════════════════════════════════
   const savedTheme = localStorage.getItem('reader_theme') || 'dark';
-  document.body.className = savedTheme + '-theme';
-  updateThemeIcon(savedTheme);
+  applyTheme(savedTheme);
 
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      document.body.className = newTheme + '-theme';
-      localStorage.setItem('reader_theme', newTheme);
-      updateThemeIcon(newTheme);
-    });
+  const savedFont = localStorage.getItem('reader_font');
+  if (savedFont) { paper.style.fontFamily = savedFont; }
+
+  const savedSize = localStorage.getItem('reader_fs');
+  if (savedSize) { paper.style.fontSize = savedSize; }
+
+  const savedLH = localStorage.getItem('reader_lh');
+  if (savedLH) { paper.style.lineHeight = savedLH; currentLineHeight = parseFloat(savedLH); }
+
+  function applyTheme(t) {
+    document.body.className = t + '-theme';
+    localStorage.setItem('reader_theme', t);
+    document.querySelectorAll('.t-btn').forEach(b => b.classList.remove('selected'));
+    const btn = document.querySelector('.t-' + t);
+    if (btn) btn.classList.add('selected');
   }
 
-  function updateThemeIcon(theme) {
-    if (!themeToggle) return;
-    const icon = themeToggle.querySelector('i');
-    if (theme === 'light') {
-      icon.className = 'fas fa-moon';
-    } else {
-      icon.className = 'fas fa-sun';
-    }
-  }
+  window.changeTheme = (t) => applyTheme(t);
 
-  // --- 2. READING PROGRESS ---
-  const progressBar = document.getElementById('reading-progress');
+  // ══════════════════════════════════════════════
+  // 2. READING PROGRESS BAR
+  // ══════════════════════════════════════════════
+  const progressBar = document.getElementById('reading-progress-bar');
   const progressText = document.getElementById('reading-progress-text');
 
   function updateProgress() {
@@ -41,11 +43,161 @@ document.addEventListener('DOMContentLoaded', () => {
     const pct = docH > 0 ? Math.round((scrollTop / docH) * 100) : 0;
     if (progressBar) progressBar.style.width = pct + '%';
     if (progressText) progressText.textContent = pct + '%';
+    localStorage.setItem('reader_progress_' + location.pathname, pct);
   }
   window.addEventListener('scroll', updateProgress, { passive: true });
 
-  // --- 3. AI TTS (Vietnamese) ---
-  const ttsBtn = document.getElementById('tts-btn');
+  // ══════════════════════════════════════════════
+  // 3. SIDEBAR MANAGEMENT
+  // ══════════════════════════════════════════════
+  window.openSidebar = (id) => {
+    const sb = document.getElementById(id);
+    if (!sb) return;
+    const isActive = sb.classList.toggle('active');
+    document.querySelectorAll('.sidebar').forEach(s => {
+      if (s.id !== id) s.classList.remove('active');
+    });
+    if (settingsPanel) settingsPanel.classList.remove('active');
+  };
+
+  document.addEventListener('mousedown', (e) => {
+    if (!e.target.closest('.sidebar') && !e.target.closest('.settings-panel') && !e.target.closest('.nav-icon')) {
+      document.querySelectorAll('.sidebar').forEach(s => s.classList.remove('active'));
+      if (settingsPanel) settingsPanel.classList.remove('active');
+    }
+  });
+
+  // ══════════════════════════════════════════════
+  // 4. SETTINGS PANEL
+  // ══════════════════════════════════════════════
+  window.toggleSettings = () => {
+    if (settingsPanel) settingsPanel.classList.toggle('active');
+    document.querySelectorAll('.sidebar').forEach(s => s.classList.remove('active'));
+  };
+
+  let currentLineHeight = parseFloat(localStorage.getItem('reader_lh')) || 1.85;
+
+  window.changeFont = (font) => {
+    paper.style.fontFamily = font;
+    localStorage.setItem('reader_font', font);
+  };
+
+  window.updateFont = (step) => {
+    const size = parseInt(window.getComputedStyle(paper).fontSize);
+    const newSize = Math.max(14, Math.min(28, size + step));
+    paper.style.fontSize = newSize + 'px';
+    localStorage.setItem('reader_fs', newSize + 'px');
+  };
+
+  window.updateLineHeight = (step) => {
+    currentLineHeight = Math.max(1.3, Math.min(3.0, currentLineHeight + step));
+    paper.style.lineHeight = currentLineHeight;
+    localStorage.setItem('reader_lh', currentLineHeight);
+  };
+
+  // ══════════════════════════════════════════════
+  // 5. HIGHLIGHT SYSTEM
+  // ══════════════════════════════════════════════
+  let activeHLColor = 'hl-yellow-mark';
+
+  window.setHLColor = (color) => {
+    activeHLColor = color + '-mark';
+    document.querySelectorAll('.hl-color').forEach(b => b.classList.remove('active'));
+    document.querySelector('.hl-' + color)?.classList.add('active');
+  };
+
+  window.doHighlight = () => {
+    const sel = window.getSelection();
+    if (!sel.rangeCount || sel.isCollapsed) return;
+    const range = sel.getRangeAt(0);
+    if (!paper.contains(range.commonAncestorContainer)) return;
+    const span = document.createElement('span');
+    span.className = 'user-highlight ' + activeHLColor;
+    span.title = 'Click để xóa highlight';
+    span.addEventListener('click', () => {
+      span.replaceWith(...span.childNodes);
+      paper.normalize();
+      saveHighlights();
+    });
+    try {
+      range.surroundContents(span);
+    } catch {
+      const contents = range.extractContents();
+      span.appendChild(contents);
+      range.insertNode(span);
+    }
+    sel.removeAllRanges();
+    saveHighlights();
+  };
+
+  window.clearAllHighlights = () => {
+    paper.querySelectorAll('.user-highlight').forEach(el => {
+      el.replaceWith(...el.childNodes);
+    });
+    paper.normalize();
+    saveHighlights();
+  };
+
+  function saveHighlights() {
+    localStorage.setItem('hl_' + location.pathname, paper.innerHTML);
+  }
+
+  function loadHighlights() {
+    const saved = localStorage.getItem('hl_' + location.pathname);
+    if (saved) {
+      paper.innerHTML = saved;
+      paper.querySelectorAll('.user-highlight').forEach(span => {
+        span.addEventListener('click', () => {
+          span.replaceWith(...span.childNodes);
+          paper.normalize();
+          saveHighlights();
+        });
+      });
+    }
+  }
+  loadHighlights();
+
+  // ══════════════════════════════════════════════
+  // 6. SEARCH
+  // ══════════════════════════════════════════════
+  window.handleSearch = () => {
+    const input = document.getElementById('input-search');
+    const key = input?.value.trim();
+    paper.querySelectorAll('.find-result').forEach(m => m.replaceWith(...m.childNodes));
+    paper.normalize();
+    if (!key) return;
+    const walker = document.createTreeWalker(paper, NodeFilter.SHOW_TEXT);
+    const matches = [];
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+      if (node.nodeValue.toLowerCase().includes(key.toLowerCase())) {
+        matches.push(node);
+      }
+    }
+    matches.forEach(node => {
+      const regex = new RegExp(`(${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+      const frag = document.createDocumentFragment();
+      node.nodeValue.split(regex).forEach((part, i) => {
+        if (i % 2 === 1) {
+          const span = document.createElement('span');
+          span.className = 'find-result';
+          span.textContent = part;
+          frag.appendChild(span);
+        } else if (part) {
+          frag.appendChild(document.createTextNode(part));
+        }
+      });
+      node.parentNode.replaceChild(frag, node);
+    });
+    const first = paper.querySelector('.find-result');
+    if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
+  // ══════════════════════════════════════════════
+  // 7. AI TEXT-TO-SPEECH (Vietnamese)
+  // ══════════════════════════════════════════════
+  const audioBtn = document.getElementById('btn-audio');
+  const ttsStatus = document.getElementById('tts-status');
   let synth = window.speechSynthesis;
   let isSpeaking = false;
 
@@ -62,12 +214,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function startTTS() {
     synth.cancel();
     isSpeaking = true;
-    if (ttsBtn) {
-        ttsBtn.classList.add('active');
-        ttsBtn.innerHTML = '<i class="fas fa-stop"></i>';
+    if (audioBtn) {
+      audioBtn.classList.add('active');
+      audioBtn.innerHTML = '<i class="fas fa-stop"></i><span class="icon-label">Dừng</span>';
     }
+    if (ttsStatus) ttsStatus.classList.add('active');
 
-    const text = content.innerText;
+    const text = paper.innerText;
     const chunks = text.match(/[^.!?:]+[.!?:]+/g) || [text];
     let currentChunk = 0;
 
@@ -91,104 +244,93 @@ document.addEventListener('DOMContentLoaded', () => {
   function stopTTS() {
     isSpeaking = false;
     synth.cancel();
-    if (ttsBtn) {
-        ttsBtn.classList.remove('active');
-        ttsBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+    if (audioBtn) {
+      audioBtn.classList.remove('active');
+      audioBtn.innerHTML = '<i class="fas fa-headphones"></i><span class="icon-label">Giọng đọc</span>';
     }
+    if (ttsStatus) ttsStatus.classList.remove('active');
   }
 
-  if (ttsBtn) {
-    ttsBtn.addEventListener('click', () => {
+  if (audioBtn) {
+    audioBtn.addEventListener('click', () => {
       if (isSpeaking) stopTTS();
       else startTTS();
     });
   }
 
-  // --- 4. AUTO SCROLL ---
-  const scrollBtn = document.getElementById('autoscroll-btn');
-  let scrollInterval = null;
-  let scrollActive = false;
+  // ══════════════════════════════════════════════
+  // 8. AUTO SCROLL
+  // ══════════════════════════════════════════════
+  let autoScrollInterval = null;
+  let autoScrollSpeed = 1.5;
 
-  if (scrollBtn) {
-    scrollBtn.addEventListener('click', () => {
-      scrollActive = !scrollActive;
-      if (scrollActive) {
-        scrollBtn.classList.add('active');
-        scrollInterval = setInterval(() => {
-          window.scrollBy({ top: 1, behavior: 'auto' });
-          if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-              clearInterval(scrollInterval);
-              scrollActive = false;
-              scrollBtn.classList.remove('active');
-          }
-        }, 30);
+  window.toggleAutoScroll = () => {
+    const toggle = document.getElementById('autoscroll-toggle');
+    if (toggle?.checked) {
+      autoScrollInterval = setInterval(() => {
+        window.scrollBy({ top: 1, behavior: 'auto' });
+        if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 10) {
+          clearInterval(autoScrollInterval);
+          if (toggle) toggle.checked = false;
+        }
+      }, 30 / autoScrollSpeed);
+    } else {
+      clearInterval(autoScrollInterval);
+      autoScrollInterval = null;
+    }
+  };
+
+  window.updateScrollSpeed = (val) => {
+    autoScrollSpeed = parseFloat(val);
+    const label = document.getElementById('scroll-speed-label');
+    if (label) label.textContent = val + 'x';
+    if (autoScrollInterval) {
+      clearInterval(autoScrollInterval);
+      window.toggleAutoScroll();
+    }
+  };
+
+  // ══════════════════════════════════════════════
+  // 9. BACKGROUND MUSIC
+  // ══════════════════════════════════════════════
+  window.playTrack = (trackId) => {
+    if (typeof AmbientMusic !== 'undefined') {
+        AmbientMusic.play(trackId);
+        document.querySelectorAll('.music-track').forEach(t => t.classList.remove('playing'));
+        document.getElementById('btn-music-' + trackId)?.classList.add('playing');
+    }
+  };
+
+  window.updateMusicVolume = (val) => {
+    if (typeof AmbientMusic !== 'undefined') AmbientMusic.setVolume(parseFloat(val));
+  };
+
+  // ══════════════════════════════════════════════
+  // 10. FULLSCREEN
+  // ══════════════════════════════════════════════
+  const fsBtn = document.getElementById('btn-fullscreen');
+  if (fsBtn) {
+    fsBtn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+        fsBtn.innerHTML = '<i class="fas fa-compress"></i><span class="icon-label">Thu nhỏ</span>';
       } else {
-        scrollBtn.classList.remove('active');
-        clearInterval(scrollInterval);
+        document.exitFullscreen();
+        fsBtn.innerHTML = '<i class="fas fa-expand"></i><span class="icon-label">Toàn màn hình</span>';
       }
     });
   }
 
-  // --- 5. BACKGROUND MUSIC ---
-  const musicBtn = document.getElementById('bg-music-btn');
-  const musicPlayer = document.getElementById('music-player');
-  const volumeSlider = document.getElementById('music-volume');
-  let musicAudio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
-  musicAudio.loop = true;
-  let musicPlaying = false;
-
-  if (musicBtn) {
-    musicBtn.addEventListener('click', () => {
-      musicPlaying = !musicPlaying;
-      if (musicPlaying) {
-        musicAudio.play().catch(() => {
-            alert('Vui lòng tương tác với trang để phát nhạc');
-            musicPlaying = false;
-        });
-        musicBtn.classList.add('active');
-        if (musicPlayer) musicPlayer.classList.add('visible');
-      } else {
-        musicAudio.pause();
-        musicBtn.classList.remove('active');
-        if (musicPlayer) musicPlayer.classList.remove('visible');
-      }
-    });
-  }
-
-  if (volumeSlider) {
-    volumeSlider.addEventListener('input', (e) => {
-      musicAudio.volume = e.target.value;
-    });
-  }
-
-  // --- 6. BACK TO TOP ---
+  // ══════════════════════════════════════════════
+  // 11. BACK TO TOP
+  // ══════════════════════════════════════════════
   const topBtn = document.getElementById('btn-back-to-top');
   if (topBtn) {
     window.addEventListener('scroll', () => {
-      topBtn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+      topBtn.classList.toggle('visible', window.scrollY > 400);
     }, { passive: true });
-
     topBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
-
-  // --- 7. HIGHLIGHT TEXT ---
-  content.addEventListener('mouseup', () => {
-      const selection = window.getSelection();
-      if (selection.toString().length > 0) {
-          const range = selection.getRangeAt(0);
-          const span = document.createElement('span');
-          span.className = 'text-highlight';
-          span.style.background = 'rgba(255, 255, 0, 0.4)';
-          span.style.cursor = 'pointer';
-          span.onclick = () => span.outerHTML = span.innerHTML;
-          try {
-              range.surroundContents(span);
-          } catch(e) {
-              // Handle complex selections
-          }
-          selection.removeAllRanges();
-      }
-  });
 });
