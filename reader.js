@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let activeHLColor = 'hl-yellow-mark';
 
   window.setHLColor = (color) => {
-    activeHLColor = color + '-mark';
+    activeHLColor = 'hl-' + color + '-mark';
     document.querySelectorAll('.hl-color').forEach(b => b.classList.remove('active'));
     document.querySelector('.hl-' + color)?.classList.add('active');
   };
@@ -124,17 +124,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!sel.rangeCount || sel.isCollapsed) return;
     const range = sel.getRangeAt(0);
     if (!paper.contains(range.commonAncestorContainer)) return;
+    
     const span = document.createElement('span');
     span.className = 'user-highlight ' + activeHLColor;
     span.title = 'Click để xóa highlight';
-    span.addEventListener('click', () => {
+    span.onclick = (e) => {
+      e.stopPropagation();
       span.replaceWith(...span.childNodes);
       paper.normalize();
       saveHighlights();
-    });
+    };
+
     try {
       range.surroundContents(span);
     } catch {
+      // Fallback for complex selections across multiple nodes
       const contents = range.extractContents();
       span.appendChild(contents);
       range.insertNode(span);
@@ -142,6 +146,16 @@ document.addEventListener('DOMContentLoaded', () => {
     sel.removeAllRanges();
     saveHighlights();
   };
+
+  // Automatic highlight on mouseup
+  paper.addEventListener('mouseup', () => {
+    setTimeout(() => {
+        const sel = window.getSelection();
+        if (sel.toString().length > 0) {
+            window.doHighlight();
+        }
+    }, 10);
+  });
 
   window.clearAllHighlights = () => {
     paper.querySelectorAll('.user-highlight').forEach(el => {
