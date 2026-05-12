@@ -170,11 +170,18 @@ body {
 /* ── SETTINGS PANEL ── */
 .settings-panel {
   position: fixed; top: 70px; right: 16px; width: 300px;
+  max-height: calc(100vh - 90px);
+  overflow-y: auto;
   background: var(--bg-settings); border: 1px solid var(--border);
   border-radius: 20px; padding: 20px;
   box-shadow: var(--shadow); z-index: 2000;
   display: none; font-family: var(--font-ui);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(232,168,56,0.3) transparent;
 }
+.settings-panel::-webkit-scrollbar { width: 4px; }
+.settings-panel::-webkit-scrollbar-thumb { background: rgba(232,168,56,0.3); border-radius: 2px; }
+.settings-panel::-webkit-scrollbar-track { background: transparent; }
 .settings-panel.active { display: block; animation: slideDown 0.25s ease; }
 @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 .settings-panel .panel-title {
@@ -189,7 +196,7 @@ body {
 .search-box {
   display: flex; align-items: center;
   background: rgba(255,255,255,0.05); border: 1px solid var(--border);
-  border-radius: 10px; overflow: hidden; margin-bottom: 16px;
+  border-radius: 10px; overflow: hidden; margin-bottom: 4px;
 }
 .search-box input {
   flex: 1; border: none; background: none; outline: none;
@@ -198,6 +205,15 @@ body {
 }
 .search-box input::placeholder { color: var(--text-muted); }
 .search-box button { background: none; border: none; color: var(--accent); cursor: pointer; padding: 0 14px; font-size: 14px; }
+.search-counter {
+  font-size: 11px; color: var(--text-muted); margin-bottom: 12px;
+  font-family: var(--font-ui); min-height: 16px;
+}
+.find-result.active-find {
+  background: rgba(232,168,56,0.6);
+  outline: 2px solid var(--accent);
+  border-radius: 3px;
+}
 
 /* Theme Grid */
 .theme-grid { display: flex; gap: 10px; }
@@ -446,4 +462,31 @@ body.light-theme .paper { box-shadow: 0 4px 40px rgba(0,0,0,0.08); }
   .nav-arrow { display: none; }
   .floating-toolbar { display: flex; }
   .bottom-progress-bar { padding: 0 20px; }
+  .settings-panel {
+    right: 8px; left: 8px; width: auto;
+    max-height: calc(100vh - 80px);
+    border-radius: 16px; padding: 16px;
+  }
+  .settings-panel .section { margin-bottom: 14px; }
+  .settings-panel .section-title { margin-bottom: 6px; }
+  .theme-grid { gap: 6px; }
+  .t-btn { height: 30px; border-radius: 6px; }
+  .music-tracks { gap: 4px; }
+  .music-track { padding: 6px 8px; font-size: 11px; }
+}
+
+@media (max-width: 480px) {
+  .settings-panel {
+    right: 4px; left: 4px;
+    top: 64px;
+    max-height: calc(100vh - 74px);
+    border-radius: 12px; padding: 12px;
+    font-size: 12px;
+  }
+  .nav-center .book-title { font-size: 11px; }
+  .nav-center .chapter-title { font-size: 9px; }
+  .search-box input { padding: 8px 10px; font-size: 12px; }
+  .control-row .label { font-size: 12px; }
+  .highlight-colors { gap: 6px; }
+  .hl-color { width: 24px; height: 24px; }
 }

@@ -112,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 5. HIGHLIGHT SYSTEM
   // ══════════════════════════════════════════════
   let activeHLColor = 'hl-yellow-mark';
+  let isHighlighting = false;
 
   window.setHLColor = (color) => {
     activeHLColor = 'hl-' + color + '-mark';
@@ -119,42 +120,93 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.hl-' + color)?.classList.add('active');
   };
 
-  window.doHighlight = () => {
-    const sel = window.getSelection();
-    if (!sel.rangeCount || sel.isCollapsed) return;
-    const range = sel.getRangeAt(0);
-    if (!paper.contains(range.commonAncestorContainer)) return;
-    
+  function highlightTextNode(textNode, startOffset, endOffset) {
     const span = document.createElement('span');
     span.className = 'user-highlight ' + activeHLColor;
     span.title = 'Click để xóa highlight';
-    span.onclick = (e) => {
+    span.addEventListener('click', (e) => {
       e.stopPropagation();
       span.replaceWith(...span.childNodes);
       paper.normalize();
       saveHighlights();
-    };
+    });
+    const range = document.createRange();
+    range.setStart(textNode, startOffset);
+    range.setEnd(textNode, endOffset);
+    range.surroundContents(span);
+    return span;
+  }
 
+  window.doHighlight = () => {
+    if (isHighlighting) return;
+    const sel = window.getSelection();
+    if (!sel.rangeCount || sel.isCollapsed) return;
+    const range = sel.getRangeAt(0);
+    if (!paper.contains(range.commonAncestorContainer)) return;
+
+    isHighlighting = true;
     try {
-      range.surroundContents(span);
-    } catch {
-      // Fallback for complex selections across multiple nodes
-      const contents = range.extractContents();
-      span.appendChild(contents);
-      range.insertNode(span);
+      // Collect all text nodes within the selection range
+      const textNodes = [];
+      const walker = document.createTreeWalker(
+        range.commonAncestorContainer.nodeType === 3 
+          ? range.commonAncestorContainer.parentNode 
+          : range.commonAncestorContainer,
+        NodeFilter.SHOW_TEXT
+      );
+      let started = false;
+      while (walker.nextNode()) {
+        const node = walker.currentNode;
+        if (node === range.startContainer) started = true;
+        if (started) textNodes.push(node);
+        if (node === range.endContainer) break;
+      }
+      // If start and end are same node
+      if (textNodes.length === 0 && range.startContainer.nodeType === 3) {
+        textNodes.push(range.startContainer);
+      }
+
+      // Highlight each text node
+      for (let i = textNodes.length - 1; i >= 0; i--) {
+        const node = textNodes[i];
+        const start = (node === range.startContainer) ? range.startOffset : 0;
+        const end = (node === range.endContainer) ? range.endOffset : node.nodeValue.length;
+        if (start < end && node.nodeValue.trim().length > 0) {
+          highlightTextNode(node, start, end);
+        }
+      }
+    } catch (err) {
+      // Fallback: extract and wrap
+      try {
+        const span = document.createElement('span');
+        span.className = 'user-highlight ' + activeHLColor;
+        span.title = 'Click để xóa highlight';
+        span.addEventListener('click', (e) => {
+          e.stopPropagation();
+          span.replaceWith(...span.childNodes);
+          paper.normalize();
+          saveHighlights();
+        });
+        const contents = range.extractContents();
+        span.appendChild(contents);
+        range.insertNode(span);
+      } catch (e2) { /* silently fail */ }
     }
     sel.removeAllRanges();
+    paper.normalize();
     saveHighlights();
+    isHighlighting = false;
   };
 
   // Automatic highlight on mouseup
   paper.addEventListener('mouseup', () => {
     setTimeout(() => {
+        if (isHighlighting) return;
         const sel = window.getSelection();
-        if (sel.toString().length > 0) {
+        if (sel && sel.toString().trim().length > 0) {
             window.doHighlight();
         }
-    }, 10);
+    }, 50);
   });
 
   window.clearAllHighlights = () => {
@@ -185,14 +237,42 @@ document.addEventListener('DOMContentLoaded', () => {
   loadHighlights();
 
   // ══════════════════════════════════════════════
-  // 6. SEARCH
+  // 6. SEARCH WITH FIND-NEXT
   // ══════════════════════════════════════════════
+  let searchCurrentIndex = -1;
+  let lastSearchKey = '';
+
   window.handleSearch = () => {
     const input = document.getElementById('input-search');
     const key = input?.value.trim();
+    const counter = document.getElementById('search-counter');
+
+    // If same keyword, jump to next
+    if (key && key === lastSearchKey) {
+      const allResults = paper.querySelectorAll('.find-result');
+      if (allResults.length > 0) {
+        // Remove active from current
+        allResults.forEach(r => r.classList.remove('active-find'));
+        // Move to next
+        searchCurrentIndex = (searchCurrentIndex + 1) % allResults.length;
+        allResults[searchCurrentIndex].classList.add('active-find');
+        allResults[searchCurrentIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (counter) counter.textContent = `${searchCurrentIndex + 1} / ${allResults.length} kết quả`;
+      }
+      return;
+    }
+
+    // New search - clear old results
     paper.querySelectorAll('.find-result').forEach(m => m.replaceWith(...m.childNodes));
     paper.normalize();
-    if (!key) return;
+    lastSearchKey = key;
+    searchCurrentIndex = 0;
+
+    if (!key) {
+      if (counter) counter.textContent = '';
+      return;
+    }
+
     const walker = document.createTreeWalker(paper, NodeFilter.SHOW_TEXT);
     const matches = [];
     while (walker.nextNode()) {
@@ -216,9 +296,36 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       node.parentNode.replaceChild(frag, node);
     });
-    const first = paper.querySelector('.find-result');
-    if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    const allResults = paper.querySelectorAll('.find-result');
+    if (allResults.length > 0) {
+      searchCurrentIndex = 0;
+      allResults[0].classList.add('active-find');
+      allResults[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (counter) counter.textContent = `1 / ${allResults.length} kết quả`;
+    } else {
+      if (counter) counter.textContent = 'Không tìm thấy';
+    }
   };
+
+  // Also allow Enter key to trigger search
+  const searchInput = document.getElementById('input-search');
+  if (searchInput) {
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        window.handleSearch();
+      }
+    });
+    // Reset search when input changes
+    searchInput.addEventListener('input', () => {
+      const key = searchInput.value.trim();
+      if (key !== lastSearchKey) {
+        lastSearchKey = '';
+        searchCurrentIndex = -1;
+      }
+    });
+  }
 
   // ══════════════════════════════════════════════
   // 7. AI TEXT-TO-SPEECH (Vietnamese)
@@ -286,24 +393,35 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ══════════════════════════════════════════════
-  // 8. AUTO SCROLL
+  // 8. AUTO SCROLL (faster speeds)
   // ══════════════════════════════════════════════
-  let autoScrollInterval = null;
+  let autoScrollRAF = null;
   let autoScrollSpeed = 1.5;
+  let autoScrollActive = false;
+
+  function autoScrollStep() {
+    if (!autoScrollActive) return;
+    // Speed: pixels per frame. At 1x = 0.8px, at 10x = 8px per frame
+    const pxPerFrame = autoScrollSpeed * 0.8;
+    window.scrollBy({ top: pxPerFrame, behavior: 'auto' });
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 10) {
+      autoScrollActive = false;
+      const toggle = document.getElementById('autoscroll-toggle');
+      if (toggle) toggle.checked = false;
+      return;
+    }
+    autoScrollRAF = requestAnimationFrame(autoScrollStep);
+  }
 
   window.toggleAutoScroll = () => {
     const toggle = document.getElementById('autoscroll-toggle');
     if (toggle?.checked) {
-      autoScrollInterval = setInterval(() => {
-        window.scrollBy({ top: 1, behavior: 'auto' });
-        if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 10) {
-          clearInterval(autoScrollInterval);
-          if (toggle) toggle.checked = false;
-        }
-      }, 30 / autoScrollSpeed);
+      autoScrollActive = true;
+      autoScrollRAF = requestAnimationFrame(autoScrollStep);
     } else {
-      clearInterval(autoScrollInterval);
-      autoScrollInterval = null;
+      autoScrollActive = false;
+      if (autoScrollRAF) cancelAnimationFrame(autoScrollRAF);
+      autoScrollRAF = null;
     }
   };
 
@@ -311,10 +429,7 @@ document.addEventListener('DOMContentLoaded', () => {
     autoScrollSpeed = parseFloat(val);
     const label = document.getElementById('scroll-speed-label');
     if (label) label.textContent = val + 'x';
-    if (autoScrollInterval) {
-      clearInterval(autoScrollInterval);
-      window.toggleAutoScroll();
-    }
+    // No need to restart, speed is read each frame
   };
 
   // ══════════════════════════════════════════════
@@ -330,6 +445,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.updateMusicVolume = (val) => {
     if (typeof AmbientMusic !== 'undefined') AmbientMusic.setVolume(parseFloat(val));
+    const volLabel = document.getElementById('vol-pct');
+    if (volLabel) volLabel.textContent = Math.round(parseFloat(val) * 100) + '%';
   };
 
   // ══════════════════════════════════════════════

@@ -13,7 +13,7 @@ const AmbientMusic = (() => {
     if (ctx) return;
     ctx = new (window.AudioContext || window.webkitAudioContext)();
     gainNode = ctx.createGain();
-    gainNode.gain.value = 0.25;
+    gainNode.gain.value = 0.5;
     gainNode.connect(ctx.destination);
   }
 
@@ -26,7 +26,7 @@ const AmbientMusic = (() => {
     stopAll();
     const buf = ctx.createBuffer(1, ctx.sampleRate * 3, ctx.sampleRate);
     const d = buf.getChannelData(0);
-    for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * 0.12;
+    for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * 0.35;
     const src = ctx.createBufferSource();
     src.buffer = buf; src.loop = true;
     const filter = ctx.createBiquadFilter();
@@ -41,7 +41,7 @@ const AmbientMusic = (() => {
       const osc = ctx.createOscillator();
       const g = ctx.createGain();
       osc.type = 'sine'; osc.frequency.value = freq;
-      g.gain.value = 0.04 + i * 0.01;
+      g.gain.value = 0.08 + i * 0.02;
       osc.connect(g); g.connect(gainNode);
       osc.start(); nodes.push(osc);
       // LFO modulation
@@ -59,7 +59,7 @@ const AmbientMusic = (() => {
     stopAll();
     const buf = ctx.createBuffer(1, ctx.sampleRate * 4, ctx.sampleRate);
     const d = buf.getChannelData(0);
-    for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * 0.05;
+    for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * 0.15;
     const src = ctx.createBufferSource();
     src.buffer = buf; src.loop = true;
     const hi = ctx.createBiquadFilter();
@@ -75,7 +75,7 @@ const AmbientMusic = (() => {
     const buf = ctx.createBuffer(2, ctx.sampleRate * 6, ctx.sampleRate);
     for (let ch = 0; ch < 2; ch++) {
       const d = buf.getChannelData(ch);
-      for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * 0.08;
+      for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * 0.25;
     }
     const src = ctx.createBufferSource();
     src.buffer = buf; src.loop = true;

@@ -74,6 +74,7 @@
                 <input type="text" id="input-search" placeholder="Nhập từ khóa...">
                 <button onclick="handleSearch()"><i class="fas fa-search"></i></button>
             </div>
+            <div class="search-counter" id="search-counter"></div>
         </div>
 
         <div class="section">
@@ -134,7 +135,7 @@
             <div class="control-row">
                 <span class="label">Tốc độ: <span id="scroll-speed-label">1.5x</span></span>
             </div>
-            <input type="range" class="speed-slider" min="0.5" max="5" step="0.5" value="1.5" oninput="updateScrollSpeed(this.value)">
+            <input type="range" class="speed-slider" min="0.5" max="10" step="0.5" value="1.5" oninput="updateScrollSpeed(this.value)">
         </div>
 
         <div class="section music-section">
@@ -147,8 +148,9 @@
             </div>
             <div class="vol-row">
                 <i class="fas fa-volume-down"></i>
-                <input type="range" class="vol-slider" min="0" max="1" step="0.1" value="0.5" oninput="updateMusicVolume(this.value)">
+                <input type="range" class="vol-slider" min="0" max="1" step="0.05" value="0.7" oninput="updateMusicVolume(this.value)">
                 <i class="fas fa-volume-up"></i>
+                <span id="vol-pct" style="font-size:11px;color:var(--text-muted);min-width:32px;text-align:right;font-family:var(--font-ui)">70%</span>
             </div>
         </div>
     </div>
