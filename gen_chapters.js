@@ -153,9 +153,10 @@ const template = (chName, chTitle, content, prev, next) => `<!DOCTYPE html>
         <div class="section music-section">
             <div class="section-title">Nhạc nền tập trung</div>
             <div class="music-tracks">
-                <div class="music-track" id="btn-music-1" onclick="playTrack(1)"><i class="fas fa-leaf"></i> Nature Focus</div>
-                <div class="music-track" id="btn-music-2" onclick="playTrack(2)"><i class="fas fa-water"></i> Deep Ocean</div>
-                <div class="music-track" id="btn-music-3" onclick="playTrack(3)"><i class="fas fa-wind"></i> Ambient Wind</div>
+                <div class="music-track" id="btn-music-rain" onclick="playTrack('rain')"><i class="fas fa-cloud-showers-heavy"></i> Mưa nhẹ</div>
+                <div class="music-track" id="btn-music-forest" onclick="playTrack('forest')"><i class="fas fa-leaf"></i> Rừng xanh</div>
+                <div class="music-track" id="btn-music-cafe" onclick="playTrack('cafe')"><i class="fas fa-coffee"></i> Quán cà phê</div>
+                <div class="music-track" id="btn-music-ocean" onclick="playTrack('ocean')"><i class="fas fa-water"></i> Biển đêm</div>
             </div>
             <div class="vol-row">
                 <i class="fas fa-volume-down"></i>
