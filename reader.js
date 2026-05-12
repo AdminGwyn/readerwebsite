@@ -36,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // ══════════════════════════════════════════════
   const progressBar = document.getElementById('reading-progress-bar');
   const progressText = document.getElementById('reading-progress-text');
+  const bottomSlider = document.getElementById('bottom-slider');
+  const bottomPctText = document.getElementById('bottom-pct');
 
   function updateProgress() {
     const scrollTop = window.scrollY;
@@ -43,9 +45,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const pct = docH > 0 ? Math.round((scrollTop / docH) * 100) : 0;
     if (progressBar) progressBar.style.width = pct + '%';
     if (progressText) progressText.textContent = pct + '%';
+    if (bottomSlider) bottomSlider.value = pct;
+    if (bottomPctText) bottomPctText.textContent = pct + '%';
     localStorage.setItem('reader_progress_' + location.pathname, pct);
   }
   window.addEventListener('scroll', updateProgress, { passive: true });
+
+  if (bottomSlider) {
+    bottomSlider.addEventListener('input', (e) => {
+      const pct = e.target.value;
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      const targetScroll = (pct / 100) * docH;
+      window.scrollTo({ top: targetScroll, behavior: 'auto' });
+    });
+  }
 
   // ══════════════════════════════════════════════
   // 3. SIDEBAR MANAGEMENT
