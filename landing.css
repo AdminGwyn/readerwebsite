@@ -74,6 +74,35 @@ body {
 }
 .nav-logo i { font-size: 1.2rem; }
 .nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.theme-toggle-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-heading);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+  box-shadow: 0 0 15px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.nav-links {
   display: flex; align-items: center; gap: 8px;
   flex: 1;
 }

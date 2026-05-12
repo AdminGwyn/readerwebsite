@@ -1,244 +1,501 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chương 1: Khăn giấy, ứng dụng — Hình Vẽ Thông Minh</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
-  <script>
-    (function(){
-      var t = localStorage.getItem('reader_theme') || 'dark';
-      document.documentElement.setAttribute('data-theme', t);
-      document.addEventListener('DOMContentLoaded', function(){ document.body.className = t + '-theme'; });
-    })();
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hình Vẽ Thông Minh - Introduction</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="dark-theme">
+<body class="reader-page">
+    <div id="reading-progress"></div>
+    <div id="reading-progress-text">0%</div>
 
-  <!-- Reading Progress Bar -->
-  <div id="reading-progress"><div id="reading-progress-bar"></div></div>
-  <div id="reading-progress-text">0%</div>
-
-  <!-- TTS Status -->
-  <div id="tts-status">
-    <div class="pulse-dot"></div>
-    <span>Giọng đọc AI</span>
-    <span>Đang đọc...</span>
-  </div>
-
-  <!-- TOP NAV -->
-  <header class="top-nav">
-    <div class="nav-left">
-      <a href="index.html" class="nav-icon" title="Trang chủ">
-        <i class="fas fa-home"></i>
-        <span class="icon-label">Trang chủ</span>
-      </a>
-      <button class="nav-icon" onclick="openSidebar('sidebar-info')" title="Thông tin sách">
-        <i class="fas fa-book"></i>
-        <span class="icon-label">Thông tin</span>
-      </button>
-      <button class="nav-icon" onclick="openSidebar('sidebar-toc')" title="Mục lục">
-        <i class="fas fa-list-ul"></i>
-        <span class="icon-label">Mục lục</span>
-      </button>
-    </div>
-
-    <div class="nav-center">
-      <div class="book-title">HÌNH VẼ THÔNG MINH</div>
-      <div class="chapter-title">Chương 1: Khăn giấy, ứng dụng</div>
-    </div>
-
-    <div class="nav-right">
-      <button class="nav-icon" id="btn-audio" title="Giọng đọc AI">
-        <i class="fas fa-headphones"></i>
-        <span class="icon-label">Giọng đọc</span>
-      </button>
-      <button class="nav-icon" onclick="toggleSettings()" title="Cài đặt">
-        <i class="fas fa-sliders-h"></i>
-        <span class="icon-label">Cài đặt</span>
-      </button>
-      <button class="nav-icon" id="btn-fullscreen" title="Toàn màn hình">
-        <i class="fas fa-expand"></i>
-        <span class="icon-label">Toàn màn hình</span>
-      </button>
-    </div>
-  </header>
-
-  <!-- Chapter Navigation Arrows -->
-  <button class="nav-arrow left" onclick="alert('Đây là chương đầu tiên!')"><i class="fas fa-chevron-left"></i></button>
-  <button class="nav-arrow right" onclick="window.location.href='c2.html'"><i class="fas fa-chevron-right"></i></button>
-
-  <!-- SIDEBAR: Book Info -->
-  <aside id="sidebar-info" class="sidebar">
-    <div class="sidebar-header">THÔNG TIN SÁCH</div>
-    <div class="sidebar-body">
-      <div class="info-card">
-        <img src="IMG/bìa.png" alt="Bìa sách Hình Vẽ Thông Minh" />
-        <h3>HÌNH VẼ THÔNG MINH</h3>
-        <p class="author">Tác giả: <strong>Dan Roam</strong></p>
-        <div class="summary">
-          Dan Roam là tác giả của cuốn sách bán chạy "Chỉ cần mẩu khăn giấy". Được Fast Company công nhận là "Cuốn sách quản trị hay nhất năm 2008".
-          <br><br>
-          <a href="full-book.html" style="color: var(--accent); text-decoration: none; font-weight: bold; display: block; padding: 10px; border: 1px solid var(--accent); border-radius: 8px; text-align: center; margin-top: 10px;">
-            📖 Đọc bản gốc đầy đủ (418 trang)
-          </a>
+    <div class="reader-header">
+        <div class="header-left">
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+            <h1>Introduction</h1>
         </div>
-      </div>
-    </div>
-  </aside>
-
-  <!-- SIDEBAR: Table of Contents -->
-  <aside id="sidebar-toc" class="sidebar">
-    <div class="sidebar-header">MỤC LỤC</div>
-    <div class="sidebar-body">
-      <ul class="toc-list">
-        <li class="active"><a href="c1.html">Chương 1: Khăn giấy, ứng dụng</a></li>
-        <li><a href="c2.html">Chương 2: Ngày 1 — Nhìn</a></li>
-        <li><a href="c3.html">Chương 3: Ngày 2 — Thấy</a></li>
-        <li><a href="c4.html">Chương 4: Ngày 3 — Hiểu</a></li>
-        <li><a href="c5.html">Chương 5: Ngày 4 — Trình bày</a></li>
-      </ul>
-    </div>
-  </aside>
-
-  <!-- SETTINGS PANEL -->
-  <div id="settings-panel" class="settings-panel">
-    <div class="panel-title">⚙️ Tùy chỉnh đọc sách</div>
-
-    <div class="section">
-      <div class="search-box">
-        <input type="text" id="input-search" placeholder="Tìm từ khóa trong chương..." />
-        <button onclick="handleSearch()"><i class="fas fa-search"></i></button>
-      </div>
-    </div>
-
-    <div class="section">
-      <h5 class="section-title">MÀU NỀN</h5>
-      <div class="theme-grid">
-        <div class="t-btn t-light" onclick="changeTheme('light')" title="Sáng"><span>Sáng</span></div>
-        <div class="t-btn t-sepia" onclick="changeTheme('sepia')" title="Sepia"><span>Sepia</span></div>
-        <div class="t-btn t-dark" onclick="changeTheme('dark')" title="Tối"><span>Tối</span></div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h5 class="section-title">FONT CHỮ & HIỂN THỊ</h5>
-      <select id="font-select" onchange="changeFont(this.value)" class="font-dropdown">
-        <option value="'Lora', Georgia, serif">Lora (Mặc định)</option>
-        <option value="'Georgia', serif">Georgia</option>
-        <option value="'Inter', system-ui, sans-serif">Inter</option>
-        <option value="Arial, sans-serif">Arial</option>
-        <option value="'Verdana', sans-serif">Verdana</option>
-      </select>
-      <div class="control-row">
-        <span class="label">Cỡ chữ</span>
-        <div class="btn-group">
-          <button onclick="updateFont(-2)"><i class="fas fa-minus"></i></button>
-          <button onclick="updateFont(2)"><i class="fas fa-plus"></i></button>
+        <div class="header-controls">
+            <button id="theme-toggle" title="Chuyển chế độ sáng/tối"><i class="fas fa-moon"></i></button>
+            <button id="tts-btn" title="Đọc văn bản"><i class="fas fa-volume-up"></i></button>
+            <button id="autoscroll-btn" title="Cuộn tự động"><i class="fas fa-magic"></i></button>
+            <button id="bg-music-btn" title="Nhạc nền"><i class="fas fa-music"></i></button>
         </div>
-      </div>
-      <div class="control-row">
-        <span class="label">Giãn dòng</span>
-        <div class="btn-group">
-          <button onclick="updateLineHeight(-0.15)"><i class="fas fa-compress-alt"></i></button>
-          <button onclick="updateLineHeight(0.15)"><i class="fas fa-expand-alt"></i></button>
-        </div>
-      </div>
     </div>
 
-    <div class="section">
-      <h5 class="section-title">HIGHLIGHT VĂN BẢN</h5>
-      <div class="highlight-colors">
-        <div class="hl-color hl-yellow active" onclick="setHLColor('hl-yellow')" title="Vàng"></div>
-        <div class="hl-color hl-green" onclick="setHLColor('hl-green')" title="Xanh lá"></div>
-        <div class="hl-color hl-blue" onclick="setHLColor('hl-blue')" title="Xanh dương"></div>
-        <div class="hl-color hl-pink" onclick="setHLColor('hl-pink')" title="Hồng"></div>
-      </div>
-      <div class="action-grid">
-        <button class="btn-action highlight" onclick="doHighlight()"><i class="fas fa-highlighter"></i> Đánh dấu</button>
-        <button class="btn-action eraser" onclick="clearAllHighlights()" title="Xóa tất cả"><i class="fas fa-eraser"></i></button>
-      </div>
+    <div class="reader-container">
+        <div class="content-body" id="book-content">
+            
+
+
+
+
+
+<p>UNFOLDING THE NAPKIN</p>
+
+<p>Copyright © Dan Roam, 2009</p>
+
+<p>All rights reserved including the right of reproduction in whole or in part in any form.</p>
+
+<p>Bản dịch này được xuất bản theo thỏa thuận với Portfolio, một thành viên của Penguin Group (USA) Inc..</p>
+
+<p>Bản tiếng Việt © NXB Trẻ, 2014</p>
+
+<p>BIỂU GHI BIÊN MỤC TRƯỚC XUẤT BẢN DO THƯ VIỆN KHTH TP.HCM THỰC HIỆN</p>
+
+<p>General Sciences Library Cataloging-in-Publication Data</p>
+
+<p>__Roam, Dan__</p>
+
+<p>Hình vẽ thông minh : giải quyết vấn đề phức tạp bằng hình ảnh giản đơn / Dan Roam</p>
+
+<p>; Lâm Đặng Cam Thảo dịch. - T.P. Hồ Chí Minh : Trẻ, 2014.</p>
+
+<p>416tr. : minh họa ; 20,5cm.</p>
+
+<p>Nguyên bản : Unfolding the napkin.</p>
+
+<p>1. Giải quyết vấn đề -- Hỗ trợ âm thanh hình ảnh. 2. Quản lý -- Hỗ trợ âm thanh hình ảnh. I. Lâm Đặng Cam Thảo. II. Ts: Unfolding the napkin.</p>
+
+<p>__658.403 -- dc 22 R628__</p>
+
+
+
+<p>____</p>
+
+<p>____</p>
+
+<p>HÌ NH VẼ THÔNG MI NH</p>
+
+<p>*Biến những nét vẽ nguệch ngoạc thành công cụ hữu ích để giải quyết vấn đề*</p>
+
+<p>Dan Roam là tác giả của cuốn sách bán chạy *Chỉ cần mẩu khăn giấy: Giải quyết vấn đề và bán mọi ý tưởng bằng hình vẽ*. Được tạp chí *Fast Company *công nhận là “Cuốn sách quản trị hay nhất” năm 2008 và được *London Times *bình chọn là “Cuốn sách kinh doanh sáng tạo hay nhất trong năm”, *Chỉ cần mẩu khăn giấy *đã được dịch ra tám thứ tiếng. Với vai trò chủ tịch Digital Roam Inc., Dan đã giúp các nhà lãnh đạo của nhiều tập đoàn lớn như Microsoft, Google, Wal-Mart, Ngân hàng Dự trữ Liên bang, Boeing và Thượng viện Hoa Kỳ giải quyết các vấn đề phức tạp bằng phương pháp tư duy hình ảnh. Dan và chiếc bảng trắng của ông đã xuất hiện trên kênh CNN, MSNBC, ABC News, Fox News, và NPR. Dan hiện sống tại San Francisco. Để tham dự các buổi hội thảo “Chỉ cần mẩu khăn giấy” của Dan, hãy đăng ký tại trang web [www.thebackofthenapkin.com](http://www.thebackofthenapkin.com/)</p>
+
+
+
+<p>Tặng Sophie và Celeste,</p>
+
+<p>những người thực sự nắm giữ chiếc đũa thần</p>
+
+<h1>MỤC LỤC</h1>
+
+<p>PHẦN MỞ ĐẦU: KHĂN GIẤY, ỨNG DỤNG   11</p>
+
+<p>NGÀY 1: NHÌN  45</p>
+
+<p>NGÀY 2: THẤY    111</p>
+
+<p>NGÀY 3: HÌNH DUNG  277</p>
+
+<p>NGÀY 4: TRÌNH BÀY  367</p>
+
+<p>PHỤ LỤC: ĐÁP ÁN CỦA TÔI</p>
+
+<p>CHO NHỮNG BÀI TẬP THỬ THÁCH	409</p>
+
+<h1>PHẦN MỞ ĐẦU</h1>
+
+<h2><a id="PHẦN MỞ ĐẦU: KHĂN GIẤY, ỨNG DỤNG"></a>KHĂN GIẤY, ỨNG DỤNG</h2>
+
+
+
+<h3>Vì sao phải sử dụng Hình vẽ thông minh?</h3>
+
+<p>Sau hai mươi lăm năm giúp đỡ các nhà lãnh đạo khắp thế giới, tôi đã rút ra ba bài học sau:</p>
+
+<p>1. Không có cách nào tốt hơn để khám phá một ý tưởng mới bằng việc phác họa một hình ảnh đơn giản.</p>
+<p>2. Không có cách nào nhanh hơn để phát triển và thử nghiệm một ý tưởng bằng việc phác họa một hình ảnh đơn giản.</p>
+<p>3. Không có cách nào hiệu quả hơn để chia sẻ một ý tưởng với người khác bằng việc phác họa một hình ảnh đơn giản.</p>
+
+<p>Cuốn sách này chứa đựng nhiều công cụ, quy tắc và khái niệm, nhưng cuối cùng nó chỉ quy về duy nhất một điều: cách phác họa nên hình ảnh đơn giản đó.</p>
+
+<h3>Cẩm nang hướng dẫn giải quyết vấn đề bằng hình vẽ</h3>
+
+<p>Cuốn sách này là phần tiếp theo của cuốn *Chỉ cần mẩu khăn giấy: Giải quyết vấn đề và bán mọi ý tưởng bằng hình vẽ. *Trong cuốn sách đó, tôi đã nói về việc sử dụng hình vẽ như một cách giải quyết mọi vấn đề, đồng thời giới thiệu một bộ công cụ và quy tắc nhằm giúp mọi người tạo ra những hình vẽ để giải quyết vấn đề của chính mình.</p>
+
+<p>Trong cuốn sách thứ hai này, tôi sẽ trình bày cụ thể cách thức và quy trình giải quyết vấn đề trong thế giới thực bằng hình vẽ. Từng công cụ và quy tắc mà tôi đã giới thiệu trong cuốn *Chỉ cần mẩu khăn giấy *đều xuất hiện trở lại, chỉ có điều lần này, chúng ta sẽ từng bước kết hợp chúng với nhau, áp dụng lối tư duy giải quyết vấn đề bằng hình ảnh vào thực tiễn cuộc sống.</p>
+
+<p>Hãy xem cuốn *Chỉ cần mẩu khăn giấy *như phần mở đầu cho lối tư duy giải quyết vấn đề bằng hình ảnh, còn cuốn *Hình vẽ thông minh *như cẩm nang hướng dẫn thực hành cụ thể.</p>
+
+
+
+<h3>Khóa tự học kéo dài bốn ngày</h3>
+
+<p>Cuốn sách này được trình bày như một khóa học kéo dài bốn ngày về cách tư duy giải quyết vấn đề bằng hình ảnh: phương pháp tiếp cận chủ yếu của tôi là phác họa từng hình ảnh, đưa chúng ta từ chỗ “tôi không biết vẽ” đến “đây là bức hình tôi vẽ mà tôi nghĩ có thể cứu cả thế giới”.</p>
+
+<p>Vì sao phải bốn ngày? Có hai lý do: Thứ nhất, theo kinh nghiệm của bản thân tôi, đó là khoảng thời gian cần thiết để nắm bắt tất cả các bài học theo cách có ý nghĩa. Thứ hai, như chúng ta sẽ sớm nhận thấy, quy trình tư duy bằng hình ảnh thường được chia thành bốn bước, và việc chỉ rõ từng bước một sẽ khiến cho toàn bộ phương pháp tiếp cận trở nên có ý nghĩa trọn vẹn.</p>
+
+<p>Nhưng bốn ngày là một khoảng thời gian dài đối với các nhà kinh doanh để họ tạm dừng công việc thường nhật và học hỏi điều gì đó mới mẻ. Vậy nên khóa học này sẽ đề cập đến mối bận tâm đó bằng hai hình ảnh cụ thể: củ cà rốt và cây gậy.</p>
+
+
+
+<p>Cây gậy	Củ cà rốt</p>
+
+<p>(Cả hai đều có tác dụng)</p>
+
+<p>Cây gậy nói rằng chúng ta có nhiều thứ để tìm hiểu; còn củ cà rốt lại cho biết chúng ta có thể biến nó thành một phần công việc thực tế của mình.</p>
+
+<p>Cây gậy nói: “Đúng vậy, có rất nhiều thông tin trong cuốn sách này, và tất cả đều quan trọng. Bạn chỉ mất bốn ngày để tìm hiểu chúng và hãy đảm bảo bám sát vấn đề. Vì vậy, hãy sẵn sàng và cầm bút lên.”</p>
+
+<p>Bằng phương pháp tiếp cận khả quan hơn, củ cà rốt nói: “Nếu thực hiện đúng cách, chúng ta sẽ không cần ‘dừng những việc đang làm’. Đây là cuốn sách hướng dẫn thực hành, vì vậy, bạn có thể áp dụng vào công việc thực tế của mình. Thay vì chỉ nhìn vào các tình huống nghiên cứu giả định, bạn nên áp dụng vào một số vấn đề tại nơi làm việc – bằng cách đó, bạn có thể nhận thấy mức độ hiệu quả của lối tư duy hình ảnh và đồng thời bắt tay vào giải quyết các vấn đề cụ thể.”</p>
+
+<h3>Tóm lược: Chỉ cần mẩu khăn giấy trên một mẩu khăn giấy</h3>
+
+<p>Nếu bạn đã đọc cuốn *Chỉ cần mẩu khăn giấy*, tôi xin giới thiệu sơ lược về cuốn sách mà bạn đang cầm trên tay: cuốn sách này chứa đựng cùng nội dung nhưng được trình bày theo cách chi tiết và tương tác hơn. Nếu bạn chưa đọc cuốn *Chỉ cần mẩu khăn giấy, *hãy lướt qua phần tóm tắt ngắn gọn sau đây:</p>
+
+<p>*Chỉ cần mẩu khăn giấy: *chúng ta có thể giải quyết vấn đề bằng hình vẽ.</p>
+
+<p>Tôi tin rằng chúng ta có thể giải quyết các vấn đề của mình – cho dù đó là vấn đề gì – bằng cách tạo ra những hình vẽ đơn giản. *Chỉ cần mẩu khăn giấy *xoay quanh ba chủ đề chính: vấn</p>
+
+<p>đề gì có thể được giải quyết bằng hình vẽ, hình vẽ nào có khả năng giải quyết vấn đề, và ai có thể vẽ được những hình vẽ đó.</p>
+
+<p>Dưới đây là câu trả lời:</p>
+
+<p>1. __Vấn đề gì? __Mọi vấn đề. Bất cứ vấn đề nào có khả năng được trình bày rõ, chúng ta đều có thể “điểm mặt chỉ tên” chúng một cách rõ ràng hơn qua hình vẽ.</p>
+<p>2. __Hình vẽ nào? __Những hình vẽ đơn giản. Nếu vẽ được một hình vuông, hình tròn, hình que, và một mũi tên kết nối chúng với nhau, chúng ta có thể thực hiện được bất kỳ hình vẽ nào trong cuốn sách này.</p>
+<p>3. __Ai? __Tất cả chúng ta. Bởi chúng ta được sinh ra là những người tư duy hình ảnh (ngay cả khi chúng ta không nghĩ về mình như thế). Những hình ảnh mà chúng ta cần có đơn giản đến mức tôi tin rằng bất cứ ai cũng có thể giải quyết các vấn đề bằng hình vẽ một cách dễ như trở bàn tay.</p>
+
+<p>Vấn đề gì?</p>
+
+<p>Những hình vẽ đơn giản</p>
+
+<p>Tất cả các vấn đề. Hình vẽ nào?</p>
+
+<p>Những hình vẽ đơn giản. Ai? Tất cả chúng ta.</p>
+
+<p>Khi đã trả lời được ba câu hỏi trên, *Chỉ cần mẩu khăn giấy *sẽ giới thiệu một quy trình và bộ công cụ để giúp mọi người nhanh chóng giải quyết những vấn đề phức tạp bằng hình vẽ đơn giản.</p>
+
+<h3>Bắt đầu: sẵn sàng vẽ</h3>
+
+<p>Năm ngoái, khi tham dự một cuộc họp kinh doanh, chỉ trong một ngày, tôi đã thấy tất cả những gì mà mình tin có thể chứng minh cho sức mạnh của hình vẽ. Đó là một minh họa tuyệt vời về mức độ đơn giản của lối tư duy hình ảnh trong công việc, nhưng điều tuyệt vời hơn cả là nó chỉ ra những vị trí mà các hình vẽ nên được sử dụng nhằm đem lại hiệu quả cao nhất.</p>
+
+<p>Mùa hè năm ngoái, ban giám đốc của một công ty tài chính lớn – hãy gọi đó là AmericanWay Financial(*) – đã mời tôi tổ chức một buổi hội thảo tư duy hình ảnh tại cuộc họp lãnh đạo thường niên. AmericanWay đã hoàn tất một năm tài khóa kỷ lục, và ban giám đốc muốn tổ chức một buổi họp kích thích tư duy để tận dụng nguồn năng lượng tích cực này. Ban giám đốc cho rằng phương pháp giải quyết các vấn đề bằng hình ảnh nghe có vẻ thú vị, và tôi đã vui vẻ nhận lời.</p>
+
+<p>* Đây không phải là tên thật của công ty. Tất cả các câu chuyện trong cuốn sách này đều có thật, nhưng trong một số trường hợp, các công ty yêu cầu tôi không sử dụng tên thật của họ. Khi sử dụng tên thật của một công ty nào đó, nghĩa là tôi đã được họ đồng ý.</p>
+
+<p>Tôi rất mong đợi đến ngày diễn ra hội thảo: các giám đốc tài chính thường tin rằng hình ảnh duy nhất đáng chú ý là biểu đồ giá cổ phiếu, nên đây sẽ là cơ hội để tôi chỉ cho các vị khán giả đầy hoài nghi này cách sử dụng các hình ảnh đơn giản để giải quyết vấn đề. Đây cũng là dịp để tôi tìm hiểu thêm về cách thức hoạt động bên trong một công ty tài chính lớn.</p>
+
+<p>NGÀY HOẠT ĐỘNG KINH DOANH RƠI VÀO BẾ TẮC</p>
+
+<p>Vào buổi sáng của ngày diễn ra hội thảo, tình hình kinh tế nước Mỹ bắt đầu đi xuống. Trước đó một tuần, khi cuộc khủng hoảng tài chính 2008 lan rộng, Quốc hội Mỹ vẫn chưa quyết định thông qua gói cứu trợ trị giá 700 tỷ đôla cho thị trường tài chính. Trong bối cảnh bất ổn đó, chỉ số Dow đã mất 20% giá trị, đánh dấu tuần thấp nhất trong lịch sử của chỉ số này. Nhưng khi tuần mới bắt đầu – tuần diễn ra hội thảo của tôi – nguồn tiền cứu trợ bắt đầu được rót xuống. Vào thứ Hai, thị trường phục hồi khi chỉ số Dow đạt mức kỷ lục trong ngày, cao nhất trong vòng 27 năm qua. Mọi người thở phào nhẹ nhõm, tin chắc rằng điều tồi tệ nhất đã qua đi.</p>
+
+<p>Cho đến thứ Tư...</p>
+
+<p>Khi thức dậy vào sáng hôm đó tại phòng khách sạn và mở máy tính để kiểm tra lần cuối bài phát biểu của mình, tôi bật tivi xem tin tức. Ngay từ đầu ngày, thị trường đã bắt đầu có dấu hiệu “chảy máu” trở lại. Khi liếc nhìn qua lại giữa máy tính và tivi, tôi tự hỏi liệu khán giả có tập trung lắng nghe những điều</p>
+
+<p>mà mình sắp trình bày. Thế giới tài chính đang sụp đổ quanh chúng tôi.</p>
+
+<p>Rồi có điều gì đó bỗng ám ảnh tôi: khi thử phác họa một vài hình ảnh làm ví dụ, tôi đã chuyển nội dung cuộc hội thảo từ một bài tập tư duy định hướng mục tiêu sang buổi tư duy hình ảnh về những gì đang diễn ra trong thế giới thực. Tôi vẫn sử dụng các công cụ và quy tắc tư duy hình ảnh tương tự, chỉ thay đổi kiểu câu hỏi.</p>
+
+<p>Sử dụng chức năng vẽ trên máy tính bảng, tôi đã thay đổi một số hình ảnh phác họa trong bài phát biểu. Trong vòng 30 phút, tôi đã biến một buổi hội thảo chứa đầy khái niệm thành một cuộc trò chuyện thực tế. Dù không nắm rõ chi tiết về tình hình tài chính bên trong AmericanWay, nhưng tôi nghĩ là không cần thiết: những người tham dự đều biết rất rõ. Kinh nghiệm mách bảo rằng tôi chỉ cần thiết lập đúng khuôn khổ và khởi điểm của vấn đề, các vị giám đốc điều hành ở đây sẽ phác họa được tình hình hiện tại và tương lai của AmericanWay một cách rõ nét hơn bất kỳ ai khác.</p>
+
+<p>Khi buổi hội thảo bắt đầu, tôi trình bày các công cụ tư duy hình ảnh, sau đó yêu cầu các nhà điều hành chia thành các nhóm nhỏ để họ có thể vẽ ra những ý tưởng của riêng mình. Đến trưa, hàng chục hình vẽ được treo trên tường, thể hiện những gì đang diễn ra trên thị trường, và quan trọng hơn là những gì mà AmericanWay có thể làm để đối mặt với nó. Bất kể những tin tức bất ổn vào sáng hôm đó, rõ ràng là phương pháp tư duy hình ảnh đã gây ra tác động mạnh mẽ; các vị giám</p>
+
+<p>đốc điều hành nấn ná trong phòng, không ngừng chỉ trỏ và bàn tán về các hình vẽ.</p>
+
+<p>Nhưng vào giờ ăn trưa, chúng tôi nhận được nhiều tin xấu hơn. Trong suốt ba giờ đồng hồ diễn ra hội thảo, chỉ số Dow đã giảm vài trăm điểm – đủ để làm bốc hơi toàn bộ lợi nhuận của những ngày trước đó – và vẫn đang tiếp tục trên đà đi xuống. Cuộc khủng hoảng chẳng những không chấm dứt mà dường như không ai có đủ khả năng để khiến nó dừng lại. Sau nhiều tháng diễn biến phức tạp, nền kinh tế toàn cầu mà chúng ta biết thực sự đang hấp hối. Điều đó có nghĩa là AmericanWay cũng không thể khác đi được.</p>
+
+<p>Vào ngày tôi nhận được thư mời, cổ phiếu của</p>
+
+<p>AmericanWay đạt mức cao nhất từ trước đến nay.</p>
+
+<p>Vào giờ ăn trưa của ngày diễn ra hội thảo, nền kinh tế Mỹ lao dốc.</p>
+
+<p>VÂNG, THƯA SẾP, CHÚNG TA SẼ LÀM GÌ?</p>
+
+<p>Sau bữa trưa, tôi ngồi ở phía cuối phòng. Diễn giả tiếp theo là Tổng giám đốc của công ty. Dù biết rằng Mike đã triệu tập được tất cả các giám đốc điều hành tham dự hội thảo, nhưng tôi tự hỏi ông ấy sẽ dùng cách nào để nhắc đến tình cảnh bi đát của nền kinh tế trong hình hài con gorilla khổng lồ đang chễm chệ giữa phòng.</p>
+
+<p>Liệu Mike có hoãn cuộc hội thảo và yêu cầu mọi người trở lại phòng làm việc để dựng lên các loại rào chắn nhằm dập tắt khủng hoảng? Liệu ông ấy có triệu tập một nhóm nhà điều</p>
+
+<p>hành ưu tú nhất và cùng nhau “ẩn nấp” tại một căn phòng nào đó trong khách sạn để âm thầm đề ra các kế sách tiếp theo? Hay ông ấy sẽ hành động như thể không có gì xảy ra và vẫn để cuộc hội thảo diễn ra theo đúng kế hoạch? Là “kẻ ngoại đạo” duy nhất trong phòng, tôi hy vọng sẽ được chứng kiến một tấm gương lãnh đạo trong thời khắc khủng hoảng.</p>
+
+<p>Và đó chính là những gì mà tôi đã nhìn thấy. Dẹp bỏ mọi lời nhận xét được chuẩn bị sẵn sang một bên, Mike bước lên sân khấu, nhìn khắp khán phòng, và thực hiện một bài phát biểu trung thực, chân thành, nghiêm túc và thiết thực nhất mà tôi từng nghe. Một bài phát biểu trên cả tuyệt vời.</p>
+
+<p>Trong vòng một giờ đồng hồ, Mike không tìm cách che giấu bất cứ điều gì. Ông nói rằng không ai, kể cả ông lẫn những người có mặt trong căn phòng này, từng trải qua một cuộc khủng hoảng với quy mô và tốc độ như thế. Dù không thể hứa hẹn liệu AmericanWay còn có thể hoạt động trong vòng một năm tới hay không, nhưng ông hiểu khả năng lên kế hoạch và điều hành gần như hoàn hảo của nhóm trong những năm trước đã giúp AmericanWay ở vào điều kiện tốt nhất để có thể chống chọi với cơn bão này.</p>
+
+<p>Mike nói rằng chính những người có mặt trong căn phòng này sẽ cùng chịu trách nhiệm về những gì xảy ra tiếp theo tại AmericanWay. Nếu công ty vượt qua được khó khăn và trụ vững, đó là nhờ ở công sức của những người hiện diện trong căn phòng này. Còn ngược lại, nếu AmericanWay thất bại, đó cũng là do quyết định của chính những người có mặt tại đây.</p>
+
+<p>Câu nói đó khiến mọi người chú ý, và Mike bắt đầu sử dụng chiến thuật. Mike phác họa bốn chiến lược mà ông tin tưởng sẽ là con đường sống của AmericanWay. Thứ nhất: thu hồi tất cả các khoản đầu tư ở những “điểm ngọt” mà công ty củng cố bấy lâu; hay nói cách khác, tạm dừng các hoạt động ở thị trường cao cấp và thị trường thấp cấp để tập trung vào thị trường trung cấp. Thứ hai: chấp nhận AmericanWay được định vị để trở thành “người theo sau nhanh nhạy” trong hoạt động phát triển sản phẩm hơn là kẻ dẫn dắt thị trường; hay nói cách khác, hãy để người khác thực hiện những đầu tư rủi ro vào các hoạt động sáng tạo, sau đó theo dõi và áp dụng những gì đem lại hiệu quả. Thứ ba: phải thật nhanh nhạy về nhu cầu khách hàng; hay nói cách khác, dừng việc lắng nghe chính mình và hãy bắt đầu lắng nghe ý kiến khách hàng. Cuối cùng: củng cố mọi hoạt động kinh doanh xoay quanh kết cấu hạ tầng cốt lõi của công ty; hay nói cách khác, loại bỏ những quy trình tốn kém tại các văn phòng khắp cả nước. Đó là một buổi nói chuyện cứng rắn và thực tế, chính là điều mà những người có mặt trong phòng cần nghe. Mike đã làm những gì mà một Tổng giám đốc cần làm: tập hợp đội hình, vạch ra một tầm nhìn rõ ràng, và chia nhỏ để mọi người có thể “tiêu hóa” từng phần một. Dù không phải là nhân viên của công ty, nhưng vào thời điểm kết thúc hội thảo, tôi cũng cảm thấy mình đã sẵn sàng tham gia vào “trò chơi” tài chính này.</p>
+
+<p>Nhưng có một vấn đề với cuộc nói chuyện của Mike. Buổi tối hôm đó, một thành viên của ban giám đốc tiến hành một</p>
+
+<p>cuộc bỏ phiếu không chính thức và kết quả thật bất ngờ. Mọi người đều hài lòng về niềm đam mê, sự chân thành và cách giải thích rõ ràng của Mike, nhưng vấn đề là một giờ sau, không ai biết mình thực sự nên làm gì.</p>
+
+<p>CHỐT KIỂM TRA 1</p>
+
+<p>Chúng ta sẽ tiếp tục với câu chuyện này, nhưng trước hết, hãy bắt đầu tương tác với nhau. Hãy làm một bài kiểm tra nhanh. *Không cần *rà soát lại phần nội dung vừa trình bày, hãy suy nghĩ trong chốc lát và ghi lại những chiến lược cơ bản của Mike dành cho AmericanWay, càng nhiều càng tốt.</p>
+
+<p>Nếu bạn cảm thấy tim hơi lạc nhịp hoặc nghĩ “Thôi rồi!”, chào mừng bạn đến với “câu lạc bộ các cuộc họp” – câu lạc bộ của những người thông minh bị choáng ngợp trước dữ liệu bằng lời (ngôn từ) đến nỗi khó nhận biết nên chú ý vào đâu. Dù sao thì chúng ta cũng nên cùng làm bài tập này. Hãy xem bạn có thể nhớ được bao nhiêu chiến lược của Mike.</p>
+
+<p>-</p>
+<p>-</p>
+<p>-</p>
+<p>-</p>
+<p>-</p>
+
+<p>Bạn có thể nhớ được bao nhiêu chiến lược? Một? Không sao cả: tin hay không tùy bạn, nhưng đó là con số trung bình</p>
+
+<p>được đưa ra bởi những người thực sự có mặt tại hội trường. Hai càng tốt; ba cũng đáng kể. Nhưng quả là tuyệt vời nếu bạn có thể nhớ được bốn chiến lược. (Còn nếu bạn nhớ được năm, có điều gì mới xuất hiện chăng, bởi Mike chỉ đưa ra có bốn chiến lược?)</p>
+
+<p>Đây là một ví dụ hơi bất công cho bạn. Tôi không cảnh báo trước với bạn rằng sẽ có một bài trắc nghiệm nhỏ, tôi cũng không nhấn mạnh những điểm mà bạn cần chú ý trong câu chuyện. Nếu nói như vậy thì Mike cũng không làm điều đó. Hãy nhớ, ông ấy chỉ bước lên sân khấu và nói. Đó là một bài phát biểu đầy hứng khởi, nhưng tôi nhớ là không thấy vị giám đốc điều hành nào ghi chép lại những điểm cần chú ý, và ngoài bản thân mình ra, Mike không có bất kỳ công cụ hỗ trợ nào để khiến cho quan điểm của mình trở nên rõ ràng, khác biệt và dễ nhớ.</p>
+
+<p>Bất kể bạn nhớ được bao nhiêu chiến lược của Mike, bài học ở đây là: dù buổi nói chuyện hấp dẫn, khơi gợi cảm hứng đến mức nào, chúng ta cần nhận biết được giới hạn của ngôn từ. Xin nói rõ là không có gì sai với việc sử dụng ngôn từ. Vấn đề là chỉ ngôn từ thôi thì chưa đủ.</p>
+
+<p>NẾU NGÔN TỪ CHƯA ĐỦ, VẬY CHÚNG TA CẦN BỔ SUNG ĐIỀU GÌ?</p>
+
+<p>Buổi sáng sau ngày diễn ra hội thảo, tôi nhận được cuộc gọi từ một vị giám đốc điều hành, người đã thực hiện cuộc bỏ phiếu</p>
+
+<p>không chính thức. Anh ấy mời tôi tham dự một cuộc họp bất thường. Khi tôi đến nơi, sáu vị lãnh đạo cấp cao từng tham dự buổi hội thảo trước đó đang vẽ lên các bảng lật. Tôi nhận được một bản thảo về bài phát biểu của Mike, trong đó bốn chiến lược của ông đã được đánh dấu. Người tổ chức thăm dò ý kiến đã hỏi liệu tôi có sẵn lòng giúp họ tạo ra một chuỗi hình ảnh để làm rõ thông điệp của Mike, đồng thời giúp các giám đốc điều hành nắm rõ hơn về định hướng này.</p>
+
+<p>Dĩ nhiên là tôi không đợi được hỏi đến lần thứ hai. Trong một giờ tiếp theo, chúng tôi đã phác thảo các hình ảnh và trò chuyện. Cuối cùng, chúng tôi đưa ra được bốn hình ảnh sau:</p>
+
+<p>Tập trung lực lượng để hướng đến thị trường trung cấp. Sẵn sàng làm người theo sau nhanh nhạy.</p>
+
+<p>ĐỔI MỚI SẢN PHẨM</p>
+
+<p>Chi</p>
+
+<p>phí</p>
+
+<p>CHÚNG</p>
+
+<p>TA</p>
+
+<p>Dịch vụ</p>
+
+<p>3</p>
+
+<p>Lắng nghe ý kiến khách hàng, không chỉ ý kiến của chính mình. Chấm dứt việc chi tiêu dàn trải.</p>
+
+<p>CHÚNG TA	KHÁCH HÀNG</p>
+
+<p>4</p>
+
+<p>CHÚNG TA</p>
+
+<p>Suốt ngày hôm đó, những hình ảnh này đã được chuyển đến các vị giám đốc điều hành. Bởi vì chúng đơn giản, rõ ràng và sinh động nên ý kiến phản hồi rất tích cực. Bên cạnh việc được khơi nguồn cảm hứng từ một bài phát biểu, giờ đây, mọi người đều có thể thấy được ý nghĩa trong lời nói của Mike, có thể thực sự thấy tầm nhìn của ông ấy.</p>
+
+<p>Đây chính là nơi các hình vẽ bắt đầu phát huy tác dụng. Dù chúng ta đích thân vẽ chúng, thấy chúng, hoặc trò chuyện về chúng, các hình vẽ cũng góp phần rất lớn trong việc làm tăng khả năng tư duy, khả năng ghi nhớ và hành động của chính chúng ta. Nếu bạn đã biết được điều đó, cuốn sách này sẽ giúp</p>
+
+<p>bạn củng cố hơn nữa khả năng giải quyết vấn đề bằng lối tư duy hình ảnh. Nếu bạn không biết hoặc lo rằng mình không vẽ được, cuốn sách này sẽ đặt nền móng và trao cho bạn tất cả những công cụ cần thiết để chứng tỏ được sức mạnh của hình ảnh với chính mình và đồng nghiệp.</p>
+
+<h3>Khúc dạo đầu</h3>
+
+<p>Trước khi bắt đầu, hãy làm một bài tập nhằm làm rõ hơn nữa mục đích của cuốn sách. Lần cuối bạn đi thăm một thành phố mới – nơi mà bạn không quen biết người dân địa phương, không biết đường sá, và thậm chí không thể đọc được các biển chỉ đường – là khi nào? Có một bài học đơn giản nhưng có sức thuyết phục mạnh mẽ mà chúng tôi sắp tiết lộ ở đây: việc suy nghĩ về cách tìm đường ở một nơi lạ lẫm sẽ giúp chúng ta nghĩ ra cách tìm kiếm phương hướng liên quan đến một ý tưởng mới lạ. Việc quan sát cách xác định phương hướng ở một địa điểm sẽ giúp chúng ta thấu hiểu cách định hướng một *vấn đề*.</p>
+
+<p>Để chứng minh rõ những gì tôi vừa nói, xin mời bạn đi dạo một vòng quanh thành phố Matxcơva. Đó là thành phố nơi tôi công tác và (tại một vài trời điểm nhất định trong năm) là nơi đi dạo tuyệt vời. Tôi còn nhớ rất rõ buổi sáng đầu tiên hôm đó – cảm giác phấn khích được bắt đầu khám phá một thành phố hoàn toàn xa lạ bị sụt giảm đôi chút bởi nỗi lo sợ sẽ vĩnh viễn biến mất tại một con đường tăm tối nào đó – và tôi muốn chia sẻ với các bạn cuộc hành trình này.</p>
+
+<p>Hãy tưởng tượng rằng chúng tôi đang ở Khách sạn Saint George tại trung tâm Matxcơva. Chúng tôi đến từ ngày hôm trước và thức giấc với một buổi sáng mùa xuân tuyệt đẹp đang chờ đón. Mọi người gặp nhau trong bữa sáng và thống nhất rằng đi bộ là cách tốt nhất để cảm nhận đầy đủ về thành phố này. Vì rất đam mê lĩnh vực du hành vũ trụ nên tôi đề xuất đi thăm bảo tàng Yuri Gagarin, nơi tưởng nhớ nhà du hành vũ trụ đầu tiên trên thế giới. Nhiều năm trước, tôi có đọc đâu đó rằng bảo tàng này nằm trong thành phố, nhưng tôi không biết chính xác nó ở đâu.</p>
+
+<p>Sau bữa sáng no nê, chúng tôi đến quầy lễ tân hỏi đường đến bảo tàng Gagarin. Điều đầu tiên họ làm là đề nghị chúng tôi đăng ký thuê một chiếc limo vì bảo tàng cách một quãng khá xa. Nhưng chúng tôi từ chối và nói rằng mình thích đi bộ hơn.</p>
+
+<p>“Dạ được, vậy để tôi chỉ đường cho quý khách đến đó,” nhân viên phục vụ đáp.</p>
+
+<p>PHƯƠNG ÁN 1: LỐI TRẦN THUẬT</p>
+
+<p>Người phục vụ nói với chúng tôi: “Đó là quãng đường khá xa, nếu đi bộ sẽ mất khoảng hơn hai tiếng, nhưng quý khách có thể đi theo hướng sau: ra khỏi cửa trước thì rẽ phải. Chỉ một lúc là quý khách sẽ đến bờ sông – đó chính là dòng sông Matxcơva – và khi đến đó, hãy rẽ trái theo hướng bờ sông. Men theo bờ sông khoảng vài phút và quý khách sẽ nhìn thấy điện Kremlin ở phía tay trái. Khi đã đi qua điện Kremlin, quý</p>
+
+<p>khách sẽ nhìn thấy một cây cầu lớn phía bên phải và nhà thờ lớn Saint Basil phía bên trái. Đi thẳng về hướng nhà thờ nhưng về phía bên trái. Rẽ phải theo hướng lên đồi, quý khách sẽ nhìn thấy nhiều tòa nhà cổ ở đó – đây là những tòa nhà lâu đời nhất thành phố.</p>
+
+<p>“Cuối cùng, quý khách sẽ đến con đường lớn bị chia tách bởi một khu vườn – đó chính là đường Lubyanski – hãy rẽ trái và tiếp tục đi lên đồi. Đi thêm khoảng mười phút, quý khách sẽ đến quảng trường Lubyanka, trụ sở cũ của cơ quan mật vụ KGB. Quý khách chắc chắn thấy nó; đó là một tòa nhà màu vàng đồ sộ được thiết kế theo phong cách tân cổ điển với những cánh cửa sắt lớn cùng nhiều chi tiết chạm khắc bên trên. Hãy tin tôi, quý khách sẽ không muốn bước chân vào bên trong đâu. Đi thẳng qua quảng trường Lubyanka và rẽ phải đến đường Sretenka. Giờ là đoạn dễ nhất: cứ đi thẳng con đường này là quý khách sẽ đến bảo tàng Gagarin dù tên phố sẽ thay đổi suốt dọc đường. Ban đầu, nó sẽ là Sretenka, sau khi quý khách băng qua Garden Ring Road, nó sẽ là Prospekt Mira, hay Peace Road. Hãy đi theo con đường Prospekt Mira đó trong khoảng ba, bốn cây số nữa, quý khách sẽ hướng về phía bắc của thành phố. Sau khoảng ba mươi phút, quý khách sẽ băng qua một giao lộ lớn tại nhà ga Rizhsky, nhưng cứ tiếp tục đi thẳng. Khoảng bốn mươi phút sau, quý khách sẽ đến ngã ba, nơi Prospekt Mira chạy về phía tay phải còn Ostankinsky Way chạy về phía tay trái. Hãy tiếp tục đi theo đường Prospekt thêm khoảng vài phút nữa và quý khách sẽ nhìn thấy bảo</p>
+
+<p>tàng Gagarin bên phía tay trái. Chính là nó. Chúc quý khách chuyến đi vui vẻ.”</p>
+
+<p>PHƯƠNG ÁN 2: DANH SÁCH KIỂM</p>
+
+<p>Giờ hãy thử cách khác. Lần này, hãy tưởng tượng rằng nhân viên phục vụ sẽ dùng đến giấy, bút, và sau một lúc suy nghĩ đã viết ra một danh sách tên đường như sau (sử dụng cả tên tiếng Anh lẫn tên tiếng Nga của các con đường):</p>
+
+<p>- Rẽ phải tại Mokhovaya Ulitsa</p>
+<p>- Rẽ trái tại bờ sông Matxcơva, Moskvoretskaya Naber-ezhnaya</p>
+<p>- Rẽ trái tại Quảng trường Đỏ Red Square (Krasnaya Ploshchad)</p>
+<p>- Rẽ phải tại Ulitsa Varvarka</p>
+<p>- Rẽ trái tại Lubyanskiy Proyezd</p>
+<p>- Rẽ phải tại Ulitsa Sretenka</p>
+<p>- Băng qua Garden Ring Road (Sadovoye Koltso)</p>
+<p>- Tiếp tục đi trên đường Prospekt Mira</p>
+<p>- Băng qua Rizhsky Voksal</p>
+<p>- Tiếp tục đi theo đường Prospekt Mira giữa đoạn chia cắt với Ostankinsky Proyezd</p>
+<p>- Nhìn thấy cổng vào viện bảo tàng bên phía tay trái.</p>
+
+<p>Khi đưa danh sách đường đi cho chúng tôi, người phục vụ nói: “Hãy đi theo hướng dẫn này, quý khách sẽ đến được bảo tàng sau hai giờ.”</p>
+
+<p>PHƯƠNG ÁN 3: BẢN ĐỒ</p>
+
+<p>Một khả năng nữa là nhân viên phục vụ đó lấy một tấm bản đồ thành phố Maxcơva và vẽ một chấm tròn gần cuối. “Đây là nơi chúng ta đang đứng.” Sau đó, người ấy vẽ một chấm tròn khác phía trên bản đồ và kết nối hai chấm tròn với nhau. “Đó chính là bảo tàng Gagarin.” Người phục vụ trao bản đồ cho chúng tôi và nói: “Quý khách sẽ mất khoảng hai giờ để đến đó.”</p>
+
+<p>Phương án cột mốc.</p>
+
+<p>PHƯƠNG ÁN 4: CỘT MỐC</p>
+
+<p>Còn đây là giải pháp cuối cùng. Nhân viên phục vụ lấy giấy bút và vẽ hình ảnh của hai tòa nhà. Người đó nói: “Khi bước ra ngoài, quý khách sẽ nhìn thấy tòa nhà này từ xa ở phía bên trái. Hãy đi theo hướng đó và quý khách sẽ nhìn thấy bảo tàng.”</p>
+
+<p>NÊN LỰA CHỌN PHƯƠNG ÁN NÀO?</p>
+
+<p>Cả bốn phương án đều đúng. Về mặt lý thuyết, bất cứ phương án nào trong số đó cũng sẽ đưa chúng tôi đến đúng nơi trong</p>
+
+<p>khoảng thời gian tương tự. Nhưng câu hỏi của tôi là: tôi muốn bạn nhìn lại bốn phương án trên, thật sự suy nghĩ về chúng, và tự hỏi: nếu thực sự đang ở Matxcơva, bạn sẽ lựa chọn phương án nào?</p>
+
+<p>Không có câu trả lời chính xác, nhưng tôi có ý kiến như sau:</p>
+
+<p>Cách 1: Trần thuật</p>
+
+<p>Cách chỉ đường theo lối trần thuật nghe rất hấp dẫn, cung cấp nhiều thông tin chi tiết và khiến cho chuyến đi trở nên thú vị, nhưng nếu không có trí nhớ siêu phàm chúng ta sẽ quên ngay sau lần rẽ thứ hai. (Cách này giống như bài phát biểu của Mike).</p>
+
+<p>Cách 2: Danh sách kiểm</p>
+
+<p>Cách chỉ đường kiểu danh sách kiểm rất rõ ràng và dễ thực hiện, nhưng không cung cấp thông tin tổng quát về nơi chúng ta sẽ đến. Đó chỉ là một chuỗi các bước cần thực hiện, vì vậy, chúng ta sẽ không có khái niệm nào về nơi mình sắp đến cho đến khi thực sự có mặt ở đó. Chúng ta sẽ ổn nếu tuân thủ các bước theo đúng thứ tự được chỉ dẫn. Nhưng vì không hình dung được bối cảnh chung, nên chỉ cần đi sai một bước, chúng ta sẽ bị lạc mà không có cách nào quay trở lại đúng đường được. (Cách này giống như bài trình bày PowerPoint).</p>
+
+<p>Cách 3: Bản đồ</p>
+
+<p>Cách chỉ đường theo bản đồ giúp chúng ta có cái nhìn tổng quát về thành phố (toàn bộ bối cảnh của khu vực đó) và đường đi rõ ràng. Nó chứa đựng nhiều chi tiết hơn mức cần thiết, nhưng chừng nào không làm mất bản đồ thì chúng ta sẽ tìm được đường cho dù đang ở đâu – miễn sao chúng ta *biết *vị trí của mình trên bản đồ. (Tôi gọi đây là bức ảnh “ở đâu”, và chúng ta sẽ thấy – và tạo ra – nhiều hình ảnh kiểu này).</p>
+
+<p>Cách 4: Cột mốc</p>
+
+<p>Cách chỉ đường theo cột mốc lại ngắn gọn một cách khác thường, nhưng nó thực sự giúp chúng ta có tầm nhìn tốt nhất về nơi mình sắp đến. Tất cả đều phụ thuộc vào cách lựa chọn và quyết định của chúng ta trong suốt chuyến đi – nhưng với điều kiện là chúng ta phải luôn nhìn thấy mục tiêu – đồng thời đảm bảo rằng mình không bị lạc. (Tôi gọi đây là bức ảnh “viễn cảnh”, và cũng sẽ sử dụng nhiều hình ảnh kiểu này).</p>
+
+<p>Một lần nữa, không có câu trả lời đúng. Chính cách bạn phản ứng với bốn phương án trên sẽ tạo nên giá trị cho bài tập này. Sự ưu tiên của bạn sẽ tiết lộ nhiều điều về chính bản thân bạn, về cách bạn thích giải quyết vấn đề, và về cách sử dụng cuốn sách này hiệu quả nhất. Nếu bạn thích phương án 1 (kiểu trần thuật), cuốn sách này sẽ chứng tỏ với bạn sức mạnh kỳ diệu từ sự kết hợp giữa hình ảnh và một câu chuyện kể. Nếu bạn chuộng phương án 2 (danh sách kiểm), cuốn sách sẽ giúp bạn biết cách khiến cho phương pháp tiếp cận của mình trở</p>
+
+<p>nên hấp dẫn hơn và dễ áp dụng hơn đối với người khác. Nếu bạn chọn phương án 3 và 4 (bản đồ và cột mốc), bạn sẽ có cơ hội hoàn thiện những khả năng vốn đã thành thạo của mình: nhìn nhận và giải thích thế giới bằng hình ảnh.</p>
+
+<p>Vì đã nhắc đến nghề nghiệp nên giờ tôi muốn chia sẻ với bạn lựa chọn ưu tiên của tôi. Tôi tin chắc rằng về tính thực tiễn, việc giải quyết vấn đề theo định hướng kinh doanh – khi bạn và nhóm của bạn cần phải chỉ ra điều gì đó ngay tức – thì các phương án thuộc về hình ảnh (bản đồ và cột mốc) là cách nên áp dụng. Thực tế cho thấy rằng chúng ta hiếm khi thấy những kiểu hình ảnh này trong kinh doanh, đó chính là lý do tôi thực hiện cuốn sách này.</p>
+
+<p>Phần còn lại của cuốn sách sẽ giải thích vì sao tôi tin tưởng ở những hình ảnh đó, vì sao cần nỗ lực tạo ra chúng khi tiếp cận một vấn đề, cách tạo ra hình ảnh đúng, và cách thực hiện điều đó thật nhanh chóng.</p>
+
+<h3>Trước khi bắt đầu, chúng ta hãy cùng “khởi động” một chút</h3>
+
+<p>CUỐN SÁCH NÀY DÀNH CHO AI?</p>
+
+<p>Cuốn sách này dành cho những ai đang đối mặt với bất kỳ thử thách công việc nào, hay nói cách khác là dành cho những ai đang có vấn đề cần giải quyết. Dù bạn cho rằng mình không biết vẽ (đừng lo, bạn làm được) hay không có khả năng giải</p>
+
+<p>quyết vấn đề bằng hình ảnh (đừng lo, bạn có thể), điều đó không quan trọng. Nếu bạn muốn cải thiện khả năng nhìn các vấn đề, thấy các mô hình, hình dung các giải pháp, và trình bày những giải pháp đó với người khác, cuốn sách này sẽ dành cho bạn.</p>
+
+<p>“Đưa cho tôi cây bút”</p>
+
+<p>“Tôi không biết vẽ, nhưng...”</p>
+
+<p>“Tôi không giỏi về hình ảnh”</p>
+
+<p>“Bút đen”	“Bút vàng”	“Bút đỏ”</p>
+
+<p>(Bút đánh dấu)</p>
+
+<p>Biên độ dao động của lối tư duy bằng hình ảnh này bao gồm tất cả mọi người (Thông tin chi tiết về biên độ này sẽ được nêu trong Ngày 1)</p>
+
+<p>CHÚNG TA SẮP THAM GIA CHƯƠNG TRÌNH GÌ?</p>
+
+<p>Hãy nghĩ về cuốn sách này như một buổi hội thảo, nơi chúng ta sẽ làm việc cùng nhau để giúp bạn hoàn thiện khả năng tư duy và giao tiếp bằng hình ảnh. Trọng tâm của cuốn sách là bộ công cụ tư duy và giải quyết vấn đề bằng hình ảnh. Chúng ta sẽ</p>
+
+<p>tìm hiểu về mục đích của từng công cụ – hãy xem chúng như một bộ lưỡi dao – và cách thức sử dụng chúng, tùy vào loại vấn đề cần giải quyết.</p>
+
+<p>như thế nào vì sao khi nào</p>
+
+<p>ở đâu bao nhiêu</p>
+
+<p>ai/</p>
+
+<p>cái gì</p>
+
+<p>Mắt</p>
+
+<p>Trí tưởng tượng</p>
+
+<p>Tay+Mắt</p>
+
+<p>TRÌNH BÀY HÌNH DUNG</p>
+
+<p>Đây là bộ công cụ</p>
+
+<p>tư duy hình ảnh của bạn.</p>
+
+<p>Chúng ta sẽ lần lượt mở từng lưỡi dao một.</p>
+
+<p>NHÌN	THẤY</p>
+
+<p>CHÚNG TA SẼ BAO QUÁT ĐƯỢC ĐẾN MỨC NÀO?</p>
+
+<p>Rất nhiều. Bạn sẽ nhớ được bao nhiêu trong số đó? Tôi hy vọng là tất cả. Tôi sẽ nỗ lực hết sức để đảm bảo rằng mọi thứ đều hoàn toàn dễ hiểu và trở thành bản chất không thể thiếu vào thời điểm kết thúc. Tôi không giỏi ghi nhớ các danh sách dài, các quy trình và chuỗi diễn biến (giờ đây nhìn lại tôi mới nhận ra rằng đó là một trong những lý do khiến tôi viết cuốn sách này). Nhưng hóa ra, điều đó lại đúng với hầu hết mọi người. Vì vậy, tôi tự tin rằng nếu tôi có thể sử dụng và nhớ mọi thứ ở đây, bạn cũng có thể làm được như vậy.</p>
+
+<p>CHÚNG TA NÊN LÀM VIỆC Ở ĐÂU?</p>
+
+<p>Không gian của lớp học có thể là bất cứ đâu bạn thích. Đề nghị của tôi là tìm một nơi mà bạn có thể ngồi tĩnh tâm trong vài giờ: văn phòng, ký túc xá, thư viện, hoặc bàn ăn trong bếp. Để giúp loại bỏ những xao lãng của công việc thường nhật, hãy tưởng tượng rằng chúng ta đang ở trong một viện nghiên cứu tọa lạc giữa những ngọn đồi của Tahiti, nhìn ra biển Nam Thái Bình Dương xanh biếc. Viện Tư duy bằng hình ảnh này nằm ngay tại eo biển, nơi chúng ta có thể nhìn ra bãi biển ngay dưới chân đồi trong thời gian nghỉ giải lao. Nhưng đây chỉ là vị trí tưởng tượng của tôi; nếu bạn có thể tưởng tượng được nơi nào tốt hơn, xin cứ tự nhiên.</p>
+
+
+
+<p>Chúng ta sẽ gặp nhau tại Viện Tư duy bằng hình ảnh ở Tahiti. Nhưng đó chỉ là vị trí tưởng tượng của tôi; bạn có thể tưởng tượng ra bất kỳ nơi nào mình thích.</p>
+
+<p>HỘI THẢO NÀY DIỄN RA KHI NÀO?</p>
+
+<p>Nếu chúng ta thật sự làm việc trực diện cùng nhau, hội thảo này sẽ diễn ra trong khoảng bốn ngày. Nhưng vì chúng ta không làm việc cùng nhau nên hãy tự do quyết định lượng thời gian cần thiết đối với bạn. Bất kể bạn dành bao nhiêu thời gian cho cuốn sách này, tôi khuyên bạn nên đọc theo đúng thứ tự, từ Ngày 1 đến Ngày 4. Nội dung của mỗi ngày sẽ được dựa trên ngày diễn ra trước đó, và một số khái niệm sẽ trở nên gần như vô nghĩa nếu bạn không hiểu được những khái niệm trước đó.</p>
+
+<p>Ngày 1	Ngày 2	Ngày 3	Ngày 4</p>
+
+<p>NHÌN</p>
+
+<p>THẤY</p>
+
+<p>HÌNH DUNG</p>
+
+<p>TRÌNH BÀY</p>
+
+<p>Các nội dung của bốn ngày được trình bày liên tiếp nhau; chúng sẽ có ý nghĩa khi được đọc theo đúng trình tự.</p>
+
+<p>HỘI THẢO DIỄN RA NHƯ THẾ NÀO?</p>
+
+<p>Cơ cấu của hội thảo này khá đơn giản: tôi sẽ giới thiệu với bạn một ý tưởng về tư duy hình ảnh, đưa ra một ví dụ, giúp bạn thực hiện một bài kiểm tra thử, và sau đó yêu cầu bạn tự hoàn thành một ví dụ. Khi chúng ta kết thúc, bạn hẳn đã giải quyết</p>
+
+<p>hàng chục vấn đề bằng hình vẽ – để bạn hiểu rõ về mức độ hiệu quả của việc sử dụng hình ảnh cho bất kỳ tình huống nào trong công việc.</p>
+
+
+
+<p>Tôi sẽ giới thiệu một ý tưởng, sau đó vẽ một hình mẫu. Chúng ta sẽ cùng xem lại hình vẽ, và sau đó tôi sẽ yêu cầu bạn vẽ một hình của riêng mình.</p>
+
+<p>VÌ SAO CHÚNG TA PHẢI BỎ THỜI GIAN ĐỂ LÀM NHỮNG ĐIỀU NÀY?</p>
+
+<p>Thế giới hiện nay của chúng ta ngày càng mang tính toàn cầu hóa và trở nên bão hòa về thông tin, còn tin tức truyền thông thì được phân kênh mỗi ngày. Ngôn từ không còn đủ nữa (chúng chưa bao giờ đủ, nhưng hãy bàn đến điều này ở một cuốn sách khác). Để khám phá những ý tưởng thật sự mang tính đột phá, phát triển và chia sẻ chúng với người khác một cách hiệu quả, chúng ta cần đến hình ảnh.</p>
+
+<p>Những hình vẽ (đi kèm với ngôn từ)</p>
+
+<p>sẽ hiệu quả hơn rất nhiều so với ngôn từ thuần túy.</p>
+
+<p>BẠN CẦN NHỮNG GÌ?</p>
+
+<p>Để hoàn thành buổi hội thảo, bạn sẽ cần ba thứ. Giờ là thời điểm thích hợp để thu thập chúng.</p>
+
+<p>1. __Cuốn sách này__. Đây là công cụ đầu tiên; hãy vẽ vào đó, thậm chí làm hỏng nó – đó chính là mục đích của cuốn sách.</p>
+<p>2. __Dụng cụ vẽ__. Hãy mang theo “chiếc đũa thần” của bạn. Bảo bối của tôi là bút chì, bút Sharpie hoặc bút Pilot.</p>
+
+<p>Tốt</p>
+
+<p>Tốt</p>
+
+<p>Tốt nhất</p>
+
+<p>1. __Giấy hoặc bảng vẽ__. Có ba loại mà chúng ta sẽ bàn đến. Cuối cùng chúng ta sẽ gọi chúng là (a) “cá nhân”, (b) “chuẩn bị”, và (c) “trình bày”, nhưng lúc này, chỉ cần xem chúng là</p>
+
+<p>S, M và L. Để làm theo cuốn sách bài tập này, bạn chỉ cần một vật dụng cá nhân nhỏ – một mảnh giấy hoặc một tấm bảng trắng nhỏ. Mảnh giấy có thể là bất cứ thứ gì từ khăn giấy cho đến giấy tập. Cuốn sách này cũng có nhiều chỗ để bạn vẽ. Nếu thuận tiện, bạn nên mua một tấm bảng trắng nhỏ. Bạn có thể mua trực tuyến hoặc tại bất kỳ nhà sách nào. Chúng thường được gọi là “bảng viết học sinh” với giá tương đối rẻ. Bạn có thể sử dụng bất kỳ kích cỡ nào, hay bất kỳ nhãn hiệu nào tùy thích.</p>
+
+
+
+<p>Với những dụng cụ này, chúng ta đã sẵn sàng hành động.</p>
+
+<p>Hẹn gặp bạn tại buổi hội thảo.</p>
+
+        </div>
+
+        <div class="reader-navigation">
+            <div></div>
+            <a href="c2.html" class="nav-btn next">Chương sau <i class="fas fa-chevron-right"></i></a>
+        </div>
     </div>
 
-    <div class="section">
-      <h5 class="section-title">CUỘN TỰ ĐỘNG</h5>
-      <div class="autoscroll-row">
-        <span class="label">Bật cuộn tự động</span>
-        <label class="toggle-switch">
-          <input type="checkbox" id="autoscroll-toggle" onchange="toggleAutoScroll()" />
-          <span class="toggle-slider"></span>
-        </label>
-      </div>
-      <div class="control-row">
-        <span class="label">Tốc độ: <span id="scroll-speed-label">1.5x</span></span>
-      </div>
-      <input type="range" class="speed-slider" min="0.3" max="5" step="0.1" value="1.5"
-        oninput="updateScrollSpeed(this.value)" />
+    <button id="btn-back-to-top" title="Lên đầu trang"><i class="fas fa-arrow-up"></i></button>
+
+    <div id="music-player" class="music-control">
+        <span><i class="fas fa-compact-disc fa-spin"></i> Ambient Focus</span>
+        <input type="range" id="music-volume" min="0" max="1" step="0.1" value="0.5">
     </div>
 
-    <div class="section music-section">
-      <h5 class="section-title">NHẠC NỀN</h5>
-      <div class="music-tracks">
-        <div class="music-track" id="btn-music-rain" onclick="playTrack('rain')">
-          <i class="fas fa-cloud-rain"></i> Mưa nhẹ
-        </div>
-        <div class="music-track" id="btn-music-forest" onclick="playTrack('forest')">
-          <i class="fas fa-tree"></i> Rừng xanh
-        </div>
-        <div class="music-track" id="btn-music-cafe" onclick="playTrack('cafe')">
-          <i class="fas fa-coffee"></i> Quán cà phê
-        </div>
-        <div class="music-track" id="btn-music-ocean" onclick="playTrack('ocean')">
-          <i class="fas fa-water"></i> Biển đêm
-        </div>
-      </div>
-      <div class="vol-row">
-        <i class="fas fa-volume-down"></i>
-        <input type="range" class="vol-slider" min="0" max="0.8" step="0.05" value="0.25"
-          oninput="updateMusicVolume(this.value)" />
-        <i class="fas fa-volume-up"></i>
-      </div>
-    </div>
-  </div>
-
-  <!-- READER CONTENT -->
-  <main class="reader-container">
-    <article class="paper" id="reader-content">
-      <h2 class="content-h2">Chương 1: Khăn giấy, ứng dụng</h2>
-
-      <p>Sau hai mươi lăm năm giúp đỡ các nhà lãnh đạo khắp thế giới, tôi đã rút ra ba bài học sau: Không có cách nào tốt hơn để khám phá một ý tưởng mới bằng việc phác họa một hình ảnh đơn giản. Câu nói đó khiến mọi người chú ý, và Mike bắt đầu sử dụng chiến thuật. Mike phác họa bốn chiến lược mà ông tin tưởng sẽ là con đường sống của AmericanWay. Thứ nhất: thu hồi tất cả các khoản đầu tư ở những "điểm ngọt" mà công ty củng cố bấy lâu; hay nói cách khác, tạm dừng các hoạt động ở thị trường cao cấp và thị trường thấp cấp để tập trung vào thị trường trung cấp. Thứ hai: chấp nhận AmericanWay được định vị để trở thành "người theo sau nhanh nhạy" trong hoạt động phát triển sản phẩm hơn là kẻ dẫn dắt thị trường; hay nói cách khác, hãy để người khác thực hiện những đầu tư rủi ro vào các hoạt động sáng tạo, sau đó theo dõi và áp dụng những gì đem lại hiệu quả.</p>
-
-      <p>Thứ ba: phải thật nhanh nhạy về nhu cầu khách hàng; hay nói cách khác, dừng việc lắng nghe chính mình và hãy bắt đầu lắng nghe ý kiến khách hàng. Cuối cùng: củng cố mọi hoạt động kinh doanh xoay quanh kết cấu hạ tầng cốt lõi của công ty; hay nói cách khác, loại bỏ những quy trình tốn kém tại các văn phòng khắp cả nước. Đó là một buổi nói chuyện cứng rắn và thực tế, chính là điều mà những người có mặt trong phòng cần nghe. Mike đã làm những gì mà một Tổng giám đốc cần làm: tập hợp đội hình, vạch ra một tầm nhìn rõ ràng, và chia nhỏ để mọi người có thể "tiêu hóa" từng phần một.</p>
-
-      <p>Không có cách nào nhanh hơn để phát triển và thử nghiệm một ý tưởng bằng việc phác họa một hình ảnh đơn giản. Không có cách nào hiệu quả hơn để chia sẻ một ý tưởng với người khác bằng việc phác họa một hình ảnh đơn giản.</p>
-
-      <img src="IMG/1.png" alt="Hình 1.1 — Sức mạnh của hình vẽ đơn giản" />
-
-      <p>Tôi tin rằng chúng ta có thể giải quyết các vấn đề của mình – cho dù đó là vấn đề gì – bằng cách tạo ra những hình vẽ đơn giản. Chỉ cần mẩu khăn giấy xoay quanh ba chủ đề chính: vấn đề gì có thể được giải quyết bằng hình vẽ, hình vẽ nào có khả năng giải quyết vấn đề, và ai có thể vẽ được những hình vẽ đó. Khi đã trả lời được ba câu hỏi trên, Chỉ cần mẩu khăn giấy sẽ giới thiệu một quy trình và bộ công cụ để giúp mọi người nhanh chóng giải quyết những vấn đề phức tạp bằng hình vẽ đơn giản.</p>
-
-      <p>Vào buổi sáng của ngày diễn ra hội thảo, tình hình kinh tế nước Mỹ bắt đầu đi xuống. Trước đó một tuần, khi cuộc khủng hoảng tài chính 2008 lan rộng, Quốc hội Mỹ vẫn chưa quyết định thông qua gói cứu trợ trị giá 700 tỷ đôla cho thị trường tài chính. Trong bối cảnh bất ổn đó, chỉ số Dow đã mất 20% giá trị, đánh dấu tuần thấp nhất trong lịch sử của chỉ số này. Nhưng khi tuần mới bắt đầu – tuần diễn ra hội thảo của tôi – nguồn tiền cứu trợ bắt đầu được rót xuống. Vào thứ Hai, thị trường phục hồi khi chỉ số Dow đạt mức kỷ lục trong ngày, cao nhất trong vòng 27 năm qua. Mọi người thở phào nhẹ nhõm, tin chắc rằng điều tồi tệ nhất đã qua đi.</p>
-
-      <p>Nhưng bốn ngày là một khoảng thời gian dài đối với các nhà kinh doanh để họ tạm dừng công việc thường nhật và học hỏi điều gì đó mới mẻ. Vậy nên khóa học này sẽ đề cập đến mối bận tâm đó bằng hai hình ảnh cụ thể: củ cà rốt và cây gậy. Cây gậy nói: "Đúng vậy, có rất nhiều thông tin trong cuốn sách này, và tất cả đều quan trọng. Bạn chỉ mất bốn ngày để tìm hiểu chúng và hãy đảm bảo bám sát vấn đề." Bằng phương pháp tiếp cận khả quan hơn, củ cà rốt nói: "Nếu thực hiện đúng cách, chúng ta sẽ không cần 'dừng những việc đang làm'. Đây là cuốn sách hướng dẫn thực hành, vì vậy, bạn có thể áp dụng vào công việc thực tế của mình."</p>
-
-      <p>Năm ngoái, khi tham dự một cuộc họp kinh doanh, chỉ trong một ngày, tôi đã thấy tất cả những gì mà mình tin có thể chứng minh cho sức mạnh của hình vẽ. Đó là một minh họa tuyệt vời về mức độ đơn giản của lối tư duy hình ảnh trong công việc, nhưng điều tuyệt vời hơn cả là nó chỉ ra những vị trí mà các hình vẽ nên được sử dụng nhằm đem lại hiệu quả cao nhất.</p>
-
-      <p>Mùa hè năm ngoái, ban giám đốc của một công ty tài chính lớn – hãy gọi đó là AmericanWay Financial – đã mời tôi tổ chức một buổi hội thảo tư duy hình ảnh tại cuộc họp lãnh đạo thường niên. AmericanWay đã hoàn tất một năm tài khóa kỷ lục, và ban giám đốc muốn tổ chức một buổi họp kích thích tư duy để tận dụng nguồn năng lượng tích cực này. Ban giám đốc cho rằng phương pháp giải quyết các vấn đề bằng hình ảnh nghe có vẻ thú vị, và tôi đã vui vẻ nhận lời.</p>
-
-      <p>Và đó chính là những gì mà tôi đã nhìn thấy. Dẹp bỏ mọi lời nhận xét được chuẩn bị sẵn sang một bên, Mike bước lên sân khấu, nhìn khắp khán phòng, và thực hiện một bài phát biểu trung thực, chân thành, nghiêm túc và thiết thực nhất mà tôi từng nghe. Trong vòng một giờ đồng hồ, Mike không tìm cách che giấu bất cứ điều gì. Ông nói rằng không ai, kể cả ông lẫn những người có mặt trong căn phòng này, từng trải qua một cuộc khủng hoảng với quy mô và tốc độ như thế.</p>
-
-      <p>Mike nói rằng chính những người có mặt trong căn phòng này sẽ cùng chịu trách nhiệm về những gì xảy ra tiếp theo tại AmericanWay. Nếu công ty vượt qua được khó khăn và trụ vững, đó là nhờ ở công sức của những người hiện diện trong căn phòng này. Còn ngược lại, nếu AmericanWay thất bại, đó cũng là do quyết định của chính những người có mặt tại đây.</p>
-
-      <p>Cuốn sách này chứa đựng nhiều công cụ, quy tắc và khái niệm, nhưng cuối cùng nó chỉ quy về duy nhất một điều: cách phác họa nên hình ảnh đơn giản đó.</p>
-    </article>
-  </main>
-
-  <!-- Back to top -->
-  <button id="btn-back-to-top" aria-label="Lên đầu trang"><i class="fas fa-arrow-up"></i></button>
-
-  <script src="music.js"></script>
-  <script src="script.js"></script>
+    <script src="reader.js"></script>
 </body>
 </html>

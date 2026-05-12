@@ -3,5 +3,8 @@
   "private": true,
   "scripts": {
     "start": "npx --yes serve -l 3456 ."
+  },
+  "dependencies": {
+    "pdf-parse": "^2.4.5"
   }
 }

@@ -1,112 +1,2865 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chương 3: Ngày 2 — Thấy — Hình Vẽ Thông Minh</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
-  <script>
-    (function(){
-      var t = localStorage.getItem('reader_theme') || 'dark';
-      document.documentElement.setAttribute('data-theme', t);
-      document.addEventListener('DOMContentLoaded', function(){ document.body.className = t + '-theme'; });
-    })();
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hình Vẽ Thông Minh - Day 2</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="dark-theme">
-  <div id="reading-progress"><div id="reading-progress-bar"></div></div>
-  <div id="reading-progress-text">0%</div>
-  <div id="tts-status"><div class="pulse-dot"></div><span>Giọng đọc AI</span><span>Đang đọc...</span></div>
+<body class="reader-page">
+    <div id="reading-progress"></div>
+    <div id="reading-progress-text">0%</div>
 
-  <header class="top-nav">
-    <div class="nav-left">
-      <a href="index.html" class="nav-icon" title="Trang chủ"><i class="fas fa-home"></i><span class="icon-label">Trang chủ</span></a>
-      <button class="nav-icon" onclick="openSidebar('sidebar-info')" title="Thông tin sách"><i class="fas fa-book"></i><span class="icon-label">Thông tin</span></button>
-      <button class="nav-icon" onclick="openSidebar('sidebar-toc')" title="Mục lục"><i class="fas fa-list-ul"></i><span class="icon-label">Mục lục</span></button>
+    <div class="reader-header">
+        <div class="header-left">
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+            <h1>Day 2</h1>
+        </div>
+        <div class="header-controls">
+            <button id="theme-toggle" title="Chuyển chế độ sáng/tối"><i class="fas fa-moon"></i></button>
+            <button id="tts-btn" title="Đọc văn bản"><i class="fas fa-volume-up"></i></button>
+            <button id="autoscroll-btn" title="Cuộn tự động"><i class="fas fa-magic"></i></button>
+            <button id="bg-music-btn" title="Nhạc nền"><i class="fas fa-music"></i></button>
+        </div>
     </div>
-    <div class="nav-center">
-      <div class="book-title">HÌNH VẼ THÔNG MINH</div>
-      <div class="chapter-title">Chương 3: Ngày 2 — Thấy</div>
-    </div>
-    <div class="nav-right">
-      <button class="nav-icon" id="btn-audio" title="Giọng đọc AI"><i class="fas fa-headphones"></i><span class="icon-label">Giọng đọc</span></button>
-      <button class="nav-icon" onclick="toggleSettings()" title="Cài đặt"><i class="fas fa-sliders-h"></i><span class="icon-label">Cài đặt</span></button>
-      <button class="nav-icon" id="btn-fullscreen" title="Toàn màn hình"><i class="fas fa-expand"></i><span class="icon-label">Toàn màn hình</span></button>
-    </div>
-  </header>
 
-  <button class="nav-arrow left" onclick="window.location.href='c2.html'"><i class="fas fa-chevron-left"></i></button>
-  <button class="nav-arrow right" onclick="window.location.href='c4.html'"><i class="fas fa-chevron-right"></i></button>
+    <div class="reader-container">
+        <div class="content-body" id="book-content">
+            <p><a id="NGÀY 2: THẤY"></a></p>
 
-  <aside id="sidebar-info" class="sidebar">
-    <div class="sidebar-header">THÔNG TIN SÁCH</div>
-    <div class="sidebar-body">
-      <div class="info-card">
-        <img src="IMG/bìa.png" alt="Bìa sách" />
-        <h3>HÌNH VẼ THÔNG MINH</h3>
-        <p class="author">Tác giả: <strong>Dan Roam</strong></p>
-        <div class="summary">Khám phá phương pháp tư duy hình ảnh giúp bạn giải quyết các vấn đề phức tạp nhất một cách đơn giản.</div>
-      </div>
+<h3>Chào mừng các bạn đến với Ngày 2</h3>
+
+<p>H</p>
+
+<p>ôm nay, chúng ta sẽ tập trung vào việc hoàn thiện cách *thấy *thế giới quanh mình, và đó là một bước đi lớn. Thật may là chúng ta chỉ cần một công cụ duy nhất, và công cụ này mạnh mẽ đến mức khi chúng ta hiểu được nó, mọi</p>
+
+<p>thứ khác trong cuốn sách sẽ trở về đúng vị trí vốn có.</p>
+
+<p>Hôm nay, chúng ta sẽ tập trung vào việc hoàn thiện cách *thấy *thế giới quanh mình.</p>
+
+<p>HÌNH DUNG</p>
+
+<p>TRÌNH BÀY</p>
+
+<p>QUY TẮC 2</p>
+
+
+
+<p>Chúng ta không thể giải quyết một vấn đề mà ta cảm thấy choáng ngợp. Để hiểu được những điều mình đang thấy, chúng ta cần chia nó ra thành nhiều phần nhỏ.</p>
+
+<p>Hầu hết chúng ta đều không thật giỏi trong việc hiểu được các vấn đề lớn, đặc biệt là những vấn đề phức tạp với nhiều phần động(*). Dù con người vốn giỏi nhận ra các mô hình(**), nhưng thật khó để chúng ta phát hiện ra các mô hình ý nghĩa khi có quá nhiều thứ mới mẻ, khác biệt hoặc bất ngờ cứ nhảy múa trước mắt. Đó chính là bị “đứng hình”: bỗng dưng một thứ to lớn và khó chịu “chình ình” trước mắt chúng ta, và bộ</p>
+
+<p>* Chúng ta giỏi phân tích về mặt hình ảnh các hệ thống phức tạp một khi đã quen thuộc với chúng. Đó là vì khi thấy điều gì càng nhiều, chúng ta càng hiểu hơn về cách nhìn nó và nhanh chóng tìm ra các yếu tố có ý nghĩa nhất.</p>
+
+<p>** Con người là những bậc thầy về khả năng nhận biết các mô hình. Chúng ta chưa thể xây dựng được một cỗ máy có khả năng phát hiện các mô hình như cách mình có thể làm được; có lẽ đó là vì chúng ta thật sự không biết được điều gì khiến cho hệ thống bên trong của mình lại giỏi đến thế.</p>
+
+<p>não của chúng ta cứng đơ. “Ê...,” chúng ta có thể tự nhủ, “Xe gì mà lạ đời!” *Rầm!*</p>
+
+<p>**</p>
+
+<p>Quá nhiều, quá mới, quá nhanh = “đứng hình”</p>
+
+<p>Để bù đắp cho sự phức tạp về hình ảnh của thế giới xung quanh, hệ thống thị giác của chúng ta đã phát triển để nhanh chóng phát hiện những phần quan trọng nhất từ những thứ ta thấy. Nó không ngừng phân chia những gì xuất hiện trong giới hạn tầm nhìn của chúng ta thành các nhóm yếu tố riêng biệt. Chúng ta chia nhỏ những yếu tố này trước khi kết hợp chúng với nhau để giải quyết toàn bộ vấn đề. Hệ thống này sẽ thất bại khi không thể nhanh chóng nhận diện các yếu tố riêng lẻ.</p>
+
+<p>Quy tắc 2 – chúng ta không thể giải quyết một vấn đề mà ta thấy choáng ngợp – là về việc chia nhỏ các vấn đề lớn thành những phần nhỏ hơn để có thể “điểm mặt chỉ tên” một cách rõ ràng và nhanh chóng. Quy tắc này không có nghĩa là chúng</p>
+
+<p>ta phải quên đi cả khu rừng và chỉ tập trung vào những cái cây đơn lẻ. Ý tôi muốn nói là chỉ khi nhận biết rằng những thứ có màu xanh đó đều là cây cối thì chúng ta mới biết được rằng mình đang thấy một khu rừng.</p>
+
+<p>Bài tập chủ động nhìn của Ngày 1 đã chỉ cho chúng ta cách “tấn công” các yếu tố trong hệ thống quét hình vốn có và sử dụng chúng để giải quyết vấn đề một cách có ý thức. Các công cụ hôm nay sẽ hướng dẫn cách sử dụng hệ thống nhận diện mô hình để chia vấn đề lớn thành những phần nhỏ hơn bằng hình ảnh. Phương pháp này rất hiệu quả bởi nó phù hợp trực tiếp với cách bộ não con người được sinh ra để nhìn nhận thế giới xung quanh. Trở lại với Quy tắc 2, lần này có thêm nội dung phụ:</p>
+
+
+
+<p>Chúng ta không thể giải quyết một vấn đề mà ta cảm thấy choáng ngợp. Để hiểu được những điều mình đang thấy, chúng ta cần chia nó ra thành nhiều phần nhỏ.</p>
+
+<p>Hoặc</p>
+
+
+
+<p>Chỉ có sáu loại vấn đề, và tất cả đều chứa đựng sáu phần nhỏ này; hãy nhận diện chúng và bạn đã giải quyết được một nửa vấn đề.</p>
+
+<p>Quy tắc 2 chỉ đơn giản như vậy: nếu bạn muốn giải quyết một vấn đề lớn, khó chịu (hay thậm chí vấn đề nhỏ, vô hại), hãy để hệ thống “thấy” bên trong của bạn phát huy tác dụng. Mắt của chúng ta thích tự tìm thấy các mô hình; với một chút hướng dẫn có ý thức, chúng ta có thể giúp *chúng (mắt) *hiểu được ý nghĩa của bất cứ điều gì mình thấy.</p>
+
+
+
+<p>Mắt của chúng ta muốn hiểu được ý nghĩa của những vấn đề mà ta thấy. Một chút hướng dẫn có ý thức có thể tạo nên ý nghĩa lớn.</p>
+
+<p>Hãy cùng xem các ví dụ sau.</p>
+
+<h3>McKinsey và những mảnh ghép Lego: Sức mạnh của “cái gì”</h3>
+
+<p>Nếu bạn từng ngồi quanh đống lửa trại với một nhóm nhà tư vấn – một ý kiến đủ khiến người ta chết khiếp – đây là câu chuyện đáng sợ mà bạn có thể kể để khiến họ thấy ác mộng.</p>
+
+<p>Trong thế giới của lĩnh vực giải quyết vấn đề theo yêu cầu, chúng ta có các chuyên gia tư vấn, rồi lại thêm các chuyên gia tư vấn khác, và rồi có McKinsey & Company. Khi nói đến golf, những người chơi golf sẽ nghĩ ngay đến Tiger Woods(*); khi nói về xe, giới chơi xe nghĩ đến Ferrari. Khi nói đến tư vấn, các chuyên gia tư vấn không thể không nghĩ đến McKinsey.</p>
+
+<p>Các chuyên gia tư vấn của McKinsey cũng nghĩ như vậy nên họ trở nên kiêu ngạo, không khoan nhượng và rất, rất giỏi về những việc họ làm. Nói cách khác, không có gì đáng sợ hơn đối với một chuyên gia tư vấn bên ngoài McKinsey khi phải đến chào hàng với McKinsey. Vài năm trước, khi tôi còn làm việc cho một công ty tư vấn (không phải McKinsey), Shane – giám đốc bán hàng của chúng tôi – nhận được một “Yêu cầu trình đề án” từ McKinsey, yêu cầu *chúng tôi *chào hàng về việc xây dựng hệ thống Internet. Shane và tôi cho rằng chắc do nhầm lẫn, bởi không thể tưởng tượng được là McKinsey</p>
+
+<p>*	Ngoại trừ việc Tiger Woods đã ký hợp đồng quảng cáo với Accenture, hãng tiếp thị được cho là của McKinsey. Tôi hy vọng là Tiger đã đòi nhiều tiền.</p>
+
+<p>sẽ chịu thuê chúng tôi làm bất cứ thứ gì. Shane đã gọi điện để xác nhận, và quả thực là McKinsey muốn thuê chúng tôi. Giám đốc IT bên đó nghe nói rằng chúng tôi là chuyên gia về “cổng quản lý kiến thức” và muốn chúng tôi giới thiệu sản phẩm của mình.</p>
+
+<p>Công ty chúng tôi đã xây dựng nhiều hệ thống kiểu này – vào thời điểm đó, mọi thứ đều được gọi là “cổng thông tin” – vì vậy, chúng tôi biết rằng mọi người đều có ý kiến khác nhau về ý nghĩa của “cổng”. Chúng tôi cũng biết rằng thật khó để khiến mọi người thống nhất về ý nghĩa của “cổng”, rằng chúng tôi phải dành 45 trong tổng số 60 phút chào hàng chỉ để giúp McKinsey hiểu được cổng *là gì *– còn lại 15 phút để bán giải pháp. Một tối nọ, vài ngày trước cuộc gặp với McKinsey, tôi đang chơi trò xếp hình Lego với con gái. Vì chúng tôi đang “xây” mấy thứ bằng những khối nhựa nhỏ, con gái hỏi tôi xây gì ở công ty. Tôi đáp mình xây “cổng” và bắt đầu giải thích khái niệm đó bằng những viên gạch nhiều màu – hóa ra lại là cách dễ dàng nhất để tôi giải thích ý nghĩa của “cổng” với bất cứ người nào. Khi đó, tôi chợt nghĩ rằng mình cũng có thể làm cách này với McKinsey: sử dụng hình vẽ về Lego để giải thích khái niệm.</p>
+
+
+
+<p>Sẽ như thế nào nếu chúng tôi sử dụng các khối Lego để giải thích về khái niệm “cổng thông tin”?</p>
+
+<p>Tôi nói với Shane về ý tưởng đó, và chúng tôi đã thống nhất rằng đằng nào mình cũng không làm hài lòng McKinsey nên chúng tôi có thể thử điều gì đó khác biệt.</p>
+
+<p>Truyền thông trong doanh nghiệp</p>
+
+<p>Các ứng dụng kinh doanh</p>
+
+<p>Tích hợp thông tin</p>
+
+<p>Quản trị tri thức</p>
+
+<p>Các công cụ cộng tác</p>
+
+<p>Các bảng đo tổng quát</p>
+
+<p>Công cụ dành cho nhân viên</p>
+
+<p>Phát triển cộng đồng</p>
+
+<p>Liệu đây có thật sự là ý kiến hay?</p>
+
+<p>Suy cho cùng, chúng ta đang nói về McKinsey mà.</p>
+
+<p>Buổi sáng ngày diễn ra cuộc gặp gỡ với McKinsey, tôi thức giấc đầy lo lắng. “Chúng ta đang làm gì thế này?”, tôi tự nhủ. “Có thật là chúng ta sẽ bước vào cuộc họp với các nhà lãnh đạo cấp cao của McKinsey với hình ảnh của Lego?”. Nhưng lúc này đã quá muộn: Shane và tôi quyết định rằng chương trình vẫn theo đúng kế hoạch, vì vậy, chúng tôi đến trụ sở chính của</p>
+
+<p>McKinsey, nhanh chóng trình bày hình vẽ các viên gạch của Lego qua chương trình PowerPoint.</p>
+
+<p>Hóa ra chúng tôi đã lo lắng thừa. Mười phút kể từ lúc bắt đầu trình bày, giám đốc kỹ thuật của McKinsey nói: “Đây là một bài mô tả hay nhất về cổng thông tin mà tôi từng thấy. Các bạn đã giành được dự án này. Chúng ta hãy thảo luận chi tiết về nó.”</p>
+
+
+
+<p>Hóa ra "cổng thông tin" sẽ dễ hiểu hơn khi được giải thích bằng những viên gạch đồ chơi.</p>
+
+<p>Từ đó, tôi hiểu được điều đã diễn ra tại phòng họp của McKinsey: khi sử dụng những viên gạch đồ chơi để giải thích ý nghĩa của cổng, về mặt hình ảnh, chúng tôi đã phá vỡ “vấn đề” thành một yếu tố “cái gì” đơn giản. Chúng tôi không nói về lượng nội dung mà nó có thể chứa đựng, hay khi nào các chuyên gia tư vấn có thể sử dụng được nó, về mặt kỹ thuật nó</p>
+
+<p>hoạt động như thế nào, hay thậm chí vì sao McKinsey lại cần đến nó. Chúng tôi bắt đầu cuộc họp bằng một hình ảnh đơn giản – thứ giải thích chính xác điều mà chúng tôi đang nói đến, và mọi người đều hiểu được nó – nên chúng tôi giành được dự án.</p>
+
+<h3>Cách nhận biết một vấn đề?</h3>
+
+<p>Nếu định sử dụng hệ thống “nhận biết” bẩm sinh để hiểu được thế giới mà mình thấy, chúng ta cần hiểu một chút về cách hoạt động của tầm nhìn, đặc biệt cách mà hệ thống tầm nhìn hướng dẫn chúng ta trong thế giới thực.</p>
+
+<p>Bởi vì chúng ta sống trong thế giới ba chiều tự nhiên, hệ thống tầm nhìn của chúng ta đã tiến hóa để thật sự hiểu được không gian ba chiều. Nó làm được điều này nhờ phá vỡ môi trường thành một hệ tọa độ ba chiều gồm chiều dài, chiều rộng và chiều cao.</p>
+
+<p>Chiều rộng</p>
+
+<p>Chiều cao</p>
+
+<p>Chúng ta đang sống trong thế giới ba chiều</p>
+
+<p>Chiều dài</p>
+
+<p>Chúng ta hiểu được hầu hết thế giới tự nhiên quanh mình bởi hệ thống tầm nhìn giúp xây dựng *trong đầu chúng ta *một mô hình về thế giới *ngoài kia*. Chúng ta điều hướng một căn phòng nhờ sử dụng mô hình ba chiều mà mắt đã tạo ra.</p>
+
+<p>ĐƯỜNG BIÊN</p>
+
+<p>TRÊN</p>
+
+<p>KÍCH</p>
+
+<p>CỠ</p>
+
+<p>SÂU</p>
+
+<p>Và hệ thống tầm nhìn của chúng ta đã tiến hóa để giúp ta điều hướng.</p>
+
+<p>Nhưng các vấn đề mà chúng ta đang đối mặt hiện nay không liên quan đến việc di chuyển trong không gian: chúng xoay quanh việc nhìn nhận nhiều mảnh ghép di chuyển – đôi khi đó là những thứ tự nhiên như con người, tiền bạc, hay sản phẩm, nhưng thường là những vấn đề trừu tượng như các khái niệm, các ý tưởng, ngôn ngữ, hay các quy tắc – và sau đó xây dựng một mô hình trong tâm trí để có thể hiểu được các mối liên kết giữa những mảnh ghép này.</p>
+
+<p>Để nhận biết các vấn đề như cách chúng ta nhận biết thế giới quanh mình, chúng ta cần có hệ thống phối hợp – thứ có thể đại diện cho không chỉ các phương hướng tự nhiên và vị trí của những thứ cụ thể.</p>
+
+
+
+<p>Kiểu hệ thống phối hợp nào có thể giúp chúng ta nhận biết một vấn đề?</p>
+
+<p>Tin vui là chúng ta đã có sẵn hệ thống phối hợp cần thiết – và chúng ta cũng cảm thấy thoải mái với nó như cách ta có được với chiều dài, độ cao và chiều rộng. Trên thực tế, hệ thống phối hợp mà chúng ta sắp sử dụng cho việc “nhận biết” các vấn đề cũng mang tính bẩm sinh như mô hình ba chiều mà bộ não sử dụng để nhận biết không gian; chỉ khác là nó có nhiều chiều hơn – thực tế là sáu. Nhưng đừng lo lắng vì nó có vẻ nhiều: một lần nữa, chúng ta đều đã biết chúng: “ai và cái gì”, “bao nhiêu”, “ở đâu”, “khi nào”, “như thế nào”, và “vì sao”.</p>
+
+<p>có</p>
+
+<p>Hệ thống phối hợp 6-W: đây là cách chúng ta sẽ tự đào tạo để thể thấy các vấn đề.</p>
+
+<h3>Sáu lưỡi dao mới tiếp theo</h3>
+
+<p>Trước khi đi vào chi tiết mô hình nhận biết “sáu chiều” này, chúng ta hãy cùng ghi lại sáu yếu tố phối hợp vào bộ công cụ giải quyết vấn đề của mình. Hãy rút con dao đa năng Thụy Sĩ của ngày hôm qua ra và vẽ thêm sáu lưỡi dao này. (Chúng ta sẽ để dành công cụ mở nút chai cho ngày mai). Hãy gọi tên chúng như sau:</p>
+
+<p>W#1: “ai và cái gì” W#2: “bao nhiêu” W#3: “ở đâu” W#4: “khi nào”</p>
+
+<p>W#5: “như thế nào” W#6: “vì sao”</p>
+
+<p>Trí tưởng</p>
+
+<p>tượng</p>
+
+<p>Mắt	Tay+Mắt</p>
+
+<p>vì sao</p>
+
+<p>như thế nào khi nào</p>
+
+<p>ở đâu bao nhiêu</p>
+
+<p>ai/ cái gì</p>
+
+<p>Bổ sung lưỡi dao</p>
+
+<p>6-W: “ai và cái gì”,</p>
+
+<p>“bao nhiêu”, “ở đâu”, “khi nào”, “như thế nào”, và “vì sao”.</p>
+
+<h3>Mặt sấp hay mặt ngửa?</h3>
+
+<p>Chúng ta đều thắng ở cả hai cách</p>
+
+<p>##### Đồng xu may mắn của chúng ta:</p>
+
+<p>Quy tắc này giống như đồng xu may mắn:</p>
+
+<p>dù tung theo cách nào, chúng ta đều thắng.</p>
+
+<p>Hãy nghĩ về Quy tắc 2 như đồng xu may mắn. Hai mặt của đồng xu đại diện cho hai cách hiểu khác nhau. Mặt thứ nhất cho chúng ta biết rằng chỉ có sáu loại vấn đề: nếu có thể nhận diện loại vấn đề mình đang gặp phải, chúng ta sẽ rất dễ dàng tìm ra giải pháp. Mặt thứ hai nhắc nhở chúng ta rằng mỗi vấn đề đều chứa sáu mảnh ghép tương tự: nếu có thể nhận diện được những mảnh ghép này, chúng ta đã giải quyết được một nửa vấn đề.</p>
+
+<p>Sáu vấn đề, sáu mảnh ghép: cả hai mặt của đồng xu đều nhắc nhở chúng ta về mức độ dễ dàng của việc *thấy *vấn đề theo cách có thể ngay lập tức</p>
+
+<p>Ấ</p>
+
+<p>giúp ta bắt đầu giải</p>
+
+<p>”</p>
+
+<p>Mặt ngửa	Mặt sấp</p>
+
+<p>quyết nó.</p>
+
+<p>Chỉ có bấy nhiêu vấn đề</p>
+
+<p>Chỉ có bấy nhiêu mảnh ghép</p>
+
+<h3>Mặt ngửa \(Đầu\):</h3>
+
+<p>chúng ta nhận ra loại vấn đề nào?</p>
+
+<p>“Ê khoan,” bạn có thể nói, “cả thế giới chỉ gom lại có sáu vấn đề thôi ư? Đó không phải là thế giới mà tôi đang sống: tôi có thể chỉ ra nhiều hơn sáu vấn đề mà tôi đang phải đối mặt.”</p>
+
+<p>Dĩ nhiên, có vô số vấn đề, cũng giống như có vô số giải pháp. Nhưng trí óc của chúng ta không có khả năng xử lý vô hạn để giải quyết tất cả. Để hiểu được thế giới và tìm cách vượt qua những phần cam go, bộ não của chúng ta tạo ra những mô hình làm việc đơn giản để hướng dẫn, và đó chính là điều ta sẽ bàn ở đây: một khuôn khổ đơn giản để quản lý quy trình giải quyết vấn đề bằng hình ảnh lớn. Đó không phải là mô hình hoàn hảo, nhưng chúng ta sẽ thấy, nó mang lại hiệu quả.</p>
+
+<p>Mặt ngửa</p>
+
+<p>Ấ</p>
+
+<p>Chỉ có bấy nhiêu vấn đề</p>
+
+<p>”</p>
+
+<p>Mặt ngửa: chỉ có sáu loại vấn đề. (Về điều này, hiện giờ bạn đành phải tin tưởng ở tôi thôi).</p>
+
+<p>Đây là sáu loại vấn đề mà chúng ta có thể gặp phải:</p>
+
+<h3>Sáu loại vấn đề</h3>
+
+
+
+<p>1. __Nhóm vấn đề“ai và cái gì”__: những thử thách có liên quan đến sự vật, con người, và vai trò, như:</p>
+<p>- Ai là những người tham gia trong vấn đề này, và họ làm gì?</p>
+<p>- Điều gì khiến cho vấn đề này khác với vấn đề</p>
+
+<p>khác? Tôi thích cái nào?</p>
+
+<p>-</p>
+<p>- Ai là người chịu trách nhiệm và còn ai khác liên quan? Trách nhiệm nằm ở đâu?</p>
+
+
+
+<p>1. __Nhóm vấn đề“bao nhiêu”__: những thử thách có liên quan đến việc cân, đo, đong, đếm:</p>
+<p>- Chúng ta có đủ X cho khoảng thời gian cần thiết không?</p>
+<p>- Chúng ta cần bao nhiêu để duy trì? Nếu tăng</p>
+
+<p>cái này, liệu chúng ta có thể giảm cái kia không?</p>
+
+
+
+<p>1. __Nhóm vấn đề “khi nào”__: những thử thách có liên quan đến việc lên kế hoạch và tính toán thời gian, như:</p>
+<p>- Cái nào đến trước, cái nào đến sau?</p>
+<p>- Chúng ta cần phải làm gì, và khi nào, để mọi thứ được hoàn thành đúng thời hạn?</p>
+
+
+
+<p>1. __Nhóm vấn đề “ở đâu”__: những thử thách có liên quan đến cách thức mọi việc được kết hợp và phát huy tác dụng cùng nhau:</p>
+<p>- Tất cả những mảnh ghép này khớp nhau ở đâu? Mảnh ghép nào quan trọng nhất và mảnh ghép nào ít quan trọng hơn?</p>
+<p>- Chúng ta sẽ đi về đâu vào lúc này? Liệu</p>
+
+<p>chúng ta có đi đúng hướng, hay chúng ta nên chuyển sang hướng khác?</p>
+
+
+
+<p>1. __Nhóm vấn đề “như thế nào”__: những thử thách có liên quan đến cách ảnh hưởng lẫn nhau của mọi vật:</p>
+<p>- Điều gì sẽ xảy ra nếu chúng ta làm theo cách này? Thế còn cách kia thì sao?</p>
+<p>- Liệu chúng ta có thể thay đổi kết quả bằng</p>
+
+<p>cách thay đổi hành động của mình?</p>
+
+
+
+<p>1. __Nhóm vấn đề “vì sao”__: những thử thách có liên quan đến việc nhận biết bức tranh lớn:</p>
+<p>- Chúng ta thật sự đang làm gì và vì sao? Đây có phải là điều đúng đắn, hay liệu chúng ta nên làm điều gì khác?</p>
+<p>- Nếu chúng ta cần thay đổi, ý kiến của chúng</p>
+
+<p>ta là gì? Làm cách nào chúng ta quyết định được lựa chọn nào trong số đó là tốt nhất?</p>
+
+<p>BÀI TẬP NHẬN DIỆN VẤN ĐỀ:</p>
+
+<p>Hãy đọc những câu sau và xác định chúng thuộc nhóm vấn đề nào. Như chúng ta sẽ nhận thấy về sau, tất cả các vấn đề đều là các kiểu kết hợp khác nhau của sáu dạng này, vì vậy, mục đích của chúng ta ở đây chỉ là tìm ra điểm tốt nhất để khởi động quá trình.</p>
+
+<p>1. __Tôi là quản lý dự án, và tôi phải đảm bảo rằng sản phẩm mới sẽ được ra mắt trong quý này.__</p>
+
+<p> ai/cái gì	 bao nhiêu	 ở đâu</p>
+
+<p> khi nào	 như thế nào	 vì sao</p>
+
+<p>1. __Tôi là thành viên nhóm chiến lược kinh doanh, và chúng tôi đang nỗ lực xác định hướng đi đúng đắn nhất cho công ty.__</p>
+
+<p> ai/cái gì	 bao nhiêu	 ở đâu</p>
+
+<p> khi nào	 như thế nào	 vì sao</p>
+
+<p>1. __Tôi là thành viên tổ tiếp thị, và chúng tôi cho rằng mình đã nhận diện được phân khúc thị trường tốt nhất cho dịch vụ mới nhưng không hoàn toàn chắc chắn.__</p>
+
+<p> ai/cái gì	 bao nhiêu	 ở đâu</p>
+
+<p> khi nào	 như thế nào	 vì sao</p>
+
+<p>1. __Tôi là lập trình viên phần mềm, và tôi không thể xác định được hai nút giao diện này nên làm gì.__</p>
+
+<p> ai/cái gì	 bao nhiêu	 ở đâu</p>
+
+<p> khi nào	 như thế nào	 vì sao</p>
+
+<p>1. __Tôi làm ở phòng nhân sự, và được yêu cầu lên kế hoạch cho các khoảng thời gian tạm giãn nhân công, nhưng tôi không biết nói gì với mọi người.__</p>
+
+<p> ai/cái gì	 bao nhiêu	 ở đâu</p>
+
+<p> khi nào	 như thế nào	 vì sao</p>
+
+<p>F. __Tôi là chuyên gia phân tích tài chính, và tôi cần điều chỉnh các đề xuất cắt giảm chi tiêu của mình.__</p>
+
+<p> ai/cái gì	 bao nhiêu	 ở đâu</p>
+
+<p> khi nào	 như thế nào	 vì sao</p>
+
+<p>G. __Tôi là chuyên gia tư vấn, và khách hàng của tôi muốn biết có thể làm gì để tăng thị phần.__</p>
+
+<p> ai/cái gì	 bao nhiêu	 ở đâu</p>
+
+<p> khi nào	 như thế nào	 vì sao</p>
+
+<p>H. __Tôi là tổng giám đốc, và tôi muốn mọi người biết về một số thay đổi lớn mà chúng ta sắp thực hiện trong công ty.__</p>
+
+<p> ai/cái gì	 bao nhiêu	 ở đâu</p>
+
+<p> khi nào	 như thế nào	 vì sao</p>
+
+<p>Một lần nữa, không có câu trả lời “đúng tuyệt đối” ở đây, mà như sẽ thấy trong chiều nay, chúng ta thực sự chỉ cần những khởi điểm đúng đắn.</p>
+
+<h3>Vì sao một số hình ảnh phát huy tác dụng, còn số khác thì không?</h3>
+
+<p>Suốt nhiều năm, khi lần đầu giúp mọi người giải quyết vấn đề bằng hình ảnh, tôi tự hỏi vì sao một số loại hình ảnh dường như khiến cho mọi thứ trở nên rõ ràng hơn trong khi số khác lại khiến cho mọi thứ tồi tệ. Điều này không xuất phát từ chất lượng hình ảnh: việc những hình người trong Sơ đồ A được vẽ chính xác hơn so với hình que trong Sơ đồ B không có nghĩa là Sơ đồ A hiệu quả hơn. Nó cũng không liên quan đến tính phức tạp: tôi đã từng chứng kiến những phác họa đơn giản</p>
+
+<p>nhưng khiến mọi người khó hiểu hơn so với những sơ đồ phức tạp, và ngược lại.</p>
+
+<p>Tôi tự hỏi liệu có điều gì cản trở trong cách vẽ các hình ảnh khiến chúng hoặc gắn kết với cách thức hoạt động của não bộ hoặc làm rối loạn guồng quay của nó. Khi kết hợp các cuốn sách giáo khoa về khoa học tầm nhìn (vision-science)(*) và trải nghiệm tại các buổi hội thảo, tôi tìm ra một câu trả lời có khả năng làm rõ tất cả. Tôi gọi nó là mô hình 6x6, và nó được thể hiện như sau:</p>
+
+<p>Có sáu cách để *thấy *một vấn đề, và có sáu cách để *trình bày *nó.</p>
+
+<h3>Sáu cách thấy</h3>
+
+<p>Những phát hiện mới đây trong lĩnh vực khoa học thần kinh cho thấy rằng khi nhìn vào thế giới quanh mình, hệ thống tầm nhìn của chúng ta phân chia mọi thứ thành các loại thông tin</p>
+
+<p>*	Vision-science: một phương pháp liên ngành kết hợp giữa lĩnh vực tâm lý học, máy tính và khoa học thần kinh (ND).</p>
+
+<p>hình ảnh riêng biệt. Những loại hình ảnh này được xử lý thông qua “các đường mòn hình ảnh” khác nhau, bao gồm đường mòn “ở đâu”, đường mòn “cái gì”, và đường mòn “như thế nào”. Những tên gọi đơn giản này là cách mô tả hiệu quả cho vai trò của mỗi đường mòn: đường mòn “ở đâu” cho ta biết nơi chốn của mọi thứ, đường mòn “cái gì” giúp nhận diện tất cả mọi vật thể mà ta thấy, còn đường mòn “như thế nào” giúp ta hiểu được sự tương tác giữa các vật thể (và chính chúng ta) thông qua những thay đổi về chất lượng, số lượng hoặc vị trí. Dù tầm nhìn là thứ vô cùng tinh tế và phức tạp đến mức chúng ta chỉ bắt đầu hiểu được những yếu tố cơ bản nhất trong cách hoạt động của nó, những đường mòn này sẽ mang đến cho chúng ta khái niệm về cách thức gắn kết các mảnh ghép đó với nhau. Hình ảnh đang xuất hiện sẽ trông như thế này:</p>
+
+<p>MẮT</p>
+
+<p>VÕ NÃO MỚI</p>
+
+<p>THÙY CHẨM NÃO GIỮA</p>
+
+<p>Đường mòn “cái gì”</p>
+
+<p>Đường mòn “như thế nào”</p>
+
+<p>Đường mòn</p>
+
+<p>“ở đâu”</p>
+
+<p>VÕNG</p>
+
+<p>MẠC</p>
+
+<p>NÃO BÒ SÁT</p>
+
+<p>Đường mòn “ở đâu” cũ</p>
+
+<p>mới</p>
+
+<p>Tín hiệu hình ảnh đi vào thông qua hai mắt và bị chia nhỏ thành nhiều “đường mòn” khác nhau theo từng cách xử lý khác nhau.</p>
+
+<p>Khi chúng ta nhìn bằng mắt, thế giới xung quanh sẽ đi vào dưới dạng ánh sáng xuyên qua võng mạc và kích hoạt các tín hiệu điện não. Chúng ta sẽ chia tách những tín hiệu đó thành các đường mòn riêng biệt để xử lý ban đầu, và sau đó gắn kết toàn bộ các kết quả với nhau để tạo ra hình ảnh lớn mà ta thấy trong tâm trí. Tôi sẽ cho bạn thấy những gì tôi muốn nói.</p>
+
+<p>TẬP VẼ: BÀI TẬP CHIM-CHÓ</p>
+
+<p>Hãy dành vài phút nhìn vào hai hình A và B này; sau đó trả lời những câu hỏi tiếp theo.</p>
+
+<p>__A:__</p>
+
+
+
+<p>__B:__</p>
+
+
+
+<p>Bạn có nhận thấy sự khác biệt nào giữa hai hình vẽ không? Hãy liệt kê hai hoặc ba điểm khác biệt đó.</p>
+
+<p>Những hình ảnh này có liên quan như thế nào? Khoảng cách thời gian giữa A và B là bao lâu?</p>
+
+<p>Theo hai hình vẽ này, những chi tiết nào di chuyển nhanh hơn: máy bay, thuyền, hay xe nôi em bé?</p>
+
+<p>Làm cách nào bạn biết được điều đó? Chi tiết nào trong hình vẽ nói lên điều đó?</p>
+
+<p>Một số nhân vật trong cả hai hình vẽ đều giống hệt nhau, số khác cũng giống hệt nhưng đã di chuyển, còn số khác nữa thì khác biệt. Bạn có nghĩ rằng chú chó trong cả hai hình đều là một?</p>
+
+<p>Giờ hãy nhìn hình vẽ này và so sánh với hai hình trước đó (lật qua lật lại vài lần và ghi lại bất kỳ sự khác biệt nào mà bạn thấy).</p>
+
+<p>C:</p>
+
+
+
+<p>Thêm một số chi tiết khác đã thay đổi. Liệu bạn có thể chỉ ra hai hoặc ba sự thay đổi đó?</p>
+
+<p>Điều gì đó kịch tính đang xảy ra; bạn có nhận thấy không? Vì sao bạn nghĩ rằng nó xảy ra?</p>
+
+<p>Theo bạn, điều gì sắp xảy ra? Vì sao?</p>
+
+<p>Hãy nhìn vào hình vẽ cuối cùng.</p>
+
+<p>D:</p>
+
+
+
+<p>Đâu là mối liên hệ giữa hình vẽ này với hình vẽ trước đó? Nó diễn ra trước hay sau? Điều gì khiến bạn nghĩ thế?</p>
+
+<p>Đây là phần giải thích về những gì chúng ta vừa làm: với chỉ một vài phác họa đơn giản, chúng ta đã tạo ra một mô hình chính xác về cách thấy thế giới xung quanh. Đây không chỉ là mô hình về cách nhận biết những phác họa đen trắng của các hình người đơn giản, mà chính là cách ta nhận biết thế giới mỗi khi mở mắt ra.</p>
+
+<p>TẬP VẼ: KHĂN GIẤY GIẢI QUYẾT VẤN ĐỀ 6/6</p>
+
+<p>Để tóm tắt những gì đang diễn ra, hãy cùng tạo ra một phác họa khăn giấy khác, giống như cách chúng ta làm với hình vẽ dao đa năng Thụy Sĩ. Chỉ khác là lần này, thay vì thể hiện toàn bộ con dao, chúng ta chỉ tập trung vào bộ lưỡi dao 6-W.</p>
+
+<p>Ai/</p>
+
+<p>Vì sao?	cái gì?</p>
+
+<p>Như thế	Bao nhiêu? nào?</p>
+
+<p>Ở đâu?</p>
+
+<p>Khi nào?</p>
+
+<p>Chúng ta sẽ bắt đầu đúng như cách ta thường làm với mọi hình ảnh giải quyết vấn đề: vẽ một hình tròn (phía trên bên trái, như trước đây) và đặt tên cho nó (“tôi”, giống như trước). Chúng ta sẽ lại vẽ đường tròn thứ hai và thậm chí đặt cùng tên như trước (“vấn đề của tôi”), nhưng lần này hãy đặt nó ở giữa và vẽ đủ to để lấp đầy diện tích khăn giấy. Chúng ta có thể xem hình tròn lớn này như một chiếc bánh pizza: chiếc bánh pizza của tôi.</p>
+
+<p>Ai/</p>
+
+<p>Vì sao?	cái gì?</p>
+
+<p>Như thế	Bao nhiêu? nào?</p>
+
+<p>Ở đâu?</p>
+
+<p>Khi nào?</p>
+
+<p>Giờ thì chúng ta có một vấn đề lớn trước mặt. Chúng ta không muốn bị choáng ngợp, vì vậy, hãy cắt nó thành sáu mảnh và đặt tên cho từng mảnh.</p>
+
+<p>Ai/</p>
+
+<p>Vì sao?	cái gì?</p>
+
+<p>Như thế	Bao nhiêu? nào?</p>
+
+<p>Ở đâu?</p>
+
+<p>Khi nào?</p>
+
+<h3>Mảnh 1: “ai và cái gì”</h3>
+
+<p>Ai/</p>
+
+<p>Vì sao?	cái gì?</p>
+
+<p>Như thế nào?</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Ở đâu?</p>
+
+<p>Khi nào?</p>
+
+<p>Hãy bắt đầu với mảnh “ai và cái gì”. Trong hệ thống tầm nhìn sẵn có của chúng ta, đường mòn “ai và cái gì” có nhiệm vụ chọn ra những con người và vật thể mà ta thấy, so sánh họ/ chúng với những vật thể trong cơ sở dữ liệu trí óc của chúng ta, nhận diện và phân loại họ/chúng.</p>
+
+<p>Ai/ cái gì?</p>
+
+<p>Đường mòn “ai và cái gì” của chúng ta thấy những chú chim, máy bay, những người ngồi quanh một chiếc bàn, cô gái dắt chó – tất cả những đối tượng này đã tạo nên hình ảnh trước mắt chúng ta.</p>
+
+<p>Đường mòn “ai và cái gì” thực hiện chức năng này bằng cách xử lý những phần tín hiệu đến chứa đựng thông tin đồng nhất: hình dáng (được xác định bằng các cạnh/mép, hình thái và bóng), kích cỡ và tỷ lệ (để phân biệt giữa các sự vật), màu sắc, bố cục, và hàng triệu đặc điểm nhận dạng khác – những thứ khiến cho người và sự vật mà chúng ta biết trở nên độc nhất.</p>
+
+<p>Đường mòn “ai và cái gì” quá bận rộn với việc nhận diện ai là ai và cái gì là cái gì đến mức không quan tâm đến có bao nhiêu người hay bao nhiêu vật thể hoặc họ/chúng được định vị ở đâu; nó chỉ chăm chăm lựa chọn hết thứ này đến thứ khác và xác định xem đó là gì(*).</p>
+
+<p>*  Như chúng ta sẽ nhận thấy khi bắt đầu thực hiện những hình vẽ bằng mô hình 6x6 này, đường mòn “ai và cái gì” sẽ là những mảnh ghép cơ bản của mọi bức tranh. Trên thực tế, chúng ta đã thực hiện điều này: khi bắt đầu một hình vẽ bằng cách vẽ một hình tròn và đặt tên cho nó (đây là điều nên làm), mục đích của chúng ta là giúp bộ não có được yếu tố “ai và cái gì” đầu tiên.</p>
+
+<h3>Mảnh 2: “Bao nhiêu”</h3>
+
+<p>Ai/</p>
+
+<p>Vì sao?	cái gì?</p>
+
+<p>Như thế nào?</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Ở đâu?</p>
+
+<p>Khi nào?</p>
+
+<p>Trong khi đó, ở Mảnh 2, có điều gì đó hoàn toàn khác biệt sắp xảy ra. Vì Mảnh 1 nhận diện sự vật, “bao nhiêu” là nói về định lượng: có bao nhiêu thứ này, có bao nhiêu thứ kia? Thứ này/thứ kia có còn nữa không? Thứ đó trông hơi ít, thứ đó trông hơi nhiều.</p>
+
+<p>Mảnh “bao nhiêu” phát hiện số lượng vật thể mà ta thấy: bốn cái này, ba cái kia, nhiều cái khác.</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Thông thường, Mảnh 2 bận rộn với việc định lượng đến mức nó chỉ thực sự tính toán chính xác tối đa năm sự vật. Vượt quá giới hạn này, đường mòn “bao nhiêu” sẽ phỏng đoán (khoảng vài, nhiều, rất lớn), hoặc chậm lại để đếm – cách thứ hai này không được khuyến khích bởi nó sẽ làm chậm toàn bộ quy trình và khiến đường mòn “bao nhiêu” trở nên tụt hậu so với những mảnh khác.</p>
+
+<p>Giống như trước, Mảnh 2 không quan tâm đến *cái gì *hay *ở đâu*, nó quá bận rộn với việc kiểm soát những con số.</p>
+
+<h3>Mảnh 3: “ở đâu”</h3>
+
+<p>Vì sao?</p>
+
+<p>Ai/ cái gì?</p>
+
+<p>Như thế nào?</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Khi	Ở đâu? nào?</p>
+
+<p>Trong khi Mảnh 1 và 2 bận rộn với việc nhận diện và đếm số lượng, Mảnh 3 – đường mòn “ở đâu” – sẽ theo dõi vị trí của mọi vật, cả trong mối liên hệ với các sự vật mà chúng ta thấy lẫn trong mối liên hệ với chính chúng ta(*). Mảnh 3 thực hiện chức năng này nhờ xử lý những phần tín hiệu hình ảnh đi vào</p>
+
+<p>* Mảnh 3 chiếm vị trí lớn nhất trong tầm nhìn. Trong khi Mảnh 1 bắt đầu nhận diện “ai và cái gì” khoảng 30 triệu năm trước, thì đường mòn “ở đâu” già nua này đã xuất hiện từ khoảng 300 triệu năm trước. Không cần phải bàn cãi, chúng ta cực kỳ giỏi trong việc thấy vị trí của sự vật – đặc điểm giúp ích rất nhiều cho mảnh tiếp theo.</p>
+
+<p>não chứa đựng gợi ý về vị trí, như kích cỡ tương đối (để xác định khoảng cách), ánh sáng và bóng (để định hướng), và sự gối chồng các mép (để suy ra cái gì đứng trước cái gì).</p>
+
+<p>Ở đâu?</p>
+
+<p>Ở đâu?</p>
+
+<p>Đường mòn “ở đâu” của chúng</p>
+
+<p>ta nhận thấy</p>
+
+<p>rằng một số vật thể cách xa số khác, một số ở trên, một số gần như trên đỉnh của số khác. Nó không biết bản chất của những thứ này là gì, nhưng biết được vị trí của chúng ta trong mối liên hệ với chúng.</p>
+
+<p>Mảnh 4: “khi nào”</p>
+
+<p>Vì sao?</p>
+
+<p>Ai/ cái gì?</p>
+
+<p>Như thế nào?</p>
+
+<p>Khi nào?</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Ở đâu?</p>
+
+<p>Trong khi “ai và cái gì”, “bao nhiêu”, và “ở đâu” thực hiện chức năng của riêng mình, hoạt động ở những phần thể chất tách rời của não bộ, thì Mảnh 4 – đường mòn “khi nào” – lại khác biệt. Trên thực tế, nếu không có thông tin đầu vào từ ba mảnh đầu tiên, “khi nào” sẽ không biết nên làm gì. Đó là lý do nhiệm vụ của Mảnh 4 là nhận biết khi nào mọi việc xảy ra.</p>
+
+<p>Khi nào?</p>
+
+<p>Khi nào?</p>
+
+<p>Chúng ta thấy đường mòn “khi nào” khi nhận biết sự thay đổi về “ở đâu” của “ai và cái gì”; nói cách khác, chúng ta nhận ra rằng thời gian trôi qua khi thấy mọi vật chuyển động.</p>
+
+<p>Để làm được điều này, trước hết phải có cái gì đó để nhìn – thứ có được từ Mảnh 1. Khi thấy bất kỳ sự thay đổi nào – dù ở chất lượng (Mảnh 1 báo cáo sự thay đổi về màu sắc hoặc hình dáng), số lượng (Mảnh 2 báo cáo sự tăng hoặc giảm về con số), hay vị trí (Mảnh 3 báo cáo rằng điều gì đó đã thay đổi), chúng ta sẽ thấy thời gian trôi qua. Trong tất cả các trường</p>
+
+<p>hợp, chúng ta thấy đường mòn “khi nào” nhờ nhận biết các thay đổi về vị trí, chất lượng hoặc số lượng theo thời gian(*).</p>
+
+<h3>Mảnh 5: “Như thế nào”</h3>
+
+<p>Vì sao?</p>
+
+<p>Ai/ cái gì?</p>
+
+<p>Như thế nào?</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Khi nào?</p>
+
+<p>Ở đâu?</p>
+
+<p>* Hóa ra, một trong những cách nhanh nhất để chúng ta đánh mất khái niệm về thời gian là nhắm mắt lại. Khi không thấy sự thay đổi về chất lượng, số lượng hay vị trí của sự vật xung quanh mình, khả năng theo dõi sự thay đổi về thời gian cũng nhanh chóng trở nên mơ hồ. Các nhà thiết kế hoạt hình hiểu rõ điều này hơn bất kỳ ai khác: muốn nhanh chóng loại bỏ sự phối hợp về thời gian của người xem ư? Chỉ cần dừng sự chuyển động của mọi vật trên màn hình; khán giả sẽ tin rằng thời gian đã ngừng lại.</p>
+
+<p>Mảnh 5 là vị trí con mắt tâm trí của chúng ta gắn kết mọi thứ được thấy cho đến thời điểm hiện tại và bắt đầu phân biệt nguyên nhân và kết quả. Sau khi đã chứng kiến nhiều hoạt động tương tác “ai và cái gì” theo thời gian, chúng ta sẽ xây dựng các mô hình nhân quả: nhận biết thế giới vận hành *như thế nào*.</p>
+
+<p>Như thế</p>
+
+<p>nào?</p>
+
+<p>Mảnh “như thế nào” gắn kết mọi thứ với nhau để chúng ta có thể thấy nguyên nhân và kết quả: nếu thấy mấy chú chim, chó sẽ đuổi theo – và nếu chó chạy băng qua chiếc xe nôi em bé, người đẩy xe chắc chắn sẽ hoảng sợ.</p>
+
+<p>Khi chúng ta còn bé, hay khi thấy điều gì thật sự mới mẻ, đường mòn “như thế nào” sẽ dành thời gian để suy diễn. Chúng ta tìm hiểu về cách vận hành của thế giới nhờ quan sát những cảnh tương tự lặp đi lặp lại. Lần đầu thấy điều gì đó, chúng ta chưa biết được nó sẽ kết thúc ra sao, vì vậy, chúng ta không có mô hình nguyên nhân và hệ quả liên quan đến nó. Nhưng sau khi quan sát đủ sự tương tác giữa các vật thể, theo cách tương tự, chúng ta sẽ dần tin rằng mình biết cách hoạt động khả dĩ của chúng.</p>
+
+<h3>Mảnh 6: “Vì sao”</h3>
+
+<p>Ai/</p>
+
+<p>Vì sao?	cái gì?</p>
+
+<p>Như thế nào?</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Khi nào?</p>
+
+<p>Ở đâu?</p>
+
+<p>Tâm trí của chúng ta không vui nếu chỉ biết có gì ngoài kia, có bao nhiêu, chúng ở đâu, khi nào chúng xảy ra và cách tương tác của chúng. Nguyên nhân và kết quả là mối quan hệ tuyệt vời, nhưng điều mà tâm trí của chúng ta thực sự muốn biết là *vì sao*. Vì sao điều này xảy ra mà không phải điều kia? Và vì sao nó cứ xảy ra hết lần này đến lần khác, hoặc không xảy ra lần nào nữa?</p>
+
+<p>Vì sao?</p>
+
+<p>Aha! Vì sao điều này lại xảy ra? Rõ ràng, đó là vì loài chó yêu thích chim, nhưng chim lại không thích chó. Mảnh “vì sao” tổng hợp những điều ta thấy và rút ra kết luận về lý do thế giới lại vận hành theo cách như thế.</p>
+
+<h3>Mọi vấn đề đều là một chiếc bánh pizza</h3>
+
+<p>Hiện tại, chiếc khăn giấy giải quyết vấn đề 6x6 của chúng ta đã được chia thành các mảnh nhỏ và đã được đặt tên. Thứ mà chúng ta nhìn nhận ban đầu như một vấn đề lớn giờ thực sự</p>
+
+<p>chẳng khác nào một cái bánh pizza: chúng ta có thể tiêu hóa tất cả một cách dễ dàng nếu chia nhỏ nó ra thành nhiều mảnh.</p>
+
+<p>Vì sao?</p>
+
+<p>Ai/ cái gì?</p>
+
+<p>Bao</p>
+
+<p>Như thế	nhiêu? nào?</p>
+
+<p>Khi	Ở đâu? nào?</p>
+
+<p>Mọi vấn đề đều là một chiếc bánh pizza: khó tiêu hóa tất cả cùng lúc, nhưng sẽ dễ dàng xử lý hơn nếu chúng ta chia nó ra thành nhiều mảnh nhỏ.</p>
+
+<h3>Sáu cách nhìn nhận ư? Rồi sao nữa?</h3>
+
+<p>Chúng ta vừa nhắc đến nhiều lý thuyết. Kể từ lúc bắt đầu ngày hôm nay, chúng ta đã giới thiệu một hệ thống phối hợp cơ bản mới để nhìn vào các vấn đề, đã bổ sung thêm sáu lưỡi dao mới vào bộ công cụ tư duy hình ảnh, đã tiến hành phân tích nhanh bộ não, và kết thúc với một chiếc bánh pizza. Để khiến cho tất cả những điều này đi vào thực tế – và để thể hiện được cách thức áp dụng vào quá trình giải quyết vấn đề trong thế giới thực – hãy cùng xem xét một tình huống nghiên cứu, trong đó mọi thứ chúng ta vừa thảo luận đều được áp dụng.</p>
+
+<h3>Những hình ảnh này có điểm gì chung?</h3>
+
+<p>Để bắt đầu, chúng ta hãy nhìn vào hai bức tranh được đặt cạnh nhau. Bức đầu tiên là hình vẽ từ bài tập mà chúng ta vừa hoàn thành. Bức thứ hai là hình ảnh của nhiều trang viết được rút ra từ một bài trình bày điển hình trong kinh doanh.</p>
+
+
+
+<p>Hai hình ảnh này có điểm gì chung?</p>
+
+<p>Như chúng ta có thể nhận thấy, hai hình ảnh này không có gì giống nhau. Khi nhìn hai bức hình, chúng ta thậm chí còn nghĩ thật ngốc nghếch khi đặt cả hai trên cùng một trang giấy. Nhưng bạn có biết không? Hóa ra, xét trong khả năng quan sát của mắt, hai bức hình này giống hệt nhau, và việc hiểu được cách nhìn bức hình đầu tiên sẽ giúp ta thấu hiểu được cách nhìn bức hình thứ hai.</p>
+
+<p>Điều mà tôi muốn nói ở đây là: mặc dù trong lần nhìn đầu tiên, chúng ta có thể cho rằng hai hình vẽ này có ít điểm chung, nhưng hệ thống tầm nhìn của chúng ta sẽ không đồng ý. Hãy nhìn lại hai bức vẽ này một lần nữa. Chúng có kích cỡ bằng nhau, màu sắc giống nhau; chúng có cùng mật độ nét sẫm màu và khoảng trắng; chúng thậm chí còn kích ứng các nơ-ron giống nhau cảm nhận ánh sáng trong mắt và các vùng xử lý hình ảnh phản ứng theo cùng trình tự. Xét trên quan điểm xử lý hình ảnh, điểm mấu chốt ở đây là mắt của chúng ta không biết (hoặc không quan tâm) rằng một hình vẽ là cảnh trên biển vào ngày Chủ nhật và bức kia là hình ảnh cuộc họp mà chúng ta thực sự không muốn tham dự.</p>
+
+<p>Điểm chung thứ hai của hai hình vẽ này là chúng được tạo ra từ một lượng thông tin hình ảnh bằng nhau. Nhưng vì khác nhau ở cách trình bày nên một hình rất dễ nhìn và thể hiện được ý nghĩa, trong khi hình còn lại khiến người xem như đang nhìn vào bức tường gạch: không có gì để mắt của chúng ta bám vào. Nhưng chúng ta sẽ áp dụng những gì mình đã học được về việc chia nhỏ vấn đề để dễ dàng thấy ý nghĩa của nó.</p>
+
+<p>Nói cách khác, chúng ta sẽ sử dụng sáu lưỡi dao mới trong bộ công cụ của mình để khiến một vấn đề vô hình trở nên hữu hình.</p>
+
+<h3>Tập đoàn Thomson và biểu đồ trị giá nhiều triệu đôla</h3>
+
+<p>Vào cuối năm 2001, công ty tư vấn nơi tôi đang làm việc nhận được yêu cầu từ một doanh nghiệp được xem là nhà xuất bản thông tin kinh tế lớn nhất thế giới lúc bấy giờ. Tập đoàn Thomson – một trong những công ty lớn nhất Canada – đang chuẩn bị có mặt trên sàn giao dịch chứng khoán New York và muốn thực hiện một chiến lược thương hiệu nhằm đảm bảo khách hàng toàn cầu thấy quen thuộc với công ty(*).</p>
+
+<p>Thomson không ngừng lớn mạnh suốt nhiều năm trước nhờ hàng chục thương vụ thu mua các nhà xuất bản thông tin tài chính, pháp luật, giáo dục và chăm sóc sức khỏe, đồng thời ban giám đốc tập đoàn muốn đảm bảo rằng các nhà đầu tư hiểu được quy mô và tầm vóc toàn cầu của công ty. Vấn đề đặt ra cho ban quản lý đã được nhân đôi: thứ nhất, phải nắm rõ xem các nhà kinh doanh khắp thế giới biết gì về Thomson – trên thực tế là phải xác định giới kinh doanh có biết gì về công</p>
+
+<p>* Nếu đã đọc cuốn *Chỉ cần mẩu khăn giấy, *hẳn bạn sẽ nhận ra đây là “Sự quá tải thông tin của Daphne” – một ví dụ mà tôi sử dụng để tham khảo nhanh về quy trình giải quyết vấn đề bằng hình ảnh trong bối cảnh kinh doanh. Đây là phần còn lại của câu chuyện đó.</p>
+
+<p>ty hay không – và thứ hai, tìm ra phương cách hiệu quả nhằm đảm bảo các nhà đầu tư biết rằng Thomson, vốn gần như là công ty vô hình, thật ra rất lớn mạnh; hay nói cách khác, một doanh nghiệp xuất sắc để đầu tư vào.</p>
+
+<p>Khi tìm đến chúng tôi, Thomson vừa hoàn tất cuộc khảo sát thương hiệu kéo dài sáu tháng. Trong khoảng thời gian đó, hãng này đã thu thập dữ liệu từ hàng trăm cuộc phỏng vấn các nhà lãnh đạo doanh nghiệp khắp thế giới về nhiều vấn đề khác nhau, từ việc nhận diện thương hiệu (bạn có bao giờ nghe đến Thomson?), cảm nhận về chất lượng sản phẩm (bạn cho rằng công ty nào có sản phẩm tốt hơn?) cho đến thông tin tài chính (bạn có biết công ty X có quy mô lớn đến mức nào không?).</p>
+
+<p>Kết thúc cuộc khảo sát, tất cả các dữ liệu đều được so sánh, đối chiếu và chia ra thành hàng trăm danh sách, bảng biểu và sơ đồ, tất cả được gắn kết cùng nhau thành những hồ sơ dài ngoằng. Từ những hồ sơ này, một bản tóm tắt gồm những “điểm nhấn lớn nhất” đã được liệt kê, và nó trông như ở trang sau.</p>
+
+<p>Hẳn nhiên là báo cáo này trông rất chi tiết, nhưng đối với ban giám đốc, nó trông như một ma trận. Dù được trình bày theo cách ấn tượng nhưng tài liệu này khó quan sát. Nó chứa đựng quá nhiều thông tin, dưới quá nhiều hình dạng đến mức phản ứng ban đầu của bất cứ ai trông thấy nó đều “đứng hình”: Anh muốn tôi hiểu *thứ này *sao? Hãy cho tôi thời gian vài tháng.</p>
+
+
+
+<p>Biết thế nào là “đứng hình”! Làm cách nào chúng ta có thể bắt đầu với tình huống này?</p>
+
+<p>Chúng ta hãy hiểu rõ một điều: không có gì sai với những dữ liệu thu thập được. Đó là một nghiên cứu nghiêm túc, và ban giám đốc của Thomson cũng biết chắc rằng thứ mà họ cần đang nằm đâu đó trong đống dữ liệu kia. Nhưng họ cũng nhận ra rằng họ không có thời gian nhiều tháng để tìm ra nó. Đó là lý do họ đã gọi cho chúng tôi.</p>
+
+<p>Dựa trên những dữ liệu thu thập được, tổ truyền thông của Thomson có nhiệm vụ phải tìm ra được chiến lược định vị</p>
+
+<p>thương hiệu – thứ sẽ hỗ trợ cho việc thiết kế và tạo ra những mẩu quảng cáo, tài liệu tiếp thị, trang web, và các gói đầu tư – những thứ cần thiết để đặt nền móng cho kế hoạch xuất hiện trên sàn giao dịch chứng khoán. Nhiệm vụ đã được nêu rõ. Nhưng hãy tự hỏi điều này: Nếu được giao hơn bốn trăm trang giấy như hình vẽ trên, bạn sẽ xoay xở thế nào để đưa ra một chiến lược truyền thông?</p>
+
+<p>Chỉ nghĩ đến đó thôi cũng đủ khiến người ta sợ hãi, nhưng đây là thực tế mà giới kinh doanh thường xuyên phải đối mặt: làm cách nào chúng ta tiếp nhận lượng thông tin nhiều hơn mức có thể nhìn được hôm nay và biến nó thành một kế hoạch logic để chia sẻ với người khác vào ngày mai? Câu trả lời là quy tắc 6x6.</p>
+
+<p>BƯỚC 1: TÌM THẤY “AI VÀ CÁI GÌ”</p>
+
+<p>Khi tổ tư vấn của chúng tôi tiếp nhận núi dữ liệu này, điều đầu tiên chúng tôi làm là rà soát qua để nhận diện những “át chủ bài”: cụ thể là các đối thủ cạnh tranh được phản ánh trong dữ liệu. Chúng tôi phát hiện bảy công ty được nêu tên thường xuyên trong suốt cuộc khảo sát. Ba trong số đó đều là những công ty nổi tiếng: Bloomberg, Reuters và McGrawHill. Bốn công ty còn lại hầu như chúng tôi ít biết đến: Reed Elsevier, Pearson, Wolters Kluwer, và cuối cùng nhưng không kém phần quan trọng, Thomson. Việc biết mình sắp nhìn vào *ai *đã giúp chúng tôi có được điểm khởi đầu.</p>
+
+
+
+<p>Việc nhận diện bảy công ty giúp chúng tôi có được điểm khởi đầu: biết mình sẽ nhìn vào “ai”.</p>
+
+<p>Kế tiếp, chúng tôi tìm kiếm “cái gì”, cụ thể như “mỗi công ty làm gì”. Vì báo cáo cho biết họ đều là các đơn vị xuất bản, nên việc cần làm là tìm hiểu xem họ xuất bản những gì. Chúng tôi nhận thấy rằng bảy công ty này xuất bản thông tin theo bốn mảng chính: tài chính; giáo dục; pháp luật; khoa học và chăm sóc sức khỏe.</p>
+
+<p>Tài chính	Giáo Dục</p>
+
+<p>Pháp luật	Khoa học & sức khỏe</p>
+
+<p>Họ xuất bản những gì? Thông tin ở bốn mảng chính.</p>
+
+<p>BƯỚC 2: TÌM KIẾM “BAO NHIÊU”</p>
+
+<p>Một khi nhận diện được các “át chủ bài” và những gì họ đã làm, chúng tôi quay trở lại đống hồ sơ để tìm dữ liệu định lượng: thứ gì đó để đánh giá được yếu tố “bao nhiêu” của mỗi công ty. Trong đống dữ liệu ấy, chúng tôi quyết định phần “bao nhiêu” đầu tiên cần xem xét chỉ đơn giản là quy mô công ty theo doanh thu hàng năm. Khi lập sơ đồ bảy công ty cùng nhau, chúng tôi có thể xếp hạng chúng dựa trên doanh số.</p>
+
+<p>Đây là doanh thu năm 2001 của bảy công ty (được tính theo tỷ đô-la): Thomson dẫn đầu, cùng với các công ty “vô danh” khác.</p>
+
+<p>Ngay lập tức, chúng tôi phát hiện ra điều thú vị: không chỉ Thomson là đơn vị lớn nhất trong số này, mà ba công ty đứng đầu đều là những tên tuổi mà chúng tôi chưa từng nghe nói đến. Quả là bất ngờ. Nhưng chúng tôi cũng biết rằng việc chỉ phác họa bảy công ty này theo tổng doanh thu sẽ chẳng có ý nghĩa gì đặc biệt: phần nhận diện “ai và cái gì” cho thấy cả bảy công ty đều hoạt động trong nhiều ngành. Vì vậy, chúng tôi quyết định phác họa mức doanh thu mà mỗi công ty tạo ra từ các phân khúc khác nhau.</p>
+
+<p>Tài</p>
+
+<p>Giáo</p>
+
+<p>Pháp</p>
+
+<p>Khoa học &</p>
+
+<p>Khác</p>
+
+<p>chính	dục	luật	sức khỏe</p>
+
+<p>__Đơn vị tính: tỷ đô-la Mỹ__</p>
+
+<p>Chúng tôi phác họa mức doanh số mỗi công ty tạo ra ở mỗi phân khúc ngành. Bạn biết không, mặc dù là công ty lớn nhất nhưng Thomson không thống lĩnh ở bất kỳ phân khúc nào. (Hãy nhìn doanh thu của Reuters trong lĩnh vực tài chính).</p>
+
+<p>Hãy cùng xem: mặc dù về toàn cục, Thomson là công ty lớn nhất, nhưng các phân khúc riêng lẻ của nó lại thua xa những công ty nhỏ hơn. Trên thực tế, chúng tôi nhận thấy rằng Thomson chỉ mạnh nhất ở mảng thông tin pháp luật, và ngay cả mảng đó cũng không nhiều. Chỉ nhìn vào “ai và cái gì” và “bao nhiêu”, chúng tôi đã rút ra được vài điều về ngành xuất bản thông tin chuyên nghiệp này. Nhưng chúng tôi thực sự biết được gì?(*)</p>
+
+<p>BƯỚC 3: TÌM KIẾM “Ở ĐÂU”</p>
+
+<p>Giờ chúng tôi đã có những dữ liệu thú vị để đặt chúng cạnh nhau và quan sát. Nhưng việc chỉ biết rằng ai là đơn vị lớn nhất trong ngành cũng không mấy thuyết phục. Thứ chúng tôi thực sự muốn thấy là *vị trí *trùng lắp của những công ty này, *nơi nào *họ hoạt động một mình, và *phần nào *trong doanh thu của họ là “tài sản thương hiệu”. Chúng tôi cần có cách nào đó để sắp xếp tất cả những công ty này với nhau.</p>
+
+<p>*  Đây là một suy nghĩ đáng sợ khác: trong hầu hết các bản trình bày kinh doanh, phần “bao nhiêu” này thường chỉ đến thế. Chúng ta nhận diện các yếu tố (bối cảnh cạnh tranh, phân khúc khách hàng, các nhóm sản phẩm, v.v...), đánh giá số liệu dựa trên đó (doanh thu, thu, chi, giá, v.v...), vẽ sơ đồ tất cả những chi tiết này và dừng công việc. Đó là điểm khởi đầu, nhưng nó không mang lại hiểu biết sâu sắc nào. Nếu muốn biết vị trí trùng lắp và gắn kết của chúng, khi nào mọi việc xảy ra, cách thức tương tác của mọi việc để dữ liệu này xuất hiện, vì sao điều này xảy ra và điều khác không xảy ra, chúng ta cần bốn mảnh hình ảnh còn lại để tạo nên bức tranh lớn.</p>
+
+<p>Đối với mỗi công ty, chúng tôi lập một biểu đồ hình tháp. Ý tưởng về “tháp thương hiệu” là mỗi công ty được đánh dấu ở nhiều mức: trên đỉnh tháp là công ty mẹ (ví dụ Thomson). Sau đó, mỗi công ty sẽ được chia thành nhiều nhóm ngành hoặc nhóm thị trường (tài chính, pháp luật, v.v...), và mỗi nhóm sẽ lại được chia thành các sản phẩm hoặc dịch vụ (First Call, Westlaw, PDR, v.v...)(*)</p>
+
+<p>“Tháp thương hiệu” mô tả hệ thống cấp bậc của các công ty trực thuộc và</p>
+
+<p>các sản phẩm trong một tập đoàn.</p>
+
+<p>Doanh nghiệp</p>
+
+<p>Nhóm thị trường Sản phẩm</p>
+
+<p>Yếu tố “ở đâu” mà chúng tôi theo đuổi gồm hai phần: Thứ nhất, chúng tôi muốn biết nơi dữ liệu khảo sát cho thấy có sự nhận biết tên tuổi trong mỗi tháp thương hiệu (Bạn đã bao giờ nghe đến cái tên Thomson? Bạn có bao giờ nghe đến First Call?). Thứ hai, chúng tôi muốn biết nơi bảy công ty này được định vị xét về mức độ quen thuộc của khách hàng.</p>
+
+<p>* Mặc dù không có công ty nào trong số này bán snack ngô giòn, nhưng mô hình “tháp thương hiệu” cũng giống như mô hình công ty mẹ PepsiCo và các công ty con như Frito-Lay, nơi có sản phẩm riêng như Doritos. Đây là một khái niệm tương tự, chỉ khác là sản phẩm tiêu dùng được thay thế bằng sản phẩm thông tin.</p>
+
+<p>Giống như mọi bản đồ, điều đầu tiên chúng tôi cần là tạo ra một quy tắc để định nghĩa các loại dữ liệu được bao hàm.</p>
+
+<p>Kích cỡ tháp =</p>
+
+<p>doanh thu tương ứng</p>
+
+<p>Vị trí bên trong tháp =</p>
+
+<p>mức độ nhận biết thương hiệu</p>
+
+<p>Doanh nghiệp Nhóm thị trường</p>
+
+<p>Sản phẩm</p>
+
+<p>Màu tháp = nhóm thị trường</p>
+
+<p>Cường độ màu sắc =</p>
+
+<p>mức độ nhận biết thương hiệu</p>
+
+<p>Tài chính Giáo dục</p>
+
+<p>Pháp luật</p>
+
+<p>Khoa học & sức khỏe Khác</p>
+
+<p>Mức nhận biết cao</p>
+
+<p>Mức nhận biết vừa Mức nhận biết thấp</p>
+
+<p>Điểm mấu chốt trong bản đồ của chúng ta bao gồm “doanh thu”, “phân khúc ngành”, và một tháp thương hiệu cho mỗi công ty, phản ánh “mức độ nhận biết thương hiệu” được xác định. Nói cách khác, tất cả đều liên quan đến dữ liệu “ai và cái gì” và “bao nhiêu” mà chúng ta có.</p>
+
+<p>Để lập bản đồ, trước hết, chúng ta phải có một hệ thống các trục. (Bạn còn nhớ bài tập biểu đồ hãng hàng không của Ngày 1? Ở đây cũng tương tự.) Sau khi tìm hiểu các nhóm dữ liệu, chúng tôi chọn cách lập bản đồ giữa (1) số ngành mà mỗi công ty xuất bản, và (2) tổng mức độ nhận biết thương hiệu được xác định. Giống như trước đây, chúng ta không biết điều gì sẽ xuất hiện cho đến khi dữ liệu được bày ra trước mắt, nhưng dường như nó cũng hiệu quả như mọi hệ trục.</p>
+
+<p>Mức nhận biết cao</p>
+
+<p>Mức nhận biết thương hiệu</p>
+
+<p>Mức nhận biết thấp</p>
+
+<p>Giống như Ngày 1, chúng tôi đã tạo ra một hệ trục, trong trường hợp này là giữa “số ngành nghề” và “mức độ nhận biết thương hiệu”.</p>
+
+<p>Một thị trường	Phạm vi hoạt động	Nhiều thị trường</p>
+
+<p>Với hệ trục của mình, chúng tôi đã lập bản đồ dữ liệu cho mỗi đối thủ cạnh tranh. Hình ảnh xuất hiện đã cho thấy bảy loại thông tin sau đây tương tác với nhau như thế nào:</p>
+
+<p>1. Công ty</p>
+<p>2. Sản phẩm theo ngành</p>
+<p>3. Doanh thu</p>
+<p>4. Tháp thương hiệu với mức độ nhận biết về doanh nghiệp – ngành – sản phẩm</p>
+<p>5. Số lượng sản phẩm theo ngành</p>
+<p>6. Mức độ nhận biết thương hiệu tổng thể</p>
+<p>7. Vị trí thị trường tương ứng</p>
+
+<p>Mức nhận biết cao</p>
+
+<p>Mức nhận biết thương hiệu</p>
+
+<p>Mức nhận biết thấp</p>
+
+<p>Một thị trường	Phạm vi hoạt động	Nhiều thị trường</p>
+
+<p>Hình ảnh xuất hiện đã cho thấy cách tương tác của bảy nhóm dữ liệu khác nhau nhưng có liên quan đến nhau.</p>
+
+<p>Công bằng mà nói, đây không phải là bản đồ đơn giản nhất. Nhưng xét cho cùng, nó cũng không nhất thiết phải là bản đồ đơn giản nhất: với một chút diễn giải, bản đồ này vẫn rõ ràng và dễ tiếp cận hơn rất nhiều so với hàng trăm trang dữ liệu, và giúp chúng ta thấu hiểu nhanh chóng. Ngoài ra, nó cũng đủ đơn giản để hấp dẫn về mặt hình ảnh và đủ chi tiết để thuyết phục người xem.</p>
+
+<p>Hãy cùng xem qua bản đồ này; tôi sẽ chỉ ra những điểm đáng chú ý. Thứ nhất, chúng tôi thấy rằng Thomson là tháp lớn nhất (về tổng doanh thu, không theo phân khúc; Pearson đứng vị trí thứ hai) và đi xa nhất theo trục hoành “Phạm vi hoạt động”, chỉ rõ rằng Thomson đại diện cho cả bốn ngành, ngược với Bloomberg chẳng hạn, chỉ một ngành.</p>
+
+<p>Mức nhận biết cao</p>
+
+<p>Một thị trường</p>
+
+<p>Phạm vi hoạt động</p>
+
+<p>Nhiều thị trường</p>
+
+<p>Mức nhận biết thương hiệu</p>
+
+<p>Mức nhận biết thấp</p>
+
+<p>Thomson là công ty lớn nhất và hoạt động trong nhiều ngành nhất.</p>
+
+<p>Nhưng chúng tôi cũng nhận thấy rằng Thomson nằm gần đáy của trục tung, cho thấy công ty này có mức độ nhận biết về doanh nghiệp–thương hiệu thấp nhất trong nhóm người được hỏi ý kiến. Để so sánh, chúng tôi thấy Reuters đang trên đà lên đỉnh, nghĩa là những người được hỏi ý kiến đều quen thuộc với thương hiệu Reuters.</p>
+
+<p>Mức nhận biết cao</p>
+
+<p>Mức nhận biết thương hiệu</p>
+
+<p>Mức nhận biết thấp</p>
+
+<p>Một thị trường	Phạm vi hoạt động	Nhiều thị trường</p>
+
+<p>Thomson có mức độ nhận biết về doanh nghiệp-thương hiệu thấp, trong khi mọi người đều biết đến Reuters.</p>
+
+<p>Tiếp theo, chúng tôi nhận thấy rằng trong khi các tháp thương hiệu của Bloomberg, Reuters, và McGraw-Hill đều được lấp đầy trên đỉnh (mức độ nhận biết về doanh nghiệp – thương hiệu cao), tháp thương hiệu của Thomson và Reed Elsevier lại hoàn toàn trống rỗng ở vị trí này (nghĩa là chẳng</p>
+
+<p>ai nghe về họ). Ngược lại, phần đáy tháp của Reuters và Bloomberg trống rỗng, trong khi phần đáy tháp của Thomson và Reed Elsevier lại đầy, cho thấy rằng dù không ai nghe đến cái tên Thomson nhưng mọi người đều quen thuộc với thương hiệu các sản phẩm của công ty. (Tương tự ví dụ về sản phẩm snack ngô giòn ở trên, ít người tiêu dùng nhận biết PepsiCo là thương hiệu mẹ, nhưng tất cả đều biết Doritos.)</p>
+
+<p>Mức nhận biết cao</p>
+
+<p>Mức nhận biết thương hiệu</p>
+
+<p>Mức nhận biết thấp</p>
+
+<p>Một thị trường	Phạm vi hoạt động	Nhiều thị trường</p>
+
+<p>Thomson có nhiều “mức độ nhận biết thương hiệu”, nhưng tất cả đều ở mức sản phẩm. Mặc khác, Bloomberg có mức độ nhận biết thương hiệu rất cao, nhưng không ai nhận diện được bất kỳ sản phẩm nào của công ty này (hoặc có lẽ chúng cũng chỉ được gọi là Bloomberg).</p>
+
+<p>Cuối cùng, mức độ nhận biết thương hiệu có khuynh hướng đi xuống, từ những công ty chỉ phục vụ một ngành đến những công ty phục vụ nhiều ngành. Nói cách khác, bản đồ chỉ ra</p>
+
+<p>rằng trong năm 2001 – ngoại trừ McGraw-Hill – không ai biết bất kỳ công ty nào trong số này phục vụ đa ngành, thậm chí đó là những công ty lớn nhất. Quả là thú vị! Điều đó có nghĩa gì?</p>
+
+<p>Mức nhận biết cao</p>
+
+<p>Một thị trường</p>
+
+<p>Phạm vi hoạt động</p>
+
+<p>Nhiều thị trường</p>
+
+<p>Mức nhận biết thương hiệu</p>
+
+<p>Mức nhận biết thấp</p>
+
+<p>Mức độ nhận biết thương hiệu sẽ giảm sút khi công ty phục vụ nhiều ngành khác nhau.</p>
+
+<p>Trước khi tìm hiểu vấn đề này, chúng ta cần lưu ý rằng mọi thứ mà tôi vừa nêu đều được lấy trực tiếp từ những dữ liệu thu thập được. Hình ảnh đó chỉ khiến cho những thông tin bên trong này dễ thấy hơn so với khi được trình bày trong các bảng biểu. Hình ảnh đó không làm thay đổi dữ liệu: nó chỉ khiến cho dữ liệu rõ ràng hơn. Đó là điều quan trọng cần suy nghĩ bởi chúng ta sẽ sử dụng những dữ liệu hình ảnh rõ ràng này để rút ra kết luận.</p>
+
+<p>Sau khi lập bản đồ tất cả các dữ liệu có trong tay, đây là kết luận của chúng tôi: có một khoảng trống trong ngành xuất bản thông tin chuyên ngành; như trong năm 2001, không nhà xuất bản nào đạt mức nhận biết thương hiệu cao trong thời gian phục vụ đa ngành.</p>
+
+<p>Mức nhận biết cao</p>
+
+<p>Mức nhận biết thương hiệu</p>
+
+<p>Mức nhận biết thấp</p>
+
+<p>Một thị trường	Phạm vi hoạt động	Nhiều thị trường</p>
+
+<p>Có một khoảng trống trong ngành xuất bản thông tin chuyên ngành.</p>
+
+<p>Bản đồ không cho chúng tôi biết *vì sao *điều này lại xảy ra. Nó có thể là bất cứ điều gì; có lẽ một nguồn lực kinh tế tiềm ẩn nào đó khiến cho doanh nghiệp trở nên khó được nhận biết khi làm nhiều việc cùng lúc, hoặc có lẽ chưa công ty nào tập trung vào việc lấp đầy khoảng trống. Chúng tôi không biết</p>
+
+<p>được nguyên nhân, nhưng ít ra lúc này, chúng tôi có thể thấy được khoảng trống đó.</p>
+
+<p>Một điều chúng tôi biết là những thị trường ngách mở thường không tồn tại được lâu dài một khi chúng đã bị phát hiện, và như bạn sắp thấy, bản đồ này đã cung cấp thứ mà Thomson đã và đang tìm kiếm.</p>
+
+<p>BƯỚC 4: TÌM KIẾM “KHI NÀO”</p>
+
+<p>Bản đồ mà chúng tôi tạo ra có một yếu tố về thời gian: Năm 2001, thời điểm cuộc khảo sát được tiến hành. Chúng tôi đã “chụp nhanh” được một thông điệp: “Nhìn xem: đây chính là diện mạo của ngành xuất bản thông tin chuyên ngành hiện nay.” Nhưng hãy nhớ mục đích chính của bài tập này: chuẩn bị để Thomson lên sàn giao dịch chứng khoán New York vào năm 2003, hai năm sau khi chúng tôi “chụp nhanh” được hình ảnh đó. Vì vậy, chúng tôi thực sự quan tâm đến hai thời điểm “khi nào”: *hiện tại *và *hai năm sau.*</p>
+
+<p>Đó là điểm mà bản đồ này bắt đầu phát huy tác dụng. Bằng cách kết nối hàng trăm điểm dữ liệu trên cùng một bản đồ, sử dụng cùng hệ trục, cuối cùng, chúng tôi đã biết được điều gì đang diễn ra. Và đây là thứ mà chúng tôi thấy: trong hai năm nữa, Thomson phải lấp đầy khoảng trống mở đó trên bản đồ.</p>
+
+<p>Mức nhận biết cao</p>
+
+<p>Mức nhận biết thương hiệu</p>
+
+<p>Mức nhận biết thấp</p>
+
+<p>Một thị trường	Phạm vi hoạt động	Nhiều thị trường</p>
+
+<p>Chúng tôi muốn Thomson đi *đâu *và *khi nào? *Ngay đây, và trong hai năm nữa.</p>
+
+<p>BƯỚC 5: TÌM KIẾM “NHƯ THẾ NÀO”</p>
+
+<p>Giờ đây, chúng tôi đã biết được nơi mình muốn Thomson đi đến (tiến vào góc phần tư mở) và khi nào (trong vòng hai năm). Vậy chỉ còn lại một vấn đề cần thảo luận: *Thomson di chuyển hình tháp đi lên như thế nào? *Nhìn vào bản đồ, chúng tôi thấy có một cách. Tôi sẽ trình bày với bạn theo cách mà chúng tôi đã làm với Dick Harrington – Tổng giám đốc của Thomson lúc bấy giờ, vì phản ứng của ông ấy với hình ảnh này là phần thú vị nhất của toàn bộ câu chuyện.</p>
+
+<p>BƯỚC 6: CUỘC HỌP TRỊ GIÁ NHIỀU TRIỆU ĐÔ-LA</p>
+
+<p>Biểu đồ (hay bản đồ) đó quá rõ ràng và đơn giản đến mức chúng tôi muốn quay trở lại Thomson ngay để trình bày những phát hiện của mình. Có vẻ như Thomson cũng cảm nhận được điều tương tự: khi chúng tôi đến để trình bày trước nhóm truyền thông, Dick Harrington bất ngờ đề nghị được tham dự cuộc họp. Chúng tôi in biểu đồ với kích cỡ bức tường, và tự tin rằng nó sẽ khiến mọi người tò mò, vì vậy, chúng tôi vui mừng khi chính Tổng giám đốc muốn thấy nó.</p>
+
+<p>Chúng tôi dán biểu đồ lên tường và hướng dẫn các vị giám đốc điều hành xem xét nó như cách tôi đã làm ở những trang trước, điều này chỉ mất vài phút. Và khi chúng tôi chuẩn bị giải thích về khoảng trống đó, Harrington – người đã ngồi im lặng nhưng rất tập trung – đứng lên và hỏi mượn tôi cây bút.</p>
+
+<p>Khi tiến đến biểu đồ, ông ấy nói: “Tôi nhìn thấy ở đây một thứ rất hấp dẫn. Tôi đã làm việc với công ty này 20 năm nhưng chưa từng thấy nó được thể hiện theo kiểu này.” Sau đó, ông ấy vẽ một hình tròn lớn ở góc phần tư phía trên bên phải (khoảng trống của chúng tôi) và nói tiếp: “Đây chính là điều mà tôi muốn chúng ta thực hiện: tôi muốn Thomson lấp đầy khoảng trống trên cao này”. Khi trả bút lại cho tôi, ông ấy hỏi: “Là người lập biểu đồ này, vậy các anh có ý tưởng nào về cách thực hiện không?”.</p>
+
+<p>Mức nhận biết cao</p>
+
+<p>Mức nhận biết thương hiệu</p>
+
+<p>Mức nhận biết thấp</p>
+
+<p>Một thị trường	Phạm vi hoạt động	Nhiều thị trường</p>
+
+<p>Trông quen quen phải không? Dick Harrington, Tổng giám đốc của Thomson, nhìn vào hình vẽ của chúng tôi và thấy cùng một khoảng trống cơ hội mà chúng tôi đã thấy.</p>
+
+<p>Dĩ nhiên là chúng tôi có cách. Trên thực tế, chúng tôi có hai ý tưởng. Thứ nhất, vì Tổng giám đốc của nhà xuất bản thông tin lớn nhất thế giới rất sốt sắng trong việc tìm kiếm tầm nhìn chiến lược trong một hình vẽ, nên giờ đây, tôi có đủ cơ sở để tin rằng quy trình giải quyết vấn đề bằng hình ảnh có chỗ đứng trong phòng họp này. Thứ hai, tôi mừng vì chúng tôi đã tập luyện trước phần “như thế nào”.</p>
+
+<p>Nhận lại bút từ Harrington, tôi vẽ một hình tháp mới ở góc phần tư phía trên, vừa lấp đầy nó vừa nói: “Chúng ta nên tận dụng mức độ nhận biết thương hiệu hiện có với các sản phẩm của mình để đưa cái tên Thomson di chuyển lên cao. Điều đó sẽ liên quan đến việc xây dựng lại thương hiệu cho các sản</p>
+
+<p>phẩm riêng lẻ để đưa cái tên Thomson vào theo cách tương đối đơn giản và hiệu quả. Phương pháp này sẽ không làm giảm thiểu mức độ nhận biết thương hiệu của các sản phẩm hiện có, mà sẽ lập tức khiến mọi người biết được Thomson là ai.”</p>
+
+<p>Mức nhận biết cao</p>
+
+<p>Mức nhận biết thương hiệu</p>
+
+<p>Mức nhận biết thấp</p>
+
+<p>Một thị trường	Phạm vi hoạt động	Nhiều thị trường</p>
+
+<p>Tôi vẽ một hình tháp ở góc phần tư phía trên, đề xuất nên bổ sung cái tên Thomson vào các thương hiệu sản phẩm nổi tiếng của công ty.</p>
+
+<p>Harrington gật đầu. Hướng về phía giám đốc truyền thông, ông ấy nói: “Hoàn toàn có lý. Hãy xem liệu chúng ta có thể khiến điều đó xảy ra hay không.” Sau đó, ông ấy đứng lên và nói với cả phòng: “Tuyệt vời. Cảm ơn vì đã cho phép tôi tham dự.” Khi chúng tôi đứng lên để cảm ơn ông, ông ấy lại hỏi mượn bút lần nữa. Trên đường bước ra khỏi phòng, ông ấy</p>
+
+<p>dừng lại ở hình vẽ: “Các bạn biết không, có một cách khác để di chuyển lên góc phần tư này.” Ông ấy dừng lại, sau đó vẽ một hình tròn lớn quanh hình tháp của Reuters ở góc phía trên bên trái của biểu đồ. “Chúng ta chỉ cần mua họ”.</p>
+
+<p>Mức nhận biết cao</p>
+
+<p>Mức nhận biết thương hiệu</p>
+
+<p>Mức nhận biết thấp</p>
+
+<p>Một thị trường	Phạm vi hoạt động	Nhiều thị trường</p>
+
+<p>Trước khi rời phòng, Harrington vẽ một đường tròn quanh hình tháp Reuters và nói với vẻ bông đùa: “Chúng ta chỉ cần mua họ.” Đúng là một lời nói đùa.</p>
+
+<p>Sau đó ông ấy nháy mắt và rời phòng. Nhìn vào kích cỡ tương quan giữa hình tháp Thomson và hình tháp Reuters, đây rõ ràng là một câu nói đùa. Tất cả chúng tôi đều lịch sự cười phụ họa.</p>
+
+<p>NĂM NĂM SAU</p>
+
+<p>Vào năm 2007, Tập đoàn Thomson mua lại Reuters – nhà xuất bản thông tin tài chính lớn nhất thế giới – với giá 17,2 tỷ đô-la Mỹ. Công ty mới này có tên là Thomson Reuters.</p>
+
+<p>Một lần nữa, ai nói một hình vẽ không phải là công cụ kinh doanh có sức ảnh hưởng mạnh mẽ?</p>
+
+
+
+<p>Có lẽ biểu đồ của chúng tôi đáng giá 17,2 tỷ đô-la?</p>
+
+<p>BỮ📫 TRƯ📫</p>
+
+<p>Đã đến giờ ăn trưa. Khi trở lại, chúng tôi sẽ lật mặt đồng xu và bắt đầu vẽ.</p>
+
+<h3>Mặt sấp: sáu cách trình bày</h3>
+
+<p>Suốt buổi sáng, chúng ta đã nghiên cứu mặt ngửa của đồng xu, học cách nhìn vào vấn đề mà không cảm thấy choáng ngợp. Trong khoảng thời gian còn lại này, chúng ta sẽ lật mặt đồng xu và xem có cách nào để làm rõ mọi vấn đề chỉ bằng cách vẽ sáu hình vẽ đơn giản.</p>
+
+<p>Mặt sấp: Mỗi vấn đề đều chứa đựng sáu mảnh ghép. Nhận diện được sáu mảnh ghép này là bạn đã đến gần với giải pháp.</p>
+
+<p>Mặt sấp</p>
+
+
+
+<p>Chỉ có bấy nhiêu mảnh</p>
+
+<h3>Lý thuyết đằng sau quy tắc 6x6</h3>
+
+<p>Thay vì mô tả toàn bộ vấn đề ngay tức thì bằng cách vẽ một hình ảnh tỉ mỉ, điều gì sẽ xảy ra nếu chúng ta tạo một loạt gồm sáu hình đơn giản: loại hình có sức hút trực tiếp đến từng đường mòn hình ảnh trong hệ thống tầm nhìn của chúng ta? Chẳng phải khi đó, chúng ta có thể dễ dàng vẽ các mảnh nhỏ của mọi vấn đề, đồng thời đảm bảo rằng bất kỳ ai nhìn vào những hình vẽ này cũng sẽ “cảm” ngay tức thì?</p>
+
+<p>Với tiền đề này, tôi phác họa quy tắc 6x6.</p>
+
+<p>THẤY:	TRÌNH BÀY:</p>
+
+<p>Ai/ cái gì?</p>
+
+<p>Thể hiện định tính</p>
+
+<p>Chân dung</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Ở đâu?</p>
+
+<p>Khi nào?</p>
+
+<p>Như thế nào?</p>
+
+<p>Vì sao?</p>
+
+<p>Thể hiện định lượng</p>
+
+<p>Vị trí trong không gian</p>
+
+<p>Vị trí trong thời gian</p>
+
+<p>Nguyên nhân</p>
+
+<p>+ hệ quả</p>
+
+<p>Suy diễn</p>
+
+<p>+ dự đoán</p>
+
+<p>Biểu đồ</p>
+
+<p>Sơ đồ</p>
+
+<p>Đường thời gian</p>
+
+<p>Sơ đồ tiến trình</p>
+
+<p>Đồ thị đa biến</p>
+
+
+
+<p>Quy tắc 6x6 cho chúng ta biết rằng đối với mỗi cách trong sáu cách mà chúng ta</p>
+
+<p>*thấy*, có một hình vẽ tương ứng có thể được sử dụng để thể hiện.</p>
+
+<p>Quy tắc 6x6 cho chúng ta biết rằng đối với mỗi cách trong sáu cách nhìn nhận vấn đề của chúng ta, có một hình vẽ mà ta cần thực hiện để minh họa khía cạnh của vấn đề. Tương tự như cách gắn kết của hệ thống tầm nhìn để tạo thành một bức tranh hoàn chỉnh về thế giới xung quanh nhờ chia tín hiệu hình ảnh thành nhiều yếu tố khác nhau, chúng ta chỉ cần đảo ngược quy trình này để tạo ra hình ảnh thích hợp cho mọi vấn đề.</p>
+
+<p>Ví dụ, nếu là nhà quản lý dự án – người phải giới thiệu một sản phẩm mới vào cuối quý, chúng ta có thể nói rằng mình đang đối mặt với vấn đề “khi nào”, giống như kiểu *khi nào mọi thứ cần xảy ra để kịp thời hạn?. *Để làm rõ mặt hình ảnh của yếu tố “khi nào” – để hiểu được việc thực hiện mọi thứ đúng lúc có ý nghĩa thế nào – chúng ta sẽ dựa vào khả năng của trí óc để nhận biết sự thay đổi của thời gian và tạo ra một hình vẽ phản ánh điều đó. Có lẽ, chúng ta không cần vẽ toàn bộ vấn đề – toàn bộ “ai và cái gì”, “bao nhiêu”, “ở đâu”, và “bằng cách nào” – để biết được mình đang tìm kiếm gì trong trường hợp cụ thể này. Có lẽ, chúng ta chỉ cần một hình vẽ đơn giản về “khi nào”.</p>
+
+<p>Này, Ông quản lý dự án:</p>
+
+<p>ông định khi nào sẽ làm xong tất cả những thứ này?</p>
+
+<p>Nếu điều đó đúng, tôi có một vài tin tốt dành cho những ai sẵn sàng thử phương pháp giải quyết vấn đề bằng hình ảnh: chúng ta có thể tạo ra những hình vẽ đại diện cho *bất kỳ *vấn đề nào. Và nếu điều đó đúng, tôi thậm chí còn có tin tốt hơn nữa là chúng ta có thể thực hiện việc này chỉ với sáu hình vẽ đơn giản. Và nếu điều đó đúng, tin tốt nhất là những ai có khả năng vẽ được sáu hình đơn giản đó đều có thể vẽ được mọi vấn đề. Tôi tin rằng tất cả những giả định này đều đúng. Hãy cùng chứng minh nào.</p>
+
+<h3>Sáu hình vẽ nào?</h3>
+
+<p>Từ sáng nay, chúng ta đã biết được sáu mảnh nhỏ của mọi vấn đề: “ai và cái gì”, “bao nhiêu”, “ở đâu”, “khi nào”, “như thế nào”, và “vì sao”. Để thử nghiệm quy tắc 6x6 này, chúng ta chỉ cần nhận diện hình vẽ tốt nhất đại diện cho mỗi mảnh. Hãy quay trở lại với chiếc khăn giấy “bánh pizza vấn đề” của chúng ta và tìm ra giải pháp quanh nó một lần nữa, chỉ khác là lần này, thay vì suy nghĩ tên gọi cho mỗi mảnh, chúng ta hãy tìm cách vẽ hình cho chúng.</p>
+
+<p>Đã đến lúc nhặt chiếc khăn giấy “bánh pizza vấn đề”: giờ chúng ta sẽ vẽ sáu hình trên đó.</p>
+
+<p>Vì sao?</p>
+
+<p>Ai/ cái gì?</p>
+
+<p>Như thế nào?</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Khi nào?</p>
+
+<p>Ở đâu?</p>
+
+<p>HÌNH 1: “AI VÀ CÁI GÌ” = CHÂN DUNG</p>
+
+<p>Chân dung</p>
+
+<p>Ai/</p>
+
+<p>cái gì?</p>
+
+<p>Mô tả</p>
+
+<p>định tính</p>
+
+<p>Mặt trước</p>
+
+<p>Mặt bên</p>
+
+<p>Các vấn đề “ai và cái gì” có liên quan đến các *vật thể *trong thế giới xung quanh – những thứ được chọn lựa và xử lý bằng đường mòn “ai và cái gì”: con người, sự vật, các ý tưởng, máy móc,... Dưới đây là ví dụ về những vấn đề thuộc nhóm “ai và cái gì”:</p>
+
+<p>- Tôi là thành viên tổ tiếp thị, và chúng tôi nghĩ rằng mình</p>
+
+<p>đã nhận diện được phân khúc thị trường tốt nhất cho dịch vụ mới nhưng không hoàn toàn chắc chắn. *Ai là đối tượng trong phân khúc của chúng tôi? Điều gì khiến họ khác biệt so với những người ở phân khúc khác?*</p>
+
+<p>- Tôi là phi công đang lái máy bay, nhưng tôi không nhớ kéo</p>
+
+<p>cần gạt nào để làm chậm tốc độ. *Điều gì tạo sự khác biệt giữa cần gạt này với cần gạt khác? Mỗi cần gạt được tạo ra để làm gì?*</p>
+
+<p>- Tôi đang nghiên cứu về các tôn giáo, và tôi không thể nhớ</p>
+
+<p>nổi ai đang tin vào cái gì. *Mỗi tôn giáo chứa đựng những giáo lý nào? Điều gì khiến các tôn giáo giống nhau? Điều gì tạo nên khác biệt?*</p>
+
+<p>Điểm chung của từng vấn đề trên là tất cả đều đang tìm kiếm những đặc tính khiến cho thứ này giống hoặc khác với thứ kia. Cách xử lý của đường mòn “ai và cái gì” là: bằng cách tạo ra hàng triệu phương pháp tính toán sự vật, chúng ta sẽ nhìn vào chúng và so sánh chúng với thứ khác, dù xuất hiện trước mắt hay đã được tích trữ trong ngân hàng ký ức hình ảnh của chúng ta.</p>
+
+<p>Ví dụ, hãy nhìn bản phác họa này:</p>
+
+
+
+<p>Tom	Dick	Harry</p>
+
+<p>Chân dung giải quyết vấn đề đầu tiên của chúng ta: Tom không giống Dick, nhưng có nhiều điểm tương đồng với Harry.</p>
+
+<p>Tôi nhận thấy rằng Tom không giống Dick vì anh ấy cao hơn. Tôi cũng thấy rằng Tom rất giống Harry không chỉ vì cùng chiều cao, mà còn cùng màu tóc. Dù tốt hay xấu, tâm trí của tôi đã có được hình ảnh của Tom, Dick và Harry, và đã đưa ra những quyết định về họ.</p>
+
+<p>Để biết được nên sử dụng hình ảnh nào để vẽ một vấn đề “ai và cái gì” như thế, chúng ta chỉ cần xoay quanh quy trình mà ta đã trải qua. Vì đã biết được Tom, Dick và Harry nhờ chiều cao/kích thước của họ, chúng ta chỉ cần vẽ một chân dung đơn giản thể hiện những kích thước này, giống như phác họa trên, để phân biệt họ.</p>
+
+<p>Có nhiều kiểu chân dung khác nhau mà chúng ta có thể vẽ một cách dễ dàng nếu lưu ý những điểm khác nhau giữa các đối tượng, sau đó thể hiện chúng trên giấy. Rốt cuộc, tất cả những chân dung này đều có chức năng như nhau: thể hiện các yếu tố hình ảnh của một sự vật để phân biệt với sự vật khác.</p>
+
+<p>“Một người bạn”</p>
+
+<p>“Bóng”</p>
+
+<p>/anh</p>
+
+<p>Ai +</p>
+
+<p>Cái gì</p>
+
+<p>thịt</p>
+
+<p>Bóng rổ	Bóng chày</p>
+
+<p>diễn tả</p>
+
+<p>chân dung</p>
+
+<p>“Chim”</p>
+
+<p>“Nhà tôi”</p>
+
+<p>Người		Người vui vẻ	buồn rầu</p>
+
+<p>Người tốt</p>
+
+<p>Kẻ xấu</p>
+
+<p>dự trù</p>
+
+<p>bản vẽ nhà</p>
+
+<p>sơ đồ</p>
+
+<p>Hình vẽ đơn giản nhất phân biệt được sự vật này với sự vật khác chính là loại “chân dung” mà chúng ta cần.</p>
+
+<p>Mục đích vẽ chân dung của chúng ta không nhằm chứng tỏ khả năng hay tài năng nghệ thuật; đây chỉ là cách để đảm bảo rằng chúng ta *nhận diện *hình ảnh của những thứ tạo nên vấn đề của mình. Bất kể mức độ chân thật của hình vẽ, chúng ta biết được mình đã tạo ra một chân dung tốt khi cảm thấy hài lòng rằng nó cho ta biết được điều gì đó về những thứ tạo nên vấn đề của mình, và rằng bất kỳ ai thấy chân dung đó đều cảm nhận theo cách tương tự.</p>
+
+<p>Để cảm nhận tốt hơn về những kiểu chân dung mà ta đang nhắc đến, hãy xem vài ví dụ sau. Sau đó, chúng ta sẽ tự vẽ vài chân dung.</p>
+
+<p>*Cảm giác thế nào?*</p>
+
+<p>Dù trong phòng cấp cứu, trên thẻ hướng dẫn an toàn trên máy bay hay trong các chỉ dẫn của IKEA, những chân dung đơn giản có thể lập tức chuyển tải một chuỗi thông tin từ ngôn ngữ nói. Nếu chúng ta muốn ai đó biết chính xác cảm nhận mà mình đang có, hoặc muốn họ cảm nhận điều gì, không có gì hiệu quả hơn một chân dung thể hiện trạng thái cảm xúc.</p>
+
+
+
+<p>QUÁ ĐÃ!	THẬT CHỨ!	TÀM TẠM!	KHỈ THẬT!	HU HU!</p>
+
+<p>Phần lớn khả năng xử lý hình ảnh của chúng ta sẽ tập trung vào những chi tiết tinh tế trên khuôn mặt. Khi chúng ta muốn nhanh chóng chuyển tải một trạng thái cảm xúc, chỉ cần một hình vẽ đơn giản nhất cũng giúp nhận được phản ứng.</p>
+
+<p>*Làm cách nào tôi có thể giảm tốc độ? (phần 1)*</p>
+
+<p>Trước khi xuất hiện máy bay phản lực, trở lại thời điểm khi mọi máy bay trên bầu trời đều sở hữu hệ thống cánh quạt, phi công luôn mắc lỗi tắt động cơ khi thực tế họ chỉ muốn giảm tốc độ. Đó là vì mỗi máy bay đều có hai công cụ điều khiển</p>
+
+<p>động cơ khác nhau: “cần công suất” để điều chỉnh tốc độ của động cơ (đẩy về phía trước = tăng tốc độ, kéo ngược ra sau = giảm tốc độ); và “cần nhiên liệu” quyết định mức nhiên liệu bay cần bổ sung vào động cơ (đẩy về phía trước = thêm nhiên liệu; kéo ngược ra sau = ngắt nhiên liệu = tắt động cơ).</p>
+
+<p>Vấn đề là cả hai cần gạt này trông rất giống nhau và được đặt ở cùng vị trí trong buồng lái. Nếu trong lúc vội hoặc không quan sát trước khi kéo, có nhiều khả năng là phi công sẽ kéo nhầm. Cuối cùng, điều này cũng đã được khắc phục bằng cách ghi mã theo tín hiệu hình ảnh: (1) màu khác nhau: cần công suất luôn có màu đen và cần nhiên liệu luôn có màu đỏ; (2) hình dáng khác nhau: cần công suất luôn nhẵn mịn, còn cần nhiên liệu có gờ nổi.</p>
+
+
+
+<p>Các tín hiệu hình ảnh (màu sắc và hình dáng) được sử dụng để phân biệt các cần điều khiển. Nhiều sinh mạng đã được cứu sống.</p>
+
+<p>*Làm cách nào tôi có thể giảm tốc độ? (phần 2)*</p>
+
+<p>Chúng ta không cần quan sát máy bay để vẽ được “chân dung” bộ điều khiển động cơ này. Hãy nhìn vào hai hình đơn giản</p>
+
+<p>bên dưới, và xem liệu chúng ta có đoán được chúng khác biệt ở điểm nào. (Gợi ý: thứ này có vai trò lớn trong quyết định quan trọng *thứ nhì *về mặt tài chính đối với hầu hết mọi người.)</p>
+
+<p>Bạn có thể đoán được</p>
+
+<p>điểm khác biệt của hai bức hình này không?</p>
+
+<p>Giờ thì bạn sẽ</p>
+
+<p>mua cái nào?</p>
+
+<p>##### Tự động	Bằng tay</p>
+
+<p>*Bạn tin tưởng vào điều gì?*</p>
+
+<p>Ít lĩnh vực nào trong đời sống của con người lại có nhiều điểm khác biệt cả lớn và nhỏ như với tôn giáo, và ít trường hợp nào có hệ quả to lớn như thế khi những điểm khác biệt này bị thổi phồng, bị nói giảm hay trình bày sai. Hãy xem những bức ảnh vô cùng đơn giản này, và bạn sẽ thấy (và cảm nhận) sức mạnh của một hình ảnh “tạo sự khác biệt”.</p>
+
+<p>Những hình ảnh này không phải lúc nào cũng hòa hợp:</p>
+
+
+
+<p>Bạn có thấy chúng ta không cần nhiều từ ngữ để tạo ra được sự hưởng ứng mạnh mẽ?</p>
+
+<p>Chỉ một vài nét vẽ trên một tờ giấy – một lần nữa, ai nói là một hình ảnh đơn giản không chuyển tải được ý nghĩa? Để chứng minh thêm cho điểm này, hãy xem một biến thể của chủ đề trên.</p>
+
+<p>Ngay cả những hình ảnh này</p>
+
+<p>cũng thường không đi cùng nhau:</p>
+
+
+
+<p>Ngay cả những khác biệt nhỏ trong cùng một hình ảnh cũng gây nên những phản ứng lớn.</p>
+
+<p>Khi chúng ta tạo ra những bức hình giải quyết vấn đề, thường những thứ nhỏ nhặt lại tạo nên sự khác biệt lớn nhất.</p>
+
+<p>ĐẾN LƯỢT BẠN VẼ HÌNH</p>
+
+<p>Hãy xem qua ba bài tập vẽ chân dung bên dưới và chọn một nội dung để hoàn tất. (Nếu bạn thấy hứng thú, hãy làm cả ba bài tập.)</p>
+
+<p>LỰA CHỌN 1: PHÂN KHÚC KHÁCH HÀNG</p>
+
+<p>Trong khoảng trống bên dưới, hãy vẽ một chân dung mô tả sự khác biệt giữa những phân khúc khách hàng này.</p>
+
+<p>(Gợi ý: Bắt đầu với các khuôn mặt hoặc hình que và xem liệu bạn có thể tạo ra một hoặc hai điểm khác biệt nào ở mỗi khuôn mặt.)</p>
+
+<p>- Giới yuppie</p>
+<p>- Nhóm 10-12 tuổi</p>
+<p>- Thanh niên</p>
+<p>- Bố/mẹ trung lưu</p>
+<p>- Tuổi về hưu</p>
+<p>- Còn ai khác?</p>
+
+<p>LỰA CHỌN 2: TỚI NƠI CHƯA VẬY?</p>
+
+<p>Trong khoảng trống bên dưới, chúng ta chỉ cần ít “đất” để vẽ nhằm thể hiện mức độ khác nhau giữa các loại phương tiện vận chuyển:</p>
+
+<p>- Xe buýt</p>
+<p>- Tàu thủy</p>
+<p>- Máy bay</p>
+<p>- Xe hơi</p>
+<p>- Tàu ngầm</p>
+<p>- Bạn đi làm bằng phương tiện gì?</p>
+
+<p>LỰA CHỌN 3: NÊN ĐI NGHỈ MÁT Ở ĐÂU?</p>
+
+<p>Trong khoảng trống bên dưới, hãy vẽ bất cứ thứ gì mà bạn nghĩ đến cho từng nơi này:</p>
+
+<p>- Hawaii</p>
+<p>- Thành phố New York</p>
+<p>- Paris</p>
+<p>- Montana</p>
+<p>- Mặt trăng</p>
+<p>- Điểm nghỉ mát yêu thích của bạn?</p>
+
+<p>*Danh sách hình ảnh có tác dụng hơn so với danh sách lời*</p>
+
+<p>Có thể bạn nhận ra một điều trong những ví dụ này: trong tất cả các trường hợp, chúng tạo ra những so sánh bằng hình ảnh giữa các danh sách sự việc. Đó là nơi các hình vẽ thực sự “tỏa sáng”: thay vì yêu cầu tâm trí sử dụng lời lẽ để phân biệt và ghi nhớ sự khác nhau giữa các vật thể, cách hiệu quả hơn nhiều là để các trung tâm tầm nhìn phát triển cực tốt của chúng ta tham gia vào cuộc chơi này.</p>
+
+<p>Khi chúng ta thật sự muốn chú ý và ghi nhớ nhiều sự vật, các danh sách bằng hình ảnh có tác dụng hơn so với các danh sách bằng lời, bởi bộ não của chúng ta tiếp nhận các dữ liệu khác biệt hơn nhiều. Việc sử dụng hình vẽ để so sánh giữa cam và táo – dù chỉ là hình vẽ rất đơn giản – cũng hấp dẫn hơn nhiều so với lời nói đơn thuần. Sự thật là đây: đằng nào thì hệ thống xử lý hình ảnh của chúng ta cũng luôn hoạt động nên tội gì không sử dụng nó. Tôi xin đưa ra thêm một ví dụ nữa.</p>
+
+<p>*Cái gì nên giữ lại, cái gì nên bỏ đi*</p>
+
+<p>Giả sử chúng ta là quản lý thương hiệu tại một hãng sản xuất lớn trong ngành hàng tiêu dùng đóng gói. Chúng ta đang tiến hành đánh giá sản phẩm nhằm điều chỉnh các nguồn doanh thu. Mục đích của chúng ta là phân chia các sản phẩm thành ba nhóm để quyết định làm gì với từng nhóm: sản phẩm nào thực sự đang bán chạy và xứng đáng được tiếp tục hỗ trợ, sản phẩm nào bán đủ tốt để đảm bảo các khoản đầu tư, và sản phẩm nào bán quá chậm cần ngưng sản xuất.</p>
+
+<p>Thứ nhất, chúng ta sẽ gán mỗi nhóm sản phẩm vào một mức hiệu quả dựa trên thông tin phản hồi về lượng khách hàng, tiếp thị và doanh số bán ra. Có các mục sau: Siêu sao, nhất hạng, trung bình, tàm tạm, khó ưa, ế ẩm.</p>
+
+<p>Ổn rồi, đó là bối cảnh. Còn đây là vấn đề: tâm trí của chúng ta vừa đọc được 12 mục khác nhau ở ba hệ thống cấp bậc (hiệu quả kinh doanh, hoạt động tài chính, chất lượng sản phẩm). Có quá nhiều từ ngữ và cấu trúc để tâm trí kịp theo dõi, chưa kể thực tế rằng mỗi hạng mục trong số này đều có tính chất khác nhau.</p>
+
+<p>Đối với hầu hết mọi người, việc hiểu rõ danh sách tương đối đơn giản này đã là khó khăn. Một khi chúng ta bắt đầu phân nhóm các sản phẩm, điều đó sẽ trở nên gần như không thể. Đó là lý do chúng ta có các bảng tính Excel. Dưới đây có thể là thứ mà nhiều người trong chúng ta tạo ra để theo dõi công việc:</p>
+
+<p>Hành động</p>
+
+<p>Trạng thái kinh doanh</p>
+
+<p>Xếp hạng</p>
+
+<p>Các sản phẩm</p>
+
+<p>Hỗ trợ</p>
+
+<p>Bán rất chạy</p>
+
+<p>Siêu sao</p>
+
+<p>Nhất hạng</p>
+
+<p>Đầu tư</p>
+
+<p>Bán tốt</p>
+
+<p>Trung bình</p>
+
+<p>Tàm tạm</p>
+
+<p>Loại bỏ</p>
+
+<p>Bán chậm</p>
+
+<p>Khó ưa</p>
+
+<p>Ế ẩm</p>
+
+<p>Đây là công cụ phù hợp để chúng ta bắt đầu tiến hành các đánh giá và điền dữ liệu. Nhưng tôi cho rằng còn có cách tốt hơn. Vì sao không kích hoạt con mắt tâm trí để duy trì những điểm khác biệt mà chúng ta tạo ra bên trong? Hãy tưởng tượng mức độ cảm nhận của chúng ta về những gì mình đang làm nếu cùng lúc đó ta *thấy *nó:</p>
+
+<p>Trạng thái	Các</p>
+
+<p>Hành động	kinh doanh	Xếp hạng	sản phẩm</p>
+
+<p>Hỗ trợ</p>
+
+<p>Bán rất chạy</p>
+
+<p>Đầu tư	Bán tốt</p>
+
+<p>Siêu sao</p>
+
+<p>Nhất hạng</p>
+
+<p>Trung bình</p>
+
+<p>Tàm tạm</p>
+
+<p>Khó ưa</p>
+
+<p>Loại bỏ</p>
+
+<p>Bán chậm</p>
+
+<p>Ế ẩm</p>
+
+<p>Điểm cần nói ở đây là nếu chúng ta thực sự muốn nhớ điều gì đó bên trong một danh sách dài, việc phân bổ từ ngữ là không đủ; việc phân công cho các trung tâm xử lý hình ảnh của chúng ta sẽ tạo nên một mức độ tham gia hoàn toàn mới của trí óc.</p>
+
+<p>CHÂN DUNG TIẾP THEO CỦA BẠN:</p>
+
+<p>LẬP MỘT DANH SÁCH VÀ KIỂM TRA HAI LẦN</p>
+
+<p>Trong khoảng trống bên dưới, bạn sẽ nhận thấy cả danh sách “các hạng mục” lẫn danh sách “các mặt hàng”. Nhiệm vụ của bạn là tạo ra một danh sách hình ảnh đơn giản (giống như trên) để giải thích cho cả hai. Để tâm trí của bạn dễ dàng với việc phân loại, hãy khiến mọi thứ đều khơi gợi cảm giác mạnh mẽ; giúp các tên gọi khác nhau thực sự hàm chứa một ý nghĩa nào đó bằng cách thể hiện cảm nhận và diện mạo của chúng. (Gợi ý: mục đích ở đây là khiến các trung tâm xử lý hình ảnh của bạn tham gia vào quá trình ra quyết định.) Tham khảo Phụ lục trang 410 để xem giải pháp của tôi.</p>
+
+<p>Các hạng mục:</p>
+
+<p>1. Chẳng cần lo</p>
+<p>2. Duy trì bằng mọi giá</p>
+<p>3. Hãy để nó kết thúc</p>
+
+<p>Các sản phẩm bao gồm:</p>
+
+<p>- General Motors</p>
+<p>- Washington, D.C.</p>
+<p>- Thực phẩm tươi sống</p>
+<p>- Ngân hàng chỗ tôi</p>
+<p>- Wall Street</p>
+<p>- Google</p>
+
+<p>Phần vẽ chân dung thế là đủ rồi. Đừng lo lắng: chúng sẽ quay trở lại nhiều lần nữa khi chúng ta tiếp tục dùng chiếc khăn giấy để giải quyết vấn đề. Trước khi tiếp, hãy lưu lại trên “bánh pizza vấn đề” một bản phác họa đơn giản để nhắc nhở rằng khi đối mặt với vấn đề “ai và cái gì”, chúng ta chỉ cần vẽ một chân dung.</p>
+
+<p>Trên mẩu khăn giấy “bánh pizza vấn đề” của chúng ta, hãy vẽ một chân dung để thể hiện “ai và cái gì”.</p>
+
+<p>Vì sao?</p>
+
+<p>Ai/ cái gì?</p>
+
+<p>Như thế nào?</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Khi nào?</p>
+
+<p>Ở đâu?</p>
+
+<p>BÀI TẬP VỀ NHÀ: VẤN ĐỀ “AI VÀ CÁI GÌ” CỦA BẠN</p>
+
+<p>Bạn có thể nghĩ ra được một thử thách nào thuộc dạng “ai và cái gì” mà bạn hoặc doanh nghiệp của bạn đối mặt? Để làm rõ vấn đề đó, bạn có thể vẽ được chân dung nào?</p>
+
+<p>HÌNH 2: “BAO NHIÊU” = BIỂU ĐỒ</p>
+
+<p>Biểu đồ</p>
+
+<p>Mô tả</p>
+
+<p>định lượng</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Số lượng</p>
+
+<p>Những vấn đề “bao nhiêu” đều liên quan đến các con số. Chúng ta đã bán được bao nhiêu? Chúng ta có đủ tiền để vượt qua quý này không? Điều gì đang xảy ra trên thị trường chứng khoán? Đây là những kiểu câu hỏi “chiếm đóng” đường mòn “bao nhiêu” của chúng ta – một phần thuộc hệ thống tầm nhìn luôn có nhiệm vụ đếm (hoặc tìm cách đếm) những thứ xung quanh chúng ta.</p>
+
+<p>*Dưới đây là những ví dụ về vấn đề “bao nhiêu”:*</p>
+
+<p>- Tôi là chuyên gia phân tích tài chính, và tôi cần xác minh các đề xuất cắt giảm chi phí. *Chúng ta hiện đang chi tiêu bao nhiêu? Hệ số ROI (lợi nhuận trên vốn đầu tư) từ sáng kiến này là bao nhiêu?*</p>
+<p>- Tôi là quản lý, đang cân nhắc về việc tuyển nhân viên mới và muốn chắc chắn rằng chúng tôi có khả năng trả lương cho họ. *Chúng ta sẽ chi bao nhiêu để tuyển dụng họ? Mức độ đóng góp của họ vào kết quả kinh doanh của công ty?*</p>
+<p>- Tôi là người phụ trách thu mua trái cây cho một chuỗi cửa hàng thực phẩm lớn, và tôi muốn biết liệu mình có thể tiết kiệm được chi phí từ các nhà cung cấp chuối mới. *Tôi sẽ tiết kiệm được bao nhi*ê*u cho một sản phẩm có giá thành thấp nhưng phải vận chuyển đường dài? Liệu tôi có thể kết hợp việc vận chuyển đó với các sản phẩm khác để tiết kiệm chi phí?*</p>
+
+<p>Điểm chung của những vấn đề này là chúng chỉ tập trung vào con số. Đường mòn “bao nhiêu” của chúng ta được thể hiện dưới nhiều cách hỏi khác nhau. Đúng là để biết được “bao nhiêu”, chúng ta phải biết *ai *và *cái gì *mà chúng ta đang cân/đo/đong/đếm, nhưng đường mòn “bao nhiêu” không hề quan tâm đến những khác biệt “định tính” này; điều mà nó luôn bị ám ảnh là số lượng.</p>
+
+
+
+<p>Tôi không quan tâm họ là *ai *hay chúng là *cái gì*, nhưng tôi thấy có ba và bốn cái/người.</p>
+
+<p>Ví dụ, tôi có thể nhìn lên và thấy ba người trước mặt (bạn vẫn còn nhớ Tom, Dick và Harry chứ?), rồi sau đó nhìn xuống và thấy mình có bốn quả táo trong tay. Đường mòn “bao nhiêu” không quan tâm đến sự khác nhau về chiều cao hay bất cứ điều gì tương tự như thế; nó chỉ thấy ba và bốn – để nhận ra rằng có dư một quả táo cho riêng mình.</p>
+
+<p>Trong kinh doanh, người ta sử dụng nhiều biểu đồ hơn bất kỳ loại hình ảnh nào khác(*). Điều đó hợp lý trong một thế giới</p>
+
+<p>*  Hiện cũng có nhiều sách nói về biểu đồ hơn hình ảnh, vì vậy, chúng ta sẽ không lãng phí thời gian trình bày chi tiết về các biểu đồ. Chỉ có một vài khía cạnh của biểu đồ mà tôi cho rằng chúng ta cần hiểu để đưa ra những quyết định đúng đắn về những thứ nên sử dụng, và đó là những gì mà chúng ta sẽ tập trung vào.</p>
+
+<p>nơi sự thành bại được đánh giá hoàn toàn dựa trên việc tính toán và định lượng: giá trị vốn hóa thị trường, giá cổ phiếu, tỷ lệ giá/lợi nhuận, lãi hay lỗ, thị phần. Hãy thử nêu tên một tiêu chí mà những người hoạt động kinh doanh dựa trên đó để quyết định có nên hỗ trợ một hoạt động kinh doanh không, bạn sẽ có được một công cụ định lượng.</p>
+
+<p>Biểu đồ cột	Biểu đồ nhiệt kế	Biểu đồ tần số</p>
+
+<p>Phần trăm phản hồi</p>
+
+<p>Phân tích thống kê</p>
+
+<p>Tán	Phản</p>
+
+<p>thành	đối</p>
+
+<p>Bao nhiêu</p>
+
+<p>Có thể</p>
+
+<p>Có</p>
+
+<p>So sánh theo lượng</p>
+
+<p>Biểu đồ tròn</p>
+
+<p>Loại		Loại thứ nhất	thứ hai</p>
+
+<p>Khối lượng đã tiêu thụ</p>
+
+<p>Có</p>
+
+<p>khả năng</p>
+
+<p>So sánh theo con số</p>
+
+<p>Bình thường</p>
+
+<p>Số lượng</p>
+
+<p>Thiết lập</p>
+
+<p>Tôi có bao nhiêu cái này? Và bao nhiêu so với cái kia? Mặc dù trông khác nhau nhưng mỗi biểu đồ “bao nhiêu” đều chỉ đơn thuần là một cách thể hiện số lượng bằng hình ảnh.</p>
+
+<p>Vì có nhiều khía cạnh kinh doanh có thể được tính toán, và có quá nhiều thứ có thể học hỏi từ việc quan sát cách hình</p>
+
+<p>thành của những con số được tính toán này, chúng ta sẽ có nhiều kiểu biểu đồ: biểu đồ dạng thanh, biểu đồ hình tròn, biểu đồ tần suất, biểu đồ chuỗi thời gian, biểu đồ bong bóng, biểu đồ radar – đó là một danh sách dài. Đối với những ai thích xem mọi thứ bằng hình ảnh, thật tốt khi có nhiều lựa chọn. Nhưng một lần nữa, nhiều lựa chọn đó sẽ khiến việc chọn đúng loại biểu đồ trở thành một thử thách: ở đây, tất cả chúng ta đều sẵn sàng tạo ra một hình ảnh dữ liệu tuyệt vời, và một lần nữa, chúng ta lại rơi vào trạng thái “đứng hình” – lần này là tìm cách nhận biết nên sử dụng loại biểu đồ nào.</p>
+
+<p>Đừng để những biểu đồ này, hay phần mềm tạo ra nó đánh lừa chúng ta. Cần nhớ rằng xét cho cùng, điểm cơ bản duy nhất là bất kỳ biểu đồ nào trong số đó phải giúp ta thể hiện được “bao nhiêu”. Và thực sự các biểu đồ chỉ có hai cách để làm được điều đó: hoặc thể hiện những con số rõ ràng hoặc so sánh các số lượng tương đối.</p>
+
+
+
+<p>Số tuyệt đối	Số tương đối</p>
+
+<p>Biểu đồ thể hiện yếu tố “bao nhiêu” theo một trong hai cách: số lượng tuyệt đối hoặc số lượng so sánh.</p>
+
+<p>Nếu có thể quyết định khía cạnh nào trong đường mòn “bao nhiêu” của bạn có ý nghĩa nhất – và liệu nó có ý nghĩa nhất trong các con số tuyệt đối hay trong mối tương quan với số khác – bạn sẽ dễ dàng lựa chọn loại biểu đồ cần sử dụng. Hãy sử dụng một vài hình ảnh đơn giản để giúp trả lời những câu hỏi này.</p>
+
+<p>*Số lượng tuyệt đối và số lượng so sánh*</p>
+
+<p>Số lượng tuyệt đối là cách “thuần túy” để thể hiện số lượng của những thứ mà ta đang có. Tôi có bao nhiêu quả táo? Bốn. Điều đó khá rõ ràng – không cần phải mô phỏng bằng hình ảnh. Chúng ta thích biết chính xác số lượng của thứ mà ta đang có. Nó khiến ta cảm thấy chắc chắn và thể hiện tính chính xác, cả hai đều quan trọng để ta tự tin đưa ra các quyết định quan trọng, ví dụ như việc cần đưa cho Tom bao nhiêu quả táo.</p>
+
+
+
+<p>Số lượng tuyệt đối giúp ta chắc chắn về mặt số lượng.</p>
+
+<p>Nhưng số lượng tuyệt đối chứa đựng một số vấn đề. Thứ nhất, hóa ra con người chúng ta rất khổ sở với việc thực sự</p>
+
+<p>“hiểu” được những con số lớn. Đối với hầu hết mọi người, số lượng lớn nhất mà ta có thể nhận ra ngay tức thì mà không cần nỗ lực có ý thức là năm. (Cứ thử nghĩ về điều đó trong lần tới, khi ai đó bắt đầu đưa ra con số “hàng tỷ”.) Tôi không nói rằng chúng ta không thể hình dung được những con số lớn hơn nhiều; chúng ta có thể, nhưng từ quan trọng là “hình ảnh”. Vì hầu hết chúng ta không thể hiểu được những con số lớn hơn, việc nhìn thấy hình ảnh so sánh giữa số lượng này với số lượng khác sẽ giúp ta hiểu được số lượng mà mình đang nói đến.</p>
+
+
+
+<p>Chúng ta có thể đếm được bao nhiêu *mà không cần *đếm? Đối với hầu hết mọi người, số lượng lớn nhất là năm.</p>
+
+<p>Ví dụ, với bốn người (Tom, Dick, Harry, và tôi) và bốn quả táo, thật dễ nhận biết mức độ so sánh của chúng. Nhưng sẽ như thế nào nếu tôi có ba mươi chín quả táo, hoặc bảy mươi hai ngàn? Cách duy nhất để có được câu trả lời tuyệt đối là thực hiện phép chia, nhưng một hình ảnh so sánh về số lượng cũng giúp ích, đặc biệt nếu chúng ta muốn nhanh chóng đưa ra con số ước lượng.</p>
+
+<p>(TÔI)</p>
+
+<p>Chúng ta không cần đếm từng quả táo để chia chúng; thay vào đó, chúng ta chỉ cần dùng hình ảnh để so sánh số lượng.</p>
+
+<p>Con số so sánh mang tính đơn giản, rõ ràng và thường được sử dụng nhất là một trăm. Con số này tạo ra một tỷ lệ phần trăm – đây là cách tuyệt vời để so sánh số lượng từng phần với tổng thể hoặc so sánh số này với số khác.</p>
+
+<p>(TÔI)</p>
+
+<p>Việc sử dụng chuẩn so sánh giống như “tỷ lệ phần trăm” giúp chúng ta dễ dàng nhận biết ý nghĩa của những con số lớn hơn.</p>
+
+<p>Việc sử dụng chuẩn so sánh cũng giúp giảm nhẹ vấn đề thứ hai của số lượng tuyệt đối: một khi trở nên thật sự lớn (hoặc thật sự nhỏ), số lượng tuyệt đối sẽ khó quản lý trên bất kỳ biểu đồ nào, đặc biệt khi chúng ta tìm cách thể hiện một số lượng lớn cạnh một số lượng nhỏ(*). Việc chuyển sang các con số so sánh thường giúp ta linh hoạt hơn trong cách thể hiện rõ những con số của mình.</p>
+
+<p>Táo		Táo	Táo đã ăn	để dành		hư</p>
+
+<p>Một biểu đồ thể hiện số lượng so sánh sẽ tạo ra hình ảnh linh hoạt hơn so với biểu đồ thể hiện số lượng tuyệt đối.</p>
+
+<p>* Từ lâu, các nhà toán học đã hiểu được mức độ khó khăn của việc quản lý (hay thậm chí ghi lại) những con số thật sự nhỏ hoặc những con số thật sự lớn, vì vậy, họ đã phát minh ra kiểu ký hiệu khoa học để làm chuẩn. Tôi không có ý xem thường toán học, mục đích của tôi ở đây là sử dụng những hình ảnh đơn giản để giúp chúng ta nhanh chóng nhận biết được ý nghĩa của những con số lớn. Sau đó, chúng ta có thể quyết định có nên sử dụng thêm thuật toán để làm rõ quan điểm của mình không.</p>
+
+<p>Hãy xem những ví dụ sau:</p>
+
+<p>*Mỗi ngày một quả táo*</p>
+
+<p>Khi ai đó nói “apple”, đối với hầu hết chúng ta, một trong hai hình ảnh sẽ xuất hiện: một loại trái cây (táo) hoặc một thương hiệu máy tính. Như chúng ta đều biết từ quy tắc 6x6, có một cách rất đơn giản và hiệu quả để chúng ta thể hiện bằng hình ảnh về sự khác biệt giữa hai vật thể này: một hình vẽ đơn giản.</p>
+
+<p>Loại táo nào? Một hình vẽ đơn giản sẽ giúp phân biệt điều này.</p>
+
+<p>Nhưng nếu người đó nói: “Ý tôi muốn chỉ trái cây. Và tôi muốn hỏi câu ‘mỗi ngày một quả táo thì không cần gặp bác sĩ’ có ý nghĩa gì chứ?” Chúng ta sẽ cần một hình ảnh rất khác. Vì sao mỗi ngày một quả táo lại giúp tránh xa bác sĩ? Có phải vì quả táo có màu đỏ? Không hẳn vậy. Có phải vì quả táo hình tròn? Không hề. Có phải vì quả táo ngon? Có lẽ, nhưng nhờ hiểu được bản chất của bác sĩ là thích đo lường sức khỏe của bệnh nhân – họ đo nhiệt độ, đo huyết áp, xác định cân nặng, đo lượng cholesterol,... – chúng ta sẽ cho rằng hẳn phải có thứ gì *có thể đo lường được *ở quả táo mới khiến nó trở thành “thuốc ngừa” bác sĩ.</p>
+
+<p>Làm cách nào chúng ta có thể đo lường được điều gì khiến một quả táo có lợi cho sức khỏe? Thế còn lượng vitamin chứa đựng bên trong quả táo thì sao?</p>
+
+<p>Một biểu đồ thể hiện những tính toán khiến một quả táo trở thành “thuốc ngừa” bác sĩ.</p>
+
+<p>*Giá của những quả chuối*</p>
+
+<p>Nói về trái cây, hãy quay trở lại với người thu mua chuối. Bạn có còn nhớ điều mà chúng ta quan tâm? Chúng ta đã tự hỏi liệu có tiết kiệm không nếu mua chuối từ một nguồn giá rẻ nhưng lại ở vị trí rất xa. Ở đây chúng ta không lo lắng về điều gì tạo nên một trái chuối, chúng ta chỉ quan tâm đến chi phí. Để nhận biết những điều đó, chúng ta cần có một biểu đồ(*).</p>
+
+<p>*	Số lượng và vị trí trong bài tập này hoàn toàn là những chi tiết tưởng tượng.</p>
+
+<p>Đừng trở thành đại lý thu mua chuối dựa trên những điều bạn thấy ở đây.</p>
+
+<p>Biểu đồ này thể hiện giá bán sỉ của các loại chuối tại các quốc gia trồng chuối (tưởng tượng): Burola, Howloo, Westango, và nhà cung cấp hiện tại của chúng ta Quixos.</p>
+
+<p>Giá chuối ở các quốc gia trồng chuối lớn</p>
+
+<p>Burola</p>
+
+<p>Quixos</p>
+
+<p>Howloo</p>
+
+<p>Westango</p>
+
+<p>Chúng ta có thể nhận thấy rằng chuối của Burola rẻ hơn rất nhiều so với chuối từ nhà cung cấp hiện tại Quixos.</p>
+
+<p>Biểu đồ này thể hiện chi phí vận chuyển từ bốn quốc gia:</p>
+
+<p>Howloo Quixos</p>
+
+<p>Westango	Burola</p>
+
+<p>Khoảng cách</p>
+
+<p>Chúng ta có thể thấy rằng vì Burola là nước xa nhất, chi phí vận chuyển từ đó cũng cao hơn.</p>
+
+<p>Nếu chỉ nhìn ở khía cạnh “bao nhiêu”, và kết hợp hai biểu đồ đơn giản, câu trả lời định lượng sẽ trở nên rõ ràng: chúng ta nên dừng mua chuối ở Quixos và bắt đầu mua chuối từ Burola:</p>
+
+<p>Tổng giá mỗi tấn chuối</p>
+
+<p>Burola</p>
+
+<p>Westango</p>
+
+<p>Quixos</p>
+
+<p>Howloo</p>
+
+<p>Ngay cả với chi phí vận chuyển cao hơn, giá chuối Burola vẫn thấp hơn nhiều so với giá chuối hiện tại.</p>
+
+<p>Dĩ nhiên, nếu chỉ nhìn vào mảnh “bao nhiêu”, chúng ta có thể bỏ qua điều gì đó. Hãy nhớ, chúng ta đã là đơn vị lớn thu mua chuối của Quixos suốt nhiều năm. Điều gì sẽ xảy ra tại quốc gia đó nếu chúng ta không còn mua chuối của họ nữa? Các biểu đồ không thể cho chúng ta biết điều đó, nhưng có thể chỉ cho ta thấy rằng mọi sự sụt giảm về doanh thu từ chuối đều gây ảnh hưởng đến nền kinh tế Quixos.</p>
+
+<p>Xét từ khía cạnh “bao nhiêu”, đó không phải là vấn đề của chúng ta. Nhưng có lẽ một ngày nào đó, nó sẽ trở thành vấn đề.</p>
+
+<p>Nước Quixos</p>
+
+<p>Khác</p>
+
+<p>Cà phê</p>
+
+<p>Chuối</p>
+
+<p>Chúng ta là đơn vị thu mua chuối lớn tại Quixos, và chuối chiếm gần hai phần ba nền kinh tế của nước này. Điều gì sẽ xảy ra nếu chúng ta dừng mua chuối từ đó?</p>
+
+<p>% GDP từ xuất khẩu</p>
+
+<p>Có lẽ chúng ta sẽ đàm phán được mức giá thấp hơn? Có lẽ chúng ta nên ra đi và để Quixos tự tìm một đơn vị thu mua khác hoặc tìm cách khác để kiếm tiền? Biết đâu đấy? Chắc hẳn biểu đồ không giúp chúng ta trả lời những câu hỏi này. Bài học ở đây là chúng ta luôn phải nhận thức được thứ mà mình đang tính toán và những thứ mình không tính toán. Câu trả lời “bao nhiêu” (hình ảnh đầu tiên mà một người kinh doanh hướng tới) luôn thiếu vắng những thông tin quan trọng từ các mảnh khác, từ những cách khác mà chúng ta nhận biết.</p>
+
+<p>ĐẾN LƯỢT BẠN VẼ MỘT BIỂU ĐỒ</p>
+
+<p>Hãy xem các bài tập biểu đồ bên dưới và chọn một bài để hoàn tất. (Một lần nữa, bạn có thể làm cả hai). Tham khảo Phụ lục trang 411 để xem giải pháp của tôi.</p>
+
+<p>LỰA CHỌN 1: AI THẤY NHƯ THẾ NÀO?</p>
+
+<p>Ngày hôm qua, chúng ta đã nói về nhóm người giải quyết vấn đề bằng hình ảnh cũng như cách thức khiến mỗi người trong chúng ta rơi vào một trong những nhóm sau:</p>
+
+<p>- Bút đen	• Bút vàng	• Bút đỏ</p>
+
+<p>__Phần I__</p>
+
+<p>Trong hàng trăm cuộc họp, tôi thường yêu cầu mọi người giơ tay để nhận diện nhóm nào trong số những nhóm trên có khả năng mô tả họ gần đúng nhất. Trong hầu hết các trường hợp, số người giơ tay như sau: khoảng hơn một phần tư số người tham dự giơ tay cho nhóm đầu tiên, khoảng một phần hai cho nhóm thứ hai, khoảng dưới một phần tư cho nhóm thứ ba, và một hoặc hai người không giơ tay. Điều đó trông như thế nào?</p>
+
+<p>__Phần II__</p>
+
+<p>Trong một cuộc họp với sự tham gia của hơn một trăm người đến từ tổ chức lớn nhất của các giáo viên trong nước, tôi đã hỏi cùng câu hỏi này, dựa trên phạm vi tương tự. Kết quả đạt được hoàn toàn khác so với bất kỳ nhóm nào: chỉ một vài cánh tay giơ lên cho nhóm đầu, bốn cánh tay cho nhóm thứ hai, và hơn một trăm cánh tay cho nhóm thứ ba. Không ai là không giơ tay. Điều đó trông như thế nào, đặc biệt khi so sánh với Phần I?(*)</p>
+
+<p>* Đây là sự thật, và tôi đã bị sốc: đường cong ghềnh lớn nhất mà tôi từng thấy trong các kết quả của cuộc khảo sát không chính thức này là khi tôi đưa nó cho hơn 100 người đến từ Hiệp hội Giáo dục Quốc gia; hầu hết đều nhận mình thuộc nhóm Bút đỏ! Chúng ta có thể dựa vào điều này để tự tin hơn trong việc giải quyết vấn đề bằng hình ảnh, nhưng cũng có thể các số liệu đã sai. Để tìm hiểu xem điều này có nghĩa gì, ai đó có nền tảng kiến thức thống kê giỏi hơn tôi cần tiến hành một chuỗi thử nghiệm trên cơ sở vững chắc hơn. Chúng ta có thể học hỏi được điều gì đó thú vị về các giáo viên, hệ thống giáo dục, khả năng hiểu biết về tri thức, và nhiều thứ khác. Có sinh viên nào đang tìm đề tài làm luận án tiến sĩ không?</p>
+
+<p>LỰA CHỌN 2: ĐO NHIỆT ĐỘ</p>
+
+<p>__Phần I__</p>
+
+<p>Bạn được mời dẫn dắt chương trình gây quỹ cho trường học. Mục đích của bạn là quyên góp 5.000 đô-la trong vòng ba tuần tới để mua máy tính mới cho trường. Hãy vẽ một biểu đồ mà bạn muốn phổ biến trong các bản tin tuần của trường để các bậc phụ huynh thấy được số tiền còn lại cần quyên góp.</p>
+
+<p>__Phần II__</p>
+
+<p>Một chiếc máy tính mới cấu hình cao trị giá 735$. Một chiếc máy tính mới cấu hình thấp trị giá 476$. Giả sử bạn đưa ra mục tiêu tài chính của mình, hãy vẽ một biểu đồ thể hiện số lượng máy tính mỗi loại mà bạn đề xuất mua. (Hãy luôn nhớ rằng trưởng phòng IT thực sự thích loại máy cấu hình cao, trong khi hiệu trưởng lại thích những chiếc máy tính có giá rẻ hơn.)</p>
+
+<p>*Khả năng nhận biết vượt ra khỏi phạm vi các con số*</p>
+
+<p>Như chúng ta đã thảo luận, biểu đồ có vai trò lớn trong kinh doanh(*). Vì các doanh nghiệp gần như hoàn toàn dựa vào các con số để đo lường sự thành bại, nên không có gì đáng ngạc nhiên khi một bài thuyết trình kinh doanh nếu có chứa đựng</p>
+
+<p>*  Để biết được tầm quan trọng của biểu đồ trong kinh doanh, hãy xem tất cả các tính năng vẽ biểu đồ được thiết kế trong hầu hết các gói phần mềm kinh doanh, từ bảng tính Excel cho đến chương trình xử lý văn bản. Thật tuyệt khi các chương trình này luôn sẵn sàng giúp chúng ta thấy “bao nhiêu”, nhưng phải chăng sẽ hay hơn nếu chúng cũng có các công cụ vẽ bản đồ và chân dung?</p>
+
+<p>bất kỳ hình ảnh nào thì chúng đều là các biểu đồ. Chẳng có gì sai trong chuyện đó – càng nhiều hình ảnh càng tốt. Nhưng việc chúng ta chỉ phụ thuộc vào biểu đồ để giải thích các vấn đề kinh doanh sẽ bóp méo ý nghĩa của “kinh doanh” và làm giới hạn, nếu không nói là ảnh hưởng nghiêm trọng, khả năng nhìn thấy bức tranh lớn hơn.</p>
+
+<p>Chúng ta đã dành cả buổi sáng để chỉ ra sáu cách nhìn nhận thế giới, và rằng chúng được kết hợp theo nhiều cách khác nhau để mang đến một bức tranh lớn. Nếu những hình ảnh duy nhất mà chúng ta thấy trong kinh doanh là biểu đồ, điều đó nói lên rằng *cách duy nhất mà chúng ta thấy *có ý nghĩa trong kinh doanh là “bao nhiêu”. Đúng vậy, con số là tiền, và tiền có vai trò quan trọng, nhưng còn nhiều thứ khác xảy ra trong kinh doanh hơn so với việc bao nhiêu tiền đang trao tay – ví dụ như tiền đến từ đâu. Để nhận biết được điều đó, chúng ta cần một hình ảnh hoàn toàn mới: chúng ta cần một sơ đồ.</p>
+
+<p>Trước khi làm điều đó, hãy kết thúc mảnh này bằng một ghi chú trên khăn giấy “bánh pizza vấn đề”: khi chúng ta đối mặt với vấn đề “bao nhiêu”, hình ảnh mà chúng ta vẽ là biểu đồ.</p>
+
+<p>Trên mặt khăn giấy “bánh pizza vấn đề”, hãy bổ sung một biểu đồ đơn giản vào mảnh “bao nhiêu”.</p>
+
+<p>Vì sao?</p>
+
+<p>Ai/ cái gì?</p>
+
+<p>Như thế nào?</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Khi nào?</p>
+
+<p>Ở đâu?</p>
+
+<p>BÀI TẬP VỀ NHÀ: VẤN ĐỀ “BAO NHIÊU” CỦA BẠN</p>
+
+<p>Bạn có có thể nghĩ ra được một thử thách nào thuộc dạng“bao nhiêu” mà bạn hoặc doanh nghiệp của bạn đang đối mặt? Để làm rõ vấn đề đó, bạn có thể vẽ biểu đồ nào?</p>
+
+<p>HÌNH 3: “Ở ĐÂU” = SƠ ĐỒ</p>
+
+<p>Sơ đồ</p>
+
+<p>Vị trí trong không gian</p>
+
+<p>Ở đâu?</p>
+
+<p>Đường mòn “ở đâu” thấy vị trí của mọi thứ và theo dõi các mối quan hệ từng vùng của chúng. Chức năng này hoạt động nhờ nhanh chóng tạo ra các sơ đồ vị trí tương đối của những gì chúng ta thấy xung quanh. Đôi khi, những sơ đồ này đặt chúng ta vào trung tâm của hành động (có thứ gì đó đang tiến về phía chúng ta ngay lúc này!), và đôi khi, chúng lại chẳng nhắc gì đến ta cả (vị trí của tủ lạnh trong nhà bếp). Dù thế nào thì không có sơ đồ nào trong số này quan tâm đến *bản chất (cái gì) *của sự vật – nó được vận hành bởi những đường mòn khác.</p>
+
+<p>Ví dụ, chính đường mòn “ở đâu” phát hiện ra rằng nguy cơ tiềm ẩn đang chờ đợi chúng ta ở phía trước. Nếu giống như một con cá sấu, nghĩa là chỉ có đường mòn này trong đầu, chúng ta đã nghĩ đến phương án “chiến đấu hay bỏ chạy” ngay</p>
+
+<p>cả khi chưa biết nguy hiểm đó là gì. Tuy nhiên, là động vật hữu nhũ, chúng ta có đường mòn “cái gì” với khả năng nhận biết rằng Tom và nhóm bạn đang đến để lấy táo, và vì có sẵn táo cho mọi người nên có thể là chúng ta an toàn.</p>
+
+
+
+<p>Á! Cái gì đang tới kìa!	Oh! Là các bạn của mình đây mà.</p>
+
+<p>Đường mòn “ở đâu” chỉ cho chúng ta biết có điều gì đó sắp xuất hiện. Chúng ta cần đến đường mòn “ai và cái gì” để biết đó là ai hoặc cái gì.</p>
+
+<p>*Dưới đây là một vài ví dụ về các vấn đề “ở đâu”:*</p>
+
+<p>- Tôi là thành viên nhóm chiến lược kinh doanh, chúng tôi đang tìm cách xác định hướng đi phù hợp nhất cho công ty. *Chúng ta hiện đang đứng ở vị trí nào so với các đối thủ cạnh tranh? Liệu có vị trí nào chưa được khai thác trong không gian thị trường của mình? Lời chào hàng độc đáo, cơ cấu chi phí và khả năng của chúng ta giao nhau ở đâu?*</p>
+<p>- Tôi là kiến trúc sư, và tôi muốn xác định vị trí tốt nhất để đặt hệ thống vệ sinh và sân hiên. *Đâu là vị trí tốt nhất để bố trí chi tiết này cân xứng với chi tiết khác? Liệu có vị trí tương đối nào tốt hơn cho từng chi tiết?*</p>
+<p>- Tôi là người phụ trách tổ chức tiệc cưới, tôi muốn biết nơi sắp xếp chỗ ngồi cho khách trong bữa tối. *Tôi nên tập trung những nhân vật chính của tiệc cưới ở đâu? Tôi có thể bố trí những người họ hàng khó tính ở cách nhau bao xa để giảm thiểu thiệt hại?*</p>
+
+<p>Trong tất cả những hình ảnh mà chúng ta sẽ xem xét, sơ đồ là thứ linh hoạt nhất. Đó là vì có rất nhiều cách để phát hiện và tính toán vị trí tương xứng của các chi tiết, bất kể chúng là gì.</p>
+
+<p>Ở đâu?</p>
+
+<p>cà phê</p>
+
+<p>thiên đường</p>
+
+<p>đường	kem</p>
+
+<p>Vị trí hoàn hảo</p>
+
+<p>Bản đồ vùng đất</p>
+
+<p>hài lòng</p>
+
+<p>hạnh phúc</p>
+
+<p>vui</p>
+
+<p>mỉm cười</p>
+
+<p>vui sướng</p>
+
+<p>Một vài yêu cầu lắp đặt</p>
+
+<p>Sơ đồ khái niệm</p>
+
+<p>Bất kể sự khác biệt về diện mạo, tất cả các sơ đồ đều thể hiện cùng một thứ: mối quan hệ từng phần giữa vật thể này với vật thể khác. Những vật thể này có thể là bất cứ thứ gì, từ các cấu kiện xe đạp đến những khái niệm mơ hồ; nếu quan tâm đến mức độ gắn kết hoặc trùng lắp của chúng, chúng ta chỉ cần một sơ đồ.</p>
+
+<p>Mục đích của chúng ta khi vẽ một sơ đồ là để bắt chước hành động của đường mòn “ở đâu”: để chỉ rõ mối quan hệ từng phần giữa vật thể này với vật thể khác. Xét trong phạm vi sơ đồ của chúng ta, không có sự khác biệt nào giữa *bản chất (cái gì) *của những vật thể này – chúng có thể là nhà cửa, các chi tiết cấu thành kế hoạch kinh doanh, hoặc các khái niệm tiếp thị. Điều quan trọng là vị trí gắn kết của chúng, điểm trùng lắp, và nơi xuất hiện mâu thuẫn.</p>
+
+<p>Hãy quan sát ba ví dụ dưới đây.</p>
+
+<p>*Sơ đồ 1: dữ liệu của tôi ở đâu?*</p>
+
+<p>Trong thế giới kinh doanh, một trong những nơi mà chúng ta thấy nhiều sơ đồ là bộ phận kỹ thuật, đặc biệt là kiến trúc kỹ thuật (technical architecture). Đúng như tên gọi, kiến trúc kỹ thuật là tìm ra nơi tất cả các thiết vị đo lường, máy vi tính, máy chủ, phần mềm, và dữ liệu ăn khớp với nhau để “hệ thống” có thể thu thập những dữ liệu hữu ích và chúng ta (“người sử dụng”) có thể truy cập vào. Trong tình huống “ở đâu” như thế này, chúng ta nên vẽ một sơ đồ.</p>
+
+<p>Trước đây, các sơ đồ kiến trúc kỹ thuật có hình dạng như sau: chúng ta thấy một chùm gồm nhiều hệ thống khác nhau đang cung cấp nhiều thông tin khác nhau vào một “người sử dụng” – người đang tìm cách tìm hiểu xem tất cả những thứ này có ý nghĩa gì.</p>
+
+
+
+<p>“Trường phái cũ”</p>
+
+<p>Trong sơ đồ kiến trúc kỹ thuật điển hình thuộc “trường phái cũ”, nhiều hệ thống không kết nối đã thu thập dữ liệu riêng và nạp tất cả vào “người sử dụng” – người sẽ phải tìm cách gắn kết chúng với nhau.</p>
+
+<p>Giờ hãy so sánh sơ đồ đó với một chuẩn kiến trúc kỹ thuật mới xuất hiện với tên gọi mô hình “dịch vụ”. Trong sơ đồ này, chúng ta có thể nhận thấy rằng điều gì đó đã thay đổi. Mặc dù các hệ thống đó vẫn khác biệt, nhưng một “kênh dịch vụ” hay một “tầng dịch vụ” mới đã được bổ sung giữa những hệ thống đó và chúng ta. “Kênh” này sử dụng nhiều quy tắc kinh doanh sẵn có để tìm ra cách gắn kết các dữ liệu với nhau, nên thay vì bị quá tải dữ liệu, chúng ta có được những thông tin hữu ích.</p>
+
+
+
+<p>“Dịch vụ”</p>
+
+<p>Trong mô hình “dịch vụ” mới, một “kênh dịch vụ” tập hợp các dữ liệu rải rác với nhau theo các quy tắc có sẵn, để chúng ta có thể tập trung vào thông tin chính thay vì tình trạng quá tải dữ liệu.</p>
+
+<p>Như chúng ta sẽ thấy vào ngày tiếp theo, khả năng so sánh các sơ đồ “trước” và “sau” sẽ giúp chúng ta nhanh chóng nhận ra những điểm khác nhau. Hãy cùng nhìn lại hai sơ đồ này. Giờ đây, chúng ta có thể hiểu được vì sao các kiến trúc sư kỹ thuật lại phấn khích với “kiến trúc định hướng dịch vụ”, hay còn gọi là SOA: có nghĩa là người sử dụng dễ dàng có được những thứ họ cần mà không phải cấu trúc lại toàn bộ hệ thống.</p>
+
+
+
+<p>“Trường phái cũ”	“Dịch vụ”</p>
+
+<p>Bạn có nhận thấy sự khác biệt? Trong sơ đồ thứ hai, người sử dụng dễ dàng tiếp cận thông tin mà không phải tái cơ cấu toàn bộ hệ thống. Đây là lý do SOA (service-oriented arrchitecture: kiến trúc định hướng dịch vụ) là mô hình yêu thích của các kiến trúc sư kỹ thuật.</p>
+
+<p>*Sơ đồ 2: tiền ở đâu?*</p>
+
+<p>Vài năm trước, một ngân hàng nhờ tôi lập sơ đồ về số khách hàng đang tạo ra tiền cho họ và số khách hàng đang lấy mất tiền của họ. Ngân hàng này lo lắng vì các giám đốc chi nhánh đang dồn quá nhiều công sức vào nhóm khách hàng chỉ sử dụng dịch vụ chi phí cao, lãi suất thấp, và bỏ bê việc phát triển mối quan hệ với các khách hàng sinh lợi. Ngân hàng muốn biết liệu có cách nào phác họa tất cả những điều này trên một sơ đồ đơn giản để giúp các giám đốc chi nhánh thấy vị trí mà họ nên đầu tư nhiều thời gian hơn.</p>
+
+<p>Dựa trên các tiêu chí của các nhà quản lý ngân hàng, chúng tôi đã tạo ra sơ đồ sau. Nó bao gồm bốn “vùng” với các ranh</p>
+
+<p>giới được xác định bởi một hệ trục(*), trong đó phác họa lượng chi phí duy trì cần có đối với một khách hàng so với mức lợi nhuận mà khách hàng đó đem lại.</p>
+
+<p>Khả năng sinh lợi</p>
+
+<p>Phí duy trì cao</p>
+
+<p>Không kiếm được tiền</p>
+
+<p>Phí duy trì thấp</p>
+
+<p>Với hệ trục đã được hình thành, chúng tôi vẽ bốn vùng như sau(**).</p>
+
+<p>* Bạn có còn nhớ vào ngày hôm qua, một trong những điều đầu tiên chúng ta cần có để tạo ra một biểu đồ là xác định “hệ trục”? Điều này cũng đúng với các sơ đồ, và thật ra là đối với hầu hết mọi hình ảnh mà chúng ta từng vẽ.</p>
+
+<p>** Nhân tiện, đây được gọi là sơ đồ 2x2, hay sơ đồ bốn góc và là hình ảnh “ở đâu” thường được sử dụng nhất trong quá trình tư vấn chiến lược. Bởi đó là cách đơn giản để thể hiện nhiều quan điểm (tốt và xấu, giàu và nghèo, tăng trưởng và suy giảm, sinh lợi và tốn kém, v.v...), các nhà tư vấn chiến lược xem nó như cách để thấy được vị trí của các đối thủ cạnh tranh hoặc nơi có phân khúc thị trường chưa được khai thác. Nếu bạn tham gia vào quy trình lập kế hoạch chiến lược, sơ đồ 2x2 là công cụ vô cùng hữu ích.</p>
+
+<p>Khả năng sinh lợi</p>
+
+<p>Đất màu mỡ	Đất hứa</p>
+
+<p>Phí duy trì cao</p>
+
+<p>Phí duy trì thấp</p>
+
+<p>Sa mạc	Đất hoang</p>
+
+<p>Không kiếm được tiền</p>
+
+<p>Bốn góc này đại diện cho mức độ màu mỡ của “vùng đất” trong mối tương quan với phí duy trì cần có. “Đất hứa” sẽ tạo ra nhiều lợi nhuận với ít nỗ lực, trong khi “sa mạc” có thể ngốn hết mọi nguồn năng lượng của bạn mà chẳng mang lại kết quả gì.</p>
+
+<p>Khi nhìn vào sơ đồ, các giám đốc ngân hàng có thể thấy rõ rằng không phải tất cả các “vùng đất” đều giống nhau: đất hứa là nơi trồng trọt tuyệt vời, bởi nó tạo ra nhiều lợi nhuận với phí bảo dưỡng thấp, trong khi sa mạc là một thách thức bởi dù có đầu tư nhiều đến mức nào, nó cũng không đem lại nhiều lợi nhuận.</p>
+
+<p>Với sơ đồ đơn giản này trong tay, câu hỏi đặt ra với các giám đốc ngân hàng là làm cách nào họ lập sơ đồ khách hàng của mình. Liệu một khách hàng mới với tiềm năng lợi nhuận lớn</p>
+
+<p>sẽ được đặt ở cùng vị trí với một khách hàng lâu năm nhưng từ lâu không còn đem lại lợi nhuận cho ngân hàng?</p>
+
+<p>Như một cách định hướng cho doanh nghiệp, sơ đồ đơn giản này đã trở thành nền tảng cho nhiều cuộc thảo luận sôi nổi giữa các giám đốc chi nhánh và giám đốc ngân hàng, cũng như làm cơ sở để vẽ sơ đồ liên hệ với khách hàng.</p>
+
+<p>*Sơ đồ 3: Giải cứu nước Mỹ (hay chiến đấu với cối xay gió?)*</p>
+
+<p>Tôi viết cuốn sách này vào thời điểm nền kinh tế Hoa Kỳ đang rơi vào tình trạng tồi tệ nhất kể từ sau cuộc Đại suy thoái, và nền kinh tế của các quốc gia khác cũng đang chống chọi với nhiều khó khăn. Trong suốt thời gian tôi thực hiện cuốn sách này, vô số cuộc thảo luận và vô số hoạt động đã diễn ra khắp đất nước nhằm nỗ lực khôi phục nền kinh tế.</p>
+
+<p>Với tư cách vừa là thành viên tích cực của nền kinh tế vừa là một kẻ ngoài cuộc vô cùng quan tâm, tôi thất vọng với các nhà lãnh đạo ở khả năng sử dụng hình ảnh để giải thích những gì đã xảy ra và những gì họ đang làm để khắc phục tình hình. Có vô số ngôn từ, lý thuyết, điều luật và vô số gói kích cầu được tranh luận tại D.C, nhưng làm sao ai đó trong chúng tôi có thể đưa ra những lựa chọn hữu ích về kế hoạch cần hỗ trợ khi chính các nhà lãnh đạo không thể làm rõ được chúng?</p>
+
+<p>Hãy nghe đây, Washington: hãy bổ sung hình ảnh vào lời nói của các vị và có lẽ, chúng ta sẽ bắt đầu tìm thấy lối thoát. Bằng cách nào ư? Hãy bắt đầu với một sơ đồ.</p>
+
+<p>Trong vài tháng qua, một loạt vấn đề kinh tế đã xuất hiện.</p>
+
+<p>Giống như sự sụt giảm giá nhà và kéo theo đó là tình trạng cắt giảm chi tiêu mua sắm, một số vấn đề đã được dự đoán từ lâu. Trong khi số khác – như sự sụp đổ của Phố Wall và General Motors chỉ sau một đêm – lại hoàn toàn bất ngờ. Rõ ràng là với tâm trạng quá lo lắng, chính phủ bắt đầu ném tiền vào để giải quyết từng vấn đề một, với gói cứu trợ cho Phố Wall, gói khác cho Detroit, và gói khác nữa cho người tiêu dùng. Có lẽ đó là hành động đúng đắn, nhưng vì thiếu một “bức tranh lớn” đằng sau nó, làm cách nào chúng ta biết được?</p>
+
+<p>Thay vào đó, hãy tưởng tượng điều gì sẽ xảy ra nếu một trong các nhà lãnh đạo của chúng ta cầm bút lên và phác họa “sơ đồ vấn đề” sau đây. Người đó bắt đầu bằng cách nhận diện ba thử thách lớn nhất trong ngày: Sự sụp đổ của Phố Wall, sự sụp đổ của Detroit, và tình trạng nguồn dầu thế giới đang ngày càng suy kiệt(*).</p>
+
+<p>Dịch vụ tài chính</p>
+
+<p>Ngành ôtô</p>
+
+<p>Tiêu thụ năng lượng</p>
+
+<p>Ba trong số những vấn đề lớn nhất: Phố Wall sụp đổ, Detroit rơi xuống vách đá, và chúng ta sắp cạn nguồn xăng dầu. Ouch!</p>
+
+<p>* Nhiều năm trước, với giá xăng trên mức 4 đô-la/gallon, mọi người chỉ nói về nhu cầu tiết kiệm nguồn năng lượng này. Ngày nay, khi giá xăng dầu giảm, chúng ta dường như quên mất vấn đề đó. Đừng lo: nó sẽ quay trở lại.</p>
+
+<p>Rồi nhà lãnh đạo đó nói: “Thay vì nhìn nhận ba vấn đề này một cách độc lập, hãy xem điểm trùng lắp của chúng.” Và nhà lãnh đạo đó đã vẽ lại với ba hình tròn lồng vào nhau, điểm trùng lắp của chúng tạo ra một chuỗi hình dạng hoàn toàn mới(*).</p>
+
+<p>Dịch vụ tài chính</p>
+
+<p>Ngành ôtô</p>
+
+<p>Tiêu thụ</p>
+
+<p>năng lượng	Hãy nhìn vào những vị trí trùng lắp nhau.</p>
+
+<p>Nhà lãnh đạo nói tiếp: “Điểm giao giữa dịch vụ tài chính và ngành sản xuất ôtô là tín dụng: các công ty sản xuất ôtô cần vay vốn để đầu tư sản xuất ra những mẫu xe tốt hơn, và người tiêu dùng cần vay tiền để mua chúng. Vì vậy, hãy rót hàng tỷ đô-la vào Phố Wall, cho các ngân hàng tùy theo việc họ mở lại tín dụng cho các hãng sản xuất ôtô và người tiêu dùng như thế nào.</p>
+
+<p>* Đây dĩ nhiên là một sơ đồ Venn, được đặt theo tên của nhà lô-gic học người Anh John Venn (1834-1923), trong đó sử dụng các hình tròn để thể hiện các mối quan hệ logic.</p>
+
+<p>Nguồn tiền rót vào Phố Wall sẽ tùy thuộc vào các ngân hàng nào đang mở lại tín dụng cho các hãng sản xuất ôtô và người tiêu dùng.</p>
+
+<p>Dịch vụ</p>
+
+<p>tài chính</p>
+
+<p>Mở rộng tín dụng</p>
+
+<p>+ vay</p>
+
+<p>Ngành</p>
+
+<p>ôtô</p>
+
+<p>Tiêu thụ</p>
+
+<p>năng lượng</p>
+
+<p>“Điểm giao giữa ngành sản xuất ôtô và tiêu thụ năng lượng là công nghệ và hiệu quả năng lượng. Vì vậy, hãy rót tiền vào các công ty sản xuất ôtô tùy thuộc vào mức độ họ đầu tư cho các loại xe hiệu quả và hấp dẫn hơn.</p>
+
+<p>Nguồn tín dụng đảm bảo cho Detroit sẽ dành cho những hãng sản xuất ôtô đang đầu tư vào những mẫu xe hiệu quả và hấp dẫn hơn.</p>
+
+<p>Dịch vụ</p>
+
+<p>tài chính</p>
+
+<p>Mở rộng tín dụng</p>
+
+<p>+ vay</p>
+
+<p>Ngành</p>
+
+<p>ôtô</p>
+
+<p>Sản xuất xe lai</p>
+
+<p>Tiêu thụ năng lượng</p>
+
+<p>“Tiêu thụ năng lượng và dịch vụ tài chính giao nhau ở hoạt động đầu tư vào các biện pháp kinh doanh bền vững hơn. Vì vậy, hãy khuyến khích người tiêu dùng và các nhà đầu tư hỗ trợ những doanh nghiệp nào góp phần vào nền kinh tế xanh.</p>
+
+<p>Cùng lúc đó, nguồn tiền rót vào nền kinh tế sẽ giúp hỗ trợ công nghệ xanh và xây dựng những doanh nghiệp xanh hơn.</p>
+
+<p>Dịch vụ tài chính</p>
+
+<p>Cấp</p>
+
+<p>Mở rộng tín dụng</p>
+
+<p>+ vay</p>
+
+<p>Ngành</p>
+
+<p>ôtô</p>
+
+<p>vốn cho</p>
+
+<p>nền kinh tế xanh</p>
+
+<p>Tiêu thụ</p>
+
+<p>Sản xuất xe lai</p>
+
+<p>năng lượng</p>
+
+<p>“Giờ đây, chúng ta không nhìn vào ba vấn đề độc lập với ba giải pháp riêng lẻ và tốn kém; chúng ta nhận thấy rằng mình thực sự có một chu kỳ tiếp diễn, nơi giải pháp hoàn thiện vấn đề này tự động dẫn tới các giải pháp hoàn thiện vấn đề khác. Và ngay phần trung tâm, chúng ta tạo ra một cơ sở sản xuất kiểu Mỹ hoàn toàn mới bằng cách tân trang lại các nhà máy hiện có để sản xuất hàng loạt hệ thống năng lượng thay thế.</p>
+
+<p>“Rốt cuộc, nếu các công ty ôtô của Mỹ có thể tân trang từ việc sản xuất máy bay trong Thế chiến II thành sản xuất xe hơi, vậy sao họ không thể làm điều đó một lần nữa vào thời điểm nền kinh tế đang trong cơn nguy khốn?”</p>
+
+<p>Một dự án quốc gia về sản xuất cối xay gió: nó giúp duy trì hoạt động của các dây chuyền lắp ráp, duy trì dòng tiền, giảm phụ thuộc vào nguồn cung dầu, đồng thời giảm lượng khí thải cacbon. Có gì mà không thích?</p>
+
+<p>Dịch vụ tài chính</p>
+
+<p>Cấp</p>
+
+<p>Mở rộng tín dụng</p>
+
+<p>+ vay</p>
+
+<p>Ngành</p>
+
+<p>ôtô</p>
+
+<p>vốn cho</p>
+
+<p>nền kinh tế xanh</p>
+
+<p>Tiêu thụ</p>
+
+<p>Sản xuất xe lai</p>
+
+<p>năng lượng</p>
+
+<p>Ở đây, chúng ta có một tầm nhìn đơn giản chỉ rõ ba trong số những vấn đề chính nhờ thể hiện được *vị trí *trùng lắp của chúng. Nó thể hiện được cách thức tiềm năng giúp duy trì các dây chuyền lắp ráp của Detroit, và cứu được Phố Wall, trong khi giảm mức tiêu hao năng lượng và hỗ trợ sự phát triển bền vững của nền kinh tế. Bạn chỉ mất ba phút để vẽ sơ đồ này. Và nếu chúng ta không vẽ nó, những ý tưởng này hẳn đã không được trông thấy. Tôi không biết nhà lãnh đạo với khả năng vẽ được một sơ đồ như thế, nhưng nếu biết, tôi sẽ bầu cho ông ta/bà ta. Không chỉ thấy được “bức tranh lớn”, tôi còn cảm thấy chắc chắn rằng có người thực sự biết điều gì đang diễn ra.</p>
+
+<p>ĐẾN LƯỢT BẠN VẼ SƠ ĐỒ</p>
+
+<p>Lần này, hãy hoàn thành hai trong số những bài tập sau bằng cách vẽ sơ đồ thể hiện vị trí gắn kết của mọi vật.</p>
+
+<p>LỰA CHỌN 1: TIẾT KIỆM THỜI GIAN</p>
+
+<p>Hãy lắp chiếc đồng hồ này bằng cách vẽ tất cả các bộ phận của nó ở đúng vị trí.</p>
+
+
+
+<p>LỰA CHỌN 2: CÁI GÌ NÊN GIỮ LẠI, CÁI GÌ NÊN VỨT BỎ (LẶP LẠI)</p>
+
+<p>Bạn còn nhớ danh sách hàng tiêu dùng đóng gói về “ai và cái gì” chứ? Bạn sẽ thấy rằng lần này, tôi đã điền vào một số sản phẩm hư cấu. Hãy sử dụng sơ đồ để thể hiện một cách trực quan hơn nhằm biết được vị trí gắn kết của chúng. (Gợi ý: tạo ra một hệ trục 2x2 giống như trong ví dụ ngân hàng ở trên, và sau đó vẽ sơ đồ các sản phẩm riêng lẻ.) Tham khảo Phụ lục trang 412 để xem giải pháp của tôi.</p>
+
+<p>Để tăng thêm độ tin tưởng, hãy vẽ nơi tiêu thụ một số “sản phẩm” này.</p>
+
+<p>Trạng thái	Các</p>
+
+<p>Hành động	kinh doanh	Xếp hạng sản phẩm</p>
+
+<p>Siêu sao</p>
+
+<p>Nhất Hỗ trợ	Bán rất chạy	hạng</p>
+
+<p>Trung bình</p>
+
+<p>Tàm</p>
+
+<p>Đầu tư	Bán tốt	tạm</p>
+
+<p>Khó ưa</p>
+
+<p>Loại bỏ	Bán chậm	Ế ẩm</p>
+
+<p>LỰA CHỌN 3: BẠN MUỐN NÓ LÀ SƠ ĐỒ VENN?</p>
+
+<p>Dưới đây là năm khái niệm. Hãy tạo ra một sơ đồ Venn (giống như các hình tròn giải cứu nước Mỹ) thể hiện ít nhất ba điểm trùng lắp. Sau đó, nhận diện một khái niệm mới xuất hiện từ điểm trùng lắp đó.</p>
+
+<p>Thời tiết</p>
+
+<p>Tiền</p>
+
+<p>Giải trí</p>
+
+<p>Sơ đồ</p>
+
+<p>Trò chuyện</p>
+
+
+
+<p>Vì sao?</p>
+
+<p>Bằng cách nào?</p>
+
+<p>Khi nào?</p>
+
+<p>Ai/ cái gì?</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Ở đâu?</p>
+
+<p>Đã đến lúc ghi lại trên “bánh pizza vấn đề” của chúng ta: khi đối mặt với vấn đề “ở đâu”, chúng ta hãy vẽ một sơ đồ.</p>
+
+<p>BÀI TẬP VỀ NHÀ: VẤN ĐỀ “Ở ĐÂU” CỦA BẠN</p>
+
+<p>Bạn có thể nghĩ ra một thách thức nào thuộc dạng “ở đâu” mà bạn hoặc doanh nghiệp của bạn đang đối mặt? Để giúp làm rõ vấn đề đó, bạn có thể vẽ được kiểu sơ đồ nào?</p>
+
+<p>HÌNH 4: “KHI NÀO” = DÒNG THỜI GIAN</p>
+
+<p>Dòng thời gian</p>
+
+<p>Vị trí theo thời gian</p>
+
+<p>Khi nào?</p>
+
+<p>Đông /uân	Hạ	Thu</p>
+
+<p>Thời gian</p>
+
+<p>Bạn có biết rằng một phần hệ thống tầm nhìn của chúng ta có trách nhiệm theo dõi liệu trời sáng hay tối?(*) Nó sử dụng thông tin đó để cho chúng ta biết rằng khi nào nên đi ngủ. Nếu di chuyển nhiều bằng phương tiện hàng không, bạn sẽ biết được tình trạng jet lag (tình trạng mệt mỏi xảy ra sau một</p>
+
+<p>* Vùng nhân trên chéo (suprachiasmatic nucleus) đo lường sự thay đổi ánh sáng do mắt phát hiện, và nạp thông tin đó vào vùng dưới đồi (hypothalamus), nơi chi phối hoạt động của đồng hồ sinh học.</p>
+
+<p>chuyến bay dài xuyên qua nhiều vĩ tuyến, từ đông sang tây hoặc tây sang đông – ND.) dễ dàng làm rối loạn hệ thống đó như thế nào.</p>
+
+<p>Chẳng có gì ngạc nhiên khi các mô hình giấc ngủ của chúng ta được điều khiển bởi ánh sáng; hóa ra, một trong những cách quan trọng nhất để theo dõi thời gian trôi qua là dựa vào những thứ ta thấy. Bạn có còn nhớ cách chúng ta nhìn nhận mảnh “khi nào”? Nhờ nhận thấy sự thay đổi về chất lượng, số lượng, hay vị trí của một vật thể “ai và cái gì”, chúng ta thực sự thấy được thời gian trôi qua trước mắt mình. Hình ảnh mà chúng ta vẽ để thể hiện hiện tượng đó – hình ảnh mà chúng ta vẽ để thể hiện thời gian trôi qua – là một chuỗi các bước phản ánh sự thay đổi. Nói cách khác, chúng ta vẽ một dòng thời gian.</p>
+
+
+
+<p>Dòng thời gian</p>
+
+<p>Như đã thảo luận, mảnh “khi nào” khác với ba mảnh mà chúng ta đã nhận biết cho đến thời điểm này (“ai và cái gì”, “bao nhiêu”, và “ở đâu”) bởi ba mảnh này hoạt động đồng thời, và ít nhiều có phần độc lập nhau, còn “khi nào” lại phụ thuộc vào thông tin đầu vào của ba mảnh kia: chúng ta không thể thấy điều gì đó thay đổi cho đến khi thấy thứ gì đó để bắt đầu.</p>
+
+<p>Nói cách khác, phải mất thời gian mới nhìn thấy thời gian. Điều này có thể giải thích cho lý do chúng ta luôn cảm thấy mình cứ chậm hơn nó.</p>
+
+<p>*Ví dụ về các vấn đề “khi nào”:*</p>
+
+<p>- Tôi là quản lý dự án, và tôi muốn đảm bảo rằng chúng tôi sẽ ra mắt sản phẩm mới trong quý này. *Mọi thứ cần diễn ra khi nào để chúng tôi theo kịp thời gian đã định? Đâu là trình tự diễn biến tốt nhất cho các sự kiện?*</p>
+<p>- Tôi là cảnh sát giao thông, tôi đang tìm cách ghép nối những gì đã xảy ra khi đèn giao thông chuyển sang đỏ, và tôi có bốn nhân chứng nói rằng “nhìn thấy tất cả”. *Đâu là trình tự diễn biến của những sự kiện dẫn đến tai nạn? Bạn nghe được gì ngay trước vụ va chạm? Liệu tài xế đó vào quán rượu trước hay sau vụ đâm xe?*</p>
+<p>- Tôi phải bắt kịp chuyến bay vào cuối giờ sáng nay nhưng có hàng đống việc cần làm trước khi ra sân bay. *Liệu tôi có bắt kịp chuyến bay không? Liệu tôi có đủ thời gian để làm xong mọi việc? Liệu có trình tự làm việc cụ thể nào giúp tôi có đủ thời gian? Liệu có phải đây là những thứ mà tôi sẽ không thể nào hoàn thành được?*</p>
+
+<p>Cụm từ “dòng thời gian” là tên gọi mô tả hoàn hảo điều mà nó muốn thể hiện. Khi vẽ một dòng thời gian, chúng ta sẽ xem thời gian như một đường thẳng (thường chạy từ trái sang</p>
+
+<p>phải(*)), kèm theo đó là bố trí những dấu vết để chỉ rõ rằng khi thời gian trôi qua, mọi thứ đều thay đổi.</p>
+
+<p>Khi nào?</p>
+
+<p>Sơ đồ quá trình</p>
+
+<p>(thẳng)</p>
+
+<p>Dòng thời gian</p>
+
+<p>Vòng đời</p>
+
+<p>(tròn)</p>
+
+<p>Biểu đồ luồng</p>
+
+<p>Tiến trình</p>
+
+<p>tuyến tính</p>
+
+<p>Biểu đồ Gantt</p>
+
+<p>Dòng thời gian có ít biến thể hơn so với năm hình ảnh mà chúng ta đang xem. Trong tất cả các trường hợp, đường thẳng đại diện cho thời gian có vai trò như một loại xương sống, nơi các chi tiết và sự kiện được treo lơ lửng. Dù được gọi là vòng</p>
+
+<p>* Giống như nhiều khía cạnh của mọi ngôn ngữ, “quy tắc ngữ pháp hình ảnh” của thời gian chảy từ trái sang phải có lẽ bắt nguồn từ văn hóa. Hầu hết các ngôn ngữ của thế giới phương Tây đều đọc từ trái sang phải, và vì tiếng Anh đã thống trị hoạt động truyền thông trong kinh doanh nên thật hợp lý khi hầu hết người Mỹ đều có xu hướng nhìn nhận thời gian trôi từ trái sang phải. Tại các nền văn hóa khác, dòng thời gian có thể chảy theo nhiều hướng khác.</p>
+
+<p>đời, biểu đồ Gantt, biểu đồ luồng (đường bơi), hay tiến trình tuyến tính, tất cả đều bắt đầu với một xuất phát điểm và di chuyển theo một hướng đến điểm cuối. Trong nhiều trường hợp, chúng sẽ quay trở lại từ đầu khi đã đạt đến điểm cuối, nhưng điều khiến cho một dòng thời gian xuất hiện từ những hình ảnh “dòng chảy” khác (ví dụ các biểu đồ “như thế nào” mà chúng ta sẽ thấy trong phần tiếp theo) là các dòng thời gian luôn di chuyển về phía trước.</p>
+
+<p>Hãy xem ví dụ về việc sử dụng dòng thời gian để làm rõ vấn đề “khi nào”.</p>
+
+<p>*Ví dụ đột phá “khi nào”: trở lại với trường hợp của Thomson *Vào đầu giờ sáng hôm nay, chúng tôi đã khiến cho vị Tổng giám đốc của Thomson Corporation phấn phích với những</p>
+
+<p>khả năng xây dựng thương hiệu mà ông ấy đã thấy trong biểu</p>
+
+<p>đồ. Khi ông ấy rời phòng họp, chúng tôi đều biết mình phải làm gì, vì vậy, câu hỏi tiếp theo là: “OK, khi nào chúng ta thực hiện điều đó?”</p>
+
+<p>Nhà quản lý dự án bước vào. Đó là Keith. Câu nói yêu thích của Keith là: “Nếu chúng không quan trọng, người ta sẽ không gọi chúng là ‘thời hạn cuối cùng’.” Đối với Keith, tất cả đều là vấn đề “khi nào”. Chúng tôi biết có rất nhiều việc cần làm; Keith là người phải biết được trình tự, tính toán thời gian, và trên hết là các thời hạn cuối cùng phải hoàn thành.</p>
+
+<p>Sẽ có nhiều người tham gia vào dự án này, có nhiều điều cần làm, nhiều phần phụ thuộc, nhiều cuộc họp, và Keith biết rằng</p>
+
+<p>anh ấy phải có trách nhiệm đảm bảo tất cả những người còn lại đều hiểu rõ vai trò của mình. Vì vậy, Keith đã tạo ra một thời khóa biểu bằng chương trình bảng tính Excel. Nhưng với kinh nghiệm của mình, Keith biết rằng không ai trong chúng tôi sẽ nhìn vào bảng tính chi tiết của anh ấy, vì vậy, Keith quyết định tạo ra một dòng thời gian đơn giản mà anh có thể vẽ bất cứ nơi nào.</p>
+
+<p>Keith bắt đầu theo đúng cách của mỗi dòng thời gian: anh ấy vẽ “ngày hôm nay”(*). Sau đó, Keith vẽ thời hạn cuối cùng, ngày 13 tháng 3. Tiếp đến, anh ấy chia không gian ở giữa thành số tuần còn lại.</p>
+
+<p>Hôm nay	13 tháng 3</p>
+
+<p>Dòng thời gian của Keith bắt đầu như tất cả các dòng thời gian khác: “hôm nay” và “thời hạn cuối”, và một loạt điểm cần ghi nhớ ở giữa.</p>
+
+<p>Sau đó, Keith bổ sung tất cả các bước quan trọng mà anh ấy biết rằng chúng tôi sẽ phải thực hiện theo đúng trình tự để hoàn thành dự án đúng thời hạn: thứ nhất, chúng ta phải thu hút sự quan tâm/tham gia của những người sẽ chịu tác động bởi dự án; thứ hai, chúng ta phải lên kế hoạch chi tiết về mọi</p>
+
+<p>* Hãy nhớ: chúng ta có thể bắt đầu tất cả các hình ảnh giải quyết vấn đề bằng cách vẽ một hình tròn và đặt tên cho nó. Trong trường hợp này, tên gọi đó là “hôm nay”.</p>
+
+<p>việc và các tình huống bất ngờ; thứ ba, chúng ta phải có được sự tham gia của tất cả mọi người nhằm đảm bảo rằng mọi thứ đều sẵn sàng trước ngày ra mắt.</p>
+
+<p>Hôm nay	13 tháng 3</p>
+
+<p>Thu hút</p>
+
+<p>Lên kế hoạch</p>
+
+<p>Làm mới thương hiệu</p>
+
+<p>RA MẮT!</p>
+
+<p>Sau đó, Keith bổ sung thêm các bước và cột mốc quan trọng.</p>
+
+<p>Sử dụng dòng thời gian làm cơ sở, Keith đã bố trí tất cả các nhóm – những đơn vị sẽ tham gia vào dự án và mô tả ngắn gọn về nội dung cũng như thời điểm cần thực hiện.</p>
+
+<p>Hôm nay</p>
+
+<p>13 tháng 3</p>
+
+<p>Các nhóm:</p>
+
+<p>Thu hút</p>
+
+<p>Lên kế hoạch</p>
+
+<p>Làm mới thương hiệu</p>
+
+<p>RA MẮT!</p>
+
+<p>Thiết kế</p>
+
+<p>Nội dung</p>
+
+<p>thu thập tài liệu</p>
+
+<p>thu thập đề tài</p>
+
+<p>xác định công nghệ hiện có</p>
+
+<p>chuẩn bị mô hình</p>
+
+<p>soạn mẫu</p>
+
+<p>thiết kế logo</p>
+
+<p>viết bài</p>
+
+<p>Công nghệ</p>
+
+<p>thiết kế kiến trúc công nghệ</p>
+
+<p>tạo</p>
+
+<p>nền tảng</p>
+
+<p>Quản lý dự án	lập nhóm</p>
+
+<p>lên kế hoạch</p>
+
+<p>dự án</p>
+
+<p>phối hợp</p>
+
+<p>đánh giá</p>
+
+<p>Hỗ trợ</p>
+
+<p>CHỐT KIỂM SOÁT!</p>
+
+<p>Keith đã hoàn tất dòng thời gian của mình bằng cách bổ sung các nhóm tham gia dự án, và thời gian mà mỗi nhóm cần có để hoàn thành nhiệm vụ của mình.</p>
+
+<p>Với dòng thời gian cơ bản đó, chúng ta đều có thể thấy những thứ mình cần làm và khi nào cần thực hiện nó. Vì nó đơn giản và rõ ràng nên tất cả chúng ta đều thấy được vị trí phù hợp của mình trong dự án.</p>
+
+<p>THỰC HÀNH VỀ DÒNG THỜI GIAN: CHÚNG TA HÃY ĐI BƠI NÀO</p>
+
+<p>Trong những năm gần đây, cụm từ “đường bơi” (biểu đồ luồng) đã đi vào ngôn ngữ của các nhà quản lý dự án, và điều này không liên quan gì đến việc duy trì sức khỏe và hình thể trong bể bơi. Điểm liên quan là theo dõi và duy trì tiến độ của các thành viên trong nhóm dự án. Hình ảnh đường bơi được sử dụng nhằm thể hiện *ai *nên làm *gì *và *khi nào *nên làm, đồng thời so sánh nó với các thành viên khác – những người cũng đang làm việc song song vào cùng thời điểm.</p>
+
+<p>Ví dụ nếu Tom, Dick và Harry đều ăn trưa vào cùng thời điểm, đường bơi đại diện cho giờ trưa của họ sẽ trông như thế này:</p>
+
+<p>“ĐƯỜNG BƠI” CỦA GIỜ TRƯA</p>
+
+<p>trưa</p>
+
+<p>ĂN	NGỦ TRƯA</p>
+
+<p>ĂN	nghỉ</p>
+
+<p>ĂN	CHỢP MẮT</p>
+
+<p>Ở đây, chúng ta nhận thấy rằng mặc dù phải kết thúc bữa trưa vào cùng thời điểm, nhưng Tom, Dick và Harry đều có những công việc riêng phải hoàn thành trong suốt thời gian đó.</p>
+
+<p>Bài tập của bạn: sử dụng dòng thời gian được cung cấp dưới đây, hãy tạo ra một kết hợp đường bơi đơn giản để thể hiện mức độ hành động song song của những nhân vật này.</p>
+
+
+
+<p>__Nhân vật__</p>
+
+<p>__Nhiệm vụ__</p>
+
+<p>__Thời gian__</p>
+
+<p>Suzie (thư ký)</p>
+
+<p>Trả lời điện thoại</p>
+
+<p>1:00 – 1:05</p>
+
+<p>Kiểm tra hòm thư điện tử</p>
+
+<p>1:05 – 1:30</p>
+
+<p>Chạy việc</p>
+
+<p>1:30 – 3:00</p>
+
+<p>Mitch (kỹ thuật)</p>
+
+<p>Đọc blog</p>
+
+<p>1:00 – 1:30</p>
+
+<p>Nghe thấy có “sự cố” trong văn phòng của sếp</p>
+
+<p>1:30 – 1:31</p>
+
+<p>Sửa máy tính xách tay của Maud</p>
+
+<p>1:35 – 3:00</p>
+
+<p>Maud (sếp)</p>
+
+<p>Tiếp chuyện khách hàng qua điện thoại</p>
+
+<p>1:02 – 1:29</p>
+
+<p>Bực bội</p>
+
+<p>1:29 – 1:30</p>
+
+<p>Bình tĩnh lại</p>
+
+<p>1:30 – 2:00</p>
+
+<p>Tập Pilates</p>
+
+<p>2:10 – 3:00</p>
+
+<p>Hãy bổ sung hình này vào khăn giấy “bánh pizza vấn đề”: khi gặp phải vấn đề “khi nào”, chúng ta sẽ vẽ một dòng thời gian.</p>
+
+<p>Vì sao?</p>
+
+<p>Bằng cách nào?</p>
+
+<p>Khi nào?</p>
+
+<p>Ai/ cái gì?</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Ở đâu?</p>
+
+<p>Hình ảnh mà chúng ta vẽ để thể hiện “khi nào” là một dòng thời gian.</p>
+
+<p>BÀI TẬP VỀ NHÀ: VẤN ĐỀ “KHI NÀO” CỦA BẠN</p>
+
+<p>Bạn có thể nghĩ ra được bất kỳ thử thách hoặc vấn đề kinh doanh thuộc dạng “khi nào” mà bạn hoặc doanh nghiệp của bạn đang gặp phải? Để giúp làm rõ, bạn có thể vẽ được dòng thời gian nào?</p>
+
+<p>HÌNH 5: “NHƯ THẾ NÀO” = LƯU ĐỒ</p>
+
+<p>Lưu đồ</p>
+
+<p>Nguyên nhân</p>
+
+<p>+ kết quả</p>
+
+<p>Bộ não của chúng ta thích xây dựng các mô hình về thế giới quanh mình. Thế giới này là một nơi phức tạp, và việc có được các mô hình nhận thức về cách hoạt động của chúng sẽ giúp ta điều hướng được nó. Trên thực tế, cách duy nhất để chúng ta sống nổi là phụ thuộc vào các mô hình bản năng đơn giản (tôi cần ăn để sống), kết hợp với các mô hình mà tâm trí đã phát triển từ khi còn là một đứa trẻ sơ sinh (nếu chạm vào vật gì đó nóng, tôi sẽ bị bỏng) và tinh chỉnh khi trưởng thành (nếu làm một việc tốt, tôi sẽ được khen thưởng).</p>
+
+<p>Chúng ta dựa vào cả mô hình bản năng lẫn mô hình tư duy suy luận</p>
+
+<p>để vận động trong thế giới quanh mình.</p>
+
+<p>sống</p>
+
+<p>ăn?</p>
+
+<p>chết</p>
+
+<p>Vào thời điểm trưởng thành, chúng ta đã xây dựng quá nhiều mô hình đến mức luôn có sẵn ít nhất vài mô hình để áp dụng cho bất kỳ tình huống nào mà ta có thể tưởng tượng ra. Những mô hình này là cẩm nang hướng dẫn mà ta có thể đem ra sử dụng mỗi khi quyết định điều gì hay có hành động cụ thể; không có những mô hình này, chúng ta giống như những đứa trẻ lạc trong rừng.</p>
+
+<p>Những mô hình này xuất phát từ đâu? Ngay từ buổi đầu đã có nhiều tranh luận rằng liệu chúng ta được sinh ra với những mô hình này hay chúng ta học hỏi theo thời gian, và chúng ta có thể chắc chắn rằng cuộc tranh luận này sẽ vẫn còn tiếp diễn đến vô tận. Nhưng chúng ta biết được điều này: trí óc con người cực kỳ giỏi suy luận và phỏng đoán nguyên nhân và kết quả bằng cách quan sát sự việc diễn ra quanh mình.</p>
+
+<p>*Một số ví dụ về các vấn đề “như thế nào”:*</p>
+
+<p>- Tôi là một chuyên gia thiết kế phần mềm, tôi không thể xác định được hai nút giao diện này được thiết kế để làm gì. *Hai nút này tương tác như thế nào? Việc ấn nút sẽ ảnh hưởng đến cả hệ thống như thế nào?*</p>
+<p>- Tôi là chuyên gia tư vấn, khách hàng của tôi muốn biết cần làm gì để tăng thị phần. *Làm cách nào chúng tôi có thể hiểu rõ hơn về thị trường và cách vận hành của nó? Làm sao tôi có thể tạo ra sự phản ứng trên thị trường? Hành động kinh doanh nào kích hoạt phản ứng thị trường nào?*</p>
+<p>- Tôi đang đọc cuốn sách này, và đang tìm cách áp dụng</p>
+
+<p>những điều mình nhận biết được một cách hiệu quả nhất. *Việc nắm rõ quy trình giải quyết vấn đề bằng hình ảnh sẽ giúp tôi giải quyết các vấn đề như thế nào? Làm cách nào tôi có thể hợp nhất những mô hình này vào những việc mình làm mỗi ngày?*</p>
+
+<p>Khả năng thấy, suy luận và ghi lại nguyên nhân và kết quả là công việc của đường mòn “như thế nào”. Nó hoạt động như sau: chúng ta luôn thấy nhiều thứ. Khi thấy chúng thay đổi về chất lượng, số lượng, và vị trí, chúng ta nhận biết rằng thời gian đã trôi qua và rằng mọi thứ đang diễn ra. Sau khi quan sát những thứ này thay đổi theo cách tương tự hết lần này đến lần khác, chúng ta sẽ thấy các mô hình tương tác xuất hiện. Nói cách khác, bằng cách thu thập đủ số lượng “khi nào”, chúng ta bắt đầu nhận biết điều gì gây ra điều gì – cuối cùng, chúng ta sẽ thấy được yếu tố “như thế nào”.</p>
+
+<p>Phương pháp nào minh họa rõ nét về cách thức hoạt động của “như thế nào” hơn so với một lưu đồ? Ở đây, cái tôi vốn mơ hồ của chúng ta có thể quan sát sự vật thay đổi không ngừng. Sau một thời gian, các mô hình tương tác trở nên rõ ràng, và chúng ta sẽ nhận biết được cách thức hoạt động của chúng.</p>
+
+<p>Cách hoạt động của "Như thế nào":</p>
+
+<p>khi nào	khi nào	khi nào</p>
+
+<p>Như thế nào</p>
+
+<p>Ban đầu, chúng ta không biết chắc về những gì đang diễn ra, nhưng khi quan sát mọi vật không ngừng tương tác theo thời gian, chúng ta thu thập đủ lượng “khi nào” để xây dựng một mô hình về nguyên nhân và kết quả. Chúng ta nhận biết được đường mòn “như thế nào”.</p>
+
+<p>Dĩ nhiên, đó là một mô hình đơn giản quá mức, nhưng xét trong khả năng giúp con người hiểu được cách thức nhận biết đường mòn “như thế nào”, mô hình này khá hiệu quả. Hãy xem một số ví dụ sau.</p>
+
+<p>*Yum: trở lại với những quả táo!*</p>
+
+<p>Hãy tưởng tượng rằng Tom chỉ là một đứa bé, và đứa bé ấy đang khóc. Làm cách nào chúng ta có thể khiến Tom ngừng khóc? Như cách nhận biết của mọi ông bố bà mẹ, khóc đồng nghĩa với ba điều: đứa bé đòi ăn, đứa bé đòi ngủ, hoặc đứa bé cần được thay tã.</p>
+
+<p>Có ba lựa chọn khả thi: ăn, ngủ hoặc thay tã.</p>
+
+<p>ăn</p>
+
+<p>ngủ</p>
+
+<p>tã</p>
+
+<p>Nhờ thấy những hành động này diễn ra nhiều lần trước đó nên chúng ta biết rằng *khi *nhận diện được từng trường hợp này theo cách phù hợp (thức ăn, giường và tã sạch), chúng ta sẽ khiến đứa trẻ vui thích. Nói cách khác, mỗi nguyên nhân đều cần một cách tiếp cận khác để đạt được kết quả mong muốn.</p>
+
+<p>ăn</p>
+
+<p>ngủ</p>
+
+<p>Mỗi nguyên nhân đều cần một cách tiếp cận khác nhau để đạt được</p>
+
+<p>tã	kết quả mong muốn.</p>
+
+<p>Làm cách nào chúng ta biết được Tom cần gì? Hãy vẽ một lưu đồ để thấy được nguyên nhân nào đi với kết quả nào. Nếu vừa ăn xong, đứa trẻ sẽ không đói. Nếu vừa ngủ dậy, đứa trẻ sẽ không cần được ru ngủ. Nếu đứa bé vừa ị xong, chúng ta *sẽ *cần thay tã mới.</p>
+
+<p>đúng</p>
+
+<p>vừa xong?</p>
+
+<p>ăn</p>
+
+<p>sai</p>
+
+<p>đúng</p>
+
+<p>vừa xong?</p>
+
+<p>sai</p>
+
+<p>ngủ</p>
+
+<p>đúng</p>
+
+<p>vừa xong?</p>
+
+<p>tã</p>
+
+<p>sai</p>
+
+<p>Lưu đồ của chúng ta minh họa nhiều trường hợp “như thế nào”: kết quả cho từng nguyên nhân.</p>
+
+<p>Trong trường hợp của Tom, nếu biết rằng đứa trẻ vừa ngủ dậy hoặc vừa được thay tã, chúng ta sẽ suy luận rằng nguyên nhân duy nhất là do đói. Nếu muốn Tom ngừng khóc, có vẻ như chúng ta nên cho nó ăn.</p>
+
+<p>đúng</p>
+
+<p>vừa xong?</p>
+
+<p>ăn</p>
+
+<p>sai</p>
+
+<p>đúng</p>
+
+<p>vừa xong?</p>
+
+<p>sai</p>
+
+<p>ngủ</p>
+
+<p>đúng</p>
+
+<p>vừa xong?</p>
+
+<p>tã</p>
+
+<p>sai</p>
+
+<p>Vì Tom vừa ngủ dậy và vừa được thay tã, chúng ta có thể loại bỏ việc ngủ và ị; có vẻ như cho ăn là giải pháp tốt nhất.</p>
+
+<p>Giờ thì chúng ta biết được cách khiến Tom ngừng khóc: kiếm gì đó cho nó ăn. Thật may là chúng ta vẫn còn quả táo.</p>
+
+<p>HÌNH VẼ “NHƯ THẾ NÀO” ĐẦU TIÊN CỦA BẠN</p>
+
+<p>LƯU ĐỒ 1: NƯỚC /ỐT TÁO</p>
+
+<p>Hãy vẽ một lưu đồ thể hiện cách chúng ta sử dụng quả táo và một cái nạo để khiến Tom ngừng khóc.</p>
+
+<p>(Gợi ý: bạn có thể bổ sung thêm một số vật dụng khác như muỗng, chén, và yếm dãi.) Tham khảo giải pháp của tôi ở phần Phụ lục, trang 412.</p>
+
+
+
+<p>*Cách làm tăng thị phần*</p>
+
+<p>Hãy tưởng tượng rằng chúng ta là chuyên gia tư vấn và khách hàng của chúng ta muốn biết cách làm tăng thị phần. Bằng kinh nghiệm, chúng ta biết rằng có vài cách để thực hiện điều này. Nếu giảm giá sản phẩm, công ty có thể thu hút thêm nhiều người mua. Nếu hoàn thiện chất lượng sản phẩm, công ty có thể thúc đẩy cạnh tranh. Nếu mở rộng sang một thị trường mới, công ty sẽ tiếp quản tất cả.</p>
+
+<p>Chúng ta</p>
+
+<p>Họ</p>
+
+<p>Chất</p>
+
+<p>lượng</p>
+
+<p>Thị phần</p>
+
+<p>hiện nay</p>
+
+<p>Thị trường</p>
+
+<p>mới</p>
+
+<p>Chúng ta vừa mới nhận diện ba lựa chọn khả thi để tăng thị phần. (Còn nhiều lựa chọn khác nữa.) Chúng ta giúp khách hàng của mình lựa chọn phương án tốt nhất như thế nào?</p>
+
+<p>Chúng ta vừa mới nhận diện ba lựa chọn khả thi “như thế nào”, mỗi lựa chọn đều phản ánh một mô hình nguyên nhân – kết quả tiềm ẩn. Làm cách nào chúng ta có thể giúp khách hàng quyết định lựa chọn nào hoặc sự kết hợp nào là tốt nhất? Hãy bắt đầu bằng một lưu đồ đơn giản trình bày ba lựa chọn này cạnh nhau.</p>
+
+<p>Một loạt lưu đồ khác sẽ giúp chúng ta hiểu cách quyết định lựa chọn nào là tốt nhất. (Chúng ta chỉ vẽ một trong số</p>
+
+<p>đó, nhưng nó sẽ đủ để ta nhận biết cách thức hoạt động của phương pháp này.) Trong lưu đồ này, chúng ta sẽ bắt đầu với chỉ một trong những lựa chọn trên và thử nghiệm tính khả dụng của nó cho thị trường của khách hàng.</p>
+
+<p>Chúng ta sẽ bắt đầu với lựa chọn giảm giá. Trước hết, chúng ta phải quyết định xem liệu thị trường này có nhạy cảm về giá. Nếu khách hàng bán sản phẩm sữa, mức giá thấp hơn sẽ là yếu tố đáng kể để người mua cân nhắc. Nếu khách hàng bán kim cương, giá cả là điều cuối cùng mà người mua nghĩ đến, hoặc thậm chí người mua *muốn *trả giá cao hơn.</p>
+
+<p>Trước hết, chúng ta phải chứng tỏ rằng thị trường của mình nhạy cảm về giá. Điều này có thể đúng với mặt hàng sữa, nhưng không đúng với kim cương.</p>
+
+<p>Thị trường của chúng ta có nhạy cảm về giá?</p>
+
+<p>Có</p>
+
+<p>Không</p>
+
+<p>Nếu giá cả không phải là vấn đề, việc giảm giá sẽ không có ý nghĩa gì. Trong trường hợp đó, chúng ta đã chứng tỏ được rằng nên lùi lại và xem xét lựa chọn khác. Nói cách khác, nếu giá cả là điều đáng để cân nhắc, chúng ta nên hỏi là liệu mức giá của mình cao hay thấp hơn so với giá của đối thủ cạnh tranh.</p>
+
+<p>Giảm giá có phải lựa chọn đúng đắn?	Ta Họ Cao hơn</p>
+
+<p>Thị trường của chúng ta có nhạy cảm về giá?</p>
+
+<p>Có</p>
+
+<p>Không</p>
+
+<p>Giá của chúng ta thế nào so với đối thủ?</p>
+
+<p>Thử giải pháp khác vì giá không phải là vấn đề.</p>
+
+<p>Thấp hơn</p>
+
+<p>Nếu giá là yếu tố chính, chúng ta phải xác định xem liệu giá của chúng ta cao hơn hay thấp hơn so với giá của đối thủ cạnh tranh.</p>
+
+<p>Nếu giá của chúng ta cao hơn, rõ ràng việc giảm giá là một lựa chọn đúng đắn. Sẽ có nhiều vấn đề liên quan đến việc đưa ra quyết định đó, nhưng chúng ta đã chứng tỏ rằng đây là lựa chọn hợp lý. Ngược lại, nếu giá của chúng ta đã thấp hơn giá của đối thủ cạnh tranh, chúng ta vẫn còn hai lựa chọn khác.</p>
+
+<p>Thứ nhất, chúng ta có thể giảm giá hơn nữa và xem liệu nó có làm tăng doanh thu. Một lần nữa, nếu giá của chúng ta đã thấp hơn giá của đối thủ cạnh tranh, chúng ta có thể đã sai khi</p>
+
+<p>cho rằng giá là yếu tố có ý nghĩa trên thị trường. Rốt cuộc, nếu mức giá thấp không giúp tăng doanh số bán, có lẽ chúng ta nên nhìn theo hướng khác, như chất lượng sản phẩm hay thậm chí liệu chúng ta có ở đúng thị trường hay không.</p>
+
+<p>Giảm giá có phải lựa chọn đúng đắn?	Ta Họ</p>
+
+<p>Cao hơn</p>
+
+<p>Giá của chúng ta</p>
+
+<p>Hạ giá xuống thấp hơn đối thủ</p>
+
+<p>Thị trường của chúng ta có nhạy cảm về giá?</p>
+
+<p>Có</p>
+
+<p>Không</p>
+
+<p>thế nào so với đối thủ?</p>
+
+<p>Thử giải pháp khác vì giá không phải là vấn đề.</p>
+
+<p>Thấp hơn</p>
+
+<p>Hạ giá hơn nữa</p>
+
+<p>- hoặc -</p>
+
+<p>Thử giải pháp khác vì ngay cả mức giá thấp hơn nữa cũng không giúp tăng doanh số.</p>
+
+<p>Nếu giá của chúng ta cao hơn giá của đối thủ cạnh tranh, việc giảm giá hoàn toàn có ý nghĩa. Nếu giá của chúng ta đã thấp hơn, chúng ta nên lùi lại và xem xét các lựa chọn khác.</p>
+
+<p>Những lưu đồ nhỏ này (trong trường hợp này, một số người có thể gọi là “những cây quyết định”) thể hiện cách chúng ta có thể giúp khách hàng đưa ra một quyết định đúng đắn nhờ</p>
+
+<p>sử dụng hình ảnh để chỉ ra mức độ ảnh hưởng của yếu tố này đối với yếu tố khác. Nếu tạo ra những lưu đồ tương tự cho hai lựa chọn mở rộng thị trường, chúng ta có thể hình dung rõ về điều gì nên thử, điều gì không nên thử, và chẳng cần gì khác ngoài một mảnh giấy và một cây bút.</p>
+
+<p>HÌNH VẼ “NHƯ THẾ NÀO” THỨ HAI CỦA BẠN</p>
+
+<p>LƯU ĐỒ 2: MỘT CÚ NHẤP CHUỘT</p>
+
+<p>Hãy sắp xếp lại những mảnh ghép này để tạo ra một lưu đồ hợp lý, sau đó ghi lại vấn đề “như thế nào” mà bạn đã giải quyết. Tham khảo giải pháp của tôi ở phần Phụ lục, trang 413.</p>
+
+<p>Kết quả:</p>
+
+<p>Không có</p>
+
+<p>Tìm kiếm</p>
+
+<p>Kết quả:	mới</p>
+
+<p>/em	Giỏ hàng</p>
+
+<p>thêm</p>
+
+<p>/em	Thanh toán</p>
+
+<p>thêm	MUA!</p>
+
+<p>Không mua</p>
+
+<p>Đặt chúng...	/ác nhận!</p>
+
+<p>Chi tiết:	Hủy</p>
+
+<p>Thích!	Tìm kiếm</p>
+
+<p>Không thích</p>
+
+<p>vào đây</p>
+
+<p>Bạn sẽ nhận thấy rằng trong những ví dụ này, chúng ta đã sử dụng mệnh đề “nếu” và “thì” khá nhiều: Nếu Tom đói bụng, chúng ta phải cho nó ăn; nếu muốn tăng thị phần, chúng ta phải hiểu rõ thị trường... Nhiệm vụ của một lưu đồ là khiến cho mệnh đề “nếu-thì” này hiển thị rõ ràng để chúng ta có thể nhận thấy điều gì bị tác động bởi điều gì – và vì thế, chúng ta có thể đồng thời so sánh một vài trong số các lựa chọn nguyên nhân-kết quả này.</p>
+
+<p>Đó là tất cả những gì cần bàn về lưu đồ của chúng ta, vì vậy, hãy bổ sung hình vẽ lưu đồ này vào khăn giấy “bánh pizza vấn đề”.</p>
+
+<p>Hình ảnh chúng ta vẽ để thể hiện một vấn đề “như thế nào” là một lưu đồ.</p>
+
+<p>Vì sao?</p>
+
+<p>Ai/ cái gì?</p>
+
+<p>Như thế nào?</p>
+
+<p>Khi nào?</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Ở đâu?</p>
+
+<p>BÀI TẬP VỀ NHÀ: VẤN ĐỀ “NHƯ THẾ NÀO” CỦA BẠN</p>
+
+<p>Bạn có thể nghĩ ra một thử thách được xem là vấn đề “như thế nào” mà bạn hay doanh nghiệp của bạn đang gặp phải? Để giúp làm rõ điều này, bạn có thể vẽ được lưu đồ nào?</p>
+
+<p>HÌNH 6: “VÌ SAO” = MỘT SƠ ĐỒ KHOA HỌC</p>
+
+<p>Đồ thị đa biến</p>
+
+<p>Suy diễn +</p>
+
+<p>suy đoán</p>
+
+<p>Số lượng</p>
+
+<p>Vì sao?</p>
+
+<p>Chất</p>
+
+<p>lượng</p>
+
+<p>Thời gian</p>
+
+<p>Cuối cùng, chúng ta cũng đã đến được mảnh cuối cùng, và đây là một mảnh to. “Vì sao” là câu hỏi giải quyết vấn đề ở mức cao nhất. Nếu có thể trả lời “vì sao” – vì sao mọi thứ lại diễn ra theo cách này, vì sao điều này mà không phải điều khác xảy ra, vì sao một số thứ dường như không thể tránh khỏi – chúng ta có thể đã giải quyết được một phần vấn đề. Có thể chưa nhìn thấy rõ giải pháp, nhưng nếu chúng ta hiểu</p>
+
+<p>được các nguyên nhân cơ bản khiến cho các mảnh ghép lại tương tác theo cách chúng diễn ra, câu trả lời hoàn chỉnh sẽ chỉ còn là vấn đề thời gian.</p>
+
+<p>Ví dụ, nếu biết được *vì sao *Tom, Dick và Harry có mặt ở đây (họ đói bụng), *vì sao *họ đói bụng (họ đã tham dự hội thảo suốt buổi chiều), và *vì sao *một quả táo sẽ là món ăn nhẹ phù hợp (nó ngon, bổ dưỡng và nhiều năng lượng), chúng ta đã có được giải pháp cho vấn đề.</p>
+
+<p>“Vì sao” có ý nghĩa nhiều hơn cả cách thức hoạt động của một điều gì đó, hay khi nào nó xảy ra, hoặc xảy ra ở đâu, hoặc cần có bao nhiêu, hoặc ai cần nó để làm gì: “vì sao” là tổng hợp tất cả những thứ được gói gọn lại thành một *nguyên nhân *cơ bản.</p>
+
+<p>Cách chúng ta nhận biết “vì sao” là thu thập đủ lượng “như thế nào”: một tình huống nguyên nhân-kết quả xuất hiện hết lần này đến lần khác cho đến khi chúng ta không còn ngạc nhiên bởi cách diễn biến của mọi thứ xung quanh. Chúng ta trở nên quen thuộc với cách thức diễn biến của sự việc và tin rằng mình có thể dự đoán khá tốt về những điều có thể xảy ra trong hầu hết các tình huống. Chúng ta đã nhận diện được những yếu tố “vì sao” của thế giới xung quanh, và như vậy là đủ vững chắc để sống tiếp.</p>
+
+<p>VÌ SAO mọi thứ diễn ra (cách tiếp cận “đủ tốt”)</p>
+
+<p>Suốt nhiều năm, chúng ta kết hợp tất cả các yếu tố “như thế nào” để xây dựng một mô hình đủ-tốt của câu hỏi “vì sao”.</p>
+
+<p>Như thế nào</p>
+
+<p>Như thế nào</p>
+
+<p>Như thế nào</p>
+
+<p>VÌ SAO</p>
+
+<p>*Các ví dụ về những vấn đề “vì sao:*</p>
+
+<p>- Tôi là nhân viên phòng nhân sự và được yêu cầu lên kế hoạch tinh giảm nhân viên, nhưng tôi không biết nói gì với mọi người. *Vì sao chúng ta phải tinh giảm nhân viên lúc này – phải có điều gì đó sâu xa hơn cả vấn đề con số, đúng không nào?*</p>
+<p>- Tôi là Tổng giám đốc, tôi muốn mọi người biết về một số thay đổi lớn sẽ diễn ra trong công ty. *Vì sao các tác nhân thị trường toàn cầu đẩy chúng tôi ra khỏi lĩnh vực sản xuất? Vì sao chúng tôi không thể tiếp tục kinh doanh như trước?*</p>
+<p>- Tôi bốn tuổi, tôi muốn biết vì sao bầu trời màu xanh, vì sao tôi không thể xem TV suốt ngày, và vì sao tôi sẽ bị la nếu cứ tiếp tục hỏi. *Vì sao tôi không được tự do một chút chứ?*</p>
+
+<p>Theo biểu hiện của những ví dụ này, có hai cách trả lời câu hỏi “vì sao”: cách đủ-tốt (vì chúng ta phải tiết kiệm tiền, bởi vấn đề toàn cầu hóa, vì đơn giản là tôi nói thế) và câu trả lời thực sự căn cơ (nên ngồi xuống bởi điều này sẽ mất một khoảng thời gian tương đối), và chúng tôi gọi đó là cách “khoa học”.</p>
+
+<p>Vì có hai cách trả lời câu hỏi “vì sao”, nên mảnh cuối cùng có hai hình ảnh(*): một hình ảnh đơn giản cho câu trả lời “đủ tốt”, và một hình ảnh phức tạp cho câu trả lời “khoa học”. Chúng ta sẽ đặt cho hình ảnh khoa học này một cái tên vô cùng khoa học (nhưng chính xác) là “sơ đồ đa biến” hoặc “đồ thị đa biến”, và gọi hình ảnh đơn giản bằng cái tên quen thuộc trước đó: chân dung(**).</p>
+
+<p>Hãy bắt đầu với hình ảnh đơn giản.</p>
+
+<p>*  Đúng vậy, tôi đang phá vỡ quy tắc của mình – nhưng chỉ trong một lúc thôi.</p>
+
+<p>Bạn sẽ thấy được lý do ngay sau đây.</p>
+
+<p>** Đúng vậy: câu hỏi “vì sao” – câu hỏi lớn nhất của ngày hôm nay – có thể được thể hiện bằng hình ảnh đầu tiên mà chúng ta đã tạo ra, đưa toàn bộ “vấn đề pizza” của chúng ta trở lại ngay vị trí bắt đầu. Chẳng phải thật tuyệt vời khi mọi thứ lại diễn ra theo cách đó sao?</p>
+
+<p>*Này, Microsoft. Vì sao lại mua Yahoo!? (phần I)*</p>
+
+<p>Năm 2008, Steve Ballmer, Tổng giám đốc Microsoft, và Jerry Yang, khi đó là Tổng giám đốc của Yahoo! đã có một “cuộc chiến” khá ồn ào xoay quanh một câu hỏi đơn giản vừa không có lời đáp vừa khiến hai người đàn ông cực kỳ thông minh này trông như hai gã khờ. Câu chuyện đơn giản là Microsoft đề nghị mua lại Yahoo! với giá 38 tỷ đôla Mỹ, một mức giá mà Ballmer cho là rất hào phóng. Yang cảm thấy lời đề nghị này vẫn chưa đủ nên từ chối. Ballmer trả thêm, và một lần nữa Yang lại từ chối. Sau đó, Yang đổi ý và đòi mức giá cao hơn khiến Ballmer từ chối và rút lại lời đề nghị.</p>
+
+<p>Tất cả những điều này diễn ra trong nhiều tháng, cuối cùng Yang mất việc, còn Microsoft của Ballmer mất vài tỷ đôla trong giá trị vốn hóa thị trường.</p>
+
+<p>Trong suốt thời gian diễn ra sự kiện này, không một tờ báo, blog kinh doanh hay công nghệ, hoặc tin tức truyền hình nào không đề cập đến câu chuyện Microsoft-Yahoo! Giới truyền thông chỉ chăm chăm tập trung vào hai nhân vật huênh hoang này, vào nguồn ngân sách khổng lồ, và những chi tiết khôi hài từ phòng họp ban giám đốc – những thứ được cho là vô cùng thú vị. Nhưng điều thiếu sót là không có bất kỳ phân tích thực sự thấu đáo nào về lý do Microsoft đưa ra lời đề nghị đó (thương vụ lớn nhất trong lịch sử hoạt động của Microsoft). Có nhiều lời đồn đoán rằng Microsoft cần đánh bại Google trong công cụ tìm kiếm, nhưng ngoại trừ những chi tiết “ai và cái gì”, “bao nhiêu”, và “khi nào”, chúng ta hầu như không nói đến “vì sao”.</p>
+
+<p>Trong thời gian đó, tôi có một cuộc hội thảo tại Microsoft. Là một phần của các bài tập thực hành (tương tự như những bài tập chúng ta đang làm trong cuốn sách này), tôi hỏi những người tham dự – không ai trong số đó trực tiếp biết rõ về thương vụ trên – họ sẽ vẽ hình ảnh nào để giải thích vì sao Microsoft sẵn sàng bỏ ra 44 tỷ đôla để mua lại Yahoo!.</p>
+
+<p>Những người tham dự vẽ rất nhiều hình ảnh tuyệt vời, và khi chúng tôi tiến hành bỏ phiếu chọn ra hình ảnh được ưa thích nhất, hai hình ảnh nổi bật xuất hiện: một hình thể hiện chiếc ốc quế kem Microsoft với Yahoo! là quả cherry trang trí bên trên; hình kia là con cá lớn Microsoft sắp sửa ăn con cá nhỏ Yahoo!. Chúng tôi gọi bức ảnh thứ nhất là “sự cộng hưởng tuyệt vời” và bức ảnh thứ hai là “quy luật tất yếu”.</p>
+
+<p>Vì sao MSFT mua YAHOO?</p>
+
+
+
+<p>Hai quan điểm về lý do Microsoft mua Yahoo!: “sự cộng hưởng tuyệt vời” và “quy luật tất yếu”. Cả hai đều là chân dung “đủ tốt” để mô tả “vì sao”.</p>
+
+<p>Xét về tính đơn giản và mức độ thấu hiểu, cả hai bức ảnh đều nói rõ “vì sao”. Chỉ cần nhìn vào chúng là bạn đã cảm nhận được thực tế mà hầu hết các bản tin đã bỏ qua. Microsoft cần</p>
+
+<p>Yahoo! giống như một ly kem cần thêm quả cherry; liệu còn có cách mô tả nào đầy đủ hơn về một siêu thương hiệu cần một sự thay đổi về hương vị? Thứ hai, vì Microsoft lớn hơn nên lẽ đương nhiên là nó sẽ ăn con cá Yahoo! nhỏ hơn. Còn hình ảnh nào mô tả sống động hơn về bản chất của các doanh nghiệp Mỹ?</p>
+
+<p>Nhưng dù chứa đựng thông tin sâu sắc đến vậy, những hình ảnh “đủ tốt” chỉ ở mức đó: đủ tốt. Và cũng giống như những bức chân dung “đủ tốt”, cũng súc tích như cách chúng thể hiện được yếu tố “vì sao”, những hình ảnh này không đủ tốt để giúp chúng ta tránh khỏi những cú đánh bất ngờ.</p>
+
+<p>Ngay khi ta tưởng mình đã tính xong mọi bề rồi...</p>
+
+<p>VÌ SAO</p>
+
+<p>Rắc rối của việc tin tưởng quá nhiều vào mô hình “đủ tốt” là nó có thể bỏ qua điều gì đó quan trọng.</p>
+
+<p>Những mô hình “đủ tốt” này được dựa trên những điều chúng ta nhìn nhận trước đây. Chúng ta luôn thu thập thông tin và xây dựng các mô hình “vì sao” suốt cuộc đời mình, vậy sao không dựa vào chúng? Giả sử rằng thế giới quanh ta vẫn không đổi, các mô hình “vì sao” của chúng ta sẽ luôn hiệu quả, luôn không đổi. Vấn đề là thế giới quanh ta luôn thay đổi: “ai và cái gì” không đứng yên một chỗ, số lượng thay đổi, vị trí</p>
+
+<p>thay đổi, thời gian thay đổi. Thậm chí một ngày nào đó, vì những lý do mà chúng ta không nhận biết, cùng một nguyên nhân nhưng lại tạo ra một kết quả khác.</p>
+
+<p>Làm sao chúng ta có thể vẽ một hình ảnh “vì sao” để giải thích cho sự tương tác của quá nhiều biến đổi khác nhau? Việc đưa tất cả những điều này vào một bức tranh là rất rối rắm, nhưng có thể làm được, và đó là điều mà chúng ta sẽ thực hiện lúc này. Giống như những gì chúng ta đã vẽ cho đến giờ phút này, điều đó không khó như ta nghĩ. Tất cả những gì cần làm – như chúng ta đã làm với mỗi mảnh hình ảnh – là xoay chuyển quy trình suy luận “vì sao”: *để biết được cách tương tác của nhiều thứ, hãy vẽ một hình ảnh gắn kết nhiều thứ với nhau.*</p>
+
+<p>Hãy xem bức ảnh khoa học “vì sao”: “đồ thị đa biến”, một cách tuyệt vời để hình dung mối quan hệ giữa nhiều loại dữ liệu và ý tưởng khác nhau(*).</p>
+
+<p>Đúng như tên gọi, đồ thị đa biến kết hợp nhiều loại dữ liệu (X, Y, Q, Z, v.v.) để</p>
+
+<p>chúng ta có thể thấy những mối quan hệ ẩn mà mình chưa phát hiện.</p>
+
+<p>*	Điều này chẳng xa lạ gì; biểu đồ chiến lược Thomson từ sáng nay là một ví dụ rõ ràng về sơ đồ đa biến.</p>
+
+<p>Một hình ảnh tượng trưng cho đồ thị đa biến là món thịt hầm. Chúng ta lựa chọn những hương vị thông tin khác nhau (các biến thể) và cho tất cả vào một nồi (hệ thống phối hợp), sau đó tăng nhiệt độ chờ xem cách chúng trộn lẫn vào nhau và thứ nào sẽ nổi lên trên. Nếu muốn một bữa ăn đơn giản, chúng ta đã có chân dung “đủ tốt”. Ở đây, chúng ta đang tìm kiếm nhiều hơn thế.</p>
+
+<p>VÌ SAO</p>
+
+<p>Như thế nào	Như thế nào	Như thế nào</p>
+
+<p>Mô hình “khoa học” (đồ thị đa biến) kết hợp nhiều “như thế nào” và nhiều dữ liệu. Một khi thấy được thứ gì nổi lên trên, chúng ta sẽ biết rõ được “vì sao”.</p>
+
+<p>Vẻ đẹp của một đồ thị đa biến là khi nồi hầm đã nóng lên, chúng ta có thể tiếp tục bổ sung thêm các biến mới khi chúng xuất hiện. Chúng ta có thể phải thay đổi hệ thống tọa độ để chứa đựng được các biến mới, nhưng đó là vẻ đẹp về tính linh hoạt của loại hình ảnh này. Chúng ta có thể bị bất ngờ bởi</p>
+
+<p>những thông tin đầu vào xuất hiện thình lình, nhưng giờ đây, chúng ta đã có khả năng tóm được chúng trước khi chúng tấn công ta – và có một nơi an toàn để đặt chúng vào.</p>
+
+<p>Một mô hình khoa học phù hợp của yếu tố “vì sao” sẽ giúp ta linh hoạt khi đối phó với những thông tin bất ngờ.</p>
+
+<p>*Này, Microsoft. Vì sao lại mua Yahoo!? (phần II)*</p>
+
+<p>Hãy sử dụng đồ thị đa biến để biết thêm yếu tố “vì sao” trong câu chuyện này ngoài hình ảnh ly kem và con cá. Xét trên nhiều phương diện, đây là ví dụ lặp lại của bài tập Thomson từ sáng nay, nhưng giờ chúng ta có quy tắc 6x6 nên mọi việc sẽ dễ dàng hơn. Giống như trước đây, chúng ta biết rằng mình sẽ kết nối các chi tiết với nhau:</p>
+
+<p>- “Ai và cái gì”: Microsoft, Yahoo!, và Google; các công ty công nghệ và sản phẩm của họ.</p>
+<p>- “Bao nhiêu”: mức 44 tỷ đôla cộng với giá trị vốn hóa thị trường(*) của Microsoft (282 tỷ đôla), Yahoo! (35 tỷ đôla), và Google (181 tỷ đôla).</p>
+<p>- “Ở đâu”: mỗi công ty chiếm lĩnh phần thị trường nào?</p>
+<p>- “Khi nào”: ngày nay và – vì đây rõ ràng là chiến lược dài hạn của Microsoft – ít nhất trong vài năm tới.</p>
+<p>- “Như thế nào”: tiền, và thật nhiều tiền.</p>
+
+<p>Với những mảnh ghép này, hãy tạo ra một hệ trục. Hãy bắt đầu bằng cách tự hỏi rằng chúng ta đã biết được điều gì lớn về những công ty này. Chúng ta chỉ biết những gì họ cung cấp. Ví dụ Microsoft đưa ra nhiều ứng dụng (Word, Excel, Windows, PowerPoint, Outlook, MSN.com, v.v...), Yahoo! có ít ứng dụng hơn (Mail, Finance, Photos, Travel, v.v...), và tại thời điểm này Google chỉ có một vài ứng dụng (Search, Docs, Maps). Chúng ta cũng biết rằng Microsoft bán sản phần mềm cho người sử dụng, trong khi hầu hết mọi thứ của Yahoo! và Google đều miễn phí.</p>
+
+<p>Chúng ta có thể dễ dàng tạo ra một hệ trục bằng những biến này, với “số lượng ứng dụng được cung cấp” là x, và “mức phí cho người sử dụng” là y.</p>
+
+<p>*	Đây là những giá trị vốn hóa của ba công ty trong suốt tuần thứ hai của đợt truyền thông ồn ào này.</p>
+
+<p>Vì sao MSFT mua Yahoo?</p>
+
+<p>Mức phí cho người sử dụng</p>
+
+<p>Ít	Số lượng ứng dụng</p>
+
+<p>nhiều</p>
+
+<p>Một hệ trục so sánh “số lượng ứng dụng” được cung cấp theo “mức phí” có thể trình bày cho chúng ta điều gì đó thú vị.</p>
+
+<p>Đối với biến thứ ba, chúng ta đưa vào “ai”. Và hãy để một mũi tên bắn trúng hai đích bằng cách vẽ một đường tròn quanh mỗi biến, đại diện cho giá trị vốn hóa thị trường tương ứng của các công ty (như đã được nhắc đến trong biểu đồ “như thế nào”). Chúng ta kết thúc với Microsoft, một công ty lớn với nhiều ứng dụng phải trả tiền, và Google, kẻ thù không đội trời chung với ít ứng dụng hơn nhưng miễn phí.</p>
+
+<p>Vì sao MSFT mua Yahoo?</p>
+
+<p>tỉ</p>
+
+<p>Mức phí</p>
+
+<p>cho người sử dụng</p>
+
+<p>tỉ</p>
+
+<p>ít	Số lượng ứng dụng	nhiều</p>
+
+<p>Đây là một cách so sánh Microsoft với kẻ thù không đội trời chung Google: Microsoft lớn hơn, có nhiều phần mềm ứng dụng hơn, và – vì các ứng dụng của Google đều cung cấp miễn phí cho người sử dụng – Microsoft tính phí rất cao.</p>
+
+<p>Chúng ta thậm chí không cần vẽ Yahoo! cũng biết rằng theo mô hình thị trường phần mềm này, Microsoft và Google không hoạt động trong cùng lĩnh vực. Vậy làm cách nào họ lại trở thành đối thủ cạnh tranh của nhau? Đó là khi thời gian xuất hiện trong hình vẽ. Dù hiện tại Google không có nhiều ứng dụng, nhưng cách vài tháng, hãng này lại giới thiệu một ứng dụng mới (Google Earth, Android, Finance, Spreadsheets, v.v.). Điều đó nói lên rằng theo thời gian, quả bóng của Google sẽ lăn ngày càng gần đến quả bóng của Microsoft.</p>
+
+<p>Vì sao MSFT mua Yahoo?</p>
+
+<p>c</p>
+
+<p>tỉ</p>
+
+<p>Mức phí</p>
+
+<p>ho người sử dụng</p>
+
+<p>tỉ</p>
+
+<p>ít	Số lượng ứng dụng	nhiều</p>
+
+<p>Vì giới thiệu thêm nhiều ứng dụng nên Google sắp sửa lăn theo hướng của Microsoft.</p>
+
+<p>Mà khoan: nếu Google bắt đầu cung cấp những ứng dụng tương tự như Microsoft và vẫn cho sử dụng miễn phí, vậy Microsoft tiếp tục duy trì hoạt động kinh doanh của mình như thế nào? Ý tôi là ai sẽ bỏ tiền ra mua phần mềm khi họ có thể sử dụng miễn phí? Chúng ta không có lý do gì để tin rằng Google sẽ bắt đầu tính phí người sử dụng, vì vậy, quả bóng Google sẽ không nổi lên. Và tôi không thể hình dung được rằng Microsoft sẽ bỗng nhiên cung cấp miễn phí các ứng dụng của mình; quả bóng của hãng này sẽ không hạ xuống sớm như vậy.</p>
+
+<p>Do đó, khi nhiều phần mềm ngày càng được cung cấp miễn phí, Microsoft có thể làm gì?</p>
+
+<p>Vì sao MSFT mua Yahoo?</p>
+
+<p>tỉ</p>
+
+<p>Mức phí</p>
+
+<p>cho người sử dụng</p>
+
+<p>tỉ</p>
+
+<p>ít	Số lượng ứng dụng	nhiều</p>
+
+<p>Không hẳn là quả bóng của Google sẽ sớm nổi lên hay quả bóng của Microsoft sẽ hạ xuống. Vì vậy, làm cách nào Microsoft vẫn duy trì hoạt động kinh doanh khi Google ngày càng cung cấp thêm nhiều ứng dụng khác?</p>
+
+<p>Được rồi, hãy dừng lại một chút. Tôi quá phấn khích về điều mình đang thấy đến mức quên phác họa hình ảnh Yahoo! già nua nhỏ bé. Nó thế này: có nhiều ứng dụng hơn Google nhưng tất cả cũng đều miễn phí.</p>
+
+<p>Vì sao MSFT mua Yahoo?</p>
+
+<p>tỉ</p>
+
+<p>Mức phí cho người sử dụng</p>
+
+<p>tỉ</p>
+
+<p>tỉ</p>
+
+<p>ít	Số lượng ứng dụng	nhiều</p>
+
+<p>Giờ thì chiến lược 44 tỷ đôla của Microsoft bắt đầu có ý nghĩa. Nếu có thể mua được Yahoo! – thậm chí ở mức giá cao trên mức thị trường – Microsoft sẽ có cách ngăn chặn quả bóng đang lăn của Google. Có lẽ Microsoft chỉ cần thêm thời gian để nghĩ nên làm gì với quả bóng lớn của mình.</p>
+
+<p>Vì sao MSFT mua Yahoo?</p>
+
+<p>Mức phí	tỉ</p>
+
+<p>cho người sử dụng</p>
+
+<p>tỉ</p>
+
+<p>tỉ</p>
+
+<p>Ít	Số lượng ứng dụng</p>
+
+<p>Nhiều</p>
+
+<p>Nếu mua được Yahoo!, Microsoft sẽ có cách chặn quả bóng đang lăn của Google – ít nhất là trong một thời gian.</p>
+
+<p>Tôi không rõ liệu có bất cứ giả định nào trong số này xuất hiện trong suy nghĩ của Ballmer khi ông ấy thực hiện bước đi của mình vào lúc đó. Nhưng dựa vào hình ảnh này, tôi hiểu được vì sao mình cũng sẽ làm điều tương tự nếu ở vào vị trí của ông ấy.</p>
+
+<p>Đó là ví dụ cuối cùng của tôi trong ngày hôm nay. Giờ đến phiên bạn; sau đó chúng ta sẽ đi biển.</p>
+
+<p>CÁC HÌNH VẼ “VÌ SAO” CỦA BẠN: MỘT CHỦ ĐỀ VÀ CÁC BIẾN THỂ</p>
+
+<p>1. SỰ THẬT ĐƠN GIẢN</p>
+
+<p>Hãy vẽ một chân dung “đủ tốt” đơn giản để cho thấy vì sao lối tư duy hình ảnh lại là cách giải quyết vấn đề hiệu quả. Tham khảo phần Phụ lục, trang 413 để xem giải pháp của tôi.</p>
+
+<p>1. SƠ ĐỒ KHOA HỌC</p>
+
+<p>Hãy tạo ra một đồ thị đa biến cơ bản minh họa cho một hoặc hai kết nối giữa những dữ liệu sau:</p>
+
+<p>-</p>
+<p>- Tỷ lệ phần trăm số người tham dự một cuộc họp kinh doanh điển</p>
+
+<p>hình thuộc nhóm Bút Đen (tôi rất thích vẽ): 25%</p>
+
+<p>-</p>
+<p>- Tỷ lệ phần trăm số người tham dự cùng cuộc họp kinh doanh đó</p>
+
+<p>nhưng thuộc nhóm Bút Vàng (tôi không biết vẽ nhưng...): 50%</p>
+
+<p>-</p>
+<p>- Tỷ lệ phần trăm số người tham dự cuộc họp đó thuộc nhóm Bút Đỏ</p>
+
+<p>(tôi ghét vẽ): 25%.</p>
+
+<p>-</p>
+<p>- Thông tin ta thấy sẽ có khả năng được ghi nhớ cao gấp đôi so với</p>
+
+<p>thông tin ta nghe.</p>
+
+<p>-</p>
+<p>- Thông tin ta vừa nghe vừa thấy sẽ có khả năng được ghi nhớ gấp</p>
+
+<p>bốn lần so với thông tin ta nghe.</p>
+
+<p>- Số lượng trang chữ trong một bài trình bày điển hình kéo dài 1 giờ: 40.</p>
+<p>- Số lượng trang có hình ảnh trong một bài trình bày điển hình kéo</p>
+
+<p>dài 1 giờ: 6.</p>
+
+<p>(Gợi ý: tôi sẽ giúp bạn bắt đầu bằng cách gợi ý một hệ trục. Đó không phải là hệ thống duy nhất; nếu bạn không thích, hãy vẽ một hệ trục khác của riêng mình.)</p>
+
+<p>% nội dung trình bày bằng hình ảnh</p>
+
+<p>Thấp	Mức độ ghi nhớ	Cao thông tin</p>
+
+<p>Hãy bổ sung hình ảnh cuối cùng vào “vấn đề pizza” của chúng ta. Nếu vấn đề mà chúng ta đối mặt là vấn đề “vì sao”, hình ảnh chúng ta cần vẽ để làm rõ là sơ đồ đa biến. Một lần nữa, nếu “đủ tốt” là đủ tốt, chúng ta có thể chỉ vẽ một chân dung “vì sao” đơn giản. Dù bằng cách nào, chúng ta đã sắp kết thúc một vòng tròn hoàn chỉnh.</p>
+
+<p>Khi gặp phải vấn đề “vì sao”, chúng ta sẽ vẽ đồ thị đa biến (hoặc nếu chỉ cần</p>
+
+<p>Vì sao?</p>
+
+<p>Ai/ cái gì?</p>
+
+<p>Như thế nào?</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Khi	Ở đâu? nào?</p>
+
+<p>“đủ tốt” thôi, chúng ta có thể vẽ một chân dung “vì sao” đơn giản, đưa vòng tròn trở lại điểm bắt đầu của nó.)</p>
+
+<p>ÔN TẬP NHANH: ĐỒNG /U NÀY CÓ HAI MẶT – HÃY SỬ DỤNG CẢ HAI!</p>
+
+<p>Quy tắc 6x6 cho chúng ta biết rằng nếu có thể nhận diện được loại vấn đề mà mình đang gặp phải, chúng ta phải vẽ được hình ảnh phù hợp nhất trong số 6 hình ảnh đơn giản để mô tả tốt nhất vấn đề đó. Nghe rất có lý.</p>
+
+<p>Mặt ngửa	Mặt sấp</p>
+
+<p>Ấ</p>
+
+<p>Chỉ có bấy nhiêu vấn đề</p>
+
+<p>”</p>
+
+<p>Chỉ có bấy nhiêu mảnh ghép</p>
+
+<p>Nhưng điều gì sẽ xảy ra nếu chúng ta không thể nhận diện được loại vấn đề mà mình gặp phải? Điều gì sẽ xảy ra nếu vấn đề của chúng ta quá mơ hồ đến mức ta không thể phân biệt được đó là vấn đề “ai và cái gì” hay vấn đề “khi nào”, hay bất kỳ vấn đề nào khác – vậy làm sao chúng ta biết nên vẽ hình ảnh nào?</p>
+
+<p>Đây là vẻ đẹp thật sự của quy tắc 6x6: nếu không thể nhận biết được loại vấn đề mình đang gặp phải ngay từ đầu, chúng ta chỉ có thể “tung đồng xu” và bắt đầu vẽ từng mảnh một. Khi chuyển từ việc vẽ một chân dung (ai sẽ xuất hiện trong vấn đề) đến một biểu đồ (có bao nhiêu người), đến một sơ đồ (họ ở vị trí nào), đến dòng thời gian (khi nào họ tương tác với nhau), đến một lưu đồ (cách thức tương tác), chúng ta sẽ thấy vấn đề xuất hiện một cách rõ nét để phân biệt được những khía cạnh nào cần khai thác thêm. Để đạt hiệu quả, chúng ta sẽ sử dụng 6 hình ảnh minh họa cho 6 vấn đề.</p>
+
+<p>Dù chúng ta tung đồng xu theo cách nào, quy tắc 6x6 vẫn là công cụ hữu ích nhất để bắt đầu giải quyết mọi vấn đề bằng hình ảnh. Giờ thì hãy ra ngoài thưởng thức thời gian còn lại của buổi chiều: ngày mai, chúng ta sẽ thực hành tất cả những điều này.</p>
+
+        </div>
+
+        <div class="reader-navigation">
+            <a href="c2.html" class="nav-btn prev"><i class="fas fa-chevron-left"></i> Chương trước</a>
+            <a href="c4.html" class="nav-btn next">Chương sau <i class="fas fa-chevron-right"></i></a>
+        </div>
     </div>
-  </aside>
 
-  <aside id="sidebar-toc" class="sidebar">
-    <div class="sidebar-header">MỤC LỤC</div>
-    <div class="sidebar-body">
-      <ul class="toc-list">
-        <li><a href="c1.html">Chương 1: Khăn giấy, ứng dụng</a></li>
-        <li><a href="c2.html">Chương 2: Ngày 1 — Nhìn</a></li>
-        <li class="active"><a href="c3.html">Chương 3: Ngày 2 — Thấy</a></li>
-        <li><a href="c4.html">Chương 4: Ngày 3 — Hiểu</a></li>
-        <li><a href="c5.html">Chương 5: Ngày 4 — Trình bày</a></li>
-      </ul>
+    <button id="btn-back-to-top" title="Lên đầu trang"><i class="fas fa-arrow-up"></i></button>
+
+    <div id="music-player" class="music-control">
+        <span><i class="fas fa-compact-disc fa-spin"></i> Ambient Focus</span>
+        <input type="range" id="music-volume" min="0" max="1" step="0.1" value="0.5">
     </div>
-  </aside>
 
-  <div id="settings-panel" class="settings-panel">
-    <div class="panel-title">⚙️ Tùy chỉnh đọc sách</div>
-    <div class="section"><div class="search-box"><input type="text" id="input-search" placeholder="Tìm từ khóa..." /><button onclick="handleSearch()"><i class="fas fa-search"></i></button></div></div>
-    <div class="section"><h5 class="section-title">MÀU NỀN</h5><div class="theme-grid"><div class="t-btn t-light" onclick="changeTheme('light')"><span>Sáng</span></div><div class="t-btn t-sepia" onclick="changeTheme('sepia')"><span>Sepia</span></div><div class="t-btn t-dark" onclick="changeTheme('dark')"><span>Tối</span></div></div></div>
-    <div class="section"><h5 class="section-title">FONT CHỮ</h5><select onchange="changeFont(this.value)" class="font-dropdown"><option value="'Lora', serif">Lora</option><option value="'Inter', sans-serif">Inter</option></select>
-      <div class="control-row"><span class="label">Cỡ chữ</span><div class="btn-group"><button onclick="updateFont(-2)">-</button><button onclick="updateFont(2)">+</button></div></div>
-    </div>
-    <div class="section"><h5 class="section-title">TÍNH NĂNG</h5>
-      <div class="autoscroll-row"><span class="label">Cuộn tự động</span><label class="toggle-switch"><input type="checkbox" id="autoscroll-toggle" onchange="toggleAutoScroll()"><span class="toggle-slider"></span></label></div>
-      <div class="action-grid"><button class="btn-action highlight" onclick="doHighlight()">Highlight</button><button class="btn-action eraser" onclick="clearAllHighlights()"><i class="fas fa-eraser"></i></button></div>
-    </div>
-    <div class="section music-section"><h5 class="section-title">NHẠC NỀN</h5><div class="music-tracks"><div class="music-track" onclick="playTrack('rain')">Mưa nhẹ</div><div class="music-track" onclick="playTrack('forest')">Rừng xanh</div></div></div>
-  </div>
-
-  <main class="reader-container">
-    <article class="paper" id="reader-content">
-      <h2 class="content-h2">Chương 3: Ngày 2 - Thấy</h2>
-      <p>Nếu định sử dụng hệ thống "nhận biết" bẩm sinh để hiểu được thế giới mà mình thấy, chúng ta cần hiểu một chút về cách hoạt động của tầm nhìn, đặc biệt cách mà hệ thống tầm nhìn hướng dẫn chúng ta trong thế giới thực.</p>
-      <p>Bởi vì chúng ta sống trong thế giới ba chiều tự nhiên, hệ thống tầm nhìn của chúng ta đã tiến hóa để thật sự hiểu được không gian ba chiều. Nó làm được điều này nhờ phá vỡ môi trường thành một hệ tọa độ ba chiều gồm chiều dài, chiều rộng và chiều cao.</p>
-      <img src="IMG/5.png" alt="Hình 3.1" />
-      <p>Chúng ta hiểu được hầu hết thế giới tự nhiên quanh mình bởi hệ thống tầm nhìn giúp xây dựng trong đầu chúng ta một mô hình về thế giới ngoài kia. Chúng ta điều hướng một căn phòng nhờ sử dụng mô hình ba chiều mà mắt đã tạo ra.</p>
-      <p>Nhưng các vấn đề mà chúng ta đang đối mặt hiện nay không liên quan đến việc di chuyển trong không gian: chúng xoay quanh việc nhìn nhận nhiều mảnh ghép di chuyển – đôi khi đó là những thứ tự nhiên như con người, tiền bạc, hay sản phẩm, nhưng thường là những vấn đề trừu tượng như các khái niệm, các ý tưởng, ngôn ngữ, hay các quy tắc – và sau đó xây dựng một mô hình trong tâm trí để có thể hiểu được các mối liên kết giữa những mảnh ghép này.</p>
-      <p>Tôi tự hỏi liệu có điều gì cản trở trong cách vẽ các hình ảnh khiến chúng hoặc gắn kết với cách thức hoạt động của não bộ hoặc làm rối loạn guồng quay của nó. Khi kết hợp các cuốn sách giáo khoa về khoa học tầm nhìn (vision-science) và trải nghiệm tại các buổi hội thảo, tôi tìm ra một câu trả lời có khả năng làm rõ tất cả. Tôi gọi nó là mô hình 6x6.</p>
-      
-      <img src="IMG/6.png" alt="Hình 3.2 — Quy tắc 6x6" />
-      
-      <p>Khi chúng ta nhìn bằng mắt, thế giới xung quanh sẽ đi vào dưới dạng ánh sáng xuyên qua võng mạc và kích hoạt các tín hiệu điện não. Chúng ta sẽ chia tách những tín hiệu đó thành các đường mòn riêng biệt để xử lý ban đầu: Ai/Cái gì, Bao nhiêu, Ở đâu, Khi nào, Như thế nào, và Tại sao. Đây chính là chìa khóa để phân tích bất kỳ vấn đề phức tạp nào thành các thành phần đơn giản mà mắt và não có thể xử lý hiệu quả.</p>
-
-      <h3>Hệ thống 6W - Bộ công cụ giải quyết vấn đề</h3>
-      <p>Mỗi câu hỏi W tương ứng với một cách nhìn và một loại hình vẽ cụ thể:</p>
-      <ul>
-        <li><strong>Who / What (Ai/Cái gì):</strong> Dùng hình <em>Chân dung</em> để xác định chủ thể.</li>
-        <li><strong>How much (Bao nhiêu):</strong> Dùng <em>Biểu đồ</em> để định lượng dữ liệu.</li>
-        <li><strong>Where (Ở đâu):</strong> Dùng <em>Bản đồ</em> để xác định vị trí và không gian.</li>
-        <li><strong>When (Khi nào):</strong> Dùng <em>Biểu đồ thời gian (Timeline)</em> để thấy trình tự.</li>
-        <li><strong>How (Như thế nào):</strong> Dùng <em>Lưu đồ (Flowchart)</em> để hiểu quy trình.</li>
-        <li><strong>Why (Tại sao):</strong> Dùng <em>Biểu đồ đa biến</em> để thấy sự tác động qua lại.</li>
-      </ul>
-    </article>
-  </main>
-  <button id="btn-back-to-top"><i class="fas fa-arrow-up"></i></button>
-  <script src="music.js"></script><script src="script.js"></script>
+    <script src="reader.js"></script>
 </body>
 </html>

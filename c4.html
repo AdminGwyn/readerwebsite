@@ -1,116 +1,1209 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chương 4: Ngày 3 — Hiểu — Hình Vẽ Thông Minh</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
-  <script>
-    (function(){
-      var t = localStorage.getItem('reader_theme') || 'dark';
-      document.documentElement.setAttribute('data-theme', t);
-      document.addEventListener('DOMContentLoaded', function(){ document.body.className = t + '-theme'; });
-    })();
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hình Vẽ Thông Minh - Day 3</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="dark-theme">
-  <div id="reading-progress"><div id="reading-progress-bar"></div></div>
-  <div id="reading-progress-text">0%</div>
-  <div id="tts-status"><div class="pulse-dot"></div><span>Giọng đọc AI</span><span>Đang đọc...</span></div>
+<body class="reader-page">
+    <div id="reading-progress"></div>
+    <div id="reading-progress-text">0%</div>
 
-  <header class="top-nav">
-    <div class="nav-left">
-      <a href="index.html" class="nav-icon" title="Trang chủ"><i class="fas fa-home"></i><span class="icon-label">Trang chủ</span></a>
-      <button class="nav-icon" onclick="openSidebar('sidebar-info')" title="Thông tin sách"><i class="fas fa-book"></i><span class="icon-label">Thông tin</span></button>
-      <button class="nav-icon" onclick="openSidebar('sidebar-toc')" title="Mục lục"><i class="fas fa-list-ul"></i><span class="icon-label">Mục lục</span></button>
+    <div class="reader-header">
+        <div class="header-left">
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+            <h1>Day 3</h1>
+        </div>
+        <div class="header-controls">
+            <button id="theme-toggle" title="Chuyển chế độ sáng/tối"><i class="fas fa-moon"></i></button>
+            <button id="tts-btn" title="Đọc văn bản"><i class="fas fa-volume-up"></i></button>
+            <button id="autoscroll-btn" title="Cuộn tự động"><i class="fas fa-magic"></i></button>
+            <button id="bg-music-btn" title="Nhạc nền"><i class="fas fa-music"></i></button>
+        </div>
     </div>
-    <div class="nav-center">
-      <div class="book-title">HÌNH VẼ THÔNG MINH</div>
-      <div class="chapter-title">Chương 4: Ngày 3 — Hiểu</div>
-    </div>
-    <div class="nav-right">
-      <button class="nav-icon" id="btn-audio" title="Giọng đọc AI"><i class="fas fa-headphones"></i><span class="icon-label">Giọng đọc</span></button>
-      <button class="nav-icon" onclick="toggleSettings()" title="Cài đặt"><i class="fas fa-sliders-h"></i><span class="icon-label">Cài đặt</span></button>
-      <button class="nav-icon" id="btn-fullscreen" title="Toàn màn hình"><i class="fas fa-expand"></i><span class="icon-label">Toàn màn hình</span></button>
-    </div>
-  </header>
 
-  <button class="nav-arrow left" onclick="window.location.href='c3.html'"><i class="fas fa-chevron-left"></i></button>
-  <button class="nav-arrow right" onclick="window.location.href='c5.html'"><i class="fas fa-chevron-right"></i></button>
+    <div class="reader-container">
+        <div class="content-body" id="book-content">
+            <p><a id="NGÀY 3: HÌNH DUNG"></a></p>
 
-  <aside id="sidebar-info" class="sidebar">
-    <div class="sidebar-header">THÔNG TIN SÁCH</div>
-    <div class="sidebar-body">
-      <div class="info-card">
-        <img src="IMG/bìa.png" alt="Bìa sách" />
-        <h3>HÌNH VẼ THÔNG MINH</h3>
-        <p class="author">Tác giả: <strong>Dan Roam</strong></p>
-        <div class="summary">Sử dụng sức mạnh của trí tưởng tượng và các hình vẽ đơn giản để thấu hiểu và giải quyết vấn đề.</div>
-      </div>
-    </div>
-  </aside>
+<h3>Chào mừng các bạn đến với Ngày 3</h3>
 
-  <aside id="sidebar-toc" class="sidebar">
-    <div class="sidebar-header">MỤC LỤC</div>
-    <div class="sidebar-body">
-      <ul class="toc-list">
-        <li><a href="c1.html">Chương 1: Khăn giấy, ứng dụng</a></li>
-        <li><a href="c2.html">Chương 2: Ngày 1 — Nhìn</a></li>
-        <li><a href="c3.html">Chương 3: Ngày 2 — Thấy</a></li>
-        <li class="active"><a href="c4.html">Chương 4: Ngày 3 — Hiểu</a></li>
-        <li><a href="c5.html">Chương 5: Ngày 4 — Trình bày</a></li>
-      </ul>
-    </div>
-  </aside>
+<p>T</p>
 
-  <div id="settings-panel" class="settings-panel">
-    <div class="panel-title">⚙️ Tùy chỉnh đọc sách</div>
-    <div class="section"><div class="search-box"><input type="text" id="input-search" placeholder="Tìm từ khóa..." /><button onclick="handleSearch()"><i class="fas fa-search"></i></button></div></div>
-    <div class="section"><h5 class="section-title">MÀU NỀN</h5><div class="theme-grid"><div class="t-btn t-light" onclick="changeTheme('light')"><span>Sáng</span></div><div class="t-btn t-sepia" onclick="changeTheme('sepia')"><span>Sepia</span></div><div class="t-btn t-dark" onclick="changeTheme('dark')"><span>Tối</span></div></div></div>
-    <div class="section"><h5 class="section-title">FONT CHỮ</h5><select onchange="changeFont(this.value)" class="font-dropdown"><option value="'Lora', serif">Lora</option><option value="'Inter', sans-serif">Inter</option></select>
-      <div class="control-row"><span class="label">Cỡ chữ</span><div class="btn-group"><button onclick="updateFont(-2)">-</button><button onclick="updateFont(2)">+</button></div></div>
-    </div>
-    <div class="section"><h5 class="section-title">TÍNH NĂNG</h5>
-      <div class="autoscroll-row"><span class="label">Cuộn tự động</span><label class="toggle-switch"><input type="checkbox" id="autoscroll-toggle" onchange="toggleAutoScroll()"><span class="toggle-slider"></span></label></div>
-      <div class="action-grid"><button class="btn-action highlight" onclick="doHighlight()">Highlight</button><button class="btn-action eraser" onclick="clearAllHighlights()"><i class="fas fa-eraser"></i></button></div>
-    </div>
-    <div class="section music-section"><h5 class="section-title">NHẠC NỀN</h5><div class="music-tracks"><div class="music-track" onclick="playTrack('rain')">Mưa nhẹ</div><div class="music-track" onclick="playTrack('forest')">Rừng xanh</div></div></div>
-  </div>
+<p>ôi không muốn nói khi chúng ta đang ngập chìm trong hình vẽ chân dung, biểu đồ và sơ đồ, nhưng hôm qua là ngày khó khăn nhất của cuộc hội thảo. Giờ đây, chúng ta đã quen thuộc với quy tắc 6x6, mọi thứ từ đây sẽ rất</p>
 
-  <main class="reader-container">
-    <article class="paper" id="reader-content">
-      <h2 class="content-h2">Chương 4: Ngày 3 - Hiểu</h2>
-      <p>Lý do nằm ở chỗ: khi chúng ta tiếp tục hoàn thiện quy tắc 6x6 và những yếu tố cơ bản của quy trình giải quyết vấn đề bằng hình ảnh, độ tự tin về tư duy hình ảnh của chúng ta sẽ tiếp tục gia tăng, và chúng ta sẽ bắt đầu thực sự thấy được khả năng tư duy hình ảnh tiềm ẩn của mình.</p>
-      <p>Ba công cụ "có sẵn" của chúng ta, quy trình bốn bước, và quy tắc 6x6 đều có vai trò lớn, nhưng vẫn còn một lưỡi dao nữa mà chúng ta chưa mở ra trong bộ công cụ tư duy hình ảnh. Cho đến nay, chúng ta đã tập trung vào thế giới trước mắt, học cách quan sát kỹ và thấy các mô hình. Nhưng bây giờ, chúng ta sẽ bắt đầu sử dụng tâm trí để hình dung các cách giải quyết vấn đề.</p>
-      <p>Hãy tạm rời khỏi quy tắc 6x6 và tìm kiếm các giải pháp theo một hướng hoàn toàn khác: hãy thâm nhập vào tâm trí của mình trong một lúc và xem chúng ta có thể thấy điều gì.</p>
-      <h3>Tâm trí của chúng ta</h3>
-      <p>Trong các cuộc họp kinh doanh, chúng ta đều được yêu cầu phải "sáng tạo" và "sử dụng trí tưởng tượng của mình" và "suy nghĩ vượt ra ngoài khuôn khổ". Nhưng có một vấn đề lớn: trong thế giới thực, bao nhiêu người trong chúng ta được dạy cách từ bỏ mọi thứ và bỗng nhiên tư duy khác biệt?</p>
-      <img src="IMG/7.png" alt="Hình 7.1" />
-      <p>Tôi nghĩ rằng chúng ta đã có mồi lửa đó, và hãy đoán xem đó là gì? Chìa khóa chính là các hình vẽ.</p>
-      <img src="IMG/8.png" alt="Hình 8.1" />
-      <p>Vấn đề không được giải quyết bởi người thông minh nhất, người nhanh nhẹn nhất hay người mạnh mẽ nhất; chúng được giải quyết bởi người thấy các khả năng.</p>
-      <img src="IMG/9.png" alt="Hình 9.1" />
-      <p>Thấy được một vấn đề nghĩa là thấy được cách giải quyết nó. Nếu chúng ta thấy các mảnh ghép tạo nên vấn đề của mình, thấy các mô hình bên trong chúng, và thấy cách sử dụng các mô hình đó để đạt được một kết quả khác, khi đó, tất cả những gì cần làm để giải quyết vấn đề là quyết định thực hiện nó.</p>
-      
-      <img src="IMG/10.png" alt="Hình 9.2 — Hình dung giải pháp" />
-      
-      <p>Để kích hoạt trí tưởng tượng một cách bài bản, chúng ta sử dụng công cụ SQVID. Đây là 5 câu hỏi giúp chúng ta nhìn nhận một ý tưởng từ nhiều góc độ khác nhau:</p>
-      
-      <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid var(--accent);">
-        <p style="text-indent:0"><strong>S (Simple vs Elaborate):</strong> Đơn giản hay Chi tiết?</p>
-        <p style="text-indent:0"><strong>Q (Qualitative vs Quantitative):</strong> Định tính hay Định lượng?</p>
-        <p style="text-indent:0"><strong>V (Vision vs Execution):</strong> Tầm nhìn hay Thực thi?</p>
-        <p style="text-indent:0"><strong>I (Individual vs Comparison):</strong> Cá thể hay So sánh?</p>
-        <p style="text-indent:0"><strong>D (Delta vs Status Quo):</strong> Sự thay đổi hay Trạng thái hiện tại?</p>
-      </div>
-      
-      <p>Bằng cách đi qua các "nút thắt" này, chúng ta có thể mở rộng tư duy và tìm ra những giải pháp đột phá mà trước đây chúng ta chưa từng nghĩ tới.</p>
-    </article>
-  </main>
-  <button id="btn-back-to-top"><i class="fas fa-arrow-up"></i></button>
-  <script src="music.js"></script><script src="script.js"></script>
+<p>trôi chảy. Lý do nằm ở chỗ: khi chúng ta tiếp tục hoàn thiện quy tắc 6x6 và những yếu tố cơ bản của quy trình giải quyết vấn đề bằng hình ảnh, độ tự tin về tư duy hình ảnh của chúng ta sẽ tiếp tục gia tăng, và chúng ta sẽ bắt đầu thực sự thấy được khả năng tư duy hình ảnh tiềm ẩn của mình.</p>
+
+<p>Tôi đã nói từ đầu hội thảo rằng chúng ta có thể làm rõ *bất kỳ *vấn đề nào bằng một hình ảnh, và đó là sự thật. Tôi hy vọng bạn cũng bắt đầu nhận biết được cách thức của nó. Ba công cụ “có sẵn” của chúng ta, quy trình bốn bước, và quy tắc 6x6 đều có vai trò lớn, nhưng vẫn còn một lưỡi dao nữa mà chúng ta chưa mở ra trong bộ công cụ tư duy hình ảnh. Cho đến nay, chúng ta đã tập trung vào thế giới trước mắt, học cách quan sát kỹ và thấy các mô hình. Nhưng bây giờ, chúng ta sẽ bắt</p>
+
+<p>đầu sử dụng tâm trí để hình dung các cách giải quyết vấn đề – những thứ không hề xuất hiện trước mắt chúng ta.</p>
+
+<p>Hãy tạm rời khỏi quy tắc 6x6 và tìm kiếm các giải pháp theo một hướng hoàn toàn khác: hãy thâm nhập vào tâm trí của mình trong một lúc và xem chúng ta có thể thấy điều gì.</p>
+
+<h3>Tâm trí của chúng ta</h3>
+
+<p>Trong các cuộc họp kinh doanh, trong sách, tạp chí và trong các buổi hội thảo, các buổi tìm kiếm ý tưởng, chúng ta đều được yêu cầu phải “sáng tạo” và “sử dụng trí tưởng tượng của mình” và “suy nghĩ vượt ra ngoài khuôn khổ”. Tất cả những điều đó thật tuyệt – bất cứ điều gì nhắc nhở chúng ta phải tư duy khác biệt và thúc đẩy chúng ta tìm kiếm những giải pháp bất ngờ đều được khuyến khích. Nhưng có một vấn đề lớn: trong thế giới thực, bao nhiêu người trong chúng ta được dạy cách từ bỏ mọi thứ và bỗng nhiên tư duy khác biệt? Ý tôi là điều đó chứa đựng nhiều áp lực: cứ như bị “đứng hình”!</p>
+
+<p>Bước “hình dung” của ngày hôm nay sẽ đi thẳng vào trọng tâm của thử thách đó. Rốt cuộc, chúng ta đã có sẵn bộ máy sáng tạo mạnh mẽ nhất hành tinh đang chễm chệ bên trong đầu mình: trí tưởng tượng. Chúng ta chỉ cần một mồi lửa khởi động; một cách đảm bảo để kích hoạt tâm trí và đưa nó đi vào hoạt động – theo yêu cầu, tại bất cứ nơi đâu, vào bất cứ thời điểm nào.</p>
+
+<p>Tôi nghĩ rằng chúng ta đã có mồi lửa đó, và hãy đoán xem đó là gì? Chìa khóa chính là các hình vẽ.</p>
+
+<p>HÌNH DUNG</p>
+
+<p>TRÌNH BÀY</p>
+
+<p>Hôm nay, chúng ta tiếp tục thực hiện bước 3: hình dung.</p>
+
+<p>QUY TẮC 3:</p>
+
+
+
+<p>Vấn đề không được giải quyết bởi người thông minh nhất, người nhanh nhẹn nhất hay người mạnh mẽ nhất; chúng được giải quyết bởi người thấy các khả năng.</p>
+
+<p>Chúng ta đã quan sát nhiều vấn đề, từ xây dựng lại thương hiệu cho đến việc thu mua chuối. Nếu sau tất cả những điều đó mà bạn vẫn còn mơ hồ, tôi xin tuyên bố tiền đề cơ bản thật sự của cuốn sách này: thấy được một vấn đề nghĩa là thấy được cách giải quyết nó.</p>
+
+<p>Điều này thật sự quan trọng, vì vậy, tôi muốn trình bày một cách rõ ràng: việc thấy được một vấn đề không có nghĩa là chúng ta tự động giải quyết được nó. Ví dụ, nhiều người nhận biết tác động của sự biến đổi khí hậu toàn cầu, nhưng điều đó không có nghĩa là chúng ta đang giải quyết được nó. Ý nghĩa của nó nằm ở chỗ: nếu chúng ta thấy các mảnh ghép tạo nên vấn đề của mình, thấy các mô hình bên trong chúng, và thấy cách sử dụng các mô hình đó để đạt được một kết quả khác, khi đó, tất cả những gì cần làm để giải quyết vấn đề là quyết định thực hiện nó.</p>
+
+<p>Đúng, chúng ta cần có trí thông minh để chọn ra phương án tốt nhất; đúng, chúng ta cần tốc độ để hoàn thành kịp thời hạn; đúng, chúng ta cần sức mạnh để khiến điều đó xảy ra và duy trì tiến độ. Nhưng phần khó khăn hơn cả – tìm kiếm giải pháp – chỉ phụ thuộc vào khả năng thấy được điều gì trước mắt mình và hình dung ra những cách thức mà ta có thể áp dụng để giải quyết nó.</p>
+
+<p>Nội dung phụ của quy tắc này như sau:</p>
+
+
+
+<p>Vấn đề không được giải quyết bởi người thông minh nhất, người nhanh nhẹn nhất hay người mạnh mẽ nhất; chúng được giải quyết bởi người thấy các khả năng.</p>
+
+
+
+<p>Người có trí tưởng tượng tốt nhất sẽ giành chiến thắng.</p>
+
+<p>Tôi là người lạc quan. Dù nhìn thế giới theo cách nào, chúng ta đều có hàng núi vấn đề cần giải quyết mỗi ngày. Nhưng chúng ta đã có mặt trên đời từ lâu và đã biết cách xoay xở được cho đến lúc này mà vẫn cười nổi, nên tôi chọn cách tin rằng chúng ta vẫn có thể duy trì được thành tích đó.</p>
+
+<p>Nếu nỗ lực thực hiện, chúng ta có thể hình dung được con đường đi xuyên qua mọi trở ngại, và một khi đã hình dung ra giải pháp, chúng ta chỉ cần khiến cho nó xảy ra(*). Tốt thôi, vậy tiếp theo thì sao? Làm cách nào chúng ta thấy giải pháp cho những điều không thể? Làm cách nào chúng ta kích hoạt trí tưởng tượng của mình theo yêu cầu? Hãy trở lại với Ngày 1 và quy trình “nhìn, thấy, hình dung, trình bày”.</p>
+
+<p>Nếu nhìn rõ những gì diễn ra trước mắt chúng ta và thấy được loại vấn đề nào mà mình đang đối mặt cũng như những mảnh ghép tạo nên nó, chúng ta sẽ hình dung được tất cả những nguyên liệu thô của giải pháp cần có. Tất cả những gì cần làm là nhắm mắt lại, và điều này đưa ta trở lại với phần nội dung phụ *thứ hai *của quy tắc này:</p>
+
+<p>* Đương nhiên chuyện “khiến nó xảy ra” chẳng phải dễ như chơi. Nhưng nếu có thể duy trì được quy trình này và chia nó ra thành nhiều bước nhỏ để ta có thể thấy, có lẽ chúng ta sẽ thực hiện được điều không thể. Điều này đã từng xảy ra trước đây.</p>
+
+
+
+<p>Vấn đề không được giải quyết bởi người thông minh nhất, người nhanh nhẹn nhất hay người mạnh mẽ nhất; chúng được giải quyết bởi người thấy các khả năng.</p>
+
+
+
+<p>Người có trí tưởng tượng tốt nhất sẽ giành chiến thắng.</p>
+
+
+
+<p>Chúng ta có thể thấy nhiều thứ khi nhắm mắt hơn so với khi mở mắt.</p>
+
+<h3>Bộ lưỡi dao tiếp theo</h3>
+
+<p>Cuối cùng, đã đến lúc sử dụng đến dao đa năng Thụy Sĩ và bổ sung thêm lưỡi cuối cùng: cái mở nút chai. Khi chúng ta vẽ công cụ này, hãy đảm bảo rằng nó có năm vòng xoắn và đặt tên cho nó theo các chữ cái S, Q, V, I và D.</p>
+
+<p>Mắt</p>
+
+<p>Trí tưởng tượng</p>
+
+<p>Tay+Mắt</p>
+
+<p>vì sao như thế nào</p>
+
+<p>khi nào ở đâu</p>
+
+<p>bao nhiêu</p>
+
+<p>ai/ cái gì</p>
+
+<h3>Cách mở nút chai</h3>
+
+<p>Trở lại với con dao đa năng Thụy Sĩ và lưỡi dao cuối cùng: cái mở nút chai.</p>
+
+<p>Hãy vẽ năm vòng xoắn và đặt tên S-Q-V-I-D.</p>
+
+<p>Thay vì giải thích làm cách nào mà nhóm “SQVID” kỳ lạ này lại mở mang tâm trí của chúng ta, trước hết, tôi sẽ cho bạn</p>
+
+<p>xem một ví dụ. Đây là kịch bản của chúng ta: hãy tưởng tượng rằng bạn mời tôi đến ăn tối, và tôi mang theo một chai rượu vang. Khi tôi đến, bạn quá bận rộn nên nhờ tôi mở chai rượu. Vấn đề là tôi cực kỳ vụng về, và chưa từng dùng cái mở nút chai bao giờ, vì vậy, tôi không biết nên làm gì. May mắn là tôi có trí tưởng tượng, và chúng ta sẽ kích hoạt nó bằng năm từ S-Q-V-I-D.</p>
+
+<p>Đầu tiên, tôi nhìn vào hai vật thể mình đang cầm. Một tay là chai rượu đầy, còn tay kia là một vật hình xoắn bằng kim loại. Tâm trí tôi bắt đầu tưởng tượng các khả năng.</p>
+
+<p>Tôi có hai vật thể trong tay: một chai rượu và một vật hình xoắn. Khi nhìn chúng, trí tưởng tượng của tôi bỗng nhiên được kích hoạt.</p>
+
+<p>Khả năng đầu tiên tôi thấy để mở nắp chai là một khả năng đơn giản: rõ ràng, tôi sử dụng cái mở nút chai giống như cái búa để đập vỡ chai:</p>
+
+<p>Giải pháp đơn giản nhất là sử dụng cái mở nút chai để đập vỡ chai rượu.</p>
+
+<p>#### Đơn giản</p>
+
+<p>Nhưng cách đó dường như quá đơn giản: hẳn phải có lý do nào đó mà nó được thiết kế với các vòng xoắn, và ngoài ra, tôi sẽ khiến cho các mảnh vỡ thủy tinh rơi vào trong rượu. Đó không thể nào là cách phù hợp. Hẳn phải có một quy trình tỉ mỉ hơn. Tôi biết: tôi sẽ khoan một cái lỗ nhỏ vào bên trong chai và cho rượu rỉ ra ngoài.</p>
+
+<p>Một giải pháp *tỉ mỉ *hơn là khoan một cái lỗ vào bên trong chai rượu.</p>
+
+<p>Nhưng sẽ rất khó để khoan một cái lỗ xuyên qua thủy tinh. Trên thực tế, tôi không thể làm vỡ chai rượu bằng vật thể này. Khi tiếp tục quan sát, tôi thấy một phương án khả thi khác: ồ, tôi hiểu rồi, tôi nên khoan từ đỉnh, nơi có nút bần mềm. *Về mặt định tính, *cách đó có vẻ ổn hơn, nhưng vẫn sẽ rất khó kéo cái nút đó ra:</p>
+
+<p>Tôi chỉ có thể hình dung mức độ khó khăn của việc kéo cái nút bần đó ra ngoài.</p>
+
+<p>Nếu là kỹ sư xây dựng, tôi có thể nghĩ ra một phương pháp định lượng để đo vòng cổ chai và lực xoắn cần có để mở nút chai theo cách này. Việc phác họa chúng trên một đồ thị sẽ giúp tôi biết được vị trí chính xác mà nút sẽ bật ra:</p>
+
+<p>*Về mặt định lượng*, tôi có thể đo được lực</p>
+
+<p>xoắn cần có để nút chai bật ra.</p>
+
+<p>Nhưng khoan: tôi đang rơi vào một mớ bòng bong. Đã đến lúc cần nhớ ra vì sao tôi lại làm tất cả những điều này. *Viễn cảnh *của tôi rất đơn giản: chúng tôi chỉ muốn thưởng thức một ly rượu trong khi ngắm hoàng hôn. Ngoài những con số, tôi biết mình đang theo đuổi điều gì: mở nắp chai và thưởng thức một ly rượu.</p>
+
+<p>Tôi vẫn có thể nhận biết được *viễn cảnh *của mình: một cái chai đã được mở nắp, một ly rượu, và ngắm nhìn hoàng hôn cuối chân trời.</p>
+
+<p>Tôi đã thiết lập những yếu tố cơ bản của quy trình này, câu hỏi đặt ra lúc này là làm cách nào để đạt được mục đích đó. Nói theo ngôn ngữ chuyên nghiệp, làm cách nào tôi *thực thi *đúng kế hoạch đề ra?</p>
+
+<p>Tôi nhận thấy rằng việc *thực thi *viễn cảnh đó đòi hỏi một số bước, mỗi bước phải diễn ra theo đúng trình tự.</p>
+
+<p>Trước khi quyết tâm theo đuổi chuỗi hành động này, tôi muốn khẳng định rằng nó là cách đúng đắn. Nếu nhìn lại công cụ của mình lần nữa *một cách riêng biệt*, tôi có thể nhận thấy điều gì sẽ xảy ra:</p>
+
+<p>Nếu quan sát một cách *riêng biệt*, đây dường như là một chuỗi</p>
+
+<p>hành động phù hợp.</p>
+
+<p>Để khẳng định, tôi có thể sử dụng trí tưởng tượng của mình để nhanh chóng *so sánh *các lựa chọn khả thi khác và đảm bảo rằng mình đã chọn được giải pháp với khả năng tạo ra kết quả tốt nhất.</p>
+
+<p>Việc so sánh giúp tôi nhanh chóng kiểm tra được phương án lựa chọn của mình so với các khả năng khác.</p>
+
+<p>Đúng vậy: tôi đang đi đúng hướng. Khi tất cả đều đã xong xuôi, tôi sẽ thấy *sự thay đổi *(Δ hay delta, vì nó phổ biến đối với người Hy Lạp và các chuyên gia máy tính) dưới dạng các vật thể đang trong tay tôi. Nếu thực hiện điều này đúng cách, trong một tương lai gần, tôi sẽ có một cái chai rỗng và hầu như một cái cốc rỗng:</p>
+
+<p>Trong một thời gian ngắn, tôi sẽ thấy *sự thay đổi *từ những thứ mà mình đang có lúc này: chai rượu của tôi sẽ rỗng và cốc của tôi cũng gần rỗng.</p>
+
+<p>Nhưng điều đó chưa xảy ra. Trong thời điểm hiện tại – *nguyên trạng *– tôi vẫn còn việc để làm. Ít nhất là lúc này tôi đã biết cách thực hiện nó.</p>
+
+<p>*Nguyên trạng *của tôi: một chai rượu đầy và một cái mở nút chai.</p>
+
+<p>A ha: Nút chai được mở ra rồi. Và trí tưởng tượng của tôi cũng vậy. SQVID là thế đấy.</p>
+
+<h3>Gặp gỡ SQVID \- một bài tập thực hành về trí tưởng tượng ứng dụng</h3>
+
+<p>SQVID là một công cụ hỗ trợ trí nhớ đơn giản bao gồm năm chữ cái S-Q-V-I-D. Mỗi chữ cái đại diện cho một trong năm câu hỏi mà chúng ta có thể tự hỏi về bất kỳ ý tưởng nào để kích hoạt tâm trí và buộc bản thân phải hình dung ra các khả năng. Tôi đã sử dụng ví dụ về việc mở nút chai rượu, nhưng SQVID có tác dụng mở mang tâm trí khi chúng ta muốn tưởng tượng về bất cứ điều gì.</p>
+
+<p>Hãy nghĩ về SQVID như một công cụ mở cửa trí tưởng tượng của bạn: một phương pháp đảm bảo mở ra vô số cách tư duy về điều gì đó. Lần tới, nếu ai đó yêu cầu bạn “tư duy vượt ra ngoài khuôn khổ” – khi chúng ta cần thấy các khả năng không xuất hiện trước mắt mình – năm câu hỏi được kích hoạt bởi năm chữ cái SQVID là tất cả những gì bạn cần.</p>
+
+<h3>Năm câu hỏi SQVID</h3>
+
+<p>Năm câu hỏi SQVID bao gồm:</p>
+
+<p>1. Tôi thích một hình ảnh *đơn giản *hay *tỉ mỉ*? Mỗi hình ảnh đó có thể trông như thế nào?</p>
+<p>2. Tôi thích nhận biết *về mặt định tính *hay *định lượng? *Tôi sẽ thấy gì trong mỗi hình ảnh?</p>
+<p>3. Điều gì quan trọng đối với tôi lúc này: *viễn cảnh *về nơi tôi sẽ đến hay *việc thực thi *được cách để đến nơi đó? Chúng khác nhau như thế nào?</p>
+<p>4. Đối với tôi, điều quan trọng là nhìn nhận ý kiến của mình *một cách riêng biệt *hay *trong mối quan hệ so sánh *với cái khác? Liệu tôi có thể có được một hình ảnh cho cả hai?</p>
+<p>5. Tôi quan tâm đến điều gì hơn: làm cách nào ý tưởng của tôi có thể tạo nên *thay đổi *hay vẫn duy trì *nguyên trạng *(theo đúng như hiện tại)? Mỗi tình huống này sẽ trông như thế nào?</p>
+
+<p>Tóm tắt điều đó bằng một hình vẽ, chúng ta xem SQVID như khuôn khổ của năm hạng mục, mỗi hạng mục có hai bối cảnh riêng biệt và đối lập nhau:</p>
+
+<p>Đơn giản</p>
+
+<p>SQVID là một chuỗi gồm năm mục, mỗi mục có hai bối cảnh.</p>
+
+<p>Nếu lập sơ đồ cho ví dụ về dụng cụ mở nút chai, chúng ta sẽ có một hồ sơ hình ảnh về toàn bộ quy trình tưởng tượng của mình: từ lúc thấy những gì mình đang có trước mắt cho đến chín cách quan sát nó – tất cả đều được tạo ra từ tâm trí của chúng ta. Tất cả các hình ảnh đều thể hiện cùng một thứ – cách mở nắp chai rượu – nhưng chúng có diện mạo khác nhau.</p>
+
+<p>SQVID hoàn chỉnh là một hồ sơ hình ảnh về toàn bộ quy trình tư duy của chúng ta. Mặc dù tất cả các hình ảnh đều thể hiện cùng một thứ ─ cách mở nắp chai rượu ─ nhưng chúng có diện mạo khác nhau.</p>
+
+<p>Đơn giản</p>
+
+<p>(	)</p>
+
+<p>(</p>
+
+<p>)</p>
+
+<p>(</p>
+
+<p>)</p>
+
+<p>(</p>
+
+<p>)</p>
+
+<p>(</p>
+
+<p>)</p>
+
+<p>Điều khiến SQVID trở thành một khuôn khổ có sức ảnh hưởng mạnh mẽ để kích hoạt trí tưởng tượng của chúng ta là năm mục này chứa đựng hầu hết các cách tư duy của chúng ta về mọi thứ. Ví dụ, khi chuyển từ định tính (cảm nhận, cảm xúc, cảm giác) đến định lượng (con số, số lượng, các phép đo) hoặc từ viễn cảnh (mục tiêu, định hướng, mục đích) sang thực thi (quy trình, thời gian, các bước), chúng ta hầu như có thể cảm nhận được bộ não của mình đang “sang số”.</p>
+
+<h3>Trí tưởng tượng của chúng ta có quá trình chuyển đổi năm tốc độ</h3>
+
+<p>Bạn có còn nhớ chân dung hôm qua về sự chuyển đổi tự động so với sự chuyển đổi bằng tay? Tôi thích nghĩ về tâm trí như một động cơ mạnh mẽ hoạt động suốt ngày, nhưng chúng ta thường để nó ở chế độ tự động. Chúng ta kỳ vọng trí tưởng tượng của mình sẽ thực hiện chức năng tự chuyển đổi từ tâm trí sang hình ảnh bởi nó hầu như lúc nào cũng hoạt động tốt. Nhưng để thực sự thấy được các khả năng, điều đó chưa đủ. Chúng ta cần một cơ chế “bằng tay”: một cách đơn giản, có thể tùy nghi sử dụng để buộc tâm trí của mình khởi động và thấy tất cả các khả năng. Đó là mục đích thực sự của SQVID.</p>
+
+
+
+<p>SQVID là một quá trình chuyển đổi năm tốc độ để trí tưởng tượng chuyển từ “định tính” sang “thay đổi” và bạn có thể gần như cảm nhận được não của mình đang “sang số”.</p>
+
+<p>Để thử nghiệm điều này, hãy cùng đi qua năm cấp chuyển động của SQVID một lần nữa, chỉ khác là lần này, chúng ta sẽ cùng thực hiện sự chuyển đổi.</p>
+
+<p>BÀI TẬP THỰC HÀNH SQVID: TÁO VÀ CAM</p>
+
+<p>Vì thực hiện lần đầu, chúng ta sẽ sử dụng SQVID để so sánh hai vật thể đơn giản: một quả táo và một quả cam. Tôi sẽ đưa quả táo đi qua các bước, còn bạn sẽ làm điều tương tự với quả cam.</p>
+
+
+
+<p>Chúng ta sẽ bắt đầu với một so sánh đơn giản: bất cứ điều gì tôi làm với quả táo, bạn cũng sẽ làm với quả cam.</p>
+
+<p>__Đn giản – Tỉ mỉ__</p>
+
+<p>__Đn giản – Tỉ mỉ__</p>
+
+<p>Đây là quả táo đơn giản của tôi:</p>
+
+<p>Giờ bạn hãy tạo ra quả cam</p>
+
+
+
+<p>đơn giản:</p>
+
+<p>Để tạo ra một phiên bản tỉ mỉ</p>
+
+<p>Bạn làm cách nào để khiến quả</p>
+
+<p>hơn, có lẽ tôi thể hiện cả một</p>
+
+<p>cam của bạn trở nên tỉ mỉ hơn?</p>
+
+<p>vườn táo.</p>
+
+
+
+<p>__Định tính – Định lượng__</p>
+
+<p>__Định tính – Định lượng__</p>
+
+<p>Những đặc tính hình ảnh nào khiến quả táo là quả táo?</p>
+
+<p>Những đặc tính hình ảnh nào khiến quả cam là quả cam?</p>
+
+
+
+<p>Làm cách nào tôi tạo ra cái nhìn “định lượng” về một quả táo? Nói về thành phần dinh dưỡng</p>
+
+<p>Làm cách nào tôi tạo ra cái nhìn “định lượng” về một quả cam?</p>
+
+<p>của nó thì sao nhỉ?</p>
+
+
+
+<p>__Viễn cảnh – Thực thi__</p>
+
+<p>__Viễn cảnh – Thực thi__</p>
+
+<p>“Viễn cảnh” hoàn hảo về một quả táo là gì?</p>
+
+<p>“Viễn cảnh” hoàn hảo về một quả cam là gì?</p>
+
+
+
+<p>Tôi “thực thi” thế nào để đạt được viễn cảnh đó?</p>
+
+<p>Tôi “thực thi” thế nào để đạt được viễn cảnh về quả cam?</p>
+
+
+
+<p>__Riêng biệt – So sánh__</p>
+
+<p>__Riêng biệt – So sánh__</p>
+
+<p>Tôi thấy những chi tiết nào khi quan sát một quả táo?</p>
+
+<p>Tôi thấy những chi tiết nào khi quan sát một quả cam?</p>
+
+
+
+<p>Tôi thấy gì khi so sánh nó với một loại quả khác?</p>
+
+<p>Tôi thấy gì khi so sánh nó với một loại quả khác?</p>
+
+
+
+<p>__Thay đổi – Nguyên trạng__</p>
+
+<p>__Thay đổi – Nguyên trạng__</p>
+
+<p>Quả táo của tôi về sau sẽ trông như thế nào?</p>
+
+<p>Quả cam của tôi về sau sẽ trông như thế nào?</p>
+
+
+
+<p>Hãy nhắc tôi nhớ: hiện tôi đang có gì?</p>
+
+<p>Hãy nhắc tôi nhớ: tôi đang nhìn vào cái gì?</p>
+
+
+
+<h3>Cách sử dụng SQVID đầu tiên: mở con mắt tâm trí và thỏa sức tưởng tượng</h3>
+
+<p>Khi nghĩ về những cách quan sát một quả cam, bạn có cảm thấy tâm trí của mình đang “sang số” không? Bài tập này là một cơ hội tuyệt vời để thấy được khả năng đa dạng của bộ não con người trong cách xử lý các ý tưởng. Điều mà chúng ta chứng kiến chính là con mắt tâm trí đang hoạt động; trí tưởng tượng của chúng ta chỉ việc vận hành một cách tự nhiên. Đúng vậy, chúng ta phải ít nhiều tác động để nó vận hành, nhưng đó là vì hầu hết chúng ta đều không tập luyện. Động cơ vẫn đang chạy, nhưng chúng ta đã để nó nhàn rỗi quá lâu.</p>
+
+<p>Khi đưa ý tưởng của mình qua các câu hỏi SQVID, chúng ta đang tác động vào các trung tâm xử lý được bố trí khắp não bộ. Chúng ta đang khơi mào ý tưởng của mình giữa thùy thái dương và thùy đỉnh, giữa vỏ não thị giác và củ não trên... Chúng ta không cần biết tất cả những mảnh ghép này là gì hay chúng làm gì – trên thực tế, các nhà khoa học thần kinh chỉ mới bắt đầu hiểu được vai trò của hàng trăm trung tâm xử lý riêng biệt – nhưng hiểu rằng càng kích hoạt nhiều trung tâm xử lý này, chúng ta càng nhận biết thêm nhiều khả năng.</p>
+
+<p>Khi di chuyển qua các câu hỏi của SQVID, chúng ta cũng di chuyển ý tưởng của mình ngược xuôi giữa bán cầu não phải và bán cầu não trái, buộc con mắt tâm trí phải tìm kiếm các hình ảnh thay thế – những thứ mà chúng ta không thể tập hợp</p>
+
+<p>được nếu sử dụng cách khác. Suốt hai mươi năm qua, người ta vẫn không ngừng thu thập bằng chứng khoa học để chứng minh rằng bán cầu não phải sẽ thoải mái hơn với quy trình xử lý không gian và khái niệm, trong khi bán cầu não trái lại hiệu quả hơn với quy trình xử lý bằng lời và tuyến tính.</p>
+
+<p>Các bằng chứng cho thấy rằng bộ não của chúng ta chứa đựng hai tâm trí.</p>
+
+<p>Mình là não trái!</p>
+
+<p>Không đúng. Đúng mà.</p>
+
+<p>Giới học thuật đã có nhiều tranh cãi nảy lửa về mức độ chia tách cụ thể của não bộ, nhưng SQVID là cách hoàn hảo để tránh bị thiệt hại. Dù bạn đứng về phía nào trong cuộc tranh cãi, thực tế là bất cứ khi nào quan sát điều gì, chúng ta đều thấy cả khía cạnh “ấm áp”, cảm tính lẫn khía cạnh “lạnh lùng”, lý tính của ý tưởng đó. Chúng ta cần nhìn cả hai kiểu để thực sự hiểu được ý nghĩa của những thứ hiện hữu ở đó.</p>
+
+<p>SQVID giải thích điều này bằng cách sắp xếp những câu cần hỏi. Phần “đỉnh” của mỗi câu hỏi (đơn giản, định tính, viễn cảnh, riêng biệt, thay đổi) dẫn đến một quan điểm mang tính tổng hợp hơn của “não phải”. Phần “đáy” của mỗi câu hỏi (tỉ mỉ, định lượng, thực thi, so sánh, nguyên trạng) tạo ra một quan điểm mang tính phân tích hơn của “não trái”. Chúng ta</p>
+
+<p>cần chủ động chuyển dịch giữa hai điểm cực này để khiến cho con mắt tâm trí của mình hoạt động hết năng suất.</p>
+
+<p>Đơn giản</p>
+
+<p>(	)</p>
+
+<p>(</p>
+
+<p>)</p>
+
+<p>(</p>
+
+<p>)</p>
+
+<p>(</p>
+
+<p>)</p>
+
+<p>(</p>
+
+<p>)</p>
+
+<p>Những câu hỏi dọc theo phần đỉnh của SQVID tạo ra một quan điểm tổng hợp hơn. Những câu hỏi dọc theo phần đáy kích thích quan điểm phân tích hơn. Cả hai đều cần thiết để trí tưởng tượng của chúng ta hoạt động một cách trọn vẹn.</p>
+
+<h3>Du hành cùng SQVID</h3>
+
+<p>Hãy thực hiện một chuyến đi nhanh qua SQVID và xem các ví dụ về những ý tưởng khác nhau suốt chuyến tham quan.</p>
+
+<p>ĐƠN GIẢN HAY TỈ MỈ</p>
+
+<p>Luôn có một cách đơn giản để nhìn nhận mọi thứ. Nó có thể không đại diện cho một quan điểm hoàn toàn đúng và chính xác về ý tưởng đó(*), nhưng ít ra chúng ta cũng có thể nhanh chóng “nắm bắt được nó” – dù “nó” là gì. Đó chính là vẻ đẹp của quan điểm đơn giản: bởi chúng ta có thể hiểu được nó một cách nhanh chóng, và chúng ta cũng có thể nhanh chóng nhận biết được nó có ý nghĩa hay không(**).</p>
+
+<p>Một ý tưởng đơn giản không có nghĩa rằng nó là một ý tưởng hay. Nhưng việc tạo ra một quan điểm đơn giản nghĩa là chúng ta nhận biết được điều gì khiến nó tồi tệ.</p>
+
+<p>Đơn giản nhưng TỒI.</p>
+
+<p>Đơn giản mà HAY.</p>
+
+<p>* Một ý tưởng đơn giản không có nghĩa rằng nó là ý tưởng hay. Cuộc hành quân của Napoléon là một ý tưởng vô cùng đơn giản: *đầu hè, chúng ta gom nửa triệu quân ở biên giới nước Nga, chúng ta hành quân suốt những tháng có thời tiết ấm áp, và vào đầu thu, chúng ta chiếm đóng Moscow. *Đúng là ngạo mạn: một ý tưởng đơn giản nhưng tai hại.</p>
+
+<p>** Đó cũng là thử thách cho quan điểm “đơn giản”: việc khiến cho điều gì đó trở nên đơn giản và dễ dàng sẽ khó khăn hơn rất nhiều so với việc khiến cho nó tỉ mỉ, phức tạp. Để tạo ra một hình ảnh đơn giản nhưng không lừa dối người xem, chúng ta cần có một thời gian dài “hầm” nhiều thành phần với nhau cho đến khi thứ tốt nhất nổi lên trên.</p>
+
+<p>Ngoài ra, luôn có một cách phức tạp, tỉ mỉ để nhìn nhận mọi thứ. Nó chính là hình ảnh chứa đựng các chi tiết và sắc thái; hình ảnh giúp chúng ta hiểu sâu sắc hơn về những thứ đang thực sự diễn ra và những thứ có liên quan. Thử thách đối với hình ảnh phức tạp là thoạt nhìn, nó có thể trông tỉ mỉ đến mức chẳng ai hiểu được ngoài chuyên gia. Chúng ta sẽ nói chi tiết về vấn đề hóc búa này sau bữa trưa, vì vậy lúc này, chỉ cần nhận diện hai đầu của phổ hình ảnh: một bên là hình đơn giản và bên kia là hình tỉ mỉ.</p>
+
+<p>Nhân nói đến phổ, sau đây là một chuỗi so sánh giữa đơn giản và phức tạp: ánh sáng (cầu vồng và phổ điện từ), ổ khóa (một hình vẽ ổ khóa với chìa khóa, và một sơ đồ lẫy khóa), hoặc cuộc sống (một bông hoa và chu trình axit xitric)(*). Tùy thuộc vào chuyên môn của bạn, hãy nghĩ về mức độ hấp dẫn của mỗi hình ảnh.</p>
+
+<p>*  Các mô tả về chu trình axit xitric luôn kết hợp một dòng thời gian và một lưu đồ (một hình ảnh “khi nào” và “như thế nào”) để minh họa cho quy trình mà trong đó cây chuyển ánh sáng thành năng lượng.</p>
+
+<p>ĐƠN GIẢN</p>
+
+<p>Đâu đó trên kia...</p>
+
+<p>Phổ điện từ</p>
+
+<p>TỈ MỈ</p>
+
+<p>Ba ví dụ về hình ảnh “đơn giản” so với hình ảnh “tỉ mỉ”: ánh sáng, khóa, và cuộc sống.</p>
+
+<p>THỰC HÀNH VẼ: ĐƠN GIẢN - TỈ MỈ</p>
+
+<p>Hãy chọn một trong những mục sau để vẽ một hình đơn giản và một hình tỉ mỉ.</p>
+
+<p>- Máy bay</p>
+<p>- Quản lý quy trình kinh doanh</p>
+<p>- Một trang web</p>
+<p>- Ngôn ngữ</p>
+
+<p>ĐỊNH TÍNH HAY ĐỊNH LƯỢNG</p>
+
+<p>Cái tốt, cái xấu, và cái tồi tệ – mọi thứ mà chúng ta có thể nhận thức được đều chứa đựng các đặc tính. Nó như thế nào? Nó cảm thấy như thế nào? Nó trông như thế nào? Nó hành động như thế nào? Đây đều là những câu hỏi định tính. Mặc dù những thuộc tính này không thể được cân, đo, đong, đếm, nhưng chúng là yếu tố cốt lõi khiến cho một vật là chính nó chứ không phải thứ khác(*). Như chúng ta đã thấy trong các chân dung của ngày hôm trước, những hình ảnh định tính này là những hình ảnh mấu chốt để ta phân biệt giữa ý tưởng này với ý tưởng khác.</p>
+
+<p>Định lượng lại là một thứ hoàn toàn khác(**): chúng phản ánh những khía cạnh có thể cân, đo, đong, đếm của một ý tưởng – tất cả những thuộc tính mà chúng ta có thể liên kết trở lại và đại diện cho hình ảnh “bao nhiêu”. Như đã thảo luận về việc mua chuối vào ngày hôm qua, cả định tính lẫn định lượng đều cần thiết để mô tả trọn vẹn một ý tưởng: các yếu tố định</p>
+
+<p>* Nếu điều này nghe như chuyện tầm phào về thuyết hiện sinh, quả đúng là vậy. “Hiện sinh” mang nghĩa thứ gì đó tồn tại, như chính nó và tại vị trí của riêng nó. Đó không phải là kiểu mô tả mà những người làm kinh doanh thích thú. Điều này thật tệ, vì những “đặc tính” này chính là thứ khiến cho một sản phẩm trở nên hấp dẫn hơn so với sản phẩm khác. Vì những đặc tính này khó đo lường – do đó khó thể hiện lại trên một biểu đồ – chúng ta thường không thấy chúng trong các bản thuyết trình kinh doanh.</p>
+
+<p>** Chúng ta đã thấy sự khác biệt giữa định tính và định lượng khi thảo luận về các chân dung “ai và cái gì” với các biểu đồ “bao nhiêu”. Chúng ta sắp sửa được gặp lại nó.</p>
+
+<p>tính giúp ta cảm nhận, còn các yếu tố định lượng giúp tính toán số lượng.</p>
+
+<p>Hãy xem những hình ảnh dưới đây về các thuộc tính định lượng và định tính của một viên đá quý (một mặt nó sáng bóng, mặt khác là sự kết hợp hoàn hảo của các nguyên tử), tình yêu (tình cảm vô bờ của cha/mẹ đối với con cái hay sự tương tác cụ thể của các hoóc-môn theo một số lượng cụ thể), và một con thuyền căng buồm (vẻ đẹp của gió, biển và năng lượng, hoặc sự tính toán kỹ thuật để các chất liệu với kích thước chính xác di chuyển theo một phương hướng cụ thể ở tốc độ chính xác). Hãy nghĩ xem hình ảnh nào “tốt hơn” và theo bối cảnh nào.</p>
+
+<p>ĐỊNH TÍNH</p>
+
+<p>ĐỊNH LƯỢNG</p>
+
+<p>Hình ảnh định lượng so với hình ảnh định tính: kim cương, tình yêu, và thuyền buồm: có thời gian và địa điểm cho cả hai kiểu hình ảnh, và cả hai đều cần thiết để mô tả trọn vẹn một ý tưởng.</p>
+
+<p>THỰC HÀNH VẼ: ĐỊNH LƯỢNG - ĐỊNH TÍNH</p>
+
+<p>Hãy chọn một trong những mục sau để vẽ một hình định lượng và một hình định tính.</p>
+
+<p>- Âm nhạc</p>
+<p>- Thành công</p>
+<p>- Quy ước về giờ mùa hè</p>
+<p>- Nước xốt hạt tiêu</p>
+
+<p>VIỄN CẢNH HAY THỰC THI?</p>
+
+<p>Các nhà lãnh đạo phải là những người có tầm nhìn xa: họ phải có khả năng nhận biết chúng ta đang đi đâu ngay cả khi đám đông còn lại đều cúi đầu và gắng sức kéo cày. Việc có được tầm nhìn cho ý tưởng của chúng ta – dù lên mặt trăng hay làm một cái bánh nhân táo – đều có nghĩa là mục tiêu đã được định hình rõ ràng. Khả năng truyền đạt viễn cảnh đó đến người khác chính là dấu hiệu nhận biết một nhà lãnh đạo thành công.</p>
+
+<p>Tuy nhiên, khả năng chỉ ra cho mọi người một định hướng cụ thể cũng chẳng có mấy tác dụng nếu không có con đường để đến nơi. Đó là khi cần đến quá trình thực thi: xác định các bước đi dọc theo con đường đưa ta từ nơi hiện tại đến nơi xa xôi thần kỳ đó ở cuối chân trời. Chắc chắn chúng ta có thể thấy điểm đến của mình, nhưng nếu không có các nhà quản lý dự án và các kế hoạch chi tiết, chúng ta có thể sẽ kết thúc cuộc hành trình ngay tại cửa.</p>
+
+<p>Cũng giống như các câu hỏi SQVID trước đó, có lúc và có nơi chúng ta cần cái này hoặc cái kia hoặc cả hai. Sau đây là hình ảnh tương phản giữa viễn cảnh với thực thi trong môn bóng bầu dục (mục tiêu của chúng ta là khung thành tại Super Bowl; chúng ta đến đó bằng cách di chuyển từng bước qua sơ đồ thế trận), Núi Phú Sĩ (biểu hiện hoàn hảo cho sức mạnh của thiên nhiên; chúng ta nhận ra điều đó bằng cách đi theo đúng con đường mà các đoàn hành hương đã đi từ bao thế kỷ), và đáp lên mặt trăng (mục tiêu quốc gia là cắm cờ trên đó; việc đến được nơi đó đòi hỏi sự tham gia có tổ chức của hàng trăm ngàn người để tạo ra các loại máy móc cần thiết).</p>
+
+<p>Nếu là nhà lãnh đạo, bạn sẽ vẽ hình ảnh nào cho nhóm của mình? Nếu là quản lý dự án, bạn sẽ vẽ hình ảnh nào?</p>
+
+<p>VIỄN CẢNH</p>
+
+<p>THỰC THI</p>
+
+<p>Viễn cảnh là khung thành, đỉnh núi lấp lánh, hoặc cắm cờ trên mặt trăng. Còn thực thi là sơ đồ thế trận, các bước để leo lên sườn núi, và các giai đoạn của tên lửa.</p>
+
+<p>THỰC HÀNH VẼ: VIỄN CẢNH - THỰC THI</p>
+
+<p>Hãy chọn một trong những mục sau và vẽ một “viễn cảnh” cùng với cách thực thi nó.</p>
+
+<p>- Ngân hàng Dự trữ Liên bang</p>
+<p>- Giải quần vợt Mỹ mở rộng</p>
+<p>- Khoay tây chiên</p>
+<p>- Cách mạng Pháp</p>
+
+<p>RIÊNG BIỆT HAY SO SÁNH?</p>
+
+<p>Thông thường, cách tốt nhất để hiểu rõ một ý tưởng là thanh lọc tầm nhìn của chúng ta khỏi tất cả các vấn đề khác. Khi không bị ảnh hưởng bởi các yếu tố ngoại lai, chúng ta có thể tập trung vào những chi tiết có ý nghĩa nhất và xem xét chúng một cách riêng biệt. Thường không có cách nào khác để tạo sự tiến triển nếu theo đuổi một ý tưởng riêng lẻ. Hãy nghĩ về chiếc máy bay đầu tiên của anh em nhà Wright: anh em nhà này không chỉ đóng cửa hiệu xe đạp để tập trung vào chiếc Flyer đầu tiên của họ, mà còn đi nửa vòng đất nước đến một nơi xa xôi cách biệt để đón gió và thoát khỏi sự xao lãng thường ngày.</p>
+
+<p>Chỉ bằng cách di chuyển đến một bãi biển hoang vu và loại bỏ mọi vướng bận thì anh em nhà Wright mới có thể “thấy” máy bay của họ ra đời.</p>
+
+<p>Có những thời điểm, cách duy nhất để tạo nên ý nghĩa cho một ý tưởng là so sánh nó với ý tưởng khác, đồng thời tìm kiếm điểm giống và khác nhau giữa chúng. Điều tuyệt vời trong thiết kế của anh em nhà Wright là họ đã so sánh đặc</p>
+
+<p>tính của một chuyến bay với đặc tính của xe đạp. Trước đó, chưa một nhà thiết kế máy bay nào điều khiển thành công một chiếc máy bay gắn động cơ, chủ yếu là vì tất cả đều cho rằng chiếc máy bay phải là phương tiện đương nhiên ổn định thì mới có thể kiểm soát được. Anh em nhà Wright đã đi theo hướng của chiếc xe đạp: giống như cưỡi xe đạp, họ chủ ý thiết kế chiếc máy bay của mình với đặc tính không ổn định và nhờ đó đã trở thành một bước đột phá quan trọng trong lĩnh vực hàng không.</p>
+
+<p>Chỉ bằng cách so sánh máy bay của họ với các ý tưởng khác mà anh em nhà Wright mới có thể nhận biết được cách khiến cho máy bay cất cánh.</p>
+
+<p>Cũng như các trường hợp khác, không có quan điểm riêng biệt hay quan điểm so sánh nào luôn đúng. Chúng ta cần có khả năng kết hợp cả hai để thấy trọn vẹn ý tưởng của mình. Hãy xem các ví dụ sau đây về hình ảnh riêng biệt và hình ảnh so sánh, đồng thời suy nghĩ về những tình huống nơi mỗi hình ảnh trở nên phù hợp nhất. Chúng ta có thể nhận biết một</p>
+
+<p>quả bóng chày (chỉ nhờ đường khâu và chữ ký, hoặc nhờ kích cỡ và hình dáng khi so sánh với quả bóng đá, bóng rổ), một người đàn ông (nhờ kích cỡ, quần áo, và kiểu tóc hoặc nhờ so sánh với mọi người khác trong đám đông), và một biểu đồ về “chúng ta” (ở một mình tại một nơi cụ thể trên sơ đồ hoặc được nhận diện bởi vị trí của chúng ta trong mối tương quan với “họ”.)</p>
+
+<p>CHÚNG TA</p>
+
+<p>RIÊNG BIỆT</p>
+
+<p>Chỉ có “anh ấy”</p>
+
+<p>HỌ</p>
+
+<p>CHÚNG TA</p>
+
+<p>SO SÁNH</p>
+
+<p>Tất cả</p>
+
+<p>Quả bóng này, người đàn ông đó, chúng ta: đây là những khái niệm riêng lẻ cho phép chúng ta nhận biết một vật rõ ràng. Những quả bóng đó, tất cả những người đó, chúng ta *và *họ: đây là những so sánh được làm rõ bằng cách chỉ ra những điểm giống và khác nhau.</p>
+
+<p>THỰC HÀNH VẼ: RIÊNG BIỆT - SO SÁNH</p>
+
+<p>Hãy chọn một trong những chủ đề sau, vẽ từng chủ đề riêng lẻ và trong mối quan hệ so sánh với những thứ khác.</p>
+
+<p>- Cái búa</p>
+<p>- Xem một bộ phim</p>
+<p>- Công ty của tôi</p>
+<p>- Kết quả kinh doanh</p>
+
+<p>THAY ĐỔI HAY NGUYÊN TRẠNG?</p>
+
+<p>“Thứ duy nhất không đổi chính là sự thay đổi.” Hôm qua, chúng ta đã nói rằng cách để nhận biết thời gian trôi qua là quan sát sự thay đổi diễn ra trong thế giới xung quanh; xét theo nghĩa đen, nếu không có gì thay đổi, thời gian sẽ không tồn tại. Khi muốn tưởng tượng về một thế giới tốt hơn, hoặc hình dung mọi thứ sẽ trông như thế nào sau khi đã nỗ lực hoàn thiện, chúng ta phải tìm cách thấy một thế giới khác: một thế giới chưa từng tồn tại.</p>
+
+<p>Đó là những gì mà hình ảnh “thay đổi” làm được: chúng cho ta thấy điều gì đó – thời tiết, tài chính, thị trường – sẽ trông như thế nào sau khi chúng ta đã có hành động. Những hình ảnh “thay đổi” đơn giản là lối thể hiện thuần túy khả năng tưởng tượng của chúng ta khi thấy sự vật vượt ra khỏi phạm vi hiển thị trước mắt. Các nhà kinh doanh luôn đưa ra quyết định, không phải để thay đổi vị trí hiện tại của anh ta hoặc cô ta, mà là để thay đổi vị trí của mình trong tương lai.</p>
+
+<p>Một lần nữa, cũng đúng khi cho rằng chúng ta không thể biết mình đang đi đâu trừ khi biết được nơi mình đang đứng. Những hình ảnh về “nguyên trạng” sẽ là bệ phóng cho chúng ta: không hiểu được vị trí hiện tại và những nguồn lực thúc đẩy mình, chúng ta không thể nào thay đổi được bất cứ điều gì. Sau khi có được viễn cảnh về nơi mình thích đến, chúng ta luôn cần phải trở về nơi mình đang đứng để thấy được điều mình cần thay đổi.</p>
+
+<p>Hãy xem loạt hình ảnh “thay đổi” và “nguyên trạng” sau đây, đồng thời nghĩ xem khi nào hình này hay hình kia (hoặc cả hai) sẽ cung cấp thông tin hữu ích nhất. Trước hết, chúng ta có thời tiết (ngày mai sẽ đẹp hơn hôm nay, nhưng hôm nay cũng rất tuyệt), thị phần (có thể tăng, có thể giảm; hôm nay, thị phần không thay đổi), và hoàn cảnh kinh tế của chúng ta (ngày mai có thể là một xu hoặc một đô-la, còn hôm nay, chúng ta có 25 xu).</p>
+
+<p>THAY ĐỔI</p>
+
+<p>Khả năng 1</p>
+
+<p>Ngày mai?</p>
+
+<p>Có thể xảy ra</p>
+
+<p>Khả năng 2</p>
+
+<p>NGUYÊN TRẠNG</p>
+
+<p>Hôm nay	Hiện giờ	Hiện có</p>
+
+<p>Dự báo thời tiết ngày mai, các lựa chọn tương lai, số tiền mà chúng ta có thể có được: tất cả những thứ này đều thể hiện sự thay đổi – cách thức mà mọi thứ có thể trở nên khác biệt. Mặt trời của hôm nay, con đường chúng ta đi, số tiền chúng ta hiện có: tất cả những thứ này đều thể hiện trạng thái hiện tại.</p>
+
+<p>THỰC HÀNH VẼ: THAY ĐỔI - NGUYÊN TRẠNG</p>
+
+<p>Hãy chọn một trong những chủ đề sau để vẽ trạng thái hiện tại và trạng thái tương lai của nó.</p>
+
+<p>- Một miếng thịt bò</p>
+<p>- Thị trường chứng khoán</p>
+<p>- Giá dầu</p>
+<p>- Tâm trạng của tôi</p>
+
+<h3>Đưa SQVID trở lại</h3>
+
+<p>Trong những ví dụ này, chúng ta đã rút tỉa từ nhiều ý tưởng khác nhau – những thứ tuyệt vời để minh họa cho cách thức hoạt động của SQVID. Nhưng để thực hiện các bước của SQVID và thấy sự kỳ diệu mà nó đem lại trong trí tưởng tượng của mình, chúng ta cần sử dụng nó để khám phá chỉ một ý niệm mà thôi – ý niệm mà có lẽ chúng ta thường nghĩ đến nhưng hiếm khi *thực sự *nghĩ về nó.</p>
+
+<p>Trong bài tập cuối cùng của buổi sáng hôm nay, tôi muốn bạn chọn một ý tưởng quen thuộc và xem liệu bạn có thể nghĩ ra được năm, sáu, bảy hoặc nhiều cách mới để nhìn nhận nó nhờ áp dụng tất cả các câu hỏi SQVID.</p>
+
+<p>Bạn có thể chọn một khái niệm từ danh sách bên dưới hoặc một thứ nào đó từ công việc kinh doanh mà bạn muốn minh họa theo cách cụ thể và chi tiết hơn so với bình thường.</p>
+
+<p>THỰC HÀNH SQVID I</p>
+
+<p>Hãy điền vào khung trống SQVID ở trang tiếp theo bằng mười hình ảnh mô tả (hãy chọn một trong những mục bên dưới hoặc chọn theo cách của riêng bạn)</p>
+
+<p>- Khả năng lãnh đạo</p>
+<p>- Nguồn nhân lực</p>
+<p>- CNTT</p>
+<p>- Sản xuất</p>
+<p>- Tiếp thị</p>
+<p>- Lợi nhuận</p>
+<p>-</p>
+
+<p>Chủ đề SQVID của tôi:</p>
+
+<p>Đơn giản</p>
+
+<p>Nếu thấy bế tắc, bạn hãy thử những gợi ý sau:</p>
+
+<p>- Xem lại những ví dụ trong phần này: quả cam có khơi gợi ý tưởng nào không?</p>
+<p>- Bạn không nhất thiết phải bắt đầu với “đơn giản”: ví dụ lợi nhuận là</p>
+
+<p>thứ dễ vẽ nhất, hãy bắt đầu bằng “định lượng”.</p>
+
+<p>- Khi nghĩ về đề tài của mình, bạn nghĩ đến hình ảnh nào trước tiên?</p>
+
+<p>Hãy chọn nó làm hình ảnh “đơn giản” của bạn và tiến hành từ đó.</p>
+
+<p>- Bạn có còn nhớ Ngày 1? Bắt đầu với hình tròn và đặt tên cho nó.</p>
+<p>- Chúng ta không quan tâm đến “vẻ đẹp” của hình ảnh: chúng ta chỉ</p>
+
+<p>theo đuổi các ý tưởng.</p>
+
+<p>Trên hết, hãy nhớ điều này: chúng ta đang giúp bộ não của bạn tập luyện với cường độ cao: nó *sẽ *mệt mỏi, nhưng *bạn có thể *làm được, và bạn *sẽ *bất ngờ với những gì xuất hiện trong trí tưởng tượng của mình.</p>
+
+<h3>Chúng ta vẫn chưa xong với SQVID</h3>
+
+<p>SQVID là thế: một phương cách tùy nghi sử dụng để tận dụng triệt để trí tưởng tượng của chúng ta. Lần tới khi ai đó nói “Hãy tư duy vượt ra ngoài khuôn khổ”, chúng ta sẽ đáp “Được thôi, lùi lại mà xem nè”.</p>
+
+<p>SQVID là cách chắc chắn để kích hoạt trí tưởng tượng của bạn và làm bùng nổ các ý tưởng.</p>
+
+<p>Đã đến giờ nghỉ trưa. Nhưng trước khi ăn trưa, hãy nghĩ về điều này: cho đến tận bây giờ, toàn bộ cuốn sách này đều nói về chúng ta – cách chúng ta thấy thế giới, cách chúng ta nên nhìn nhận các vấn đề và giải quyết chúng, cách chúng ta có thể hoàn thiện khả năng tư duy bằng hình ảnh của mình. Tất cả đều quan trọng, nhưng chưa đủ. Nhằm mục đích khiến cho những thứ này trở nên thật sự hữu ích, chúng ta phải bắt đầu</p>
+
+<p>nghĩ về điều mà người khác sẽ thấy. Chúng ta phải học cách đặt mình vào vị trí của người khác và thấy những gì họ thấy. Đó sẽ là điểm đến tiếp theo của SQVID.</p>
+
+<p>BỮ📫 TRƯ📫</p>
+
+<h3>Một giải pháp đáng giá như thế nào?</h3>
+
+<p>Chúng ta đã dành cả buổi sáng để khơi mào trí tưởng tượng của mình và mở ra nhiều cách khác nhau để nhìn nhận một vấn đề nhất định. “Những cách khác nhau” chính là điều chúng ta muốn: hãy nhớ rằng theo quy tắc thứ ba, người thấy nhiều khả năng nhất sẽ giành chiến thắng.</p>
+
+<p>Còn đây là phần rắc rối: chỉ vì chúng ta có thể thấy nhiều khả năng không có nghĩa là bất kỳ người nào cũng thấy hay thậm chí thử được. Chân lý đơn giản trong kinh doanh chính là giải pháp của chúng ta – dù rực rỡ, sáng chói đến mức nào – chỉ tốt khi nó được người khác quan tâm và ủng hộ. Đó mới là điều quan trọng. Tôi xin nói lại:</p>
+
+<p>Giải pháp của chúng ta chỉ tốt</p>
+
+<p>khi nó được người khác quan tâm và ủng hộ.</p>
+
+<h3>Bàn phím không QWERTY?</h3>
+
+<p>Ví dụ phổ biến nhất về thứ mà chúng ta tương tác mỗi ngày, thứ cần con người tư duy lại nhưng chuyện đó sẽ không bao giờ xảy ra, là bàn phím QWERTY. Khi Christopher Sholes hoàn tất sơ đồ máy đánh chữ này vào năm 1873, mối quan tâm chính của ông là bố trí các phím theo cách giảm thiểu mức độ kẹt chữ trong mẫu thiết kế “bàn trượt ẩn” mà ông đã được cấp bằng sáng chế. Ông chủ ý bố trí những phím thường được sử dụng để người đánh máy có thể thay đổi ngón tay khi gõ, nhờ đó giữ cho các phím ở cùng phía và không bị va vào nhau. Mẫu thiết kế của Sholes đã hoạt động hiệu quả, và E. Remington & Sons đã mua bản quyền sản xuất. Những diễn biến sau đó thì chúng ta đều biết, và kể từ đó, bàn phím QWERTY đã trở thành bàn phím tiếng Anh chuẩn.</p>
+
+
+
+<p>Christopher Sholes thiết kế bàn phím QWERTY để buộc người đánh máy phải thay đổi ngón tay để tránh va chạm vào nhau. Nó đã trở thành chuẩn chung cho các bàn phím tiếng Anh từ hơn 100 năm trước và có khả năng sẽ là chuẩn mực mãi mãi về sau.</p>
+
+<p>Nhưng việc được cả thế giới công nhận không biến QWERTY trở thành thiết kế hoàn hảo nhất. Vì được thiết kế với mục đích giảm thiểu va chạm trên một loại máy nhất định nên QWERTY chưa bao giờ được xem là bàn phím dễ sử dụng và đẹp mắt nhất. Vào thập niên 1930, các mẫu máy đánh chữ được thiết kế ít kẹt chữ hơn, nhưng lúc đó chuẩn mực đã được thiết lập rồi. Vào năm 1936, nhà tâm lý học August Dvorak đã được cấp bằng sáng chế cho một bàn phím hiệu quả hơn nhiều. Mẫu thiết kế của ông thay đổi vị trí sắp đặt các phím để tăng tốc độ đánh máy và giúp người sử dụng dễ học hơn.</p>
+
+
+
+<p>Bàn phím 1936 của August Dvorak dễ sử dụng và có tốc độ đánh máy nhanh hơn, nhưng chưa bao giờ thay thế bàn phím QWERTY.</p>
+
+<p>Nếu xét theo bất kỳ tính toán đương đại nào, ý tưởng của Dvorak tốt hơn so với QWERTY. Nhưng vì quá nhiều người đã sử dụng bàn phím QWERTY và quá quen thuộc với nó nên</p>
+
+<p>các nhà sản xuất máy đánh chữ đã từ bỏ thiết kế “tốt hơn” của Dvorak, và nó chưa bao giờ được sử dụng(*).</p>
+
+<h3>Những người nào?</h3>
+
+<p>Bài học từ Dvorak là: nếu chúng ta không thể thuyết phục được người khác ủng hộ cho ý tưởng “tốt hơn” của mình thì nó thực sự chẳng tốt gì cả.</p>
+
+<p>Vậy điều đó có liên quan gì đến các hình vẽ của chúng ta? Rất nhiều. Tất cả những công cụ mà chúng ta đã quan sát đều giúp ta có nhiều cách mô tả vấn đề và thấy giải pháp. Nhưng nếu chúng ta không thể khiến cho người khác nhìn vào hình ảnh của mình và thấy điều tương tự, những hình ảnh đó sẽ chẳng khác nào một danh sách bất tận gồm những từ ngữ khó nhớ.</p>
+
+<p>Chúng ta biết rằng quy tắc 6x6 giúp tạo ra những hình ảnh có liên quan mật thiết với cách thức mà bộ não của chúng ta thấy thế giới xung quanh, và điều đó cũng đúng với bộ não của bất cứ người nào mà chúng ta định giới thiệu những hình ảnh của mình. Việc tạo ra những hình ảnh 6x6 dễ hiểu là điểm khởi đầu tốt, nhưng nếu thật sự muốn đảm bảo rằng người</p>
+
+<p>* Điều này không hoàn toàn chính xác: một số công ty máy điện báo và công nghệ đã thử áp dụng thiết kế của Dvorak nhưng lúc đó đã quá muộn. QWERTY đã trở nên phổ biến đến mức mọi thiếu sót về tính hiệu quả đều không đáng để người sử dụng thay thế nó. Nếu bạn muốn xem bàn phím này, hầu hết các phiên bản Windows đều có hỗ trợ nó.</p>
+
+<p>xem hiểu được những gì mình đang thể hiện, chúng ta phải đặt mình vào vị trí của họ và thấy những gì mình thấy trong các hình vẽ. Điều này đưa chúng ta trở lại với câu hỏi “những người nào?” từ Ngày 1 và trở lại với SQVID.</p>
+
+<h3>Bộ điều chỉnh: nhìn nhận bằng con mắt của người xem</h3>
+
+<p>Chúng ta sẽ lại sử dụng SQVID nhưng theo cách hoàn toàn khác. Thay vì trải qua năm câu hỏi để tìm ra những ý tưởng thay thế, chúng ta sẽ sử dụng nó như một bộ điều chỉnh hình ảnh, di chuyển thanh trượt hình ảnh lên xuống dọc theo mỗi câu hỏi cho đến khi tìm thấy bối cảnh khiến cho bức tranh của chúng ta trở nên dễ tiếp cận và có liên quan nhất đến người xem(*).</p>
+
+<p>* Xin nói rõ: điều này không có nghĩa là chúng ta sẽ trở thành những chú tắc kè hoa luôn thay đổi ý kiến để thỏa mãn đối tượng người xem gần nhất. Ngược lại, mục đích ở đây là đảm bảo rằng chúng ta tự tin với ý tưởng của mình đến mức có thể linh hoạt thay đổi nó khi trình bày. Không phải tất cả người xem sẽ hiểu được mọi quan điểm trong hình ảnh, nhưng hãy đảm bảo rằng chúng ta biết đủ về những gì họ muốn xem để mang đến cho họ hình ảnh tốt nhất.</p>
+
+<p>Giờ chúng ta sẽ sử dụng SQVID như bộ điều chỉnh hình ảnh, tìm kiếm bối cảnh lý tưởng để chuyển tải hình ảnh của mình đến các đối tượng người xem khác nhau.</p>
+
+<p>Đơn giản</p>
+
+<p>Để hiểu điều tôi đang nói, chúng ta hãy sử dụng bộ điều chỉnh này cho câu hỏi SQVID đầu tiên: đơn giản hay tỉ mỉ.</p>
+
+<h3>Tân binh so với chuyên gia</h3>
+
+<p>Chúng ta có thể sử dụng bất kỳ hình vẽ 6x6 nào của ngày hôm qua làm điểm khởi đầu để thể hiện khái niệm về bộ điều chỉnh SQVID. Hãy khởi đầu bằng sơ đồ kiến trúc-kỹ thuật – nó đủ</p>
+
+<p>rõ ràng để bắt đầu, và chúng ta có thể nghiên cứu chi tiết về nó cả ngày nếu cần. (Nhưng đừng lo, chúng ta sẽ không làm vậy).</p>
+
+
+
+<p>Đối với ví dụ này, chúng ta sẽ sử dụng sơ đồ “kiến trúc kỹ thuật” đã được vẽ trước đó làm điểm khởi đầu.</p>
+
+<p>Đây là bài thực hành. Hãy tưởng tượng bạn có năng khiếu về kiến trúc kỹ thuật nên gần như đã trở thành một ngôi sao trong mắt sếp. Một ngày kia, trường tiểu học địa phương gọi đến công ty bạn, yêu cầu “cử một chuyên gia đến trường” và giải thích với các học sinh tiểu học về cách hoạt động của Internet(*). Bạn được cử đi.</p>
+
+<p>* Đối với những ai chưa có con hoặc không sống tại khu vực vịnh San Francisco, hãy tin tôi khi tôi nói rằng ví dụ này không phải chuyện tưởng tượng. Khoan nói đến chuyện tốt hay xấu, trẻ em ở đó đúng là được biết về công nghệ từ rất sớm.</p>
+
+<p>Hãy nhìn lại sơ đồ ở trang trước. Đó là một bài trình bày hay về vị trí gắn kết của các mảnh ghép từ một hệ thống kỹ thuật như Internet, nhưng đâu là cách hợp lý để trình bày nó với những đứa trẻ sáu tuổi? Tốt hơn hết là bắt đầu với điều đơn giản hơn, điều mà chúng có thể thấy bản thân mình trong đó. Có lẽ hình ảnh hai người đang nhìn nhau thông qua hệ thống kết nối Internet, như sau:</p>
+
+<p>Đây có thể là một hình ảnh khởi đầu phù hợp với những đứa trẻ sáu tuổi; chúng có thể hiểu ngay, chủ yếu là vì chúng thấy chính mình trong đó.</p>
+
+<p>Khi nghĩ về điều này, hãy bổ sung thêm một biến khác. Trên đường đến trường, bạn nhận được tin nhắn từ trưởng phòng kinh doanh của công ty, yêu cầu bạn cùng cô ấy thực hiện một đợt chào hàng vào cuối giờ chiều cùng ngày. Cô ấy được bộ phận kỹ thuật của công ty Megacorp. Inc. yêu cầu mang theo một chuyên gia để chào hàng theo kiểu kiến trúc định hướng dịch vụ. Đó là một thương vụ tiềm năng trị giá nhiều triệu đôla, một lần nữa, bạn lại được yêu cầu.</p>
+
+<p>Hãy nhìn lại sơ đồ gốc đó. Tương tự: nó vẫn là một bài trình bày hay, nhưng đâu là cách hợp lý để trình bày trước một</p>
+
+<p>nhóm người 40 tuổi? Trong trường hợp này, tốt hơn là nên có một hình ảnh phức tạp: thứ thể hiện nhiều lớp, nhiều thành phần và thuật ngữ khiến cho hệ thống của công ty bạn trở nên mạnh mẽ.</p>
+
+
+
+<p>Đây có thể là hình ảnh phù hợp hơn cho đối tượng người xem là các chuyên gia kỹ thuật ở độ tuổi khoảng 40: nó thể hiện rằng chúng ta biết chính xác những điều mình đang nói.</p>
+
+<p>Đây là thời điểm cần đến bộ điều chỉnh. Thậm chí chỉ với cặp tiêu chí “đơn giản – tỉ mỉ” này, chúng ta cũng nhận thấy rằng luôn có thể xuất hiện số lượng hình ảnh khả thi bất kỳ.</p>
+
+<h3>Vấn đề “đơn giản so với tỉ mỉ” và nguyên tắc về tính đơn giản</h3>
+
+<p>Trong một tình huống như thế này – thực ra trong bất kỳ tình huống nào khi cần mô tả một ý tưởng nào đó với người khác – chúng ta đều có thể tuân theo một nguyên tắc về kinh nghiệm. Hãy gọi đó là “nguyên tắc về tính đơn giản”:</p>
+
+<p>Khi phải xem một hình ảnh tỉ mỉ,</p>
+
+<p>mức độ sẵn sàng của người xem sẽ tỷ lệ thuận với trải nghiệm về chủ đề đó.</p>
+
+<p>Hay nói cách khác, nếu trình bày hình ảnh của mình trước một người không quen với chủ đề mà ta đưa ra, chúng ta phải bắt đầu bằng một hình đơn giản. Nếu không, chúng sẽ lại châm ngòi cho hiệu ứng “đứng hình”. Lần này, không phải *chúng ta *(chúng ta biết chính xác nội dung của hình ảnh – vì ta là người vẽ nó), mà người xem sẽ nắm bắt hình ảnh đó. Khi thấy một hình ảnh khiến mình bị choáng ngợp, họ sẽ không nhìn đến nó nữa.</p>
+
+<p>Mặt khác, nếu khán giả là một nhóm chuyên gia về chủ đề đang nói đến, chúng ta phải bắt đầu bằng một hình ảnh tỉ mỉ – nếu không, họ sẽ cho rằng chúng ta không biết mình đang nói về điều gì và *họ *cũng không nhìn đến nó nữa.</p>
+
+<p>TƯ DUY THỊ GIÁC</p>
+
+<p>TRANH MINH HỌA</p>
+
+<p>“Không chuyên” # Tỉ mỉ	“Chuyên gia” # Đơn giản</p>
+
+<p>Nếu ngay từ đầu chúng ta trình bày trước nhóm không chuyên một hình ảnh tỉ mỉ, họ sẽ ngừng theo dõi. Tương tự, nếu chúng ta cho nhóm chuyên gia xem một hình ảnh đơn giản, họ cũng sẽ không muốn xem.</p>
+
+<p>Để thu hút sự theo dõi của nhóm khán giả không chuyên, chúng ta phải bắt đầu bằng một hình ảnh đơn giản; một khi “cảm” được nó, họ sẽ lưu lại khi chúng ta tăng độ chi tiết lên. Điều ngược lại cũng đúng với các chuyên gia: chỉ sau khi chúng ta thuyết phục được họ về khả năng của mình bằng cách cho họ xem một hình ảnh tỉ mỉ, họ mới sẵn sàng ở lại khi chúng ta đơn giản hóa hình ảnh đó.</p>
+
+<p>TRANH MINH HỌA</p>
+
+<p>TƯ DUY THỊ GIÁC</p>
+
+<p>“Không chuyên” = Đơn giản	“Chuyên gia” = Tỉ mỉ</p>
+
+<p>Khi chúng ta cho nhóm không chuyên xem một hình ảnh đơn giản, họ sẽ chú ý theo dõi. Tương tự, điều này chỉ xảy ra với nhóm chuyên gia khi chúng ta cho họ xem một hình ảnh tỉ mỉ để thuyết phục họ rằng chúng ta biết rõ mình đang nói về điều gì.</p>
+
+<p>ỨNG DỤNG BỘ ĐIỀU CHỈNH, PHẦN I: TỔNG GIÁM ĐỐC</p>
+
+<p>Hãy kích hoạt mô hình điều chỉnh này và xem nó đưa ta đến đâu. Trong kịch bản dưới đây, tôi muốn bạn nghĩ về nơi mà bạn muốn bố trí các thanh trượt trên bộ điều chỉnh SQVID.</p>
+
+<p>(Hãy nhớ: mục đích của chúng ta là hiểu được suy nghĩ của khán giả để có thể tạo ra hình ảnh mà họ muốn xem.)</p>
+
+<p>BỐI CẢNH</p>
+
+<p>Chúng ta là thành viên nhóm quản lý quy trình kinh doanh (BPM) tại một hãng sản xuất ấm pha trà quy mô lớn. Nhiệm vụ của chúng ta là tìm ra các cách thức để hợp lý hóa quy trình sản xuất để công ty có thể hoạt động hiệu quả hơn và tồn tại trong bối cảnh kinh tế khó khăn này.</p>
+
+<p>Ý TƯỞNG</p>
+
+<p>Vài ngày trước, một vài người trong chúng ta đã phác họa các ý tưởng trên khăn giấy vào giờ ăn trưa, thời điểm khi chúng ta chợt nghĩ ra một ý tưởng tuyệt vời: vì sao không sản xuất nắp đậy bình trà trên cùng một dây chuyền sản xuất bình trà? Điều đó sẽ giúp tiết kiệm chi phí, thúc đẩy hoạt động nghiên cứu và phát triển (R&D), đồng thời cứu được công ty.</p>
+
+<p>NỀN TẢNG</p>
+
+<p>Ngày trước, chúng ta luôn sản xuất bình trà và nắp đậy ở hai dây chuyền riêng biệt, và sắp xếp chúng với nhau ngay trước khi đóng gói. Điều đó đòi hỏi hai dây chuyền lắp ráp phải vận hành theo quy trình gần như giống hệt nhau với những nguyên liệu giống nhau. Với tình hình đơn đặt hàng đang giảm sút, vì sao không kết hợp thành một dây chuyền, để dây chuyền còn lại cho bộ phận R&D thử nghiệm các mẫu thiết kế mới?</p>
+
+<p>LỢI ÍCH</p>
+
+<p>Chúng ta sẽ vận hành doanh nghiệp với quy mô nhỏ hơn, và số tiền tiết kiệm được từ việc chỉ sử dụng một dây chuyền lắp ráp sẽ được dùng để hỗ trợ quá trình nghiên cứu và phát triển sản phẩm mới. Đúng vậy, chúng ta sẽ phải loại bỏ một số nhân công ở dây chuyền lắp ráp, nhưng cách đó tốt hơn nhiều so với việc đóng cửa hoàn toàn doanh nghiệp.</p>
+
+<p>THỬ THÁCH</p>
+
+<p>Không biết bằng cách nào mà tổng giám đốc Marge biết được ý tưởng của chúng ta và thấy thích thú. Một giờ sau, bà sẽ có mặt tại cơ sở sản xuất ở Atlanta để thăm các nhà quản lý ở đó, nhưng cũng muốn biết thêm về ý tưởng của chúng ta trước khi đi. Marge cho chúng ta năm phút để thuyết phục bà về điều mà ta dự định trước khi bà rời khỏi cửa.</p>
+
+
+
+<p>NHIỆM VỤ</p>
+
+<p>*Không cần vẽ hình ảnh này, *hãy tô những ô trống bên dưới để chỉ rõ vị trí bạn sẽ đặt các thanh trượt của bộ điều chỉnh SQVID cho hình ảnh được xem là hấp dẫn tổng giám đốc nhất *trong tình huống này*. Nếu Marge cần một hình ảnh đơn giản, hãy tô ô trên cùng; nếu bà ấy cần một hình ảnh tỉ mỉ, hãy tô ô dưới cùng.</p>
+
+<p>(Hãy nhớ: Bạn chỉ có năm phút. Tâm trí của tổng giám đốc đã tới Atlanta rồi.)</p>
+
+<p>Thiết lập của bộ điều chỉnh SQVID dành cho:</p>
+
+
+
+<p>Hãy tô các ô điều chỉnh của bộ cân bằng cho hình ảnh cần giới thiệu với tổng giám đốc.</p>
+
+<p>ỨNG DỤNG BỘ ĐIỀU CHỈNH, PHẦN II: NHÀ QUẢN LÝ DỰ ÁN</p>
+
+<p>BỐI CẢNH</p>
+
+<p>Sử dụng cùng kịch bản, giả sử vị tổng giám đốc thích ý tưởng của bạn. Khi bước ra cửa, bà ấy nói với bạn: “Hãy trao ý tưởng này cho Bob ở ban quản lý dự án và bảo với cậu ấy rằng tôi muốn thực hiện nó. Cậu ấy sẽ phản đối vì nó quá khác biệt so với điều chúng ta nghĩ, nhưng hãy xem liệu bạn có thể thuyết phục được cậu ấy không.”</p>
+
+
+
+<p>NHIỆM VỤ</p>
+
+<p>Sắp xếp các thanh trượt cho hình ảnh mà bạn muốn giới thiệu với Bob ở ban quản lý dự án.</p>
+
+<p>Thiết lập của bộ điều chỉnh SQVID dành cho:</p>
+
+<p>Hãy tô các ô điều chỉnh của bộ cân bằng cho hình ảnh mà bạn sẽ giới thiệu với Bob ở ban quản lý dự án.</p>
+
+<p>ỨNG DỤNG BỘ ĐIỀU CHỈNH, PHẦN III: PHÒNG TÀI CHÍNH</p>
+
+<p>BỐI CẢNH</p>
+
+<p>Bạn đã thuyết phục được Bob. Giờ bạn phải khiến Mary ở phòng tài chính cân nhắc về vấn đề tiền bạc cho ý tưởng của bạn.</p>
+
+
+
+<p>NHIỆM VỤ</p>
+
+<p>Bố trí các thanh trượt cho hình ảnh mà bạn sẽ trình bày với Mary ở phòng tài chính.</p>
+
+<p>Thiết lập của bộ điều chỉnh SQVID dành cho:</p>
+
+<p>Hãy tô các ô điều chỉnh của bộ cân bằng cho hình ảnh mà bạn định giới thiệu với Mary ở phòng tài chính</p>
+
+<p>ỨNG DỤNG BỘ ĐIỀU CHỈNH, PHẦN IV: DÂY CHUYỀN LẮP RÁP</p>
+
+<p>BỐI CẢNH</p>
+
+<p>Marge, Bob, và Mary thích ý tưởng của bạn. Bạn đã có được sự ủng hộ của nhà điều hành, một kế hoạch mới xuất hiện, và có tiền. Chúc mừng bạn: giờ đây bạn đã có được *bước khởi đầu*. Kế tiếp, bạn phải thông báo với Steve, người phụ trách các dây chuyền lắp ráp, về những gì bạn đang suy nghĩ. Nếu anh ấy không chấp nhận khởi xướng của bạn, vậy là tiêu.</p>
+
+
+
+<p>NHIỆM VỤ</p>
+
+<p>Bố trí các thanh trượt cho hình ảnh mà bạn sẽ trình bày với Steve – người điều hành các dây chuyền lắp ráp. Hãy nhớ: ngoài vai trò tổng thể, Steve còn chịu trách nhiệm tuyển dụng và sa thải công nhân trong hệ thống dây chuyền lắp ráp.</p>
+
+<p>Thiết lập của bộ điều chỉnh SQVID dành cho:</p>
+
+<p>Hãy tô các ô điều chỉnh của bộ cân bằng cho hình ảnh mà bạn sẽ giới thiệu với Steve.</p>
+
+<p>ỨNG DỤNG BỘ ĐIỀU CHỈNH, PHẦN V: BAN QUẢN TRỊ</p>
+
+<p>BỐI CẢNH</p>
+
+<p>Bạn đã làm được: sáng kiến của bạn đã được cả công ty ủng hộ. Quá vui mừng với khả năng của bạn trong việc dùng hình ảnh để thuyết phục mọi người, Marge đã yêu cầu bạn chuẩn bị một bài trình bày trước ban quản trị.</p>
+
+
+
+<p>NHIỆM VỤ</p>
+
+<p>Bố trí các thanh trượt cho hình ảnh mà bạn sẽ trình bày trước ban quản trị.</p>
+
+<p>(Hãy nhớ: tương lai của công ty, của các đồng nghiệp, các sản phẩm, và việc làm của bạn đang được đem ra đánh cược. Áp lực chỉ có thế!)</p>
+
+<p>Thiết lập của bộ điều chỉnh SQVID dành cho:</p>
+
+<p>Hãy tô các ô điều chỉnh của bộ cân bằng cho hình ảnh mà bạn định giới thiệu với ban quản trị.</p>
+
+<h3>Đánh giá lại các thiết lập cho bộ điều chỉnh của chúng ta</h3>
+
+<p>Tôi hy vọng bạn đã hiểu rõ được lý do thực hiện bài tập cuối cùng này: bản phác họa ban đầu được tạo ra vào giờ ăn trưa có thể đơn giản hóa bước đột phá của chúng ta, nhưng chúng ta sẽ không muốn ve vẩy chiếc khăn giấy cho đến khi nghĩ về đối tượng mà mình muốn trình bày cũng như điều mà *họ *sẽ thấy khi nhìn vào đó.</p>
+
+<p>Không có câu trả lời hoàn toàn đúng: các tổng giám đốc, các nhà quản lý dự án, các trưởng phòng tài chính, công nhân dây chuyền lắp ráp, thành viên ban giám đốc – tất cả đều là con người, và họ đều khác nhau và khác với bất kỳ người nào có cùng chức vụ công việc như họ. Không có loại tính cách chuẩn nào cho các tổng giám đốc; cũng như không có đặc tính chuẩn nào cho các nhà sản xuất bình pha trà.</p>
+
+<p>Tuy nhiên, chúng ta vẫn sử dụng SQVID để hiểu được suy nghĩ trong đầu họ và quan sát thế giới xung quanh theo cách mà họ thấy. Đó là điểm mấu chốt: chỉ cần dành một chút thời gian để bố trí các thanh trượt hình ảnh, chúng ta sẽ buộc tâm trí của mình tưởng tượng về một thế giới hơi khác so với thế giới của chính chúng ta.</p>
+
+<p>Dựa trên kinh nghiệm mà tôi có được với mọi người trong mỗi vai trò, đây là cách tôi sẽ bố trí các thanh trượt hình ảnh.</p>
+
+<p>Nó có vẻ rập khuôn, nhưng như mọi người thường nói, các khuôn mẫu đều phải bắt nguồn từ một nơi nào đó(*).</p>
+
+<p>MARGE, TỔNG GIÁM ĐỐC</p>
+
+<p>Là tổng giám đốc, Marge cũng chịu trách nhiệm tạo “viễn cảnh” về vị trí mà công ty sản xuất bình pha trà cần hướng tới. Mặc dù rất thông minh nhưng Marge không phải là chuyên gia trong mọi lĩnh vực kinh doanh. Cô ấy cần biết các con số nhưng lại phụ thuộc nhiều hơn vào trực giác kinh doanh của mình. Cô ấy thích các ý tưởng được trình bày rõ ràng và muốn</p>
+
+<p>* Đúng vậy, đây là bài tập về “lập hồ sơ cá nhân”, và trong trường hợp này, nó chính là điều cần làm. Trên thực tế, đó là thứ duy nhất mà chúng ta có thể làm. Dù tốt hay xấu, bộ não của chúng ta đều được cấu tạo để nhìn mọi người và đưa ra quyết định về họ dựa trên kinh nghiệm trước đó, dù với người đó hay với một người khác giống anh ta hoặc cô ta. Đó là một hệ thống không hoàn hảo, vì vậy, việc sử dụng SQVID có thể giúp ích. Chỉ cần dành chút thời gian tự hỏi rằng điều gì *có khả năng *hấp dẫn một người nhất ở mỗi bước đi theo quy trình SQVID, chúng ta sẽ buộc trí não của mình *cố *thấy thế giới theo cách của người đó.</p>
+
+<p>biết vị trí mà công ty *có thể *đạt tới hơn là vị trí hiện có. Marge luôn đòi hỏi và luôn gây áp lực về thời gian.</p>
+
+<p>Vì tất cả những lý do trên, tôi sẽ đẩy mọi thứ lên trên trong hình ảnh dành cho Marge: “đơn giản”, “định tính”, “viễn cảnh”, “riêng biệt”, và “thay đổi”.</p>
+
+<p>BOB TRONG BAN QUẢN LÝ DỰ ÁN</p>
+
+<p>Bob là người chú ý đến các chi tiết; anh ấy phải duy trì các hệ thống vận hành đúng giờ nhưng biết rằng không thể tự mình vận hành từng thứ một (mặc dù nếu có thể tìm ra cách, anh ấy sẽ sung sướng vô cùng). Bob chỉ quan tâm đến các con số ở mức chúng ảnh hưởng đến quy trình làm việc của anh ấy: chỉ cần biết mình có trong tay bao nhiêu, Bob sẽ lên kế hoạch xoay quanh con số đó. Trên hết, Bob là người làm việc theo quy trình: mối quan tâm lớn nhất của anh ấy là *cách thức *thực hiện bất cứ điều gì mà công ty quyết định tiến hành. Anh ấy thích so sánh những phương pháp mới với những phương pháp đã</p>
+
+<p>biết – chỉ để làm cho tan nát những phương pháp mới. Bob sống hoàn toàn trong hiện tại và ghét thay đổi, nhưng nếu sự thay đổi xuất hiện, anh ấy muốn là người biết đầu tiên để có thể bắt đầu chuẩn bị cho kế hoạch tiếp theo.</p>
+
+<p>Chúng ta bố trí bộ điều chỉnh của Bob theo kiểu “tỉ mỉ”, “định tính”, “thực thi”, “so sánh”, và “thay đổi”.</p>
+
+<p>MARY Ở PHÒNG TÀI CHÍNH</p>
+
+<p>Viễn cảnh ư! Đó là thứ gì vậy? Mary quản lý tiền bạc. Cô ấy sống theo nguyên tắc của các bảng tính Excel và các con số trên biểu đồ. Mary chỉ quan tâm đến hoàn thành công việc, và chừng nào những thứ đó có màu đen chứ không phải màu đỏ, cô ấy sẽ chẳng mấy quan tâm chúng là gì. Mary thích quản lý các con số song song nhau để biết được mình có thể tiết kiệm bao nhiêu tiền nhờ bớt ở đây một ít, giảm ở kia một ít. Nhưng khi phải đưa ra quyết định về việc ai chi tiền và bao nhiêu, Mary chỉ quan tâm đến chuyện “ở đây”, “lúc này”. Những</p>
+
+<p>thanh trượt của Mary sẽ phải được đẩy xuống: “tỉ mỉ”, “định lượng”, “thực thi”, “so sánh” và “nguyên trạng”.</p>
+
+<p>STEVE Ở BỘ PHẬN DÂY CHUYỀN LẮP RÁP</p>
+
+<p>Steve và nhân viên của anh ấy là những người trực tiếp điều khiển hệ thống lắp ráp. Anh ấy chẳng quan tâm việc Bob có thay đổi quyết định hay không, miễn sao Bob vẫn ở trong phòng điều khiển và không can thiệp vào công việc của Steve. Steve phải chỉ đạo nhiều người, di chuyển nhiều chi tiết, vì vậy anh ấy cần có những hướng dẫn đơn giản. Steve thích điều khiển công việc theo con số và muốn biết chính xác mình cần làm gì tiếp theo. Và chừng nào sự thay đổi không ảnh hưởng đến nhân viên của mình, Steve sẽ không quan tâm đến những việc về sau, anh ấy chỉ muốn biết chúng như thế nào lúc này.</p>
+
+<p>Chế độ được thiết lập cho Steve là “đơn giản”, “định lượng”, “thực thi”, “riêng biệt”, và “nguyên trạng”.</p>
+
+<p>BAN QUẢN TRỊ</p>
+
+<p>Ban quản trị muốn biết một điều: *chúng ta có kiếm được tiền không? *Hãy đơn giản, ngắn gọn và chỉ cho chúng tôi những con số. Chế độ thiết lập cho ban quản trị: “đơn giản” và “định lượng”.</p>
+
+<p>Bài tập SQVID là thế. Chúng ta đã hiểu được rằng một hình vẽ sẽ không đủ để thuyết phục mọi người ủng hộ, và quan trọng hơn là chúng ta đã biết được loại hình ảnh nào mình cần tạo ra để được họ ủng hộ.</p>
+
+<h3>Vậy khi nào chúng ta vẽ hình ảnh đó?</h3>
+
+<p>Bạn hẳn đã nhận thấy rằng chúng ta đã trải qua quy trình SQVID vài lần và hiện vẫn chưa vẽ được gì. Đừng lo: một nửa giá trị của SQVID là khiến chúng ta suy nghĩ về các giải pháp hình ảnh. Bài tập mà chúng ta vừa hoàn thành đã “sang số” nhiều lần trong tâm trí của chúng ta, và đã kích hoạt được rất nhiều nơ-ron đến mức chúng ta rất sẵn sàng cầm bút lên và bắt đầu dùng hình ảnh để thuyết phục mọi người ủng hộ mình.</p>
+
+<p>Trước khi tiến hành, ta hãy cùng xem lại bộ công cụ. Dù là quy tắc 6x6 hay quy trình SQVID, cái nào cũng đủ để làm rõ một vấn đề. Nếu bị vướng vào rắc rối của một vấn đề rất cấp bách, chúng ta có thể hãm tốc độ của nó bằng cách chia nó ra thành sáu yếu tố hình ảnh và giải quyết từng cái một. Nếu bị mắc kẹt với một ý tưởng trong đầu, chúng ta hãy nhờ đến SQVID để khơi nguồn trí tưởng tượng cho các ý tưởng mới tuôn trào.</p>
+
+<p>Quy tắc 6x6:</p>
+
+<p>hãm tốc độ của các vấn đề</p>
+
+<p>thể hiện các khả năng</p>
+
+<p>Bản thân hai công cụ chính này sẽ giúp chúng ta giải quyết các vấn đề: quy tắc 6x6 giúp làm chậm những gì đang xảy đến, còn SQVID giúp tăng cơ hội tìm ra giải pháp.</p>
+
+<p>Xét trên nhiều phương diện, chúng ta đã xong việc. Chúng ta đã có thể áp dụng hai công cụ này vào từng trường hợp và trở thành những người tư duy hình ảnh kiệt xuất, có lúc sử dụng quy tắc 6x6, có khi sử dụng SQVID. Nhưng hãy tiến thêm một</p>
+
+<p>bước nữa và tưởng tượng điều gì sẽ xảy ra nếu chúng ta kết hợp cả hai công cụ này: chúng ta không chỉ phác họa được cách giải thích *mọi thứ*, mà còn có thể thay đổi tùy biến hình ảnh đó cho *bất kỳ *đối tượng người xem nào. Whoa! Điều đó quả là tuyệt vời.</p>
+
+<p>Trong thời gian còn lại của ngày hôm nay, hãy làm chính mình kinh ngạc.</p>
+
+<h3>Kết hợp tất cả với nhau:</h3>
+
+<p>bí kíp tư duy hình ảnh</p>
+
+<p>Để thấy được vị trí giao nhau của quy tắc 6x6 và SQVID, chúng ta sẽ làm điều mà mình luôn làm với vấn đề “ở đâu”: chúng ta sẽ tạo ra một sơ đồ(*). Giống như ngày hôm qua, chúng ta có thể bắt đầu mọi sơ đồ bằng một hệ trục. Trong trường hợp này, chúng ta so sánh sáu hình ảnh của quy tắc 6x6 với năm</p>
+
+<p>* Hãy nhớ rằng quy tắc 6x6 cho chúng ta biết rằng ta nên vẽ sơ đồ cho vấn đề “ở đâu”, vẽ dòng thời gian cho vấn đề “khi nào”, v.v. Tôi hy vọng cách thức gắn kết của những mảnh ghép đơn giản này sẽ ngày càng trở nên rõ ràng. Chúng ta thực sự có thể sử dụng những công cụ này để mô phỏng bất kỳ thứ gì mà ta có thể hình dung được.</p>
+
+<p>câu hỏi SQVID, do đó, chúng ta sẽ vẽ một mạng lưới chứa 30 mảnh ghép (5x6 = 30).</p>
+
+
+
+<p>Đây là mạng lưới cơ bản để lập sơ đồ sáu hình vẽ theo năm câu hỏi.</p>
+
+<p>Trong mạng lưới ô trống này, chúng ta sẽ bổ sung thành phần đầu tiên của hệ trục, sáu hình vẽ từ quy tắc 6x6: “chân dung”, “biểu đồ”, “sơ đồ”, “dòng thời gian”, “lưu đồ”, và “đồ thị”.</p>
+
+<p>Ai/cái gì?</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Ở đâu?</p>
+
+<p>Khi nào?</p>
+
+<p>Như thế nào?</p>
+
+<p>Vì sao?</p>
+
+<p>Chúng ta bổ sung thành phần đầu tiên của hệ trục, sáu hình vẽ của quy tắc 6x6.</p>
+
+<p>Bây giờ, chúng ta sẽ bổ sung thành phần thứ hai của hệ trục – năm câu hỏi SQVID: “đơn giản”, “định tính”, “viễn cảnh”, “riêng biệt”, và “thay đổi”.</p>
+
+<p>Dạng nào? Đơn giản	Định tính  Viễn cảnh	Riêng biệt	Thay đổi</p>
+
+<p>Ai/cái gì?</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Ở đâu?</p>
+
+<p>Khi nào?</p>
+
+<p>Như thế nào?</p>
+
+<p>Vì sao?</p>
+
+<p>Việc bổ sung năm câu hỏi SQVID sẽ hoàn thiện hệ trục của chúng ta.</p>
+
+<p>Với những điểm phối hợp hoàn chỉnh, chúng ta sẽ lập sơ đồ những hình vẽ được tạo ra từ việc kết hợp sáu hình vẽ cơ bản với các phiên bản khác nhau của SQVID. Trong một số trường hợp, các phiên bản SQVID đều có diện mạo giống nhau đối với mỗi hình vẽ 6x6(*). Trong một số trường hợp khác, một sự biến đổi lớn có thể xuất hiện khi chúng ta di chuyển dọc theo SQVID(**). Dù ở trường hợp nào, chúng ta đều nhận thấy rằng mình có thể tạo ra nhiều hình ảnh khác từ sáu hình ảnh ban đầu.</p>
+
+<p>* Bốn trong số năm phiên bản SQVID của một chân dung đều giống nhau; phiên bản “thay đổi” còn lại là trường hợp ngoại lệ vì theo định nghĩa, nó phải thể hiện hai hình ảnh: một cho những thứ chúng ta hiện có và một cho những thứ chúng ta sẽ có.</p>
+
+<p>** Đồ thị đa biến cho mỗi bước SQVID hơi khác nhau, tùy thuộc vào điểm mà chúng ta cần nhấn mạnh. Và không có đồ thị “định tính” nào vì nó sẽ chỉ là một “chân dung”, giống như con cá Microsoft-Yahoo mà chúng ta thấy hôm qua.</p>
+
+<p>Dạng nào? Đơn giản	Định tính  Viễn cảnh	Riêng biệt	Thay đổi</p>
+
+<p>Ai/cái gì?</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Ở đâu?</p>
+
+<p>Khi nào?</p>
+
+<p>Như thế nào?</p>
+
+<p>Vì sao?</p>
+
+<p>Bối cảnh này được tạo thành từ những hình ảnh mà chúng ta có được nhờ kết hợp sáu hình vẽ cơ bản với các phiên bản SQVID khác nhau.</p>
+
+<p>Quả là nhiều hình vẽ – tất cả những hình vẽ này chúng ta đều biết cách tạo ra nhờ bắt đầu với một trong sáu định dạng cơ bản, sau đó tìm hiểu cách thức điều chỉnh để tương thích với SQVID. Nhưng hãy nhớ rằng cho đến lúc này, chúng ta chỉ mới giải thích cho mặt trên của những thanh trượt SQVID. Giờ hãy bổ sung mặt dưới của những câu hỏi SQVID này, gấp đôi số hình ảnh sẵn có.</p>
+
+<p>Kết quả: chúng ta có “bí kíp tư duy hình ảnh”, một sơ đồ gồm nhiều sơ đồ thể hiện hơn 40 hình ảnh của hầu hết mọi ý tưởng và cho chúng ta thấy được mức độ dễ dàng của việc tạo ra chúng.</p>
+
+<p>Hình nào?</p>
+
+<p>Đơn giản Tỉ mỉ</p>
+
+<p>Định tính Định lượng</p>
+
+<p>Viễn cảnh Thực thi</p>
+
+<p>Riêng biệt So sánh</p>
+
+<p>Thay đổi Nguyên trạng</p>
+
+<p>Ai/cái gì?</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Ở đâu?</p>
+
+<p>Khi nào?</p>
+
+<p>Như thế nào?</p>
+
+<p>Vì sao?</p>
+
+<p>Đây là “bí kíp tư duy hình ảnh”: sơ đồ gồm nhiều sơ đồ, cho chúng ta thấy được mức độ dễ dàng của việc tạo ra hơn 40 hình ảnh của hầu hết mọi ý tưởng.</p>
+
+<h3>Sử dụng bí kíp tư duy hình ảnh: trở lại với những chiếc bình pha trà</h3>
+
+<p>Hãy xem bí kíp tư duy hình ảnh như một cẩm nang đơn giản mà chúng ta có thể tìm đến khi cần nguồn cảm hứng hoặc cần hướng dẫn. Từ quy tắc 6x6, chúng ta đều đã biết cần vẽ hình ảnh nào, và từ các câu hỏi SQVID, chúng ta cũng biết phiên bản nào sẽ phù hợp nhất trong mọi tình huống. Tất cả những gì bí kíp này thực hiện là dùng hình ảnh để tóm tắt những gì ta đã biết.</p>
+
+<p>Để thể hiện cách sử dụng bí kíp này làm hướng dẫn, chúng ta hãy quay trở lại kịch bản bình pha trà và bắt đầu vẽ. Hãy nhớ rằng toàn bộ tình tiết này bắt đầu vào giờ ăn trưa khi chúng ta phác họa cách sửa đổi quy trình sản xuất của công ty.</p>
+
+<p>Ở đây, chúng ta thấy bản phác họa khăn giấy ban đầu. Nó thể hiện một đường nét liền đại diện cho dây chuyền lắp ráp đang hoạt động, và một đường nét đứt đại diện cho dây chuyền ngưng hoạt động. Cả hai đều kết thúc tại một ô, đại diện cho một sản phẩm. Không có gì đơn giản hơn thế.</p>
+
+<p>Chúng ta không cần đến bí kíp để làm điều đó. Nhưng nếu gắn nó vào, chúng ta có thể nhận thấy rằng mình đã tạo ra một hình ảnh “đơn giản”, “định tính”, và “riêng biệt” về “viễn cảnh” của mình đối với dây chuyền lắp ráp. Nói cách khác, chính hình ảnh này đại diện cho bốn trong số năm hình ảnh nằm ở hàng trên đã tạo nên bí kíp đó.</p>
+
+
+
+<p>Khăn giấy ban đầu của chúng ta: một dây chuyền lắp ráp đang hoạt động và một dây chuyền ngừng hoạt động. Cả hai đều kết thúc bằng một sản phẩm. Nó là một chân dung rất đơn giản mà ta có thể tạo ra.</p>
+
+<p>Đơn giản	Định tính	Viễn cảnh Riêng biệt</p>
+
+<p>Tỉ mỉ	Định lượng	Thực thi	So sánh</p>
+
+<p>Hình nào?</p>
+
+<p>Thay đổi Nguyên</p>
+
+<p>trạng</p>
+
+<p>Ai/cái gì?</p>
+
+<p>Phác họa khăn giấy của chúng ta đại diện cho bốn trong số năm hình phía trên của bí kíp: đó là một chân dung “đơn giản”, “định tính”, và “riêng biệt” cho “viễn cảnh” về dây chuyền lắp ráp.</p>
+
+<p>Chà, nó gần giống với hình vẽ mà chúng ta muốn cho Marge xem. Phác thảo khăn giấy của chúng ta chưa thể hiện sự thay đổi, nhưng với việc bổ sung thêm một vài đường thẳng nữa và dấu x, điều đó có thể trở nên dễ dàng. Giờ đây, chúng ta có một hình vẽ đơn giản, định tính và thể hiện viễn cảnh về *sự thay đổi*: chính xác là thứ mà SQVID mang lại cho tổng giám đốc.</p>
+
+<p>Việc bổ sung một vài đường thẳng và dấu x giúp chúng ta có được hình ảnh về sự thay đổi cần có để thể hiện với tổng giám đốc Marge khi bà bước ra cửa.</p>
+
+<p>Đó là cách thức hoạt động của bí kíp: nhờ chỉ ra cách kết hợp khả thi các hình vẽ cơ bản và các biến đổi theo từng đối tượng khán giả, bí kíp này hướng chúng ta đến hình ảnh phù hợp với mọi tình huống. Để thử nghiệm, hãy tiếp tục và xem liệu chúng ta có thể sử dụng bí kíp này để tạo ra hình ảnh cho những nhân vật kia không.</p>
+
+<p>BOB TRỞ LẠI</p>
+
+<p>Bob – nhà quản lý dự án – muốn thứ gì đó tỉ mỉ hơn. Hãy bắt đầu bằng cách bổ sung thêm các chi tiết vào chân dung dây chuyền lắp ráp trên khăn giấy, những thứ như bình trà, nắp đậy, và con người. Chẳng bao lâu, chúng ta sẽ kết thúc bằng một sơ đồ chi tiết hơn về dây chuyền lắp ráp hiện có.</p>
+
+<p>Hình nào?</p>
+
+<p>Đơn giản Tỉ mỉ</p>
+
+<p>Định tính Định lượng</p>
+
+<p>Viễn cảnh Thực thi</p>
+
+<p>Riêng biệt So sánh</p>
+
+<p>Thay đổi Nguyên trạng</p>
+
+<p>Ai/cái gì?</p>
+
+<p>Bao nhiêu?</p>
+
+<p>Ở đâu?</p>
+
+<p>Khi nào?</p>
+
+<p>Như thế nào?</p>
+
+<p>Vì sao?</p>
+
+<p>Khi “vị trí” mà mọi thứ gắn kết được kết hợp với mặt “tỉ mỉ” của SQVID...</p>
+
+<p>HIỆN TRẠNG</p>
+
+<p>DÂY CHUYỀN 1</p>
+
+<p>NẮP</p>
+
+<p>Bình trà</p>
+
+<p>DÂY CHUYỀN 2</p>
+
+<p>THÂN</p>
+
+<p>... nó mang đến cho chúng ta (và Bob) bản đồ tỉ mỉ hơn về dây chuyền lắp ráp hiện tại.</p>
+
+<p>Đó là bước khởi đầu, nhưng Bob thật sự muốn biết điều gì sẽ thay đổi để anh ấy có thể so sánh với quy trình hiện tại của mình. Khi đánh dấu trên sơ đồ để thể hiện những thay đổi mà mình đang nghĩ đến, chúng ta sẽ có được phần lớn hình ảnh “tỉ mỉ”, “định lượng”, “so sánh” và “thay đổi” của Bob.</p>
+
+<p>HIỆN TRẠNG</p>
+
+<p>DÂY CHUYỀN 2</p>
+
+<p>NẮP</p>
+
+<p>Bình trà</p>
+
+<p>DÂY CHUYỀN 1</p>
+
+<p>THÂN</p>
+
+<p>DỰ KIẾN</p>
+
+<p>DÂY CHUYỀN 2</p>
+
+<p>Bình trà</p>
+
+<p>DÂY CHUYỀN 1</p>
+
+<p>NẮP	THÂN</p>
+
+<p>Giờ đây, chúng ta có được phần lớn hình ảnh “tỉ mỉ”, “định lượng”, “so sánh” và “thay đổi” của Bob.</p>
+
+<p>Đó là phần lớn những thứ Bob mong muốn, nhưng hãy nhớ rằng Bob là người hành động: anh ấy luôn muốn mọi việc được thực thi. Giờ đây, từ hình vẽ, anh ấy có thể thấy điều mà chúng ta đang nhắc đến, nhưng sẽ hay hơn rất nhiều nếu chúng ta có thể chỉ ra *cách thức *khiến điều đó xảy ra. Có vẻ như chúng ta có thể sử dụng một lưu đồ(*). Hãy sắp xếp lại các mảnh ghép chi tiết và bổ sung các dấu mũi tên nhằm thể hiện cách sự thay đổi đó xảy ra. Xong: chúng ta đã có được những hình ảnh cần thể hiện với Bob.</p>
+
+<p>* Hãy lưu ý cách thức một chân dung “ai và cái gì” trở thành một sơ đồ “ở đâu” khi chúng ta bổ sung các chi tiết về vị trí tương ứng của các chi tiết được trình bày, và sau đó trở thành một lưu đồ “như thế nào” khi chúng ta bổ sung các dấu mũi tên thể hiện sự chuyển động. Một lần nữa, chúng ta nhận thấy rằng sáu hình ảnh cơ bản đã xếp chồng lên nhau khi chúng ta “thấy” thêm nhiều thông tin.</p>
+
+<p>HIỆN TRẠNG</p>
+
+<p>DÂY CHUYỀN 2</p>
+
+<p>DÂY CHUYỀN 1</p>
+
+<p>NẮP</p>
+
+<p>THÂN</p>
+
+<p>Bình trà</p>
+
+<p>DỰ KIẾN</p>
+
+<p>DÂY CHUYỀN 2</p>
+
+<p>DÂY CHUYỀN 1</p>
+
+<p>NẮP</p>
+
+<p>THÂN</p>
+
+<p>Bình trà</p>
+
+<p>Một lưu đồ so sánh theo định hướng “tỉ mỉ”, “định tính”, “thực thi”, và “thay đổi”: chúng ta đã cung cấp đủ những gì mà Bob quan tâm. Chúng ta sẽ để lại phần dòng thời gian “khi nào” cho anh ấy.</p>
+
+<p>Giờ đã có được bối cảnh, các chi tiết và các bước, Bob vui rồi. Là một người quản lý dự án, anh ấy luôn đáp ứng các thời hạn cuối cùng, vì vậy, hãy để dòng thời gian “khi nào” cho Bob.</p>
+
+<p>MARY II</p>
+
+<p>Hãy cùng lướt qua bí kíp một lần nữa. Hãy nhớ rằng chế độ thiết lập SQVID dành cho Mary thuộc bộ phận tài chính là hoàn toàn đối lập với Marge: Marge đẩy hết lên, còn Mary đẩy hết xuống. Trong khi Marge quan tâm đến tầm nhìn toàn cảnh về nơi chúng ta có thể đạt đến, Mary lại muốn những con số chi tiết để so sánh các khả năng tài chính của tương lai với hiện tại.</p>
+
+<p>Để tiến hành một phân tích chi tiết về chi phí và lợi ích trong đề xuất của bạn, Mary phải thấy được tiềm năng thu lợi về cho công ty, vì vậy, hãy tạo ra một hình vẽ định lượng để động viên cô ấy. Theo quy tắc 6x6, chúng ta biết rằng “định lượng” có nghĩa là “bao nhiêu” và điều đó có nghĩa là biểu đồ. Chúng ta đã thấy loại dữ liệu định lượng nào trong những hình vẽ mà mình tạo ra cho đến giờ phút này?</p>
+
+<p>Giảm quỹ lương thì sao? Nguyên nhân chủ yếu khiến chúng ta tạo ra phác họa này trong giờ ăn trưa là để tìm cách hoạt động hiệu quả hơn, điều đó có nghĩa là tìm cách tiết kiệm tiền. Nhìn vào lưu đồ được tạo ra cho Bob, chúng ta thấy rằng việc cắt giảm một dây chuyền lắp ráp sẽ loại bỏ một</p>
+
+<p>công nhân(*). Đó là cách tiết kiệm chi phí ngắn hạn và là hình dễ vẽ: chúng ta hiện có 7 công nhân, ngày mai chúng ta còn lại 6 công nhân.</p>
+
+<p>Chi phí lương</p>
+
+<p>Tiết kiệm</p>
+
+<p>Dây chuyền hiện tại	Dây chuyền dự kiến</p>
+
+<p>Biểu đồ “bao nhiêu” đầu tiên của chúng ta so sánh bảng lương hiện tại với bảng lương được cắt giảm trong lương lai.</p>
+
+<p>Nhưng nếu ngưng hoạt động một dây chuyền lắp ráp, chẳng phải chúng ta loại bỏ đến 4 công việc? Không, nếu dành riêng một dây chuyền cho công tác nghiên cứu và phát triển, chúng ta sẽ làm tăng khả năng phát triển các sản phẩm mới. Vì</p>
+
+<p>*  Chúng ta cũng thấy rằng mình đã chuyển 3 trong số các công nhân dây chuyền sang các vị trí khác: 2 công nhân sang tổ nghiên cứu và phát triển để hỗ trợ phát triển các sản phẩm mới, và người còn lại sang dây chuyền đang hoạt động để hỗ trợ lượng công việc gia tăng ở dây chuyền đó.</p>
+
+<p>vậy, chúng ta sẽ chuyển 2 công nhân dây chuyền sang nhóm nghiên cứu và phát triển, đồng thời chuyển 1 công nhân khác sang dây chuyền sản xuất nắp và bình pha trà. Chúng ta có thể trình bày điều này ở một biểu đồ tương tự khác.</p>
+
+<p>Chi phí lương</p>
+
+<p>Chuyển sang R+D</p>
+
+<p>Dây chuyền hiện tại	Dây chuyền dự kiến</p>
+
+<p>Hai trong số các công nhân mất việc sẽ được chuyển sang bộ phận nghiên cứu và phát triển.</p>
+
+<p>Điều thú vị của khía cạnh định tính là xét dài hạn, những khoản đầu tư trước đó cho nhân viên ở bộ phận nghiên cứu và phát triển đã đem lại lợi ích gấp ba lần so với mức đầu tư tương tự cho các công nhân ở dây chuyền lắp ráp. Đây cũng là một hình ảnh dễ vẽ: chúng ta tạo ra một biểu đồ so sánh tỷ lệ lợi nhuận trên vốn đầu tư (ROI) của hai loại công nhân.</p>
+
+<p>Lợi nhuận trên vốn đầu tư</p>
+
+<p>Công nhân lắp ráp</p>
+
+<p>Nhân viên R+D</p>
+
+<p>Về lâu dài, việc đầu tư vào nhân viên nghiên cứu và phát triển luôn đem lại lợi ích cao gấp ba lần so với việc đầu tư vào công nhân dây chuyền lắp ráp.</p>
+
+<p>Việc kết hợp hai khái niệm này với nhau – chi phí tiền lương ngắn hạn giảm cộng với lợi nhuận trên vốn đầu tư dài hạn tăng – cho thấy rằng về ngắn hạn, lợi nhuận sẽ giảm khi công ty giảm năng suất sản xuất xuống còn một dây chuyền, nhưng về lâu dài, lợi nhuận sẽ tăng khi công ty ra mắt các sản phẩm mới. Đó là hình ảnh mà chúng ta cần có cho Mary: một sự “so sánh” mang tính “tỉ mỉ”, “định lượng”, “thực thi” so với “nguyên trạng”.</p>
+
+<p>Sản phẩm mới</p>
+
+<p>Biên chế Giảm công suất</p>
+
+<p>Hôm nay	Ngày mai</p>
+
+<p>Đây là hình ảnh cho Mary: một sự “so sánh” chi phí và lợi nhuận mang tính “tỉ mỉ”, “định lượng”, “thực thi” so với “nguyên trạng”.</p>
+
+<p>Giờ thì Mary cũng có thể thấy điều mà chúng ta đang nói đến. Sau khi chia sẻ với Steve và ban quản trị những hình ảnh thích hợp được rút ra từ bí kíp, chúng ta có thể triển khai công việc.</p>
+
+<p>THỜI ĐIỂM /UẤT CHIÊU CỦA BẠN: STEVE VÀ BAN QUẢN TRỊ</p>
+
+<p>Hãy chọn hoặc Steve từ dây chuyền lắp ráp, hoặc ban quản trị, và sử dụng bí kíp để tạo ra hình ảnh (hoặc nhiều hình ảnh) mà bạn muốn thể hiện nhằm thuyết phục họ hỗ trợ bạn. (Gợi ý: dù chọn ai, chúng ta đều đã vẽ hầu như tất cả những thứ bạn cần.)</p>
+
+<p>Hôm nay như vậy là đủ. Thêm một suy nghĩ nữa trước khi kết thúc, và chúng ta có thể đi biển.</p>
+
+<p>Chúng ta bắt đầu với SQVID, năm câu hỏi đơn giản để giúp khơi mào trí tưởng tượng, và kết thúc ngày hôm nay bằng bí kíp – cẩm nang hình ảnh đơn giản thu thập tất cả mọi thứ mà chúng ta đã học trong ba ngày qua. Ngày mai sẽ là ngày cuối cùng, và chúng ta sẽ tổng hợp mọi thứ theo một cách đơn giản để kể với bất kỳ ai câu chuyện kinh doanh bằng những hình ảnh mà mình đã tạo ra.</p>
+
+        </div>
+
+        <div class="reader-navigation">
+            <a href="c3.html" class="nav-btn prev"><i class="fas fa-chevron-left"></i> Chương trước</a>
+            <a href="c5.html" class="nav-btn next">Chương sau <i class="fas fa-chevron-right"></i></a>
+        </div>
+    </div>
+
+    <button id="btn-back-to-top" title="Lên đầu trang"><i class="fas fa-arrow-up"></i></button>
+
+    <div id="music-player" class="music-control">
+        <span><i class="fas fa-compact-disc fa-spin"></i> Ambient Focus</span>
+        <input type="range" id="music-volume" min="0" max="1" step="0.1" value="0.5">
+    </div>
+
+    <script src="reader.js"></script>
 </body>
 </html>
