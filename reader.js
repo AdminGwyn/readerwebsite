@@ -414,12 +414,28 @@ document.addEventListener('DOMContentLoaded', () => {
     synth.cancel();
     
     const langSelect = document.getElementById('tts-lang-select');
-    const selectedLang = langSelect ? langSelect.value : 'vi-VN';
-    const langName = selectedLang === 'vi-VN' ? 'tiếng Việt' : 'tiếng Anh';
+    const selectedVal = langSelect ? langSelect.value : 'vi-VN';
+    let voice = null;
+    let selectedLang = 'vi-VN';
     
-    const voice = await getBestVoice(selectedLang);
+    // If user explicitly picked a specific voice
+    if (selectedVal.startsWith('voice:')) {
+      const voiceName = selectedVal.replace('voice:', '');
+      const voices = await loadVoices();
+      voice = voices.find(v => v.name === voiceName);
+      if (voice) {
+        selectedLang = voice.lang || 'vi-VN';
+      }
+    }
+    
+    // Fallback to automatic
     if (!voice) {
-      alert(`⚠️ Trình duyệt của bạn không hỗ trợ giọng đọc ${langName}.\n\nĐể có trải nghiệm tốt nhất:\n• Dùng Google Chrome (khuyến nghị)\n• Hoặc Microsoft Edge\n• Kiểm tra cài đặt ngôn ngữ trong hệ thống`);
+      selectedLang = selectedVal.startsWith('voice:') ? 'vi-VN' : selectedVal;
+      voice = await getBestVoice(selectedLang);
+    }
+
+    if (!voice) {
+      alert('⚠️ Trình duyệt của bạn không hỗ trợ giọng đọc.\n\nĐể có trải nghiệm tốt nhất:\n• Dùng Google Chrome (khuyến nghị)\n• Hoặc Microsoft Edge\n• Kiểm tra cài đặt ngôn ngữ trong hệ thống');
       return;
     }
     
@@ -468,6 +484,55 @@ document.addEventListener('DOMContentLoaded', () => {
       if (synth.speaking) { synth.pause(); synth.resume(); }
     }, 10000);
   }
+
+  // Populate the language dropdown with specific voices
+  async function populateVoiceList() {
+    const langSelect = document.getElementById('tts-lang-select');
+    if (!langSelect) return;
+    
+    const voices = await loadVoices();
+    
+    // Create voice options
+    let html = '<optgroup label="Tự động (Khuyên dùng)">';
+    html += '<option value="vi-VN">Tiếng Việt (Tự động)</option>';
+    html += '<option value="en-US">Tiếng Anh (Tự động)</option>';
+    html += '</optgroup>';
+    
+    // Group by language
+    const viVoices = voices.filter(v => 
+      (v.lang || '').toLowerCase().includes('vi') || 
+      (v.name || '').toLowerCase().includes('vietnamese') || 
+      (v.name || '').toLowerCase().includes(' an ') ||
+      (v.name || '').toLowerCase().includes('hoaimy')
+    );
+    const otherVoices = voices.filter(v => !viVoices.includes(v));
+    
+    if (viVoices.length > 0) {
+      html += '<optgroup label="Giọng Tiếng Việt (Cụ thể)">';
+      viVoices.forEach(v => {
+        html += `<option value="voice:${v.name}">${v.name}</option>`;
+      });
+      html += '</optgroup>';
+    }
+    
+    if (otherVoices.length > 0) {
+      html += '<optgroup label="Giọng Khác (Cụ thể)">';
+      otherVoices.forEach(v => {
+        html += `<option value="voice:${v.name}">${v.name} (${v.lang || 'Unknown'})</option>`;
+      });
+      html += '</optgroup>';
+    }
+    
+    // Keep current selection if possible
+    const currentVal = langSelect.value;
+    langSelect.innerHTML = html;
+    if (langSelect.querySelector(`option[value="${currentVal}"]`)) {
+        langSelect.value = currentVal;
+    }
+  }
+  
+  // Call immediately to populate
+  populateVoiceList();
 
   function stopTTS() {
     isSpeaking = false;
