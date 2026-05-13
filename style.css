@@ -207,7 +207,7 @@ body {
 }
 
 /* Theme Grid */
-.theme-grid { display: flex; gap: 10px; }
+.theme-grid { display: flex; gap: 12px; padding-bottom: 22px; }
 .t-btn {
   flex: 1; height: 36px; border-radius: 8px; cursor: pointer;
   border: 2px solid var(--border); transition: 0.2s; position: relative;
@@ -217,7 +217,7 @@ body {
 .t-light { background: linear-gradient(135deg, #f5f2ed, #fff); }
 .t-sepia { background: linear-gradient(135deg, #f4e8d0, #fdf6e3); }
 .t-dark { background: linear-gradient(135deg, #111, #1a1a24); }
-.t-btn span { position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: 9px; color: var(--text-muted); white-space: nowrap; }
+.t-btn span { position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%); font-size: 9px; color: var(--text-muted); white-space: nowrap; }
 
 /* Font dropdown */
 .font-dropdown {

@@ -14,13 +14,12 @@
 </head>
 <body>
 
-  <!-- Book Opening Transition Overlay -->
-  <div class="book-transition-overlay" id="book-transition">
-    <div class="page-bg"></div>
-    <div class="book-cover-left"></div>
-    <div class="book-cover-right"></div>
-    <div class="book-spine"></div>
-    <div class="book-title-label">Hình Vẽ<br>Thông Minh</div>
+  <!-- Page Transition Overlay -->
+  <div class="page-transition" id="page-transition">
+    <div class="transition-bg"></div>
+    <div class="flare-ring"></div>
+    <div class="flare-core"></div>
+    <div class="transition-title">Hình Vẽ Thông Minh</div>
   </div>
 
   <!-- Particle Background -->
@@ -38,8 +37,9 @@
         <a href="#chapters" class="nav-link">Nội dung</a>
         <a href="#author" class="nav-link">Tác giả</a>
         <a href="#features" class="nav-link">Tính năng</a>
-        <button class="theme-toggle-btn" onclick="toggleMainTheme()" id="theme-toggle">
-          <i class="fas fa-moon"></i>
+        <button class="landing-theme-toggle" id="landing-theme-btn" onclick="toggleLandingTheme()">
+          <i class="fas fa-moon" id="landing-theme-icon"></i>
+          <span id="landing-theme-text">Dark</span>
         </button>
       </div>
       <a href="c1.html" class="nav-cta">
@@ -155,72 +155,72 @@
     </div>
   </section>
 
-  <!-- Chapters Section -->
+  <!-- Chapters Timeline Section -->
   <section class="chapters-section" id="chapters">
     <div class="section-container">
       <div class="section-header">
         <span class="section-tag">Nội dung sách</span>
         <h2>Hành trình <em>4 ngày</em> thay đổi tư duy</h2>
       </div>
-      <div class="chapters-list">
-        <a href="c1.html" class="chapter-card reveal">
-          <div class="chapter-num">01</div>
-          <div class="chapter-info">
+      <div class="timeline">
+        <a href="c1.html" class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-num">01</div>
+            <span class="timeline-day">Phần mở đầu</span>
             <h3>Khăn giấy, ứng dụng</h3>
             <p>Khám phá cách một mẩu khăn giấy có thể thay đổi cách nhìn nhận và giải quyết vấn đề trong cuộc sống</p>
+            <div class="timeline-img"><img src="IMG/1.png" alt="Chương 1" /></div>
+            <div class="timeline-read"><i class="fas fa-arrow-right"></i> Đọc chương</div>
           </div>
-          <div class="chapter-preview">
-            <img src="IMG/1.png" alt="Chương 1" />
-          </div>
-          <div class="chapter-arrow"><i class="fas fa-arrow-right"></i></div>
         </a>
 
-        <a href="c2.html" class="chapter-card reveal">
-          <div class="chapter-num">02</div>
-          <div class="chapter-info">
-            <h3>Ngày 1 — Nhìn</h3>
+        <a href="c2.html" class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-num">02</div>
+            <span class="timeline-day">Ngày 1</span>
+            <h3>Nhìn</h3>
             <p>Học cách quan sát thế giới xung quanh như một người giải quyết vấn đề bằng hình ảnh</p>
+            <div class="timeline-img"><img src="IMG/2.png" alt="Chương 2" /></div>
+            <div class="timeline-read"><i class="fas fa-arrow-right"></i> Đọc chương</div>
           </div>
-          <div class="chapter-preview">
-            <img src="IMG/2.png" alt="Chương 2" />
-          </div>
-          <div class="chapter-arrow"><i class="fas fa-arrow-right"></i></div>
         </a>
 
-        <a href="c3.html" class="chapter-card reveal">
-          <div class="chapter-num">03</div>
-          <div class="chapter-info">
-            <h3>Ngày 2 — Thấy</h3>
+        <a href="c3.html" class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-num">03</div>
+            <span class="timeline-day">Ngày 2</span>
+            <h3>Thấy</h3>
             <p>Hiểu cách hệ thống tầm nhìn của não bộ xử lý thông tin và mô hình 6x6 đột phá</p>
+            <div class="timeline-img"><img src="IMG/5.png" alt="Chương 3" /></div>
+            <div class="timeline-read"><i class="fas fa-arrow-right"></i> Đọc chương</div>
           </div>
-          <div class="chapter-preview">
-            <img src="IMG/5.png" alt="Chương 3" />
-          </div>
-          <div class="chapter-arrow"><i class="fas fa-arrow-right"></i></div>
         </a>
 
-        <a href="c4.html" class="chapter-card reveal">
-          <div class="chapter-num">04</div>
-          <div class="chapter-info">
-            <h3>Ngày 3 — Hiểu</h3>
+        <a href="c4.html" class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-num">04</div>
+            <span class="timeline-day">Ngày 3</span>
+            <h3>Hình dung</h3>
             <p>Kích hoạt trí tưởng tượng và hình dung giải pháp cho những thách thức tưởng như không thể</p>
+            <div class="timeline-img"><img src="IMG/7.png" alt="Chương 4" /></div>
+            <div class="timeline-read"><i class="fas fa-arrow-right"></i> Đọc chương</div>
           </div>
-          <div class="chapter-preview">
-            <img src="IMG/7.png" alt="Chương 4" />
-          </div>
-          <div class="chapter-arrow"><i class="fas fa-arrow-right"></i></div>
         </a>
 
-        <a href="c5.html" class="chapter-card reveal">
-          <div class="chapter-num">05</div>
-          <div class="chapter-info">
-            <h3>Ngày 4 — Trình bày</h3>
+        <a href="c5.html" class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-num">05</div>
+            <span class="timeline-day">Ngày 4</span>
+            <h3>Trình bày</h3>
             <p>Kết hợp toàn bộ quy trình tư duy hình ảnh để trình bày ý tưởng một cách thuyết phục</p>
+            <div class="timeline-img"><img src="IMG/11.png" alt="Chương 5" /></div>
+            <div class="timeline-read"><i class="fas fa-arrow-right"></i> Đọc chương</div>
           </div>
-          <div class="chapter-preview">
-            <img src="IMG/11.png" alt="Chương 5" />
-          </div>
-          <div class="chapter-arrow"><i class="fas fa-arrow-right"></i></div>
         </a>
       </div>
     </div>
@@ -412,49 +412,111 @@
       });
     });
 
-    // ═══ Book Opening Transition ═══
-    function openBook(targetUrl) {
-      const overlay = document.getElementById('book-transition');
-      // Step 1: Close the book (covers come together)
-      overlay.classList.add('active');
-      overlay.classList.remove('opening');
-      
-      // Step 2: After covers close, open them to reveal content
-      setTimeout(() => {
-        overlay.classList.add('opening');
-      }, 800);
-      
-      // Step 3: Navigate to the target page
-      setTimeout(() => {
-        window.location.href = targetUrl;
-      }, 1500);
+    // ═══ Light Flare Page Transition ═══
+    function createSparkles(overlay, count = 20) {
+      for (let i = 0; i < count; i++) {
+        const s = document.createElement('div');
+        s.className = 'sparkle';
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 100 + Math.random() * 300;
+        const size = 2 + Math.random() * 4;
+        s.style.cssText = `
+          width: ${size}px; height: ${size}px;
+          top: 50%; left: 50%;
+          opacity: 0;
+          animation: sparkleOut ${0.6 + Math.random() * 0.4}s ease ${Math.random() * 0.3}s forwards;
+          --tx: ${Math.cos(angle) * distance}px;
+          --ty: ${Math.sin(angle) * distance}px;
+        `;
+        overlay.appendChild(s);
+      }
     }
 
-    // Attach book-opening to all read links
+    // Add sparkle keyframes dynamically
+    const sparkleStyle = document.createElement('style');
+    sparkleStyle.textContent = `
+      @keyframes sparkleOut {
+        0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        100% { opacity: 0; transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0); }
+      }
+    `;
+    document.head.appendChild(sparkleStyle);
+
+    function navigateWithFlare(targetUrl) {
+      const overlay = document.getElementById('page-transition');
+      // Step 1: Activate - show flare core + ring
+      overlay.classList.add('active');
+      createSparkles(overlay, 30);
+      
+      // Step 2: Show title
+      setTimeout(() => {
+        overlay.classList.add('step2');
+      }, 400);
+      
+      // Step 3: Fade out and navigate
+      setTimeout(() => {
+        overlay.classList.add('step3');
+      }, 1200);
+      
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 1700);
+    }
+
+    // Attach to all chapter/read links
     document.querySelectorAll('a[href^="c"]').forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
-        openBook(link.getAttribute('href'));
+        navigateWithFlare(link.getAttribute('href'));
       });
     });
 
-    // Also attach to CTA button
+    // CTA button
     const ctaBtn = document.getElementById('cta-read-btn');
     if (ctaBtn) {
       ctaBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        openBook(ctaBtn.getAttribute('href'));
+        navigateWithFlare(ctaBtn.getAttribute('href'));
       });
     }
 
-    // Also attach to nav CTA
+    // Nav CTA
     const navCta = document.querySelector('.nav-cta');
     if (navCta) {
       navCta.addEventListener('click', (e) => {
         e.preventDefault();
-        openBook(navCta.getAttribute('href'));
+        navigateWithFlare(navCta.getAttribute('href'));
       });
     }
+
+    // ═══ Landing Dark/Light Theme Toggle ═══
+    function toggleLandingTheme() {
+      const body = document.body;
+      const icon = document.getElementById('landing-theme-icon');
+      const text = document.getElementById('landing-theme-text');
+      const isLight = body.classList.toggle('light-landing');
+      
+      if (isLight) {
+        icon.className = 'fas fa-sun';
+        text.textContent = 'Light';
+      } else {
+        icon.className = 'fas fa-moon';
+        text.textContent = 'Dark';
+      }
+      localStorage.setItem('landing-theme', isLight ? 'light' : 'dark');
+    }
+
+    // Restore saved theme
+    (function() {
+      const saved = localStorage.getItem('landing-theme');
+      if (saved === 'light') {
+        document.body.classList.add('light-landing');
+        const icon = document.getElementById('landing-theme-icon');
+        const text = document.getElementById('landing-theme-text');
+        if (icon) icon.className = 'fas fa-sun';
+        if (text) text.textContent = 'Light';
+      }
+    })();
   </script>
 </body>
 </html>
