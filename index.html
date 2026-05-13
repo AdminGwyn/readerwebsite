@@ -19,6 +19,9 @@
     <div class="transition-bg"></div>
     <div class="flare-ring"></div>
     <div class="flare-core"></div>
+    <div class="transition-book">
+      <img src="IMG/bìa.png" alt="Bìa sách" />
+    </div>
     <div class="transition-title">Hình Vẽ Thông Minh</div>
   </div>
 
@@ -94,7 +97,7 @@
           </div>
         </div>
         <div class="hero-btns" data-aos="fade-up" data-aos-delay="400">
-          <a href="c1.html" class="btn btn-primary"><i class="fas fa-play"></i> Bắt đầu đọc</a>
+          <a href="c1.html" class="btn btn-primary" id="hero-read-btn"><i class="fas fa-play"></i> Bắt đầu đọc</a>
           <a href="#about" class="btn btn-secondary"><i class="fas fa-info-circle"></i> Tìm hiểu thêm</a>
         </div>
       </div>
@@ -471,7 +474,17 @@
       });
     });
 
-    // CTA button
+    // Hero "Bắt đầu đọc" button (explicit)
+    const heroReadBtn = document.getElementById('hero-read-btn');
+    if (heroReadBtn) {
+      heroReadBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        navigateWithFlare(heroReadBtn.getAttribute('href'));
+      });
+    }
+
+    // CTA button at bottom
     const ctaBtn = document.getElementById('cta-read-btn');
     if (ctaBtn) {
       ctaBtn.addEventListener('click', (e) => {

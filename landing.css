@@ -555,29 +555,54 @@ body {
   opacity: 1;
   transform: translate(-50%, -50%) scale(8);
 }
-.page-transition .transition-title {
+.page-transition .transition-book {
   position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -60%);
+  z-index: 4; opacity: 0;
+  filter: drop-shadow(0 0 40px rgba(232,168,56,0.6)) drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+}
+.page-transition .transition-book img {
+  width: 160px; border-radius: 4px 10px 10px 4px;
+  display: block;
+}
+.page-transition.step2 .transition-book {
+  animation: bookReveal 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes bookReveal {
+  0% { opacity: 0; transform: translate(-50%, -60%) scale(0.3) rotateY(40deg); filter: drop-shadow(0 0 0 transparent); }
+  50% { opacity: 1; transform: translate(-50%, -60%) scale(1.05) rotateY(-5deg); }
+  100% { opacity: 1; transform: translate(-50%, -60%) scale(1) rotateY(0deg);
+    filter: drop-shadow(0 0 60px rgba(232,168,56,0.5)) drop-shadow(0 20px 40px rgba(0,0,0,0.5)); }
+}
+.page-transition.step3 .transition-book {
+  animation: bookFlyOut 0.5s ease forwards;
+}
+@keyframes bookFlyOut {
+  to { opacity: 0; transform: translate(-50%, -60%) scale(1.5); filter: blur(8px); }
+}
+.page-transition .transition-title {
+  position: absolute; top: calc(50% + 120px); left: 50%;
+  transform: translate(-50%, 0);
   font-family: 'Playfair Display', serif;
-  font-size: 2.8rem; font-weight: 900;
+  font-size: 2.2rem; font-weight: 900;
   color: #fff; text-align: center;
   z-index: 3; opacity: 0;
   text-shadow: 0 0 40px rgba(232,168,56,0.8), 0 2px 4px rgba(0,0,0,0.5);
   letter-spacing: 0.02em;
 }
 .page-transition.step2 .transition-title {
-  animation: titleReveal 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation: titleReveal 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s forwards;
 }
 @keyframes titleReveal {
-  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); filter: blur(10px); }
+  0% { opacity: 0; transform: translate(-50%, 0) scale(0.5); filter: blur(10px); }
   60% { opacity: 1; filter: blur(0); }
-  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); filter: blur(0); }
+  100% { opacity: 1; transform: translate(-50%, 0) scale(1); filter: blur(0); }
 }
 .page-transition.step3 .transition-title {
   animation: titleFlyOut 0.5s ease forwards;
 }
 @keyframes titleFlyOut {
-  to { opacity: 0; transform: translate(-50%, -50%) scale(2); filter: blur(6px); }
+  to { opacity: 0; transform: translate(-50%, 0) scale(2); filter: blur(6px); }
 }
 .page-transition.step3 .transition-bg {
   background: #0d0d12; opacity: 1;
