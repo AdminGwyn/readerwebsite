@@ -341,12 +341,22 @@ document.addEventListener('DOMContentLoaded', () => {
     return new Promise(resolve => {
       let voices = synth.getVoices();
       if (voices.length > 0) { resolve(voices); return; }
+      
+      let resolved = false;
       synth.onvoiceschanged = () => {
-        voices = synth.getVoices();
-        resolve(voices);
+        if (!resolved) {
+          resolved = true;
+          resolve(synth.getVoices());
+        }
       };
+      
       // Timeout fallback
-      setTimeout(() => resolve(synth.getVoices()), 1000);
+      setTimeout(() => {
+        if (!resolved) {
+          resolved = true;
+          resolve(synth.getVoices());
+        }
+      }, 1500);
     });
   }
 
@@ -354,11 +364,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cachedVoice[lang]) return cachedVoice[lang];
     const voices = await loadVoices();
     
+    if (!voices || voices.length === 0) return null;
+
     let priorityNames = [];
     let langPrefix = '';
     
     if (lang === 'vi-VN') {
-      priorityNames = ['Google Tiếng Việt', 'Microsoft An', 'Microsoft NamMinh', 'Wavenet', 'Natural'];
+      priorityNames = ['Google Tiếng Việt', 'Microsoft An', 'Microsoft NamMinh', 'HoaiMy', 'Wavenet', 'Natural'];
       langPrefix = 'vi';
     } else if (lang === 'en-US') {
       priorityNames = ['Google US English', 'Microsoft Zira', 'Microsoft David', 'Microsoft Mark', 'Wavenet', 'Natural'];
@@ -367,29 +379,35 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Helper to check if a voice matches the requested language
     const isMatchingLang = (v) => {
-      if (v.lang && v.lang.toLowerCase().includes(langPrefix)) return true;
+      const vLang = (v.lang || '').toLowerCase();
+      const vName = (v.name || '').toLowerCase();
+      
+      if (vLang.includes(langPrefix)) return true;
+      
       // Fallback for Windows voices that might have empty lang but name indicates language
-      if (langPrefix === 'vi' && (v.name.includes('Vietnamese') || v.name.includes('An'))) return true;
-      if (langPrefix === 'en' && (v.name.includes('English') || v.name.includes('Zira') || v.name.includes('David'))) return true;
+      if (langPrefix === 'vi' && (vName.includes('vietnamese') || vName.includes(' vi ') || vName.includes(' an ') || vName.includes('hoaimy'))) return true;
+      if (langPrefix === 'en' && (vName.includes('english') || vName.includes(' en ') || vName.includes('zira') || vName.includes('david'))) return true;
       return false;
     };
     
     // First pass: try priority names
     for (const name of priorityNames) {
-      const found = voices.find(v => v.name.includes(name) && isMatchingLang(v));
+      const found = voices.find(v => (v.name || '').toLowerCase().includes(name.toLowerCase()) && isMatchingLang(v));
       if (found) { cachedVoice[lang] = found; return found; }
     }
     
     // Second pass: any voice matching the language prefix
     const matchedVoices = voices.filter(isMatchingLang);
     if (matchedVoices.length > 0) {
-      // Prefer online/remote voices (usually higher quality)
       const remote = matchedVoices.find(v => !v.localService);
       cachedVoice[lang] = remote || matchedVoices[0];
       return cachedVoice[lang];
     }
     
-    return null;
+    // ULTIMATE FALLBACK: just return the first available voice instead of failing
+    // It might sound terrible (reading Vietnamese with an English voice), but it's better than an error.
+    cachedVoice[lang] = voices[0];
+    return voices[0];
   }
 
   async function startTTS() {
