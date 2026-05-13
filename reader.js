@@ -334,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ttsStatus = document.getElementById('tts-status');
   let synth = window.speechSynthesis;
   let isSpeaking = false;
-  let cachedViVoice = null;
+  let cachedVoice = { 'vi-VN': null, 'en-US': null };
 
   // Wait for voices to load (Chrome loads them async)
   function loadVoices() {
@@ -350,32 +350,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  async function getBestViVoice() {
-    if (cachedViVoice) return cachedViVoice;
+  async function getBestVoice(lang) {
+    if (cachedVoice[lang]) return cachedVoice[lang];
     const voices = await loadVoices();
     
-    // Priority list: best Vietnamese voices first
-    const priorityNames = [
-      'Google Tiếng Việt',        // Google Chrome built-in (best quality)
-      'Microsoft An Online',       // Edge/Windows Online voice
-      'Microsoft NamMinh Online',  // Edge/Windows Online voice
-      'Wavenet',                   // If available
-      'Natural',                   // Natural-sounding voices
-    ];
+    let priorityNames = [];
+    let langPrefix = '';
+    
+    if (lang === 'vi-VN') {
+      priorityNames = ['Google Tiếng Việt', 'Microsoft An Online', 'Microsoft NamMinh Online', 'Wavenet', 'Natural'];
+      langPrefix = 'vi';
+    } else if (lang === 'en-US') {
+      priorityNames = ['Google US English', 'Microsoft Zira', 'Microsoft David', 'Microsoft Mark Online', 'Wavenet', 'Natural'];
+      langPrefix = 'en';
+    }
     
     // First pass: try priority names
     for (const name of priorityNames) {
-      const found = voices.find(v => v.name.includes(name) && v.lang.startsWith('vi'));
-      if (found) { cachedViVoice = found; return found; }
+      const found = voices.find(v => v.name.includes(name) && v.lang.startsWith(langPrefix));
+      if (found) { cachedVoice[lang] = found; return found; }
     }
     
-    // Second pass: any Vietnamese voice that's NOT default/generic
-    const viVoices = voices.filter(v => v.lang.startsWith('vi'));
-    if (viVoices.length > 0) {
+    // Second pass: any voice matching the language prefix that's NOT default/generic
+    const matchedVoices = voices.filter(v => v.lang.startsWith(langPrefix));
+    if (matchedVoices.length > 0) {
       // Prefer online/remote voices (usually higher quality)
-      const remote = viVoices.find(v => !v.localService);
-      cachedViVoice = remote || viVoices[0];
-      return cachedViVoice;
+      const remote = matchedVoices.find(v => !v.localService);
+      cachedVoice[lang] = remote || matchedVoices[0];
+      return cachedVoice[lang];
     }
     
     return null;
@@ -384,9 +386,13 @@ document.addEventListener('DOMContentLoaded', () => {
   async function startTTS() {
     synth.cancel();
     
-    const voice = await getBestViVoice();
+    const langSelect = document.getElementById('tts-lang-select');
+    const selectedLang = langSelect ? langSelect.value : 'vi-VN';
+    const langName = selectedLang === 'vi-VN' ? 'tiếng Việt' : 'tiếng Anh';
+    
+    const voice = await getBestVoice(selectedLang);
     if (!voice) {
-      alert('⚠️ Trình duyệt của bạn không hỗ trợ giọng đọc tiếng Việt.\n\nĐể có trải nghiệm tốt nhất:\n• Dùng Google Chrome (khuyến nghị)\n• Hoặc Microsoft Edge\n• Kiểm tra cài đặt ngôn ngữ tiếng Việt trong hệ thống');
+      alert(`⚠️ Trình duyệt của bạn không hỗ trợ giọng đọc ${langName}.\n\nĐể có trải nghiệm tốt nhất:\n• Dùng Google Chrome (khuyến nghị)\n• Hoặc Microsoft Edge\n• Kiểm tra cài đặt ngôn ngữ trong hệ thống`);
       return;
     }
     
@@ -398,7 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (ttsStatus) ttsStatus.classList.add('active');
 
     const text = paper.innerText;
-    // Better chunking: split by sentences (Vietnamese punctuation aware)
+    // Better chunking: split by sentences (punctuation aware)
     const chunks = text.match(/[^.!?;:\n]+[.!?;:\n]*/g) || [text];
     // Filter out empty/whitespace-only chunks
     const validChunks = chunks.filter(c => c.trim().length > 2);
@@ -411,8 +417,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       const utt = new SpeechSynthesisUtterance(validChunks[currentChunk].trim());
       utt.voice = voice;
-      utt.lang = 'vi-VN';
-      utt.rate = 1.0;   // Normal speed for Vietnamese
+      utt.lang = selectedLang;
+      utt.rate = 1.0;   // Normal speed
       utt.pitch = 1.0;
       utt.volume = 1.0;
       utt.onend = () => { 
