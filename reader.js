@@ -358,21 +358,30 @@ document.addEventListener('DOMContentLoaded', () => {
     let langPrefix = '';
     
     if (lang === 'vi-VN') {
-      priorityNames = ['Google Tiếng Việt', 'Microsoft An Online', 'Microsoft NamMinh Online', 'Wavenet', 'Natural'];
+      priorityNames = ['Google Tiếng Việt', 'Microsoft An', 'Microsoft NamMinh', 'Wavenet', 'Natural'];
       langPrefix = 'vi';
     } else if (lang === 'en-US') {
-      priorityNames = ['Google US English', 'Microsoft Zira', 'Microsoft David', 'Microsoft Mark Online', 'Wavenet', 'Natural'];
+      priorityNames = ['Google US English', 'Microsoft Zira', 'Microsoft David', 'Microsoft Mark', 'Wavenet', 'Natural'];
       langPrefix = 'en';
     }
     
+    // Helper to check if a voice matches the requested language
+    const isMatchingLang = (v) => {
+      if (v.lang && v.lang.toLowerCase().includes(langPrefix)) return true;
+      // Fallback for Windows voices that might have empty lang but name indicates language
+      if (langPrefix === 'vi' && (v.name.includes('Vietnamese') || v.name.includes('An'))) return true;
+      if (langPrefix === 'en' && (v.name.includes('English') || v.name.includes('Zira') || v.name.includes('David'))) return true;
+      return false;
+    };
+    
     // First pass: try priority names
     for (const name of priorityNames) {
-      const found = voices.find(v => v.name.includes(name) && v.lang.startsWith(langPrefix));
+      const found = voices.find(v => v.name.includes(name) && isMatchingLang(v));
       if (found) { cachedVoice[lang] = found; return found; }
     }
     
-    // Second pass: any voice matching the language prefix that's NOT default/generic
-    const matchedVoices = voices.filter(v => v.lang.startsWith(langPrefix));
+    // Second pass: any voice matching the language prefix
+    const matchedVoices = voices.filter(isMatchingLang);
     if (matchedVoices.length > 0) {
       // Prefer online/remote voices (usually higher quality)
       const remote = matchedVoices.find(v => !v.localService);
