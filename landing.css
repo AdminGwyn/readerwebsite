@@ -449,6 +449,73 @@ body {
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes fadeInRight { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
 
+/* ── BOOK OPENING TRANSITION ── */
+.book-transition-overlay {
+  position: fixed; inset: 0; z-index: 99999;
+  pointer-events: none; opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.book-transition-overlay.active {
+  pointer-events: all; opacity: 1;
+}
+.book-transition-overlay .book-cover-left,
+.book-transition-overlay .book-cover-right {
+  position: absolute; top: 0; width: 50%; height: 100%;
+  background: linear-gradient(135deg, #1a1510, #2a1f10);
+  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.book-transition-overlay .book-cover-left {
+  left: 0;
+  transform-origin: left center;
+  border-right: 2px solid rgba(232,168,56,0.4);
+}
+.book-transition-overlay .book-cover-right {
+  right: 0;
+  transform-origin: right center;
+  border-left: 2px solid rgba(232,168,56,0.4);
+}
+.book-transition-overlay .book-spine {
+  position: absolute; top: 0; left: 50%; width: 4px; height: 100%;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, var(--primary), #8b5a00, var(--primary));
+  z-index: 2;
+  box-shadow: 0 0 20px rgba(232,168,56,0.5);
+}
+.book-transition-overlay .book-title-label {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem; font-weight: 900;
+  color: var(--primary);
+  text-align: center; z-index: 3;
+  opacity: 0;
+  animation: bookTitleFadeIn 0.5s ease 0.1s forwards;
+  text-shadow: 0 0 30px rgba(232,168,56,0.4);
+}
+@keyframes bookTitleFadeIn {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+/* Opening state */
+.book-transition-overlay.opening .book-cover-left {
+  transform: perspective(1200px) rotateY(-85deg);
+}
+.book-transition-overlay.opening .book-cover-right {
+  transform: perspective(1200px) rotateY(85deg);
+}
+.book-transition-overlay.opening .book-title-label {
+  animation: bookTitleFadeOut 0.4s ease 0.1s forwards;
+}
+@keyframes bookTitleFadeOut {
+  from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  to { opacity: 0; transform: translate(-50%, -50%) scale(1.3); }
+}
+.book-transition-overlay .page-bg {
+  position: absolute; inset: 0;
+  background: var(--bg-dark, #0d0d12);
+  z-index: -1;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .hero-container { grid-template-columns: 1fr; text-align: center; }

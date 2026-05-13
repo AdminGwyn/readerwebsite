@@ -14,6 +14,15 @@
 </head>
 <body>
 
+  <!-- Book Opening Transition Overlay -->
+  <div class="book-transition-overlay" id="book-transition">
+    <div class="page-bg"></div>
+    <div class="book-cover-left"></div>
+    <div class="book-cover-right"></div>
+    <div class="book-spine"></div>
+    <div class="book-title-label">Hình Vẽ<br>Thông Minh</div>
+  </div>
+
   <!-- Particle Background -->
   <div class="particles" id="particles"></div>
 
@@ -402,6 +411,50 @@
         hamburger.classList.remove('active');
       });
     });
+
+    // ═══ Book Opening Transition ═══
+    function openBook(targetUrl) {
+      const overlay = document.getElementById('book-transition');
+      // Step 1: Close the book (covers come together)
+      overlay.classList.add('active');
+      overlay.classList.remove('opening');
+      
+      // Step 2: After covers close, open them to reveal content
+      setTimeout(() => {
+        overlay.classList.add('opening');
+      }, 800);
+      
+      // Step 3: Navigate to the target page
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 1500);
+    }
+
+    // Attach book-opening to all read links
+    document.querySelectorAll('a[href^="c"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        openBook(link.getAttribute('href'));
+      });
+    });
+
+    // Also attach to CTA button
+    const ctaBtn = document.getElementById('cta-read-btn');
+    if (ctaBtn) {
+      ctaBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openBook(ctaBtn.getAttribute('href'));
+      });
+    }
+
+    // Also attach to nav CTA
+    const navCta = document.querySelector('.nav-cta');
+    if (navCta) {
+      navCta.addEventListener('click', (e) => {
+        e.preventDefault();
+        openBook(navCta.getAttribute('href'));
+      });
+    }
   </script>
 </body>
 </html>

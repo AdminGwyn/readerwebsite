@@ -328,25 +328,68 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ══════════════════════════════════════════════
-  // 7. AI TEXT-TO-SPEECH (Vietnamese)
+  // 7. AI TEXT-TO-SPEECH (Vietnamese - Improved)
   // ══════════════════════════════════════════════
   const audioBtn = document.getElementById('btn-audio');
   const ttsStatus = document.getElementById('tts-status');
   let synth = window.speechSynthesis;
   let isSpeaking = false;
+  let cachedViVoice = null;
 
-  function getBestViVoice() {
-    const voices = synth.getVoices();
-    const prioritized = ['Google Tiếng Việt', 'Natural', 'vi-VN'];
-    for (const name of prioritized) {
-      const found = voices.find(v => v.name.includes(name));
-      if (found) return found;
-    }
-    return voices.find(v => v.lang.startsWith('vi')) || null;
+  // Wait for voices to load (Chrome loads them async)
+  function loadVoices() {
+    return new Promise(resolve => {
+      let voices = synth.getVoices();
+      if (voices.length > 0) { resolve(voices); return; }
+      synth.onvoiceschanged = () => {
+        voices = synth.getVoices();
+        resolve(voices);
+      };
+      // Timeout fallback
+      setTimeout(() => resolve(synth.getVoices()), 1000);
+    });
   }
 
-  function startTTS() {
+  async function getBestViVoice() {
+    if (cachedViVoice) return cachedViVoice;
+    const voices = await loadVoices();
+    
+    // Priority list: best Vietnamese voices first
+    const priorityNames = [
+      'Google Tiếng Việt',        // Google Chrome built-in (best quality)
+      'Microsoft An Online',       // Edge/Windows Online voice
+      'Microsoft NamMinh Online',  // Edge/Windows Online voice
+      'Wavenet',                   // If available
+      'Natural',                   // Natural-sounding voices
+    ];
+    
+    // First pass: try priority names
+    for (const name of priorityNames) {
+      const found = voices.find(v => v.name.includes(name) && v.lang.startsWith('vi'));
+      if (found) { cachedViVoice = found; return found; }
+    }
+    
+    // Second pass: any Vietnamese voice that's NOT default/generic
+    const viVoices = voices.filter(v => v.lang.startsWith('vi'));
+    if (viVoices.length > 0) {
+      // Prefer online/remote voices (usually higher quality)
+      const remote = viVoices.find(v => !v.localService);
+      cachedViVoice = remote || viVoices[0];
+      return cachedViVoice;
+    }
+    
+    return null;
+  }
+
+  async function startTTS() {
     synth.cancel();
+    
+    const voice = await getBestViVoice();
+    if (!voice) {
+      alert('⚠️ Trình duyệt của bạn không hỗ trợ giọng đọc tiếng Việt.\n\nĐể có trải nghiệm tốt nhất:\n• Dùng Google Chrome (khuyến nghị)\n• Hoặc Microsoft Edge\n• Kiểm tra cài đặt ngôn ngữ tiếng Việt trong hệ thống');
+      return;
+    }
+    
     isSpeaking = true;
     if (audioBtn) {
       audioBtn.classList.add('active');
@@ -355,24 +398,42 @@ document.addEventListener('DOMContentLoaded', () => {
     if (ttsStatus) ttsStatus.classList.add('active');
 
     const text = paper.innerText;
-    const chunks = text.match(/[^.!?:]+[.!?:]+/g) || [text];
+    // Better chunking: split by sentences (Vietnamese punctuation aware)
+    const chunks = text.match(/[^.!?;:\n]+[.!?;:\n]*/g) || [text];
+    // Filter out empty/whitespace-only chunks
+    const validChunks = chunks.filter(c => c.trim().length > 2);
     let currentChunk = 0;
 
     function speakNext() {
-      if (!isSpeaking || currentChunk >= chunks.length) {
+      if (!isSpeaking || currentChunk >= validChunks.length) {
         stopTTS();
         return;
       }
-      const utt = new SpeechSynthesisUtterance(chunks[currentChunk]);
-      const voice = getBestViVoice();
-      if (voice) utt.voice = voice;
+      const utt = new SpeechSynthesisUtterance(validChunks[currentChunk].trim());
+      utt.voice = voice;
       utt.lang = 'vi-VN';
-      utt.rate = 0.9;
-      utt.onend = () => { if (isSpeaking) { currentChunk++; setTimeout(speakNext, 200); } };
-      utt.onerror = () => stopTTS();
+      utt.rate = 1.0;   // Normal speed for Vietnamese
+      utt.pitch = 1.0;
+      utt.volume = 1.0;
+      utt.onend = () => { 
+        if (isSpeaking) { 
+          currentChunk++; 
+          // Chrome bug: speechSynthesis can pause, need to keep it alive
+          setTimeout(speakNext, 100); 
+        } 
+      };
+      utt.onerror = (e) => {
+        if (e.error !== 'interrupted') stopTTS();
+      };
       synth.speak(utt);
     }
     speakNext();
+    
+    // Chrome workaround: prevent speech from pausing after ~15 seconds
+    const keepAlive = setInterval(() => {
+      if (!isSpeaking) { clearInterval(keepAlive); return; }
+      if (synth.speaking) { synth.pause(); synth.resume(); }
+    }, 10000);
   }
 
   function stopTTS() {
@@ -391,6 +452,9 @@ document.addEventListener('DOMContentLoaded', () => {
       else startTTS();
     });
   }
+  
+  // Preload voices
+  loadVoices();
 
   // ══════════════════════════════════════════════
   // 8. AUTO SCROLL (faster speeds)
